@@ -1,0 +1,1587 @@
+/* =========================================================
+   JEWMAICA
+   Main Stylesheet
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color: #27231f;
+
+    background: #ffffff;
+
+    line-height: 1.7;
+}
+
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --navy: #142c3c;
+
+    --deep-navy: #0d202c;
+
+    --gold: #b08a45;
+
+    --light-gold: #d2b477;
+
+    --cream: #f7f3ea;
+
+    --warm-white: #fbfaf7;
+
+    --charcoal: #292725;
+
+    --gray: #706b64;
+
+    --light-gray: #e8e4dc;
+
+    --white: #ffffff;
+
+    --max-width: 1200px;
+
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+.content-container {
+
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin: 0 auto;
+
+}
+
+
+.content-container.narrow {
+
+    max-width: 850px;
+
+}
+
+
+.section-light {
+
+    background: var(--cream);
+
+}
+
+
+.section-dark {
+
+    background: var(--navy);
+
+    color: var(--white);
+
+}
+
+
+.content-section {
+
+    padding: 90px 0;
+
+}
+
+
+.intro-section {
+
+    padding: 80px 0;
+
+    text-align: center;
+
+    background: var(--warm-white);
+
+}
+
+
+.lead {
+
+    font-size: 1.25rem;
+
+    line-height: 1.8;
+
+    max-width: 850px;
+
+    margin: 25px auto;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    background:
+        rgba(255, 255, 255, 0.97);
+
+    border-bottom:
+        1px solid var(--light-gray);
+
+}
+
+
+.header-inner {
+
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin: auto;
+
+    min-height: 92px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+}
+
+
+.brand {
+
+    display: block;
+
+    flex-shrink: 0;
+
+}
+
+
+.brand-name {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 1.75rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.18em;
+
+    color: var(--navy);
+
+}
+
+
+.brand-tagline {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.09em;
+
+    text-transform: uppercase;
+
+    color: var(--gray);
+
+}
+
+
+.main-navigation {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 0.82rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.04em;
+
+}
+
+
+.main-navigation a {
+
+    transition: color 0.2s ease;
+
+}
+
+
+.main-navigation a:hover {
+
+    color: var(--gold);
+
+}
+
+
+.menu-toggle {
+
+    display: none;
+
+    border: none;
+
+    background: none;
+
+    font-size: 1.7rem;
+
+    cursor: pointer;
+
+    color: var(--navy);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    min-height: 650px;
+
+    display: flex;
+
+    align-items: center;
+
+    position: relative;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(13, 32, 44, 0.96),
+            rgba(13, 32, 44, 0.76),
+            rgba(13, 32, 44, 0.45)
+        );
+
+}
+
+
+.hero-overlay {
+
+    width: 100%;
+
+}
+
+
+.hero-content {
+
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin: auto;
+
+    color: white;
+
+    padding: 80px 0;
+
+}
+
+
+.eyebrow,
+.section-kicker {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 0.72rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+
+    color: var(--gold);
+
+    margin-bottom: 12px;
+
+}
+
+
+.hero h1 {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:
+        clamp(3.5rem, 9vw, 7.5rem);
+
+    line-height: 0.95;
+
+    letter-spacing: 0.12em;
+
+    margin-bottom: 18px;
+
+}
+
+
+.hero-subtitle {
+
+    font-size: 1.4rem;
+
+    letter-spacing: 0.05em;
+
+    margin-bottom: 20px;
+
+}
+
+
+.hero-text {
+
+    max-width: 650px;
+
+    font-size: 1.15rem;
+
+    line-height: 1.8;
+
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 30px;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.button {
+
+    display: inline-block;
+
+    padding:
+        12px 23px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 0.78rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+
+    border: 1px solid var(--gold);
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.button-primary {
+
+    background: var(--gold);
+
+    color: white;
+
+}
+
+
+.button-primary:hover {
+
+    background: var(--light-gold);
+
+    color: var(--deep-navy);
+
+}
+
+
+.button-secondary {
+
+    background: transparent;
+
+    color: white;
+
+}
+
+
+.button-secondary:hover {
+
+    background: white;
+
+    color: var(--navy);
+
+}
+
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+
+.section-heading {
+
+    margin-bottom: 45px;
+
+}
+
+
+.section-heading h2 {
+
+    font-size:
+        clamp(2.2rem, 5vw, 3.5rem);
+
+    line-height: 1.15;
+
+    color: var(--navy);
+
+    margin-bottom: 15px;
+
+}
+
+
+.section-dark .section-heading h2 {
+
+    color: white;
+
+}
+
+
+.section-heading > p:last-child {
+
+    max-width: 750px;
+
+    font-size: 1.08rem;
+
+}
+
+
+h3 {
+
+    line-height: 1.25;
+
+}
+
+
+/* =========================================================
+   FEATURE CARDS
+========================================================= */
+
+.feature-section {
+
+    padding: 90px 0;
+
+    background: white;
+
+}
+
+
+.card-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 22px;
+
+}
+
+
+.feature-card {
+
+    padding: 35px 25px;
+
+    background: var(--cream);
+
+    border-top:
+        3px solid var(--gold);
+
+}
+
+
+.card-icon {
+
+    font-size: 2rem;
+
+    margin-bottom: 20px;
+
+}
+
+
+.feature-card h3 {
+
+    color: var(--navy);
+
+    font-size: 1.5rem;
+
+    margin-bottom: 12px;
+
+}
+
+
+.feature-card p {
+
+    color: var(--gray);
+
+    margin-bottom: 20px;
+
+}
+
+
+.text-link {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 0.75rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.05em;
+
+    text-transform: uppercase;
+
+    color: var(--navy);
+
+}
+
+
+/* =========================================================
+   ARCHIVES
+========================================================= */
+
+.archive-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 22px;
+
+}
+
+
+.archive-card {
+
+    background: white;
+
+    padding: 30px;
+
+    border:
+        1px solid var(--light-gray);
+
+}
+
+
+.archive-label {
+
+    display: inline-block;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 0.65rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.12em;
+
+    color: var(--gold);
+
+    margin-bottom: 10px;
+
+}
+
+
+.archive-card h3 {
+
+    font-size: 1.45rem;
+
+    color: var(--navy);
+
+    margin-bottom: 12px;
+
+}
+
+
+.archive-card p {
+
+    color: var(--gray);
+
+    margin-bottom: 20px;
+
+}
+
+
+.archive-card a {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 0.75rem;
+
+    text-transform: uppercase;
+
+    color: var(--navy);
+
+}
+
+
+/* =========================================================
+   MEDIA
+========================================================= */
+
+.media-block {
+
+    margin-bottom: 65px;
+
+}
+
+
+.media-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.media-heading h3 {
+
+    font-size: 2rem;
+
+    color: var(--navy);
+
+}
+
+
+.video-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+
+    margin-top: 30px;
+
+}
+
+
+.video-placeholder {
+
+    min-height: 240px;
+
+    padding: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background: var(--navy);
+
+    color: white;
+
+}
+
+
+.video-placeholder-icon {
+
+    width: 60px;
+
+    height: 60px;
+
+    border:
+        1px solid var(--gold);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--gold);
+
+    margin-bottom: 20px;
+
+}
+
+
+.video-placeholder h4 {
+
+    font-size: 1.2rem;
+
+    margin-bottom: 10px;
+
+}
+
+
+.video-placeholder p {
+
+    color: #d9d9d9;
+
+}
+
+
+.notice-box {
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    background: var(--cream);
+
+    border-left:
+        4px solid var(--gold);
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+/* =========================================================
+   JEWISH JAMAICA
+========================================================= */
+
+.history-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.history-card {
+
+    padding: 35px;
+
+    border:
+        1px solid rgba(255,255,255,0.2);
+
+    background:
+        rgba(255,255,255,0.04);
+
+}
+
+
+.history-card h3 {
+
+    font-size: 1.65rem;
+
+    margin-bottom: 15px;
+
+}
+
+
+.history-card p {
+
+    color: #dedede;
+
+    margin-bottom: 20px;
+
+}
+
+
+.history-card a {
+
+    color: var(--light-gold);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    text-transform: uppercase;
+
+    font-size: 0.72rem;
+
+}
+
+
+/* =========================================================
+   CALENDAR
+========================================================= */
+
+.calendar-box {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    border:
+        1px solid var(--light-gray);
+
+    background: white;
+
+}
+
+
+.calendar-date {
+
+    padding: 35px;
+
+    border-right:
+        1px solid var(--light-gray);
+
+}
+
+
+.calendar-date:last-child {
+
+    border-right: none;
+
+}
+
+
+.calendar-label {
+
+    display: block;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.12em;
+
+    color: var(--gold);
+
+    margin-bottom: 10px;
+
+}
+
+
+.calendar-date div:last-child {
+
+    font-size: 1.35rem;
+
+    color: var(--navy);
+
+}
+
+
+.calendar-note {
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    background: var(--cream);
+
+}
+
+
+/* =========================================================
+   COMMUNITY
+========================================================= */
+
+.event-feature {
+
+    display: grid;
+
+    grid-template-columns: 200px 1fr;
+
+    background: white;
+
+    border:
+        1px solid var(--light-gray);
+
+    margin-bottom: 30px;
+
+}
+
+
+.event-date {
+
+    background: var(--navy);
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+}
+
+
+.event-date span {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.12em;
+
+    color: var(--light-gold);
+
+}
+
+
+.event-date strong {
+
+    font-size: 1.7rem;
+
+}
+
+
+.event-content {
+
+    padding: 35px;
+
+}
+
+
+.event-content h3 {
+
+    color: var(--navy);
+
+    font-size: 2rem;
+
+    margin-bottom: 12px;
+
+}
+
+
+.event-content p {
+
+    margin-bottom: 20px;
+
+}
+
+
+.event-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.event-card {
+
+    padding: 30px;
+
+    border:
+        1px solid var(--light-gray);
+
+    background: white;
+
+}
+
+
+.event-card h3 {
+
+    color: var(--navy);
+
+    margin-bottom: 10px;
+
+}
+
+
+/* =========================================================
+   RESOURCES
+========================================================= */
+
+.resource-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 22px;
+
+}
+
+
+.resource-card {
+
+    padding: 30px;
+
+    border:
+        1px solid var(--light-gray);
+
+    background: white;
+
+}
+
+
+.resource-icon {
+
+    display: inline-flex;
+
+    padding: 8px 12px;
+
+    background: var(--navy);
+
+    color: white;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.1em;
+
+    margin-bottom: 20px;
+
+}
+
+
+.resource-card h3 {
+
+    color: var(--navy);
+
+    font-size: 1.35rem;
+
+    margin-bottom: 10px;
+
+}
+
+
+.resource-card p {
+
+    color: var(--gray);
+
+    margin-bottom: 18px;
+
+}
+
+
+.coming-soon {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 0.7rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.06em;
+
+    color: var(--gold);
+
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta-section {
+
+    padding: 80px 0;
+
+    background: var(--navy);
+
+    color: white;
+
+    text-align: center;
+
+}
+
+
+.cta-section h2 {
+
+    font-size:
+        clamp(2rem, 5vw, 3.2rem);
+
+    margin-bottom: 15px;
+
+}
+
+
+.cta-section p {
+
+    max-width: 650px;
+
+    margin: auto;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+
+    background: var(--deep-navy);
+
+    color: white;
+
+    padding: 60px 0 0;
+
+}
+
+
+.footer-inner {
+
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr repeat(3, 1fr);
+
+    gap: 50px;
+
+    padding-bottom: 50px;
+
+}
+
+
+.footer-brand p {
+
+    color: #c4c4c4;
+
+    margin-top: 10px;
+
+}
+
+
+.footer-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+.footer-column h4 {
+
+    color: var(--light-gold);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 0.75rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.1em;
+
+    margin-bottom: 10px;
+
+}
+
+
+.footer-column a {
+
+    color: #d3d3d3;
+
+}
+
+
+.footer-column a:hover {
+
+    color: white;
+
+}
+
+
+.footer-bottom {
+
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin: auto;
+
+    padding: 20px 0;
+
+    border-top:
+        1px solid rgba(255,255,255,0.1);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: #a7a7a7;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 0.75rem;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .card-grid,
+    .archive-grid,
+    .resource-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .video-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .footer-inner {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .main-navigation {
+
+        gap: 13px;
+
+        font-size: 0.72rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE MOBILE
+========================================================= */
+
+@media (max-width: 750px) {
+
+    .header-inner {
+
+        min-height: 75px;
+
+    }
+
+
+    .menu-toggle {
+
+        display: block;
+
+    }
+
+
+    .main-navigation {
+
+        position: absolute;
+
+        top: 75px;
+
+        left: 0;
+
+        right: 0;
+
+        background: white;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        border-bottom:
+            1px solid var(--light-gray);
+
+    }
+
+
+    .main-navigation.active {
+
+        display: flex;
+
+    }
+
+
+    .main-navigation a {
+
+        padding: 15px 20px;
+
+        border-bottom:
+            1px solid var(--light-gray);
+
+    }
+
+
+    .brand-name {
+
+        font-size: 1.35rem;
+
+    }
+
+
+    .brand-tagline {
+
+        font-size: 0.52rem;
+
+    }
+
+
+    .hero {
+
+        min-height: 560px;
+
+    }
+
+
+    .content-section,
+    .feature-section,
+    .intro-section {
+
+        padding: 65px 0;
+
+    }
+
+
+    .card-grid,
+    .archive-grid,
+    .video-grid,
+    .history-grid,
+    .event-grid,
+    .resource-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .calendar-box {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .calendar-date {
+
+        border-right: none;
+
+        border-bottom:
+            1px solid var(--light-gray);
+
+    }
+
+
+    .calendar-date:last-child {
+
+        border-bottom: none;
+
+    }
+
+
+    .event-feature {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .event-date {
+
+        padding: 25px;
+
+    }
+
+
+    .media-heading {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .footer-inner {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .footer-bottom {
+
+        flex-direction: column;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 450px) {
+
+    .content-container,
+    .header-inner,
+    .hero-content,
+    .footer-inner,
+    .footer-bottom {
+
+        width: min(
+            calc(100% - 28px),
+            var(--max-width)
+        );
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 3.3rem;
+
+    }
+
+
+    .hero-subtitle {
+
+        font-size: 1.05rem;
+
+    }
+
+}
