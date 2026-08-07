@@ -1,49 +1,53 @@
-/* =========================================================
-   JEWMAICA
-   Main JavaScript
-========================================================= */
+/*==========================================================
+    JEWMAICA
+    The Living Archive of Jewish Jamaica
 
+    Version : 0.1.0
+    File    : script.js
 
-/* =========================================================
-   MOBILE NAVIGATION
-========================================================= */
+==========================================================*/
 
-const menuToggle =
-    document.getElementById("menuToggle");
+"use strict";
 
-const mainNavigation =
-    document.getElementById("mainNavigation");
+/*==========================================================
+    PAGE LOADED
+==========================================================*/
 
+document.addEventListener("DOMContentLoaded", () => {
 
-if (menuToggle && mainNavigation) {
+    console.log("Jewmaica Version 0.1 Loaded");
 
-    menuToggle.addEventListener("click", function () {
+    initialiseNavigation();
 
-        const isOpen =
-            mainNavigation.classList.toggle("active");
+    initialiseHeroSlider();
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            isOpen
-        );
+    initialiseCards();
 
-    });
+    initialiseSearch();
 
+    initialiseScrollEffects();
 
-    const navigationLinks =
-        mainNavigation.querySelectorAll("a");
+});
 
+/*==========================================================
+    NAVIGATION
+==========================================================*/
 
-    navigationLinks.forEach(function (link) {
+function initialiseNavigation() {
+
+    const links = document.querySelectorAll("nav a");
+
+    links.forEach(link => {
 
         link.addEventListener("click", function () {
 
-            mainNavigation.classList.remove("active");
+            links.forEach(item => {
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+                item.classList.remove("active");
+
+            });
+
+            this.classList.add("active");
 
         });
 
@@ -51,204 +55,234 @@ if (menuToggle && mainNavigation) {
 
 }
 
+/*==========================================================
+    HERO IMAGE SLIDER
+==========================================================*/
 
-/* =========================================================
-   CURRENT YEAR
-========================================================= */
+const heroImages = [
 
-const currentYear =
-    document.getElementById("currentYear");
+    "assets/images/hero.jpg",
+    "assets/images/hero2.jpg",
+    "assets/images/hero3.jpg",
+    "assets/images/hero4.jpg"
 
+];
 
-if (currentYear) {
+let currentSlide = 0;
 
-    currentYear.textContent =
-        new Date().getFullYear();
+function initialiseHeroSlider() {
 
-}
+    const heroImage = document.querySelector(".hero-image img");
 
+    const dots = document.querySelectorAll(".slider-dots span");
 
-/* =========================================================
-   GREGORIAN DATE
-========================================================= */
+    if (!heroImage || dots.length === 0) return;
 
-const gregorianDate =
-    document.getElementById("gregorianDate");
+    setInterval(() => {
 
+        currentSlide++;
 
-if (gregorianDate) {
+        if (currentSlide >= heroImages.length) {
 
-    const today =
-        new Date();
-
-
-    const formattedDate =
-        today.toLocaleDateString(
-            "en-JM",
-            {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric"
-            }
-        );
-
-
-    gregorianDate.textContent =
-        formattedDate;
-
-}
-
-
-/* =========================================================
-   JEWISH CALENDAR
-   Hebcal API
-========================================================= */
-
-async function loadJewishCalendar() {
-
-    const hebrewDate =
-        document.getElementById("hebrewDate");
-
-    const parasha =
-        document.getElementById("parasha");
-
-
-    if (!hebrewDate || !parasha) {
-
-        return;
-
-    }
-
-
-    const today =
-        new Date();
-
-
-    const year =
-        today.getFullYear();
-
-
-    const month =
-        today.getMonth() + 1;
-
-
-    const day =
-        today.getDate();
-
-
-    const apiURL =
-        `https://www.hebcal.com/converter?cfg=json&gy=${year}&gm=${month}&gd=${day}&g2h=1`;
-
-
-    try {
-
-        const response =
-            await fetch(apiURL);
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                "Calendar request failed"
-            );
+            currentSlide = 0;
 
         }
 
+        heroImage.src = heroImages[currentSlide];
 
-        const data =
-            await response.json();
+        dots.forEach(dot => {
 
+            dot.classList.remove("active");
 
-        if (data.hebrew) {
+        });
 
-            hebrewDate.textContent =
-                data.hebrew;
+        dots[currentSlide].classList.add("active");
 
-        }
-
-
-        /*
-         * The current Hebcal converter response
-         * does not always provide Parashat HaShavua.
-         *
-         * We therefore leave the field ready for
-         * the full calendar system that will be
-         * installed in a later stage.
-         */
-
-        parasha.textContent =
-            "Parashat HaShavua — coming soon";
-
-
-    }
-
-    catch (error) {
-
-        console.log(
-            "Jewish calendar could not be loaded:",
-            error
-        );
-
-
-        hebrewDate.textContent =
-            "Calendar loading soon";
-
-
-        parasha.textContent =
-            "Parashat HaShavua — coming soon";
-
-    }
+    }, 6000);
 
 }
 
+/*==========================================================
+    FEATURE CARD ANIMATION
+==========================================================*/
 
-loadJewishCalendar();
+function initialiseCards() {
 
+    const cards = document.querySelectorAll(".card");
 
-/* =========================================================
-   SMOOTH SCROLL
-========================================================= */
+    cards.forEach(card => {
 
-document.querySelectorAll(
-    'a[href^="#"]'
-).forEach(function (anchor) {
+        card.addEventListener("mouseenter", () => {
 
-    anchor.addEventListener(
-        "click",
-        function (event) {
+            card.style.transform = "translateY(-8px)";
+            card.style.transition = ".35s";
 
-            const targetID =
-                this.getAttribute("href");
+        });
 
+        card.addEventListener("mouseleave", () => {
 
-            if (
-                !targetID ||
-                targetID === "#"
-            ) {
+            card.style.transform = "translateY(0px)";
 
-                return;
+        });
 
-            }
+    });
 
+}
 
-            const target =
-                document.querySelector(targetID);
+/*==========================================================
+    SEARCH
+==========================================================*/
 
+function initialiseSearch() {
 
-            if (target) {
+    const searchBox = document.querySelector(".top-right input");
 
-                event.preventDefault();
+    const searchButton = document.querySelector(".top-right button");
 
+    if (!searchBox || !searchButton) return;
 
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
+    searchButton.addEventListener("click", function (event) {
 
-            }
+        event.preventDefault();
+
+        const term = searchBox.value.trim();
+
+        if (term === "") {
+
+            alert("Please enter a search term.");
+
+            return;
 
         }
-    );
 
-});
+        alert("Future Archive Search:\n\n" + term);
+
+    });
+
+}
+
+/*==========================================================
+    SCROLL EFFECTS
+==========================================================*/
+
+function initialiseScrollEffects() {
+
+    const cards = document.querySelectorAll(".card");
+
+    const observer = new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+            }
+
+        });
+
+    }, {
+
+        threshold: 0.15
+
+    });
+
+    cards.forEach(card => {
+
+        observer.observe(card);
+
+    });
+
+}
+
+/*==========================================================
+    FUTURE FUNCTIONS
+==========================================================*/
+
+/*
+
+Future Development Roadmap
+
+---------------------------------------
+
+Version 0.2
+
+✓ Dropdown menus
+
+✓ Mobile navigation
+
+✓ Improved animations
+
+✓ Image gallery
+
+✓ Torah archive search
+
+---------------------------------------
+
+Version 0.3
+
+✓ Dynamic Calendar
+
+✓ Hebrew Date
+
+✓ Weekly Parashah
+
+✓ Candle Lighting
+
+✓ Havdalah
+
+---------------------------------------
+
+Version 0.4
+
+✓ Decap CMS integration
+
+✓ Archive filtering
+
+✓ PDF viewer
+
+✓ JPEG gallery
+
+✓ Audio player
+
+---------------------------------------
+
+Version 0.5
+
+✓ YouTube API
+
+✓ Local Video Library
+
+✓ Zoom integration
+
+✓ Event registration
+
+---------------------------------------
+
+Version 0.6
+
+✓ Genealogy Database
+
+✓ Cemetery Search
+
+✓ Historical Timeline
+
+---------------------------------------
+
+Version 1.0
+
+✓ Full Living Archive
+
+✓ Community Portal
+
+✓ Search Engine
+
+✓ Progressive Web App
+
+✓ Offline Reading
+
+*/
+
+/*==========================================================
+    END OF FILE
+==========================================================*/
