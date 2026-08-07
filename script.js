@@ -59,12 +59,12 @@ function initialiseNavigation() {
     HERO IMAGE SLIDER
 ==========================================================*/
 
-const heroImages = [
+const palmImages = [
 
-    "assets/images/hero.jpg",
-    "assets/images/hero2.jpg",
-    "assets/images/hero3.jpg",
-    "assets/images/hero4.jpg"
+    "assets/images/palm.jpg",
+    "assets/images/palm2.jpg",
+    "assets/images/palm3.jpg",
+    "assets/images/palm4.jpg"
 
 ];
 
@@ -72,23 +72,23 @@ let currentSlide = 0;
 
 function initialiseHeroSlider() {
 
-    const heroImage = document.querySelector(".hero-image img");
+    const palmImage = document.querySelector(".palm-image img");
 
     const dots = document.querySelectorAll(".slider-dots span");
 
-    if (!heroImage || dots.length === 0) return;
+    if (!palmImage || dots.length === 0) return;
 
     setInterval(() => {
 
         currentSlide++;
 
-        if (currentSlide >= heroImages.length) {
+        if (currentSlide >= palmImages.length) {
 
             currentSlide = 0;
 
         }
 
-        heroImage.src = heroImages[currentSlide];
+        palmImage.src = palmImages[currentSlide];
 
         dots.forEach(dot => {
 
