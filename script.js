@@ -56,7 +56,7 @@ function initialiseNavigation() {
 }
 
 /*==========================================================
-    HERO IMAGE SLIDER
+    PALM IMAGE SLIDER
 ==========================================================*/
 
 const palmImages = [
