@@ -1,1587 +1,698 @@
-/* =========================================================
-   JEWMAICA
-   Main Stylesheet
-========================================================= */
+/*=========================================================
+    JEWMAICA
+    The Living Archive of Jewish Jamaica
 
+    Version: 0.1.0
+    Author: Jewmaica Project
 
-/* =========================================================
-   RESET
-========================================================= */
+=========================================================*/
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-
-html {
-    scroll-behavior: smooth;
-}
-
-
-body {
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    color: #27231f;
-
-    background: #ffffff;
-
-    line-height: 1.7;
-}
-
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-
-/* =========================================================
-   VARIABLES
-========================================================= */
-
-:root {
-
-    --navy: #142c3c;
-
-    --deep-navy: #0d202c;
-
-    --gold: #b08a45;
-
-    --light-gold: #d2b477;
-
-    --cream: #f7f3ea;
-
-    --warm-white: #fbfaf7;
-
-    --charcoal: #292725;
-
-    --gray: #706b64;
-
-    --light-gray: #e8e4dc;
-
-    --white: #ffffff;
-
-    --max-width: 1200px;
-
-}
-
-
-/* =========================================================
-   GENERAL
-========================================================= */
-
-.content-container {
-
-    width: min(
-        calc(100% - 40px),
-        var(--max-width)
-    );
-
-    margin: 0 auto;
-
-}
-
-
-.content-container.narrow {
-
-    max-width: 850px;
-
-}
-
-
-.section-light {
-
-    background: var(--cream);
-
-}
-
-
-.section-dark {
-
-    background: var(--navy);
-
-    color: var(--white);
-
-}
-
-
-.content-section {
-
-    padding: 90px 0;
-
-}
-
-
-.intro-section {
-
-    padding: 80px 0;
-
-    text-align: center;
-
-    background: var(--warm-white);
-
-}
-
-
-.lead {
-
-    font-size: 1.25rem;
-
-    line-height: 1.8;
-
-    max-width: 850px;
-
-    margin: 25px auto;
-
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.site-header {
-
-    position: sticky;
-
-    top: 0;
-
-    z-index: 1000;
-
-    background:
-        rgba(255, 255, 255, 0.97);
-
-    border-bottom:
-        1px solid var(--light-gray);
-
-}
-
-
-.header-inner {
-
-    width: min(
-        calc(100% - 40px),
-        var(--max-width)
-    );
-
-    margin: auto;
-
-    min-height: 92px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 30px;
-
-}
-
-
-.brand {
-
-    display: block;
-
-    flex-shrink: 0;
-
-}
-
-
-.brand-name {
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 1.75rem;
-
-    font-weight: 800;
-
-    letter-spacing: 0.18em;
-
-    color: var(--navy);
-
-}
-
-
-.brand-tagline {
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 0.65rem;
-
-    letter-spacing: 0.09em;
-
-    text-transform: uppercase;
+/*=========================================
+    RESET
+=========================================*/
 
-    color: var(--gray);
-
-}
-
-
-.main-navigation {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 22px;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 0.82rem;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.04em;
-
-}
-
-
-.main-navigation a {
-
-    transition: color 0.2s ease;
-
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
+html{
 
-.main-navigation a:hover {
+    scroll-behavior:smooth;
 
-    color: var(--gold);
-
 }
-
-
-.menu-toggle {
-
-    display: none;
 
-    border: none;
+body{
 
-    background: none;
+    background:#072b1d;
+    color:#ffffff;
 
-    font-size: 1.7rem;
+    font-family:"Libre Baskerville", serif;
 
-    cursor: pointer;
+    line-height:1.6;
 
-    color: var(--navy);
-
 }
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
 
-    min-height: 650px;
+/*=========================================
+    COLOURS
+=========================================*/
 
-    display: flex;
+:root{
 
-    align-items: center;
+    --green:#072b1d;
+    --green2:#0d3c28;
 
-    position: relative;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            rgba(13, 32, 44, 0.96),
-            rgba(13, 32, 44, 0.76),
-            rgba(13, 32, 44, 0.45)
-        );
-
-}
+    --gold:#d9b15d;
 
+    --mahogany:#4c2b18;
 
-.hero-overlay {
+    --white:#ffffff;
 
-    width: 100%;
+    --grey:#d7d7d7;
 
 }
 
+/*=========================================
+    LINKS
+=========================================*/
 
-.hero-content {
+a{
 
-    width: min(
-        calc(100% - 40px),
-        var(--max-width)
-    );
+    text-decoration:none;
+    color:inherit;
 
-    margin: auto;
-
-    color: white;
-
-    padding: 80px 0;
-
 }
-
-
-.eyebrow,
-.section-kicker {
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 0.72rem;
 
-    font-weight: bold;
+img{
 
-    letter-spacing: 0.18em;
+    max-width:100%;
+    display:block;
 
-    text-transform: uppercase;
-
-    color: var(--gold);
-
-    margin-bottom: 12px;
-
 }
-
-
-.hero h1 {
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size:
-        clamp(3.5rem, 9vw, 7.5rem);
 
-    line-height: 0.95;
+ul{
 
-    letter-spacing: 0.12em;
+    list-style:none;
 
-    margin-bottom: 18px;
-
 }
-
-
-.hero-subtitle {
 
-    font-size: 1.4rem;
+/*=========================================
+    TOP BAR
+=========================================*/
 
-    letter-spacing: 0.05em;
+.top-bar{
 
-    margin-bottom: 20px;
+    background:#04170f;
 
-}
+    color:var(--gold);
 
+    display:flex;
 
-.hero-text {
+    justify-content:space-between;
 
-    max-width: 650px;
+    align-items:center;
 
-    font-size: 1.15rem;
+    padding:10px 50px;
 
-    line-height: 1.8;
+    border-bottom:1px solid rgba(217,177,93,.35);
 
 }
 
+.top-left{
 
-.hero-buttons {
+    display:flex;
 
-    display: flex;
+    gap:18px;
 
-    flex-wrap: wrap;
+    font-size:.90rem;
 
-    gap: 15px;
+    text-transform:uppercase;
 
-    margin-top: 30px;
+    letter-spacing:1px;
 
 }
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.button {
 
-    display: inline-block;
+.top-right{
 
-    padding:
-        12px 23px;
+    display:flex;
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    align-items:center;
 
-    font-size: 0.78rem;
+    gap:20px;
 
-    text-transform: uppercase;
-
-    letter-spacing: 0.08em;
-
-    border: 1px solid var(--gold);
-
-    transition:
-        background 0.2s ease,
-        color 0.2s ease;
-
 }
 
+.top-right form{
 
-.button-primary {
+    display:flex;
 
-    background: var(--gold);
-
-    color: white;
-
 }
-
-
-.button-primary:hover {
 
-    background: var(--light-gold);
+.top-right input{
 
-    color: var(--deep-navy);
+    width:280px;
 
-}
+    padding:10px;
 
+    border:1px solid var(--gold);
 
-.button-secondary {
+    background:#082819;
 
-    background: transparent;
+    color:white;
 
-    color: white;
-
 }
-
 
-.button-secondary:hover {
+.top-right button{
 
-    background: white;
+    padding:10px 15px;
 
-    color: var(--navy);
+    background:transparent;
 
-}
-
+    color:var(--gold);
 
-/* =========================================================
-   HEADINGS
-========================================================= */
+    border:1px solid var(--gold);
 
-.section-heading {
+    cursor:pointer;
 
-    margin-bottom: 45px;
-
 }
-
 
-.section-heading h2 {
+.top-right a{
 
-    font-size:
-        clamp(2.2rem, 5vw, 3.5rem);
+    color:var(--gold);
 
-    line-height: 1.15;
+    font-size:1.2rem;
 
-    color: var(--navy);
+    transition:.3s;
 
-    margin-bottom: 15px;
-
 }
 
+.top-right a:hover{
 
-.section-dark .section-heading h2 {
+    color:white;
 
-    color: white;
-
 }
-
 
-.section-heading > p:last-child {
-
-    max-width: 750px;
-
-    font-size: 1.08rem;
-
-}
+/*=========================================
+    HEADER
+=========================================*/
 
+header{
 
-h3 {
+    background:linear-gradient(#07331f,#072b1d);
 
-    line-height: 1.25;
+    border-bottom:1px solid rgba(217,177,93,.3);
 
 }
 
+.header-container{
 
-/* =========================================================
-   FEATURE CARDS
-========================================================= */
+    max-width:1500px;
 
-.feature-section {
+    margin:auto;
 
-    padding: 90px 0;
+    display:flex;
 
-    background: white;
+    justify-content:space-between;
 
-}
-
-
-.card-grid {
+    align-items:center;
 
-    display: grid;
+    padding:30px 50px;
 
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 22px;
-
 }
 
+.logo-area{
 
-.feature-card {
+    display:flex;
 
-    padding: 35px 25px;
+    align-items:center;
 
-    background: var(--cream);
+    gap:25px;
 
-    border-top:
-        3px solid var(--gold);
-
 }
-
 
-.card-icon {
+.logo{
 
-    font-size: 2rem;
+    width:220px;
 
-    margin-bottom: 20px;
-
 }
-
-
-.feature-card h3 {
-
-    color: var(--navy);
 
-    font-size: 1.5rem;
+.site-title h2{
 
-    margin-bottom: 12px;
+    color:var(--gold);
 
-}
-
+    font-family:"Cinzel",serif;
 
-.feature-card p {
+    font-size:2rem;
 
-    color: var(--gray);
+    font-weight:600;
 
-    margin-bottom: 20px;
-
 }
-
 
-.text-link {
+.site-title h3{
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    color:white;
 
-    font-size: 0.75rem;
+    font-size:1.4rem;
 
-    font-weight: bold;
+    font-weight:400;
 
-    letter-spacing: 0.05em;
-
-    text-transform: uppercase;
-
-    color: var(--navy);
-
 }
 
+.header-menorah img{
 
-/* =========================================================
-   ARCHIVES
-========================================================= */
+    width:140px;
 
-.archive-grid {
+    opacity:.20;
 
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 22px;
-
 }
 
+/*=========================================
+    NAVIGATION
+=========================================*/
 
-.archive-card {
+nav{
 
-    background: white;
+    background:#082819;
 
-    padding: 30px;
+    border-top:1px solid rgba(217,177,93,.2);
 
-    border:
-        1px solid var(--light-gray);
+    border-bottom:2px solid var(--gold);
 
 }
-
 
-.archive-label {
+nav ul{
 
-    display: inline-block;
+    display:flex;
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    justify-content:center;
 
-    font-size: 0.65rem;
+    flex-wrap:wrap;
 
-    font-weight: bold;
-
-    letter-spacing: 0.12em;
-
-    color: var(--gold);
-
-    margin-bottom: 10px;
-
 }
 
+nav li{
 
-.archive-card h3 {
+    margin:0 18px;
 
-    font-size: 1.45rem;
-
-    color: var(--navy);
-
-    margin-bottom: 12px;
-
 }
-
 
-.archive-card p {
+nav a{
 
-    color: var(--gray);
+    display:block;
 
-    margin-bottom: 20px;
+    padding:18px 0;
 
-}
-
-
-.archive-card a {
+    color:white;
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    text-transform:uppercase;
 
-    font-size: 0.75rem;
+    font-size:.95rem;
 
-    text-transform: uppercase;
+    transition:.3s;
 
-    color: var(--navy);
-
 }
-
 
-/* =========================================================
-   MEDIA
-========================================================= */
+nav a:hover{
 
-.media-block {
+    color:var(--gold);
 
-    margin-bottom: 65px;
-
 }
-
 
-.media-heading {
+.active{
 
-    display: flex;
+    color:var(--gold);
 
-    align-items: center;
+    border-bottom:3px solid var(--gold);
 
-    justify-content: space-between;
-
-    gap: 30px;
-
-    margin-bottom: 20px;
-
 }
-
 
-.media-heading h3 {
+/*=========================================
+    HERO
+=========================================*/
 
-    font-size: 2rem;
+.hero{
 
-    color: var(--navy);
+    background:#000;
 
 }
 
+.hero-overlay{
 
-.video-grid {
+    display:grid;
 
-    display: grid;
+    grid-template-columns:420px 1fr;
 
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 22px;
-
-    margin-top: 30px;
-
 }
-
 
-.video-placeholder {
+.hero-left{
 
-    min-height: 240px;
+    background:rgba(4,31,20,.92);
 
-    padding: 30px;
+    padding:60px;
 
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    background: var(--navy);
-
-    color: white;
-
 }
-
-
-.video-placeholder-icon {
-
-    width: 60px;
-
-    height: 60px;
-
-    border:
-        1px solid var(--gold);
-
-    border-radius: 50%;
-
-    display: flex;
 
-    align-items: center;
+.hero-left h4{
 
-    justify-content: center;
+    color:var(--gold);
 
-    color: var(--gold);
+    letter-spacing:4px;
 
-    margin-bottom: 20px;
+    margin-bottom:10px;
 
 }
 
+.hero-left h1{
 
-.video-placeholder h4 {
+    font-size:5rem;
 
-    font-size: 1.2rem;
+    font-family:"Cinzel",serif;
 
-    margin-bottom: 10px;
+    line-height:1;
 
 }
 
+.hero-left h2{
 
-.video-placeholder p {
+    color:var(--gold);
 
-    color: #d9d9d9;
+    margin:20px 0;
 
-}
-
-
-.notice-box {
-
-    margin-top: 25px;
-
-    padding: 25px;
-
-    background: var(--cream);
-
-    border-left:
-        4px solid var(--gold);
+    font-size:2rem;
 
-    display: flex;
+    font-weight:400;
 
-    flex-direction: column;
-
 }
-
 
-/* =========================================================
-   JEWISH JAMAICA
-========================================================= */
+.divider{
 
-.history-grid {
+    width:220px;
 
-    display: grid;
+    height:2px;
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    background:var(--gold);
 
-    gap: 25px;
+    margin:30px 0;
 
 }
-
-
-.history-card {
 
-    padding: 35px;
+.hero-left p{
 
-    border:
-        1px solid rgba(255,255,255,0.2);
+    margin-bottom:25px;
 
-    background:
-        rgba(255,255,255,0.04);
+    color:#ececec;
 
 }
 
+.button{
 
-.history-card h3 {
+    display:inline-block;
 
-    font-size: 1.65rem;
+    padding:15px 35px;
 
-    margin-bottom: 15px;
+    border:2px solid var(--gold);
 
-}
-
+    color:var(--gold);
 
-.history-card p {
+    text-transform:uppercase;
 
-    color: #dedede;
+    transition:.3s;
 
-    margin-bottom: 20px;
-
 }
-
 
-.history-card a {
+.button:hover{
 
-    color: var(--light-gold);
+    background:var(--gold);
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    color:black;
 
-    text-transform: uppercase;
-
-    font-size: 0.72rem;
-
 }
-
-
-/* =========================================================
-   CALENDAR
-========================================================= */
-
-.calendar-box {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
 
-    border:
-        1px solid var(--light-gray);
+.hero-image{
 
-    background: white;
+    position:relative;
 
 }
 
+.hero-image img{
 
-.calendar-date {
+    width:100%;
 
-    padding: 35px;
+    height:100%;
 
-    border-right:
-        1px solid var(--light-gray);
+    object-fit:cover;
 
 }
-
-
-.calendar-date:last-child {
-
-    border-right: none;
-
-}
-
-
-.calendar-label {
 
-    display: block;
+.slider-dots{
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    position:absolute;
 
-    font-size: 0.65rem;
+    bottom:25px;
 
-    letter-spacing: 0.12em;
+    left:50%;
 
-    color: var(--gold);
+    transform:translateX(-50%);
 
-    margin-bottom: 10px;
-
 }
-
-
-.calendar-date div:last-child {
 
-    font-size: 1.35rem;
+.slider-dots span{
 
-    color: var(--navy);
+    width:15px;
 
-}
+    height:15px;
 
+    border-radius:50%;
 
-.calendar-note {
+    background:white;
 
-    margin-top: 25px;
+    display:inline-block;
 
-    padding: 25px;
+    margin:0 6px;
 
-    background: var(--cream);
+    opacity:.5;
 
 }
-
-
-/* =========================================================
-   COMMUNITY
-========================================================= */
-
-.event-feature {
 
-    display: grid;
+.slider-dots .active{
 
-    grid-template-columns: 200px 1fr;
+    opacity:1;
 
-    background: white;
+    background:var(--gold);
 
-    border:
-        1px solid var(--light-gray);
-
-    margin-bottom: 30px;
-
 }
-
-
-.event-date {
-
-    background: var(--navy);
-
-    color: white;
-
-    display: flex;
-
-    flex-direction: column;
 
-    align-items: center;
+/*=========================================
+    FEATURE CARDS
+=========================================*/
 
-    justify-content: center;
+.cards{
 
-    text-align: center;
+    display:grid;
 
-    padding: 30px;
+    grid-template-columns:repeat(6,1fr);
 
 }
 
+.card{
 
-.event-date span {
+    background:#0a321f;
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    border:1px solid rgba(217,177,93,.35);
 
-    font-size: 0.65rem;
+    text-align:center;
 
-    letter-spacing: 0.12em;
+    padding:45px 25px;
 
-    color: var(--light-gold);
-
 }
-
-
-.event-date strong {
 
-    font-size: 1.7rem;
+.card i{
 
-}
-
+    font-size:3rem;
 
-.event-content {
+    color:var(--gold);
 
-    padding: 35px;
+    margin-bottom:25px;
 
 }
 
+.card h3{
 
-.event-content h3 {
+    font-family:"Cinzel",serif;
 
-    color: var(--navy);
+    font-size:2rem;
 
-    font-size: 2rem;
+    color:white;
 
-    margin-bottom: 12px;
+    margin-bottom:15px;
 
 }
 
+.card p{
 
-.event-content p {
+    margin-bottom:30px;
 
-    margin-bottom: 20px;
+    color:#ececec;
 
 }
-
-
-.event-grid {
 
-    display: grid;
+.card a{
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    display:inline-block;
 
-    gap: 25px;
+    border:2px solid var(--gold);
 
-}
-
-
-.event-card {
+    padding:10px 25px;
 
-    padding: 30px;
+    color:var(--gold);
 
-    border:
-        1px solid var(--light-gray);
+    text-transform:uppercase;
 
-    background: white;
-
 }
-
 
-.event-card h3 {
+.card a:hover{
 
-    color: var(--navy);
+    background:var(--gold);
 
-    margin-bottom: 10px;
+    color:black;
 
 }
 
+/*=========================================
+    MOTTO
+=========================================*/
 
-/* =========================================================
-   RESOURCES
-========================================================= */
+.motto{
 
-.resource-grid {
+    background:var(--mahogany);
 
-    display: grid;
+    text-align:center;
 
-    grid-template-columns:
-        repeat(4, 1fr);
+    padding:18px;
 
-    gap: 22px;
+    color:var(--gold);
 
 }
 
+.motto h2{
 
-.resource-card {
+    font-family:"Cinzel",serif;
 
-    padding: 30px;
+    letter-spacing:3px;
 
-    border:
-        1px solid var(--light-gray);
+    font-size:1.4rem;
 
-    background: white;
-
 }
-
 
-.resource-icon {
+/*=========================================
+    FOOTER
+=========================================*/
 
-    display: inline-flex;
+footer{
 
-    padding: 8px 12px;
+    background:#04170f;
 
-    background: var(--navy);
+    display:flex;
 
-    color: white;
+    justify-content:space-between;
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    align-items:center;
 
-    font-size: 0.7rem;
+    flex-wrap:wrap;
 
-    letter-spacing: 0.1em;
+    padding:22px 50px;
 
-    margin-bottom: 20px;
+    color:#ddd;
 
-}
-
-
-.resource-card h3 {
+    font-size:.90rem;
 
-    color: var(--navy);
-
-    font-size: 1.35rem;
-
-    margin-bottom: 10px;
-
 }
-
 
-.resource-card p {
+.footer-links{
 
-    color: var(--gray);
+    display:flex;
 
-    margin-bottom: 18px;
+    gap:25px;
 
 }
 
+.footer-links a:hover{
 
-.coming-soon {
+    color:var(--gold);
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 0.7rem;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.06em;
-
-    color: var(--gold);
-
 }
-
-
-/* =========================================================
-   CTA
-========================================================= */
-
-.cta-section {
 
-    padding: 80px 0;
+/*=========================================
+    RESPONSIVE
+=========================================*/
 
-    background: var(--navy);
+@media(max-width:1200px){
 
-    color: white;
+.cards{
 
-    text-align: center;
+grid-template-columns:repeat(3,1fr);
 
 }
 
+.hero-overlay{
 
-.cta-section h2 {
+grid-template-columns:1fr;
 
-    font-size:
-        clamp(2rem, 5vw, 3.2rem);
-
-    margin-bottom: 15px;
-
 }
-
 
-.cta-section p {
+.hero-left{
 
-    max-width: 650px;
+order:2;
 
-    margin: auto;
-
 }
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.site-footer {
 
-    background: var(--deep-navy);
-
-    color: white;
-
-    padding: 60px 0 0;
-
 }
-
 
-.footer-inner {
+@media(max-width:768px){
 
-    width: min(
-        calc(100% - 40px),
-        var(--max-width)
-    );
+.top-bar{
 
-    margin: auto;
+flex-direction:column;
 
-    display: grid;
+gap:20px;
 
-    grid-template-columns:
-        2fr repeat(3, 1fr);
+padding:20px;
 
-    gap: 50px;
-
-    padding-bottom: 50px;
-
 }
 
+.header-container{
 
-.footer-brand p {
+flex-direction:column;
 
-    color: #c4c4c4;
+text-align:center;
 
-    margin-top: 10px;
-
 }
-
 
-.footer-column {
+.logo-area{
 
-    display: flex;
+flex-direction:column;
 
-    flex-direction: column;
-
-    gap: 8px;
-
 }
-
-
-.footer-column h4 {
-
-    color: var(--light-gold);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 0.75rem;
 
-    text-transform: uppercase;
+nav ul{
 
-    letter-spacing: 0.1em;
+flex-direction:column;
 
-    margin-bottom: 10px;
-
 }
-
 
-.footer-column a {
+.cards{
 
-    color: #d3d3d3;
+grid-template-columns:1fr;
 
 }
 
+.hero-left{
 
-.footer-column a:hover {
+padding:35px;
 
-    color: white;
-
 }
-
-
-.footer-bottom {
-
-    width: min(
-        calc(100% - 40px),
-        var(--max-width)
-    );
-
-    margin: auto;
-
-    padding: 20px 0;
 
-    border-top:
-        1px solid rgba(255,255,255,0.1);
+.hero-left h1{
 
-    display: flex;
+font-size:3.5rem;
 
-    justify-content: space-between;
-
-    gap: 20px;
-
-    color: #a7a7a7;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 0.75rem;
-
 }
-
-
-/* =========================================================
-   RESPONSIVE TABLET
-========================================================= */
-
-@media (max-width: 1000px) {
-
-    .card-grid,
-    .archive-grid,
-    .resource-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-    }
-
-
-    .video-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
 
-    }
+.top-right input{
 
+width:180px;
 
-    .footer-inner {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-    }
-
-
-    .main-navigation {
-
-        gap: 13px;
-
-        font-size: 0.72rem;
-
-    }
-
 }
-
-
-/* =========================================================
-   RESPONSIVE MOBILE
-========================================================= */
-
-@media (max-width: 750px) {
-
-    .header-inner {
-
-        min-height: 75px;
-
-    }
-
-
-    .menu-toggle {
-
-        display: block;
-
-    }
-
-
-    .main-navigation {
-
-        position: absolute;
-
-        top: 75px;
-
-        left: 0;
-
-        right: 0;
-
-        background: white;
-
-        display: none;
-
-        flex-direction: column;
-
-        align-items: stretch;
-
-        gap: 0;
-
-        border-bottom:
-            1px solid var(--light-gray);
-
-    }
-
-
-    .main-navigation.active {
-
-        display: flex;
-
-    }
-
-
-    .main-navigation a {
-
-        padding: 15px 20px;
-
-        border-bottom:
-            1px solid var(--light-gray);
-
-    }
-
-
-    .brand-name {
-
-        font-size: 1.35rem;
-
-    }
-
 
-    .brand-tagline {
+footer{
 
-        font-size: 0.52rem;
+flex-direction:column;
 
-    }
+gap:20px;
 
+text-align:center;
 
-    .hero {
-
-        min-height: 560px;
-
-    }
-
-
-    .content-section,
-    .feature-section,
-    .intro-section {
-
-        padding: 65px 0;
-
-    }
-
-
-    .card-grid,
-    .archive-grid,
-    .video-grid,
-    .history-grid,
-    .event-grid,
-    .resource-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .calendar-box {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .calendar-date {
-
-        border-right: none;
-
-        border-bottom:
-            1px solid var(--light-gray);
-
-    }
-
-
-    .calendar-date:last-child {
-
-        border-bottom: none;
-
-    }
-
-
-    .event-feature {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .event-date {
-
-        padding: 25px;
-
-    }
-
-
-    .media-heading {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-    }
-
-
-    .footer-inner {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .footer-bottom {
-
-        flex-direction: column;
-
-    }
-
 }
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 450px) {
-
-    .content-container,
-    .header-inner,
-    .hero-content,
-    .footer-inner,
-    .footer-bottom {
-
-        width: min(
-            calc(100% - 28px),
-            var(--max-width)
-        );
-
-    }
-
-
-    .hero h1 {
-
-        font-size: 3.3rem;
-
-    }
-
-
-    .hero-subtitle {
-
-        font-size: 1.05rem;
-
-    }
 
 }
