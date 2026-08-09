@@ -15,7 +15,7 @@
             font-family: Georgia, "Times New Roman", serif;
             background-color: #173f35;
             color: #f5e6c8;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         header {
@@ -49,56 +49,59 @@
 
         .intro {
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 40px;
         }
 
         .intro h2 {
-            font-size: 32px;
             color: #d9a441;
+            font-size: 32px;
         }
 
         .intro p {
-            font-size: 18px;
             max-width: 750px;
             margin: auto;
+            font-size: 18px;
         }
 
-        .article {
+        .pdf-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .pdf-item {
             background-color: #244f43;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 8px;
             border: 1px solid rgba(245, 230, 200, 0.3);
+            border-radius: 8px;
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
         }
 
-        .article h3 {
+        .pdf-item h3 {
+            margin: 0;
             color: #d9a441;
-            font-size: 27px;
-            margin-top: 0;
+            font-size: 22px;
         }
 
-        .article .date {
-            font-size: 14px;
-            opacity: 0.8;
-            margin-bottom: 20px;
+        .pdf-item p {
+            margin: 5px 0 0;
+            font-size: 15px;
         }
 
-        .article p {
-            font-size: 17px;
-        }
-
-        .read-more {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 9px 18px;
+        .pdf-button {
             background-color: #d9a441;
             color: #173f35;
             text-decoration: none;
+            padding: 10px 18px;
             border-radius: 5px;
             font-weight: bold;
+            white-space: nowrap;
         }
 
-        .read-more:hover {
+        .pdf-button:hover {
             background-color: #f0c96b;
         }
 
@@ -117,6 +120,19 @@
             text-align: center;
             padding: 25px;
             font-size: 14px;
+        }
+
+        @media (max-width: 650px) {
+
+            .pdf-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .pdf-button {
+                margin-top: 5px;
+            }
+
         }
 
     </style>
@@ -141,77 +157,126 @@
 </header>
 
 
+
 <main class="container">
 
 
     <section class="intro">
 
-        <h2>D'vrei Torah</h2>
+        <h2>D'vrei Torah Library</h2>
 
         <p>
-            Explore Torah teachings, reflections and commentaries
-            connecting the eternal teachings of Torah with Jewish
-            life, history and experience in Jamaica and beyond.
+            Browse written Torah teachings and commentaries
+            preserved in the Jewmaica archive.
         </p>
 
     </section>
 
 
 
-    <!-- D'VAR TORAH #1 -->
+    <section class="pdf-list">
 
-    <article class="article">
 
-        <h3>
-            A Torah Reflection
-        </h3>
+        <!-- PDF 1 -->
 
-        <div class="date">
-            Parashat: [Parashah Name] | [Date]
+        <div class="pdf-item">
+
+            <div>
+
+                <h3>Parashat Acharei Mot</h3>
+
+                <p>
+                    D'var Torah on Parashat Acharei Mot
+                </p>
+
+            </div>
+
+            <a
+                href="../PDFs/DvreiTorah/Parashat-Acharei-Mot.pdf"
+                target="_blank"
+                class="pdf-button">
+                View PDF
+            </a>
+
         </div>
 
-        <p>
-            This is where the introduction or opening portion
-            of the D'var Torah will appear.
-        </p>
-
-        <p>
-            The complete teaching can be placed here, including
-            Torah sources, commentary, reflections and practical
-            applications.
-        </p>
-
-        <a href="#" class="read-more">
-            Read More
-        </a>
-
-    </article>
 
 
+        <!-- PDF 2 -->
 
-    <!-- D'VAR TORAH #2 -->
+        <div class="pdf-item">
 
-    <article class="article">
+            <div>
 
-        <h3>
-            Another D'var Torah
-        </h3>
+                <h3>Parashat Shelach Lecha</h3>
 
-        <div class="date">
-            Parashat: [Parashah Name] | [Date]
+                <p>
+                    D'var Torah on Parashat Shelach Lecha
+                </p>
+
+            </div>
+
+            <a
+                href="../PDFs/DvreiTorah/Parashat-Shelach-Lecha.pdf"
+                target="_blank"
+                class="pdf-button">
+                View PDF
+            </a>
+
         </div>
 
-        <p>
-            A second Torah teaching can be added here.
-            Each D'var Torah can eventually have its own
-            dedicated page.
-        </p>
 
-        <a href="#" class="read-more">
-            Read More
-        </a>
 
-    </article>
+        <!-- PDF 3 -->
+
+        <div class="pdf-item">
+
+            <div>
+
+                <h3>Parashat Korach</h3>
+
+                <p>
+                    D'var Torah on Parashat Korach
+                </p>
+
+            </div>
+
+            <a
+                href="../PDFs/DvreiTorah/Parashat-Korach.pdf"
+                target="_blank"
+                class="pdf-button">
+                View PDF
+            </a>
+
+        </div>
+
+
+
+        <!-- PDF 4 -->
+
+        <div class="pdf-item">
+
+            <div>
+
+                <h3>Parashat Chukat</h3>
+
+                <p>
+                    D'var Torah on Parashat Chukat
+                </p>
+
+            </div>
+
+            <a
+                href="../PDFs/DvreiTorah/Parashat-Chukat.pdf"
+                target="_blank"
+                class="pdf-button">
+                View PDF
+            </a>
+
+        </div>
+
+
+    </section>
 
 
 
@@ -238,4 +303,3 @@
 </body>
 
 </html>
-
