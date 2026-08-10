@@ -4,138 +4,15 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dvrei Torah | Jewmaica</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <style>
+    <title>Parashat Nitzavim | Jewmaica</title>
 
-        body {
-            margin: 0;
-            font-family: Georgia, "Times New Roman", serif;
-            background-color: #173f35;
-            color: #f5e6c8;
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: #f5e6c8;
-            color: #173f35;
-            text-align: center;
-            padding: 35px 20px;
-        }
-
-        header img {
-            width: 80px;
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        header h1 {
-            margin: 5px 0;
-            font-size: 40px;
-        }
-
-        header p {
-            margin: 5px 0;
-            font-size: 18px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 0 25px;
-        }
-
-        .intro {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .intro h2 {
-            color: #d9a441;
-            font-size: 32px;
-        }
-
-        .intro p {
-            max-width: 750px;
-            margin: auto;
-            font-size: 18px;
-        }
-
-        .pdf-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .pdf-item {
-            background-color: #244f43;
-            border: 1px solid rgba(245, 230, 200, 0.3);
-            border-radius: 8px;
-            padding: 20px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .pdf-item h3 {
-            margin: 0;
-            color: #d9a441;
-            font-size: 22px;
-        }
-
-        .pdf-item p {
-            margin: 5px 0 0;
-            font-size: 15px;
-        }
-
-        .pdf-button {
-            background-color: #d9a441;
-            color: #173f35;
-            text-decoration: none;
-            padding: 10px 18px;
-            border-radius: 5px;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
-        .pdf-button:hover {
-            background-color: #f0c96b;
-        }
-
-        .back {
-            text-align: center;
-            margin: 45px 0;
-        }
-
-        .back a {
-            color: #f5e6c8;
-            text-decoration: none;
-        }
-
-        footer {
-            background-color: #102f28;
-            text-align: center;
-            padding: 25px;
-            font-size: 14px;
-        }
-
-        @media (max-width: 650px) {
-
-            .pdf-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .pdf-button {
-                margin-top: 5px;
-            }
-
-        }
-
-    </style>
+    <!-- Page-specific stylesheet -->
+    <link rel="stylesheet"
+          href="../assets/css/parashah.css">
 
 </head>
 
@@ -143,85 +20,889 @@
 <body>
 
 
-<header>
+<!-- =========================================================
+     TOP HEADER
+========================================================= -->
 
-    <img src="../assets/images/logo.png"
-     alt="Jewmaica Logo"
-     class="logo">"
+<header class="site-header">
 
-    <h1>Dvrei Torah</h1>
 
-    <p>
-        Written Torah teachings, reflections and commentaries
-        for study and inspiration.
-    </p>
+    <!-- TOP MOTTO BAR -->
+
+    <div class="top-bar">
+
+        <div class="top-motto">
+
+            <span>Preserving the Past</span>
+
+            <b>•</b>
+
+            <span>Strengthening the Present</span>
+
+            <b>•</b>
+
+            <span>Building the Future</span>
+
+        </div>
+
+
+        <div class="archive-search">
+
+            <input
+                type="search"
+                placeholder="Search the archive..."
+                aria-label="Search the archive"
+            >
+
+            <button aria-label="Search">
+                🔍
+            </button>
+
+        </div>
+
+
+        <div class="social-links">
+
+            <a href="#" aria-label="Facebook">f</a>
+
+            <a href="#" aria-label="YouTube">▶</a>
+
+            <a href="#" aria-label="Instagram">◎</a>
+
+            <a href="#" aria-label="Email">✉</a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BRANDING
+    ====================================================== -->
+
+    <div class="brand-banner">
+
+
+        <div class="brand-container">
+
+
+            <div class="brand-identity">
+
+
+                <!--
+                    Replace this file with your actual logo.
+
+                    Example:
+                    assets/images/jewmaica-logo.png
+                -->
+
+                <img
+                    src="../assets/images/jewmaica-logo.png"
+                    alt="Jewmaica"
+                    class="brand-logo"
+                >
+
+
+                <div class="brand-divider"></div>
+
+
+                <div class="brand-text">
+
+                    <div class="brand-main">
+                        THE LIVING ARCHIVE
+                    </div>
+
+                    <div class="brand-sub">
+                        of Jewish Jamaica
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!--
+                Menorah placeholder.
+
+                Replace this with your actual
+                monotone Menorah image when ready.
+            -->
+
+            <div class="menorah">
+
+                <span>☰</span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MAIN NAVIGATION
+    ====================================================== -->
+
+    <nav class="main-navigation">
+
+
+        <div class="navigation-inner">
+
+
+            <a href="../index.html">
+                HOME
+            </a>
+
+
+            <a href="torah.html"
+               class="nav-active">
+                TORAH
+            </a>
+
+
+            <a href="#">
+                LIVING ARCHIVE
+            </a>
+
+
+            <a href="#">
+                JEWISH JAMAICA
+            </a>
+
+
+            <a href="#">
+                GENEALOGY
+            </a>
+
+
+            <a href="#">
+                MEDIA
+            </a>
+
+
+            <a href="#">
+                CALENDAR
+            </a>
+
+
+            <a href="#">
+                COMMUNITY
+            </a>
+
+
+            <a href="#">
+                ABOUT
+            </a>
+
+
+            <a href="#">
+                CONTACT
+            </a>
+
+
+        </div>
+
+    </nav>
+
 
 </header>
 
 
 
-<main class="container">
+<!-- =========================================================
+     BREADCRUMB
+========================================================= -->
 
+<div class="breadcrumb-area">
 
-    <section class="intro">
+    <div class="page-container">
 
-        <h2>Dvrei Torah Library</h2>
+        <div class="breadcrumb">
 
-        <p>
-            Browse written Torah teachings and commentaries
-            preserved in the Jewmaica archive.
-        </p>
-
-    </section>
-
-    <section class="pdf-list">
-
-        <!-- PDF 1 -->
-
-        <div class="pdf-item">
-
-            <div>
-
-                <h3>Parasha Nitzavim - Returning to Ways of God</h3>
-
-                <p>
-                    Dvrei Torah on Parasha Nitzavim
-                </p>
-
-            </div>
-
-            <a
-                href="../PDFs/Dvrei%20Torah/Parasha-Nitzavim-Returning-to-Ways-of-God.pdf"
-                target="_blank"
-                rel="noopener"
-                class="pdf-button">
-                OPEN NITZAVIM PDF
+            <a href="../index.html">
+                Home
             </a>
+
+            <span>›</span>
+
+            <a href="torah.html">
+                Torah
+            </a>
+
+            <span>›</span>
+
+            <span>
+                Parashat HaShavua
+            </span>
+
+            <span>›</span>
+
+            <strong>
+                Nitzavim
+            </strong>
 
         </div>
 
-    </section>
-
-
-
-    <div class="back">
-
-        <a href="torah.html">
-            ← Back to Torah
-        </a>
-
     </div>
 
+</div>
+
+
+
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
+
+<main class="page-container">
+
+
+    <div class="content-layout">
+
+
+        <!-- =================================================
+             PRIMARY CONTENT
+        ================================================== -->
+
+        <section class="main-content">
+
+
+            <!-- =============================================
+                 PARASHAH HERO
+            ============================================== -->
+
+            <section class="parashah-hero">
+
+
+                <div class="hero-overlay">
+
+
+                    <div class="hero-small-title">
+
+                        PARASHAT
+
+                    </div>
+
+
+                    <h1>
+
+                        NITZAVIM
+
+                    </h1>
+
+
+                    <div class="hero-subtitle">
+
+                        Returning to Ways of God
+
+                    </div>
+
+
+                    <div class="ornament">
+
+                        ✦
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 TWO MAIN CONTENT SECTIONS
+            ============================================== -->
+
+            <section class="parashah-columns">
+
+
+                <!-- =========================================
+                     WRITTEN COMMENTARY
+                ========================================== -->
+
+                <article class="content-card commentary-card">
+
+
+                    <div class="card-heading green-heading">
+
+                        1. WRITTEN COMMENTARY
+
+                    </div>
+
+
+                    <div class="card-body">
+
+
+                        <div class="round-icon">
+
+                            ✎
+
+                        </div>
+
+
+                        <h2>
+
+                            D'vrei Torah
+
+                        </h2>
+
+
+                        <p class="card-description">
+
+                            Written teachings and reflections
+                            on Parashat Nitzavim.
+
+                        </p>
+
+
+
+                        <!-- DOCUMENT -->
+
+                        <div class="document-card">
+
+
+                            <div class="document-preview">
+
+                                <!--
+                                    Replace with an image
+                                    of the first page of
+                                    your actual PDF.
+
+                                    Example:
+                                    ../shiur/nitzavim-cover.jpg
+                                -->
+
+                                <div class="document-placeholder">
+
+                                    PDF
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="document-information">
+
+
+                                <h3>
+
+                                    Parashat Nitzavim
+
+                                </h3>
+
+
+                                <p class="document-subtitle">
+
+                                    Returning to Ways of God
+
+                                </p>
+
+
+                                <p>
+
+                                    By Michael Nunes
+
+                                </p>
+
+
+                                <p>
+
+                                    Date:
+                                    Elul 5784 /
+                                    September 2024
+
+                                </p>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- PDF BUTTON -->
+
+                        <a
+                            href="../shiur/nitzavim.pdf"
+                            target="_blank"
+                            class="primary-button"
+                        >
+
+                            <span>▤</span>
+
+                            OPEN NITZAVIM PDF
+
+                        </a>
+
+
+                        <!-- MORE COMMENTARIES -->
+
+                        <a
+                            href="#"
+                            class="secondary-button"
+                        >
+
+                            <span>▧</span>
+
+                            View All D'vrei Torah
+                            for Nitzavim
+
+                            <span>→</span>
+
+                        </a>
+
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =========================================
+                     TORAH READING
+                ========================================== -->
+
+                <article class="content-card video-card">
+
+
+                    <div class="card-heading gold-heading">
+
+                        2. TORAH READING (VIDEOS)
+
+                    </div>
+
+
+                    <div class="card-body">
+
+
+                        <div class="round-icon gold-icon">
+
+                            ▶
+
+                        </div>
+
+
+                        <h2>
+
+                            Torah Reading
+
+                        </h2>
+
+
+                        <p class="card-description">
+
+                            Recordings of the Torah reading
+                            for Parashat Nitzavim.
+
+                        </p>
+
+
+
+                        <!-- VIDEO -->
+
+                        <div class="video-container">
+
+
+                            <!--
+                                YOUTUBE VIDEO
+
+                                Replace VIDEO_ID with the
+                                actual YouTube video ID.
+
+                                Example:
+                                https://www.youtube.com/watch?v=XXXXXXXX
+                            -->
+
+                            <iframe
+                                src="https://www.youtube.com/embed/VIDEO_ID"
+                                title="Parashat Nitzavim Torah Reading"
+                                frameborder="0"
+                                allow="accelerometer;
+                                       autoplay;
+                                       clipboard-write;
+                                       encrypted-media;
+                                       gyroscope;
+                                       picture-in-picture;
+                                       web-share"
+                                allowfullscreen>
+                            </iframe>
+
+
+                        </div>
+
+
+
+                        <!-- ALL VIDEOS -->
+
+                        <a
+                            href="#"
+                            class="secondary-button"
+                        >
+
+                            <span>▣</span>
+
+                            View All Torah Reading Videos
+
+                            <span>→</span>
+
+                        </a>
+
+
+                    </div>
+
+                </article>
+
+
+            </section>
+
+
+
+            <!-- =============================================
+                 LIVING ARCHIVE NOTE
+            ============================================== -->
+
+            <section class="archive-note">
+
+
+                <div class="archive-note-symbol">
+
+                    ✦
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+
+                        A Living Archive
+
+                    </h3>
+
+
+                    <p>
+
+                        This collection is intended to grow
+                        with the continuing study, teaching,
+                        recording and preservation of Jewish
+                        life in Jamaica.
+
+                    </p>
+
+                </div>
+
+
+            </section>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- =============================================
+                 OTHER PARASHOT
+            ============================================== -->
+
+            <section class="sidebar-box parashot-box">
+
+
+                <div class="sidebar-title">
+
+                    OTHER PARASHOT
+
+                </div>
+
+
+                <div class="sidebar-search">
+
+                    <input
+                        type="search"
+                        placeholder="Search Parashot..."
+                    >
+
+                    <button>
+
+                        🔍
+
+                    </button>
+
+                </div>
+
+
+                <ul class="parashot-list">
+
+
+                    <li>
+                        <a href="#">▤ Bereshit</a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">▤ Noach</a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">▤ Lech Lecha</a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">▤ Vayera</a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">▤ Chayei Sara</a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">▤ Toldot</a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">▤ Vayetze</a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">▤ Vayishlach</a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">▤ Vayeshev</a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">▤ Miketz</a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">▤ Vayigash</a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">▤ Vayechi</a>
+                    </li>
+
+
+                </ul>
+
+
+                <a
+                    href="#"
+                    class="view-all"
+                >
+
+                    ... View All Parashot
+
+                </a>
+
+
+            </section>
+
+
+
+            <!-- =============================================
+                 RELATED RESOURCES
+            ============================================== -->
+
+            <section class="sidebar-box related-box">
+
+
+                <div class="related-title">
+
+                    RELATED RESOURCES
+
+                </div>
+
+
+                <ul>
+
+
+                    <li>
+
+                        <a href="#">
+
+                            ▤ Haftarah for Nitzavim
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="#">
+
+                            ▧ Parashah Summary
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="#">
+
+                            ◫ Hebrew Text
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="#">
+
+                            ▤ Historical Articles
+
+                        </a>
+
+                    </li>
+
+
+                </ul>
+
+
+            </section>
+
+
+        </aside>
+
+
+    </div>
 
 </main>
 
 
 
-<footer>
+<!-- =========================================================
+     L'DOR VA-DOR FOOTER FEATURE
+========================================================= -->
 
-    © 2026 Jewmaica – The Living Archive of Jewish Jamaica
+<section class="ldor-section">
+
+
+    <div class="ldor-inner">
+
+
+        <div class="ldor-decoration">
+
+            ✦
+
+        </div>
+
+
+        <div class="ldor-text">
+
+
+            <div class="ldor-hebrew">
+
+                לדור ודור
+
+            </div>
+
+
+            <div class="ldor-title">
+
+                L'DOR VA-DOR
+
+            </div>
+
+
+            <div class="ldor-subtitle">
+
+                From Generation to Generation
+
+            </div>
+
+
+        </div>
+
+
+        <div class="ldor-decoration">
+
+            ✦
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="site-footer">
+
+
+    <div class="footer-inner">
+
+
+        <div>
+
+            © 2026 Jewmaica –
+            The Living Archive of Jewish Jamaica.
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#">Privacy Policy</a>
+
+            <span>|</span>
+
+            <a href="#">Terms of Use</a>
+
+            <span>|</span>
+
+            <a href="../index.html">Home</a>
+
+        </div>
+
+
+        <div>
+
+            Preserving the past.
+            Strengthening the present.
+            Building the future.
+
+        </div>
+
+
+    </div>
+
 
 </footer>
+
 
 
 </body>
