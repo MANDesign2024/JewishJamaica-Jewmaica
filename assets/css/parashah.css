@@ -1,1 +1,1563 @@
+/* =========================================================
+   JEWMAICA PARASHAH PAGE
+   Milestone 0.1 Revision
+========================================================= */
 
+
+/* =========================================================
+   COLOUR SYSTEM
+========================================================= */
+
+:root {
+
+    --deep-green: #003b2b;
+
+    --dark-green: #002c20;
+
+    --green: #07543d;
+
+    --gold: #c99a32;
+
+    --bright-gold: #e0b544;
+
+    --mahogany: #4b2718;
+
+    --dark-mahogany: #29150e;
+
+    --parchment: #eee1c5;
+
+    --light-parchment: #f7f0df;
+
+    --cream: #faf7ed;
+
+    --ink: #1c2d25;
+
+    --white: #ffffff;
+
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    margin: 0;
+
+    background:
+        linear-gradient(
+            rgba(238,225,197,0.96),
+            rgba(238,225,197,0.96)
+        );
+
+    color: var(--ink);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    line-height: 1.6;
+
+}
+
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+
+button,
+input {
+
+    font-family: inherit;
+
+}
+
+
+/* =========================================================
+   TOP HEADER
+========================================================= */
+
+.site-header {
+
+    background: var(--deep-green);
+
+    color: var(--white);
+
+}
+
+
+.top-bar {
+
+    min-height: 45px;
+
+    padding:
+        6px 4%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-bottom:
+        1px solid
+        rgba(201,154,50,0.45);
+
+}
+
+
+.top-motto {
+
+    color: var(--bright-gold);
+
+    font-size: 14px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    font-weight: bold;
+
+}
+
+
+.top-motto b {
+
+    margin: 0 10px;
+
+}
+
+
+.archive-search {
+
+    display: flex;
+
+    border:
+        1px solid
+        rgba(201,154,50,0.7);
+
+}
+
+
+.archive-search input {
+
+    width: 220px;
+
+    padding: 7px 10px;
+
+    border: none;
+
+    background:
+        rgba(0,0,0,0.25);
+
+    color: white;
+
+    outline: none;
+
+}
+
+
+.archive-search input::placeholder {
+
+    color:
+        rgba(255,255,255,0.65);
+
+}
+
+
+.archive-search button {
+
+    border: none;
+
+    background:
+        rgba(0,0,0,0.2);
+
+    color: var(--bright-gold);
+
+    padding: 0 10px;
+
+    cursor: pointer;
+
+}
+
+
+.social-links {
+
+    display: flex;
+
+    gap: 15px;
+
+}
+
+
+.social-links a {
+
+    color: var(--bright-gold);
+
+    font-weight: bold;
+
+    font-size: 18px;
+
+}
+
+
+/* =========================================================
+   BRAND AREA
+========================================================= */
+
+.brand-banner {
+
+    min-height: 120px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #003a2b,
+            #004a35
+        );
+
+    border-bottom:
+        1px solid
+        rgba(201,154,50,0.4);
+
+}
+
+
+.brand-container {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding:
+        20px 4%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.brand-identity {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+.brand-logo {
+
+    width: 230px;
+
+    max-height: 80px;
+
+    object-fit: contain;
+
+}
+
+
+.brand-divider {
+
+    width: 1px;
+
+    height: 60px;
+
+    background:
+        rgba(201,154,50,0.65);
+
+}
+
+
+.brand-main {
+
+    color: var(--bright-gold);
+
+    font-size: 27px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.brand-sub {
+
+    color: white;
+
+    font-size: 21px;
+
+}
+
+
+.menorah {
+
+    width: 90px;
+
+    height: 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color:
+        rgba(92,150,106,0.30);
+
+    font-size: 60px;
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.main-navigation {
+
+    background:
+        linear-gradient(
+            to right,
+            var(--dark-mahogany),
+            #402215,
+            var(--dark-mahogany)
+        );
+
+    border-top:
+        1px solid
+        rgba(201,154,50,0.45);
+
+    border-bottom:
+        1px solid
+        rgba(201,154,50,0.65);
+
+}
+
+
+.navigation-inner {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+}
+
+
+.navigation-inner a {
+
+    padding:
+        12px 15px;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: .5px;
+
+    transition: .2s;
+
+}
+
+
+.navigation-inner a:hover {
+
+    color: var(--bright-gold);
+
+}
+
+
+.navigation-inner .nav-active {
+
+    color: var(--bright-gold);
+
+    border-bottom:
+        3px solid
+        var(--bright-gold);
+
+}
+
+
+/* =========================================================
+   PAGE CONTAINER
+========================================================= */
+
+.page-container {
+
+    width: min(
+        1200px,
+        94%
+    );
+
+    margin: auto;
+
+}
+
+
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+.breadcrumb-area {
+
+    background:
+        var(--light-parchment);
+
+    border-bottom:
+        1px solid
+        #d5c4a0;
+
+}
+
+
+.breadcrumb {
+
+    padding:
+        12px 0;
+
+    font-size: 14px;
+
+    color: #675c49;
+
+}
+
+
+.breadcrumb span {
+
+    margin:
+        0 8px;
+
+}
+
+
+.breadcrumb a:hover {
+
+    color:
+        var(--green);
+
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.content-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        270px;
+
+    gap: 22px;
+
+    padding:
+        25px 0 45px;
+
+}
+
+
+.main-content {
+
+    min-width: 0;
+
+}
+
+
+/* =========================================================
+   PARASHAH HERO
+========================================================= */
+
+.parashah-hero {
+
+    min-height: 300px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+
+        linear-gradient(
+            rgba(239,225,195,.86),
+            rgba(225,205,168,.92)
+        ),
+
+        url("../images/parashah-placeholder.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    border:
+        1px solid
+        #c7b58d;
+
+}
+
+
+.hero-overlay {
+
+    text-align: center;
+
+    padding: 35px;
+
+}
+
+
+.hero-small-title {
+
+    font-size: 23px;
+
+    letter-spacing: 6px;
+
+    color:
+        #27382e;
+
+}
+
+
+.hero-overlay h1 {
+
+    margin:
+        5px 0;
+
+    color:
+        var(--deep-green);
+
+    font-size:
+        clamp(55px, 7vw, 90px);
+
+    letter-spacing: 5px;
+
+    line-height: 1;
+
+}
+
+
+.hero-subtitle {
+
+    font-size: 29px;
+
+    color:
+        #694522;
+
+    font-style: italic;
+
+}
+
+
+.ornament {
+
+    margin-top: 20px;
+
+    color:
+        var(--gold);
+
+    font-size: 25px;
+
+}
+
+
+/* =========================================================
+   CONTENT COLUMNS
+========================================================= */
+
+.parashah-columns {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 18px;
+
+    margin-top: 20px;
+
+}
+
+
+.content-card {
+
+    background:
+        var(--cream);
+
+    border:
+        1px solid
+        #d1bf99;
+
+    box-shadow:
+        0 3px 10px
+        rgba(0,0,0,.10);
+
+}
+
+
+.card-heading {
+
+    color: white;
+
+    padding:
+        12px 15px;
+
+    text-align: center;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    letter-spacing: .5px;
+
+}
+
+
+.green-heading {
+
+    background:
+        var(--deep-green);
+
+}
+
+
+.gold-heading {
+
+    background:
+        #9b721c;
+
+}
+
+
+.card-body {
+
+    padding:
+        20px;
+
+    text-align: center;
+
+}
+
+
+.round-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 50%;
+
+    margin:
+        0 auto 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        var(--deep-green);
+
+    color:
+        var(--bright-gold);
+
+    font-size: 23px;
+
+}
+
+
+.gold-icon {
+
+    background:
+        #b48722;
+
+    color:
+        white;
+
+}
+
+
+.card-body h2 {
+
+    margin:
+        3px 0;
+
+    color:
+        var(--deep-green);
+
+    font-size: 29px;
+
+}
+
+
+.video-card h2 {
+
+    color:
+        #9b721c;
+
+}
+
+
+.card-description {
+
+    max-width: 400px;
+
+    margin:
+        0 auto 18px;
+
+    font-size: 16px;
+
+}
+
+
+/* =========================================================
+   DOCUMENT CARD
+========================================================= */
+
+.document-card {
+
+    display: flex;
+
+    gap: 15px;
+
+    padding: 12px;
+
+    background:
+        white;
+
+    border:
+        1px solid
+        #ddceb0;
+
+    text-align: left;
+
+}
+
+
+.document-preview {
+
+    width: 78px;
+
+    min-width: 78px;
+
+    height: 105px;
+
+    overflow: hidden;
+
+}
+
+
+.document-placeholder {
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        var(--parchment);
+
+    border:
+        1px solid
+        #c9b58c;
+
+    color:
+        var(--green);
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+
+.document-information h3 {
+
+    margin:
+        0;
+
+    font-size: 18px;
+
+    color:
+        var(--deep-green);
+
+}
+
+
+.document-subtitle {
+
+    margin:
+        0 0 5px;
+
+    font-style: italic;
+
+}
+
+
+.document-information p {
+
+    margin:
+        2px 0;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.primary-button {
+
+    display: block;
+
+    margin-top: 15px;
+
+    padding:
+        10px 14px;
+
+    background:
+        var(--deep-green);
+
+    color: white;
+
+    border:
+        1px solid
+        var(--gold);
+
+    font-weight: bold;
+
+    letter-spacing: .5px;
+
+}
+
+
+.primary-button:hover {
+
+    background:
+        #07543d;
+
+}
+
+
+.secondary-button {
+
+    margin-top: 12px;
+
+    padding:
+        10px 12px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background:
+        var(--light-parchment);
+
+    border:
+        1px solid
+        #d5c3a0;
+
+    color:
+        #3e3425;
+
+    font-size: 14px;
+
+}
+
+
+.secondary-button:hover {
+
+    background:
+        #e6d8ba;
+
+}
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.video-container {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    background:
+        #111;
+
+}
+
+
+.video-container iframe {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+
+}
+
+
+/* =========================================================
+   ARCHIVE NOTE
+========================================================= */
+
+.archive-note {
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    background:
+        var(--deep-green);
+
+    color: white;
+
+    border:
+        1px solid
+        var(--gold);
+
+}
+
+
+.archive-note-symbol {
+
+    font-size: 35px;
+
+    color:
+        var(--bright-gold);
+
+}
+
+
+.archive-note h3 {
+
+    margin:
+        0 0 5px;
+
+    color:
+        var(--bright-gold);
+
+}
+
+
+.archive-note p {
+
+    margin: 0;
+
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+
+.sidebar-box {
+
+    padding:
+        18px;
+
+    border:
+        1px solid
+        #c8b78e;
+
+}
+
+
+.parashot-box {
+
+    background:
+        var(--deep-green);
+
+    color: white;
+
+}
+
+
+.sidebar-title {
+
+    color:
+        var(--bright-gold);
+
+    text-align: center;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.sidebar-search {
+
+    display: flex;
+
+    margin-bottom: 12px;
+
+}
+
+
+.sidebar-search input {
+
+    width: 100%;
+
+    padding: 8px;
+
+    border: none;
+
+}
+
+
+.sidebar-search button {
+
+    border: none;
+
+    background:
+        var(--gold);
+
+    padding:
+        0 9px;
+
+}
+
+
+.parashot-list {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+
+.parashot-list li {
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.10);
+
+}
+
+
+.parashot-list a {
+
+    display: block;
+
+    padding:
+        6px 0;
+
+    color:
+        #f4e5c1;
+
+}
+
+
+.parashot-list a:hover {
+
+    color:
+        var(--bright-gold);
+
+}
+
+
+.view-all {
+
+    display: block;
+
+    margin-top: 12px;
+
+    color:
+        var(--bright-gold);
+
+    font-weight: bold;
+
+}
+
+
+/* =========================================================
+   RELATED RESOURCES
+========================================================= */
+
+.related-box {
+
+    background:
+        var(--light-parchment);
+
+}
+
+
+.related-title {
+
+    color:
+        var(--deep-green);
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.related-box ul {
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+.related-box li {
+
+    padding:
+        7px 0;
+
+    border-bottom:
+        1px solid
+        #d8c8a8;
+
+}
+
+
+.related-box a:hover {
+
+    color:
+        var(--green);
+
+}
+
+
+/* =========================================================
+   L'DOR VA-DOR
+========================================================= */
+
+.ldor-section {
+
+    background:
+        linear-gradient(
+            90deg,
+            #003324,
+            #00422f,
+            #003324
+        );
+
+    border-top:
+        2px solid
+        var(--gold);
+
+    border-bottom:
+        2px solid
+        var(--gold);
+
+    color: white;
+
+}
+
+
+.ldor-inner {
+
+    width: min(
+        1100px,
+        94%
+    );
+
+    margin: auto;
+
+    min-height: 130px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 35px;
+
+    text-align: center;
+
+}
+
+
+.ldor-decoration {
+
+    color:
+        var(--bright-gold);
+
+    font-size: 30px;
+
+}
+
+
+.ldor-hebrew {
+
+    color:
+        var(--bright-gold);
+
+    font-size: 25px;
+
+}
+
+
+.ldor-title {
+
+    color:
+        var(--bright-gold);
+
+    font-size: 21px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.ldor-subtitle {
+
+    font-size: 15px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+
+    background:
+        #001f17;
+
+    color:
+        rgba(255,255,255,.75);
+
+}
+
+
+.footer-inner {
+
+    width: min(
+        1400px,
+        94%
+    );
+
+    margin: auto;
+
+    padding:
+        18px 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    font-size: 13px;
+
+}
+
+
+.footer-links {
+
+    display: flex;
+
+    gap: 12px;
+
+}
+
+
+.footer-links a:hover {
+
+    color:
+        var(--bright-gold);
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+
+    .top-bar {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+
+    .brand-container {
+
+        justify-content: center;
+
+    }
+
+
+    .menorah {
+
+        display: none;
+
+    }
+
+
+    .content-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .sidebar {
+
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+
+    .top-motto {
+
+        text-align: center;
+
+        font-size: 11px;
+
+    }
+
+
+    .top-motto span {
+
+        display: inline;
+
+    }
+
+
+    .archive-search {
+
+        width: 100%;
+
+    }
+
+
+    .archive-search input {
+
+        width: 100%;
+
+    }
+
+
+    .brand-identity {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+
+    .brand-divider {
+
+        display: none;
+
+    }
+
+
+    .brand-main {
+
+        font-size: 21px;
+
+    }
+
+
+    .brand-sub {
+
+        font-size: 17px;
+
+    }
+
+
+    .navigation-inner {
+
+        flex-direction: column;
+
+    }
+
+
+    .navigation-inner a {
+
+        text-align: center;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,.08);
+
+    }
+
+
+    .parashah-hero {
+
+        min-height: 240px;
+
+    }
+
+
+    .hero-overlay h1 {
+
+        font-size: 48px;
+
+    }
+
+
+    .hero-small-title {
+
+        font-size: 17px;
+
+        letter-spacing: 4px;
+
+    }
+
+
+    .hero-subtitle {
+
+        font-size: 21px;
+
+    }
+
+
+    .parashah-columns {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .sidebar {
+
+        display: flex;
+
+    }
+
+
+    .document-card {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+
+    }
+
+
+    .footer-inner {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+
+    .footer-links {
+
+        justify-content: center;
+
+    }
+
+
+}
