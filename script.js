@@ -9,6 +9,44 @@
 
 "use strict";
 
+
+/*==========================================================*
+*PARASHAH DATA*
+*==========================================================*/
+
+const parashot = {
+
+    "bereshit": {
+        title: "BERESHIT",
+        subtitle: "In the Beginning",
+        pdf: "../PDFs/Dvrei Torah/Parasha-Bereshit.pdf",
+        video: ""
+    },
+
+    "noach": {
+        title: "NOACH",
+        subtitle: "Noah",
+        pdf: "../PDFs/Dvrei Torah/Parasha-Noach.pdf",
+        video: ""
+    },
+
+    "lech-lecha": {
+        title: "LECH LECHA",
+        subtitle: "Go Forth",
+        pdf: "../PDFs/Dvrei Torah/Parasha-Lech-Lecha.pdf",
+        video: ""
+    },
+
+    "nitzavim": {
+        title: "NITZAVIM",
+        subtitle: "Returning to Ways of God",
+        pdf: "../PDFs/Dvrei Torah/Parasha-Nitzavim-Returning-to-Ways-of-God.pdf",
+        video: "pXjwO0QQ0KI"
+    }
+
+};
+
+
 /*==========================================================
     PAGE LOADED
 ==========================================================*/
