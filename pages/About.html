@@ -1,1 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ABOUT | Jewmaica – The Living Archive of Jewish Jamaica</title>
+
+    <!-- Main Jewmaica stylesheet -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* =========================================================
+           JEWMAICA PARASHAH PAGE
+           ========================================================= */
+
+        :root {
+
+            --jw-green: #003b2a;
+            --jw-dark-green: #00281d;
+            --jw-deep-green: #001f17;
+
+            --jw-gold: #c79a28;
+            --jw-light-gold: #e1b84c;
+
+            --jw-mahogany: #4a2415;
+            --jw-mahogany-light: #704029;
+
+            --jw-parchment: #f2e7cf;
+            --jw-parchment-dark: #dfcda8;
+
+            --jw-cream: #faf7ee;
+
+            --jw-text: #17382d;
+        }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            background: var(--jw-parchment);
+
+            color: var(--jw-text);
+
+            font-family:
+                "EB Garamond",
+                Georgia,
+                serif;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================================================
+           TOP STRIP
+           ========================================================= */
+
+        .parasha-top-strip {
+
+            background: var(--jw-deep-green);
+
+            color: var(--jw-light-gold);
+
+            border-bottom:
+                1px solid rgba(199,154,40,0.45);
+
+            padding: 8px 30px;
+
+            text-align: center;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 13px;
+
+            letter-spacing: 1.4px;
+        }
+
+
+        .parasha-top-strip span {
+
+            margin: 0 12px;
+        }
+
+
+        /* =========================================================
+           BRAND HEADER
+           ========================================================= */
+
+        .parasha-brand {
+
+            background:
+                linear-gradient(
+                    rgba(0,59,42,0.95),
+                    rgba(0,40,29,0.96)
+                );
+
+            min-height: 115px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 20px 5%;
+
+            border-bottom:
+                1px solid var(--jw-gold);
+        }
+
+
+        .brand-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+        }
+
+
+        .brand-logo {
+
+            width: 250px;
+
+            max-width: 42vw;
+
+            height: auto;
+        }
+
+
+        .menorah-mark {
+
+            width: 75px;
+
+            height: 75px;
+
+            object-fit: contain;
+
+            opacity: 0.20;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+           ========================================================= */
+
+        .parasha-nav {
+
+            background: var(--jw-mahogany);
+
+            border-bottom:
+                2px solid var(--jw-gold);
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+        }
+
+
+        .parasha-nav a {
+
+            color: #fff7df;
+
+            padding: 14px 18px;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 13px;
+
+            letter-spacing: 0.6px;
+
+            transition: 0.25s ease;
+        }
+
+
+        .parasha-nav a:hover,
+        .parasha-nav a.active {
+
+            color: var(--jw-light-gold);
+
+            background:
+                rgba(0,0,0,0.18);
+        }
+
+
+        /* =========================================================
+           BREADCRUMB
+           ========================================================= */
+
+        .breadcrumb {
+
+            max-width: 1280px;
+
+            margin: 0 auto;
+
+            padding: 18px 25px 8px;
+
+            color: #6b5a40;
+
+            font-size: 15px;
+        }
+
+
+        .breadcrumb a {
+
+            color: var(--jw-green);
+        }
+
+
+        /* =========================================================
+           PAGE WRAPPER
+           ========================================================= */
+
+        .parasha-wrapper {
+
+            max-width: 1280px;
+
+            margin: auto;
+
+            padding: 10px 25px 45px;
+        }
+
 
