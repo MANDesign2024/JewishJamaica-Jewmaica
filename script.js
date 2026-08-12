@@ -604,10 +604,10 @@ const parashot = {
 
 
     /*======================================================*
-    * KI TETZE — VIDEO ONLY
+    * KI-TETZE — VIDEO ONLY
     *======================================================*/
 
-    "ki-teitzei": {
+    "ki-tetze": {
         title: "KI TETZE",
         subtitle: "",
         pdf: "",
@@ -616,11 +616,11 @@ const parashot = {
 
 
     /*======================================================*
-    * KI TABO
+    * KI-TABO
     *======================================================*/
 
     "ki-tavo": {
-        title: "KI TABO",
+        title: "KI-TABO",
         subtitle: "The Continued Hope in Redemption",
         pdf: "../PDFs/Dvrei Torah/Parashat Ki Tavo – the Continued Hope in Redemption.pdf",
         video: "0BG3AC5iqrk"
@@ -664,11 +664,11 @@ const parashot = {
 
 
     /*======================================================*
-    * VEZOT HABERAKHAH
+    * VEZOT-HABERAKHAH
     *======================================================*/
 
     "vezot-haberakhah": {
-        title: "VEZOT HABERAKHAH",
+        title: "VEZOT-HABERAKHAH",
         subtitle: "Sucession Planning",
         pdf: "../PDFs/Dvrei Torah/Parasha Vezot Haberakhah - Sucession Planning.pdf",
         video: ""
@@ -1006,9 +1006,9 @@ function formatParashaName(key) {
 
         "bereshit": "Bereshit",
         "noach": "Noach",
-        "lech-lecha": "Lech Lecha",
+        "lech-lecha": "Lech-Lecha",
         "vayera": "Vayera",
-        "chayei-sara": "Chayei Sara",
+        "chayei-sara": "Chayei-Sara",
         "toldot": "Toldot",
         "vayetze": "Vayetze",
         "vayishlach": "Vayishlach",
@@ -1024,7 +1024,7 @@ function formatParashaName(key) {
         "mishpatim": "Mishpatim",
         "terumah": "Terumah",
         "tetzaveh": "Tetzaveh",
-        "ki-tisa": "Ki Tisa",
+        "ki-tisa": "Ki-Tisa",
         "vayakhel": "Vayakhel",
         "pekudei": "Pekudei",
         "vayikra": "Vayikra",
@@ -1051,13 +1051,13 @@ function formatParashaName(key) {
         "vaetchanan": "Vaetchanan",
         "eikev": "Eikev",
         "reeh": "Re'eh",
-        "shofetim": "Shoftim",
-        "ki-teitzei": "Ki Tetze",
-        "ki-tavo": "Ki Tabo",
+        "shoftim": "Shoftim",
+        "ki-tetze": "Ki-Tetze",
+        "ki-tavo": "Ki-Tabo",
         "nitzavim": "Nitzavim",
         "vayeilech": "Vayeilech",
         "haazinu": "Haazinu",
-        "vezot-haberakhah": "Vezot HaBerakhah"
+        "vezot-haberakhah": "Vezot-HaBerakhah"
 
     };
 
