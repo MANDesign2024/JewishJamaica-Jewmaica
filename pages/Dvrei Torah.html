@@ -636,6 +636,8 @@
             background: #111;
 
             overflow: hidden;
+
+            display: none;
         }
 
 
@@ -646,6 +648,8 @@
             height: 100%;
 
             border: 0;
+
+            display: block;
         }
 
 
@@ -1246,12 +1250,9 @@
              PARASHAH HERO
 
              IMPORTANT:
-             This is deliberately NOT hard-coded to Nitzavim.
+             Nothing here is hard-coded to Nitzavim.
 
-             script.js will populate:
-             - parashaTitle
-             - parashaSubtitle
-             - breadcrumbParasha
+             script.js determines the selected Parashah.
              ===================================================== -->
 
         <section class="parasha-hero">
@@ -1326,12 +1327,8 @@
                     </p>
 
 
-
                     <!-- =================================================
                          PDF RESOURCE
-
-                         script.js populates this area according
-                         to the selected Parashah.
                          ================================================= -->
 
                     <div
@@ -1437,14 +1434,18 @@
                     <!-- =================================================
                          YOUTUBE VIDEO
 
-                         script.js changes the YouTube iframe
-                         according to the selected Parashah.
+                         The JavaScript supplies the correct YouTube
+                         video for the selected Parashah.
+
+                         The container starts hidden only so that the
+                         general page can show the placeholder.
+                         When a Parashah has a video, script.js will
+                         display this container.
                          ================================================= -->
 
                     <div
                         class="video-container"
                         id="videoContainer"
-                        style="display:none;"
                     >
 
                         <iframe
@@ -1513,10 +1514,6 @@
                         id="parashaList"
                     >
 
-
-                        <!-- =================================================
-                             BERESHIT
-                             ================================================= -->
 
                         <li>
                             <a
@@ -1638,11 +1635,6 @@
                         </li>
 
 
-
-                        <!-- =================================================
-                             SHEMOT
-                             ================================================= -->
-
                         <li>
                             <a
                                 href="?parasha=shemot"
@@ -1753,17 +1745,32 @@
                         </li>
 
 
-
-                        <!-- =================================================
-                             VAYIKRA
-                             ================================================= -->
-
                         <li>
                             <a
                                 href="?parasha=vayikra"
                                 data-parasha="vayikra"
                             >
                                 Vayikra
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=tzav"
+                                data-parasha="tzav"
+                            >
+                                Tzav
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=shmini"
+                                data-parasha="shmini"
+                            >
+                                Shmini
                             </a>
                         </li>
 
@@ -1837,11 +1844,6 @@
                             </a>
                         </li>
 
-
-
-                        <!-- =================================================
-                             BAMIDBAR
-                             ================================================= -->
 
                         <li>
                             <a
@@ -1943,11 +1945,6 @@
                         </li>
 
 
-
-                        <!-- =================================================
-                             DEVARIM
-                             ================================================= -->
-
                         <li>
                             <a
                                 href="?parasha=devarim"
@@ -1968,10 +1965,6 @@
                         </li>
 
 
-                        <!-- =================================================
-                             EIKEV
-                             ================================================= -->
-
                         <li>
                             <a
                                 href="?parasha=eikev"
@@ -1981,10 +1974,6 @@
                             </a>
                         </li>
 
-
-                        <!-- =================================================
-                             RE'EH
-                             ================================================= -->
 
                         <li>
                             <a
@@ -1996,10 +1985,6 @@
                         </li>
 
 
-                        <!-- =================================================
-                             SHOFETIM
-                             ================================================= -->
-
                         <li>
                             <a
                                 href="?parasha=shoftim"
@@ -2009,10 +1994,6 @@
                             </a>
                         </li>
 
-
-                        <!-- =================================================
-                             KI TETZE
-                             ================================================= -->
 
                         <li>
                             <a
@@ -2024,10 +2005,6 @@
                         </li>
 
 
-                        <!-- =================================================
-                             KI TAVO
-                             ================================================= -->
-
                         <li>
                             <a
                                 href="?parasha=ki-tavo"
@@ -2037,10 +2014,6 @@
                             </a>
                         </li>
 
-
-                        <!-- =================================================
-                             NITZAVIM
-                             ================================================= -->
 
                         <li>
                             <a
@@ -2052,10 +2025,6 @@
                         </li>
 
 
-                        <!-- =================================================
-                             VAYEILECH
-                             ================================================= -->
-
                         <li>
                             <a
                                 href="?parasha=vayeilech"
@@ -2066,10 +2035,6 @@
                         </li>
 
 
-                        <!-- =================================================
-                             HAAZINU
-                             ================================================= -->
-
                         <li>
                             <a
                                 href="?parasha=haazinu"
@@ -2079,10 +2044,6 @@
                             </a>
                         </li>
 
-
-                        <!-- =================================================
-                             VEZOT HABERAKHAH
-                             ================================================= -->
 
                         <li>
                             <a
@@ -2175,7 +2136,7 @@
 
     <!-- =========================================================
          JAVASCRIPT
-         
+
          IMPORTANT:
          There is ONLY ONE script.js reference.
 
