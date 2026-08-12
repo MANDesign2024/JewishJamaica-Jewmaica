@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Parashat HaShavua | Jewmaica – The Living Archive of Jewish Jamaica</title>
@@ -13,7 +16,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet"
+    >
+
 
     <style>
 
@@ -22,58 +29,91 @@
            ========================================================= */
 
         :root {
+
             --jw-green: #003b2a;
             --jw-dark-green: #00281d;
             --jw-deep-green: #001f17;
+
             --jw-gold: #c79a28;
             --jw-light-gold: #e1b84c;
+
             --jw-mahogany: #4a2415;
             --jw-mahogany-light: #704029;
+
             --jw-parchment: #f2e7cf;
             --jw-parchment-dark: #dfcda8;
+
             --jw-cream: #faf7ee;
+
             --jw-text: #17382d;
         }
+
 
         * {
             box-sizing: border-box;
         }
 
+
         body {
+
             margin: 0;
+
             background: var(--jw-parchment);
+
             color: var(--jw-text);
-            font-family: "EB Garamond", Georgia, serif;
+
+            font-family:
+                "EB Garamond",
+                Georgia,
+                serif;
         }
+
 
         a {
             text-decoration: none;
         }
+
 
         /* =========================================================
            TOP STRIP
            ========================================================= */
 
         .parasha-top-strip {
+
             background: var(--jw-deep-green);
+
             color: var(--jw-light-gold);
-            border-bottom: 1px solid rgba(199,154,40,0.45);
+
+            border-bottom:
+                1px solid rgba(199,154,40,0.45);
+
             padding: 8px 30px;
+
             text-align: center;
-            font-family: "Cinzel", Georgia, serif;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
             font-size: 13px;
+
             letter-spacing: 1.4px;
         }
 
+
         .parasha-top-strip span {
+
             margin: 0 12px;
         }
+
 
         /* =========================================================
            BRAND HEADER
            ========================================================= */
 
         .parasha-brand {
+
             background:
                 linear-gradient(
                     rgba(0,59,42,0.95),
@@ -81,465 +121,849 @@
                 );
 
             min-height: 115px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             padding: 20px 5%;
-            border-bottom: 1px solid var(--jw-gold);
+
+            border-bottom:
+                1px solid var(--jw-gold);
         }
 
+
         .brand-left {
+
             display: flex;
+
             align-items: center;
+
             gap: 28px;
         }
 
+
         .brand-logo {
+
             width: 250px;
+
             max-width: 42vw;
+
             height: auto;
         }
 
+
         .menorah-mark {
+
             width: 75px;
+
             height: 75px;
+
             object-fit: contain;
+
             opacity: 0.20;
         }
+
 
         /* =========================================================
            NAVIGATION
            ========================================================= */
 
         .parasha-nav {
+
             background: var(--jw-mahogany);
-            border-bottom: 2px solid var(--jw-gold);
+
+            border-bottom:
+                2px solid var(--jw-gold);
+
             display: flex;
+
             justify-content: center;
+
             flex-wrap: wrap;
         }
 
+
         .parasha-nav a {
+
             color: #fff7df;
+
             padding: 14px 18px;
-            font-family: "Cinzel", Georgia, serif;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
             font-size: 13px;
+
             letter-spacing: 0.6px;
+
             transition: 0.25s ease;
         }
 
+
         .parasha-nav a:hover,
         .parasha-nav a.active {
+
             color: var(--jw-light-gold);
-            background: rgba(0,0,0,0.18);
+
+            background:
+                rgba(0,0,0,0.18);
         }
+
 
         /* =========================================================
            BREADCRUMB
            ========================================================= */
 
         .breadcrumb {
+
             max-width: 1280px;
+
             margin: 0 auto;
+
             padding: 18px 25px 8px;
+
             color: #6b5a40;
+
             font-size: 15px;
         }
 
+
         .breadcrumb a {
+
             color: var(--jw-green);
         }
+
 
         /* =========================================================
            PAGE WRAPPER
            ========================================================= */
 
         .parasha-wrapper {
+
             max-width: 1280px;
+
             margin: auto;
+
             padding: 10px 25px 45px;
         }
+
 
         /* =========================================================
            PARASHAH HERO
            ========================================================= */
 
         .parasha-hero {
+
             min-height: 270px;
 
             background:
+
                 linear-gradient(
                     90deg,
-                    rgba(242, 231, 207, 1.00) 0%,
-                    rgba(242, 231, 207, 0.97) 38%,
-                    rgba(242, 231, 207, 0.82) 52%,
-                    rgba(242, 231, 207, 0.30) 72%,
-                    rgba(242, 231, 207, 0.05) 100%
+
+                    rgba(242,231,207,1.00) 0%,
+
+                    rgba(242,231,207,0.97) 38%,
+
+                    rgba(242,231,207,0.82) 52%,
+
+                    rgba(242,231,207,0.30) 72%,
+
+                    rgba(242,231,207,0.05) 100%
                 ),
-                url("../assets/images/parasha-hero.jpg") center center / cover no-repeat;
 
-            background-size: cover;
-            background-position: center;
+                url("../assets/images/parasha-hero.jpg")
+                center center / cover
+                no-repeat;
 
-            border: 1px solid #c7b78f;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+            border:
+                1px solid #c7b78f;
+
+            box-shadow:
+                0 5px 18px rgba(0,0,0,0.12);
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             text-align: center;
+
             padding: 35px;
         }
 
-        .hero-inner {
+
+        .hero-overlay {
+
             max-width: 850px;
+
+            width: 100%;
         }
 
-        .hero-small {
-            font-family: "Cinzel", Georgia, serif;
+
+        .hero-small-title {
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
             font-size: 20px;
+
             letter-spacing: 6px;
+
             color: var(--jw-green);
+
             margin-bottom: 3px;
         }
 
-        .hero-title {
-            font-family: "Cinzel", Georgia, serif;
-            font-size: clamp(48px, 7vw, 78px);
+
+        .parasha-hero h1 {
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(48px, 7vw, 78px);
+
             line-height: 1;
+
             color: var(--jw-green);
+
             margin: 5px 0 15px;
+
             letter-spacing: 2px;
         }
 
+
         .hero-subtitle {
+
             font-size: 29px;
+
             font-style: italic;
+
             color: #704a28;
+
             margin-bottom: 18px;
         }
 
+
         .ornament {
+
             color: var(--jw-gold);
+
             font-size: 27px;
+
             letter-spacing: 8px;
         }
+
 
         /* =========================================================
            MAIN GRID
            ========================================================= */
 
         .parasha-main-grid {
+
             display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 280px;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(0, 1fr)
+                280px;
+
             gap: 18px;
+
             margin-top: 20px;
+
             align-items: start;
         }
+
 
         /* =========================================================
            CONTENT CARDS
            ========================================================= */
 
         .content-card {
+
             background: var(--jw-cream);
-            border: 1px solid #d8c9aa;
-            box-shadow: 0 4px 12px rgba(49,37,22,0.10);
+
+            border:
+                1px solid #d8c9aa;
+
+            box-shadow:
+                0 4px 12px rgba(49,37,22,0.10);
+
             min-height: 560px;
         }
 
+
         .card-heading {
+
             background: var(--jw-green);
+
             color: #fff9e9;
+
             padding: 14px 15px;
+
             text-align: center;
-            font-family: "Cinzel", Georgia, serif;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
             font-size: 16px;
+
             letter-spacing: 0.5px;
         }
 
+
         .video-card .card-heading {
+
             background: #a87910;
         }
 
+
         .card-body {
+
             padding: 25px;
+
             text-align: center;
         }
 
+
         .card-icon {
+
             width: 52px;
+
             height: 52px;
-            margin: 0 auto 15px;
+
+            margin:
+                0 auto 15px;
+
             border-radius: 50%;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             background: var(--jw-green);
+
             color: var(--jw-light-gold);
+
             font-size: 25px;
         }
 
+
         .video-card .card-icon {
+
             background: #b18112;
+
             color: white;
         }
 
+
         .card-title {
-            font-family: "Cinzel", Georgia, serif;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
             font-size: 29px;
+
             color: var(--jw-green);
+
             margin: 5px 0 5px;
         }
 
+
         .video-card .card-title {
+
             color: #9a6d0d;
         }
 
+
         .card-description {
+
             font-size: 18px;
+
             line-height: 1.35;
-            margin: 0 auto 22px;
+
+            margin:
+                0 auto 22px;
+
             max-width: 380px;
         }
 
+
         /* =========================================================
-           PDF ITEM
+           PDF RESOURCE
            ========================================================= */
 
         .resource-box {
+
             background: #f7f0df;
-            border: 1px solid #dfcfad;
+
+            border:
+                1px solid #dfcfad;
+
             padding: 18px;
+
             margin-top: 15px;
+
             text-align: left;
         }
 
+
         .resource-box h3 {
+
             margin: 0 0 5px;
-            font-family: "Cinzel", Georgia, serif;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
             color: var(--jw-green);
+
             font-size: 18px;
         }
 
+
         .resource-box p {
+
             margin: 4px 0;
+
             font-size: 16px;
         }
 
+
+        .primary-button,
         .resource-button {
+
             display: block;
+
             margin-top: 15px;
+
             background: var(--jw-green);
+
             color: white;
-            border: 1px solid var(--jw-gold);
+
+            border:
+                1px solid var(--jw-gold);
+
             padding: 11px 14px;
+
             text-align: center;
-            font-family: "Cinzel", Georgia, serif;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
             font-size: 14px;
+
             letter-spacing: 0.5px;
+
             transition: 0.25s ease;
         }
 
+
+        .primary-button:hover,
         .resource-button:hover {
+
             background: var(--jw-mahogany);
+
             color: var(--jw-light-gold);
         }
 
+
         .secondary-button {
+
             margin-top: 15px;
+
             display: block;
+
             padding: 12px;
+
             background: var(--jw-parchment);
-            border: 1px solid #c9b486;
+
+            border:
+                1px solid #c9b486;
+
             color: var(--jw-green);
-            font-family: "Cinzel", Georgia, serif;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
             text-align: center;
         }
 
+
         .secondary-button:hover {
+
             background: #e7d8b7;
         }
+
 
         /* =========================================================
            VIDEO
            ========================================================= */
 
         .video-container {
+
             position: relative;
+
             width: 100%;
+
             aspect-ratio: 16 / 9;
+
             margin-top: 15px;
+
             background: #111;
+
             overflow: hidden;
         }
 
+
         .video-container iframe {
+
             width: 100%;
+
             height: 100%;
+
             border: 0;
         }
 
+
         .video-placeholder {
+
             min-height: 250px;
+
             background: #302416;
+
             color: white;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             text-align: center;
+
             padding: 20px;
         }
+
 
         /* =========================================================
            PARASHA SIDEBAR
            ========================================================= */
 
         .parasha-sidebar {
+
             background: var(--jw-green);
+
             color: #fff8e4;
-            border: 1px solid #8f721e;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.16);
+
+            border:
+                1px solid #8f721e;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,0.16);
         }
+
 
         .sidebar-heading {
+
             padding: 17px 15px;
+
             text-align: center;
-            font-family: "Cinzel", Georgia, serif;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
             color: var(--jw-light-gold);
+
             font-size: 17px;
-            border-bottom: 1px solid rgba(225,184,76,0.5);
+
+            border-bottom:
+                1px solid rgba(225,184,76,0.5);
         }
 
+
         .parasha-search {
+
             margin: 14px;
-            width: calc(100% - 28px);
+
+            width:
+                calc(100% - 28px);
+
             padding: 10px;
+
             background: #073f2f;
+
             color: white;
-            border: 1px solid #8f721e;
-            font-family: "EB Garamond", serif;
+
+            border:
+                1px solid #8f721e;
+
+            font-family:
+                "EB Garamond",
+                serif;
+
             font-size: 15px;
         }
 
+
         .parasha-search::placeholder {
+
             color: #d8c99f;
         }
 
+
         .parasha-list {
+
             list-style: none;
+
             margin: 0;
-            padding: 5px 12px 15px;
+
+            padding:
+                5px 12px 15px;
+
             max-height: 550px;
+
             overflow-y: auto;
         }
 
+
         .parasha-list li {
+
             margin: 0;
         }
 
+
         .parasha-list a {
+
             display: block;
+
             padding: 7px 8px;
+
             color: #f7e7bd;
+
             font-size: 16px;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.06);
+
             transition: 0.2s ease;
         }
 
+
         .parasha-list a:hover,
         .parasha-list a.selected {
+
             color: var(--jw-light-gold);
-            background: rgba(0,0,0,0.20);
+
+            background:
+                rgba(0,0,0,0.20);
+
             padding-left: 13px;
         }
 
+
         .parasha-list a::before {
+
             content: "◈";
+
             margin-right: 8px;
+
             color: var(--jw-light-gold);
+
             font-size: 10px;
         }
 
+
         .view-all {
+
             display: block;
-            margin: 4px 14px 16px;
+
+            margin:
+                4px 14px 16px;
+
             padding: 11px;
+
             text-align: center;
+
             color: var(--jw-light-gold);
-            border: 1px solid #a68122;
-            font-family: "Cinzel", Georgia, serif;
+
+            border:
+                1px solid #a68122;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
             font-size: 13px;
         }
 
+
         .view-all:hover {
-            background: rgba(255,255,255,0.08);
+
+            background:
+                rgba(255,255,255,0.08);
         }
+
 
         /* =========================================================
            RELATED RESOURCES
            ========================================================= */
 
         .related-resources {
+
             margin-top: 18px;
+
             background: #f1e3c4;
-            border: 1px solid #cdbb92;
+
+            border:
+                1px solid #cdbb92;
+
             padding: 20px;
         }
 
+
         .related-resources h3 {
+
             margin: 0 0 12px;
-            font-family: "Cinzel", Georgia, serif;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
             color: var(--jw-green);
+
             font-size: 17px;
         }
 
+
         .related-resources a {
+
             display: block;
+
             padding: 8px 0;
+
             color: #4c3c25;
-            border-bottom: 1px solid rgba(90,70,35,0.15);
+
+            border-bottom:
+                1px solid rgba(90,70,35,0.15);
         }
 
+
         .related-resources a:hover {
+
             color: var(--jw-green);
         }
+
 
         /* =========================================================
            FOOTER QUOTE
            ========================================================= */
 
         .parasha-footer-quote {
+
             margin-top: 25px;
+
             background:
+
                 linear-gradient(
                     rgba(0,45,32,0.95),
                     rgba(0,35,25,0.96)
                 );
 
             color: white;
+
             padding: 30px 25px;
+
             text-align: center;
-            border-top: 2px solid var(--jw-gold);
-            border-bottom: 2px solid var(--jw-gold);
+
+            border-top:
+                2px solid var(--jw-gold);
+
+            border-bottom:
+                2px solid var(--jw-gold);
         }
 
+
         .parasha-footer-quote blockquote {
+
             max-width: 850px;
+
             margin: auto;
+
             font-size: 22px;
+
             font-style: italic;
+
             line-height: 1.4;
         }
 
+
         .quote-source {
+
             display: block;
+
             margin-top: 12px;
+
             color: var(--jw-light-gold);
-            font-family: "Cinzel", Georgia, serif;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
             font-size: 14px;
         }
+
+
+        /* =========================================================
+           NO RESOURCE STATE
+           ========================================================= */
+
+        .no-resource {
+
+            padding: 20px;
+
+            background: #f7f0df;
+
+            border:
+                1px solid #dfcfad;
+
+            margin-top: 15px;
+
+            text-align: center;
+
+            color: #6b5a40;
+
+            font-style: italic;
+        }
+
 
         /* =========================================================
            RESPONSIVE
@@ -548,733 +972,1220 @@
         @media (max-width: 1050px) {
 
             .parasha-main-grid {
-                grid-template-columns: 1fr 1fr;
+
+                grid-template-columns:
+                    1fr 1fr;
             }
 
+
             .parasha-sidebar {
+
                 grid-column: 1 / -1;
+
                 order: 3;
             }
 
+
             .parasha-list {
+
                 max-height: 300px;
+
                 columns: 3;
             }
+
         }
+
 
         @media (max-width: 700px) {
 
             .parasha-top-strip {
+
                 font-size: 10px;
+
                 padding: 8px;
             }
 
+
             .parasha-top-strip span {
+
                 margin: 0 4px;
             }
 
+
             .parasha-brand {
+
                 padding: 15px;
+
                 min-height: 90px;
             }
 
+
             .brand-logo {
+
                 width: 190px;
             }
 
+
             .menorah-mark {
+
                 width: 50px;
+
                 height: 50px;
             }
 
+
             .parasha-nav a {
-                padding: 10px 9px;
+
+                padding:
+                    10px 9px;
+
                 font-size: 11px;
             }
 
+
             .parasha-main-grid {
+
                 grid-template-columns: 1fr;
             }
 
+
             .parasha-sidebar {
+
                 grid-column: auto;
             }
 
+
             .parasha-list {
+
                 columns: 1;
+
                 max-height: 400px;
             }
 
-            .hero-title {
+
+            .parasha-hero {
+
+                min-height: 230px;
+
+                padding: 25px 15px;
+            }
+
+
+            .parasha-hero h1 {
+
                 font-size: 45px;
             }
 
+
             .hero-subtitle {
+
                 font-size: 23px;
             }
 
-            .hero-small {
+
+            .hero-small-title {
+
                 font-size: 16px;
+
                 letter-spacing: 4px;
             }
 
+
             .content-card {
+
                 min-height: auto;
             }
+
         }
 
     </style>
+
 </head>
+
 
 <body>
 
-<!-- =========================================================
-     TOP STRIP
-     ========================================================= -->
 
-<div class="parasha-top-strip">
-    PRESERVING THE PAST
-    <span>•</span>
-    STRENGTHENING THE PRESENT
-    <span>•</span>
-    BUILDING THE FUTURE
-</div>
+    <!-- =========================================================
+         TOP STRIP
+         ========================================================= -->
 
+    <div class="parasha-top-strip">
 
-<!-- =========================================================
-     BRAND HEADER
-     ========================================================= -->
+        PRESERVING THE PAST
 
-<header class="parasha-brand">
+        <span>•</span>
 
-    <div class="brand-left">
+        STRENGTHENING THE PRESENT
 
-        <!-- Change this path only if your logo has a different filename -->
-        <img
-            src="../assets/images/logo.png"
-            alt="Jewmaica – The Living Archive of Jewish Jamaica"
-            class="brand-logo"
-        >
+        <span>•</span>
 
-        <!-- Optional Menorah image -->
-        <img 
-            src="../assets/images/menorah.jpg"
-            alt=""
-            class="menorah-mark"
-        >
+        BUILDING THE FUTURE
 
     </div>
 
-</header>
 
 
-<!-- =========================================================
-     NAVIGATION
-     ========================================================= -->
+    <!-- =========================================================
+         BRAND HEADER
+         ========================================================= -->
 
-<nav class="parasha-nav">
+    <header class="parasha-brand">
 
-    <a href="../index.html">HOME</a>
+        <div class="brand-left">
 
-    <a href="torah.html" class="active">TORAH</a>
-
-    <a href="#">LIVING ARCHIVE</a>
-
-    <a href="#">JEWISH JAMAICA</a>
-
-    <a href="#">GENEALOGY</a>
-
-    <a href="#">MEDIA</a>
-
-    <a href="#">CALENDAR</a>
-
-    <a href="#">COMMUNITY</a>
-
-    <a href="#">ABOUT</a>
-
-    <a href="#">CONTACT</a>
-
-</nav>
+            <img
+                src="../assets/images/logo.png"
+                alt="Jewmaica – The Living Archive of Jewish Jamaica"
+                class="brand-logo"
+            >
 
 
-<!-- =========================================================
-     BREADCRUMB
-     ========================================================= -->
-
-<div class="breadcrumb">
-
-    <a href="../index.html">⌂ Home</a>
-
-    <span> › </span>
-
-    <a href="torah.html">Torah</a>
-
-    <span> › </span>
-
-    <span>Parashat HaShavua</span>
-
-    <span> › </span>
-
-    <strong id="breadcrumbParasha">
-        Nitzavim
-    </strong>
-
-</div>
-
-
-<!-- =========================================================
-     MAIN PAGE
-     ========================================================= -->
-
-<main class="parasha-wrapper">
-
-
-    <!-- =====================================================
-         PARASHAH HERO
-         ===================================================== -->
-
-    <section class="parasha-hero">
-
-        <div class="hero-overlay">
-
-            <div class="hero-small-title">
-                PARASHAT
-            </div>
-
-            <h1 id="parashaTitle">
-                NITZAVIM
-            </h1>
-
-            <div class="hero-subtitle" id="parashaSubtitle">
-                Returning to Ways of God
-            </div>
-
-            <div class="ornament">
-                ─── ❖ ───
-            </div>
+            <img
+                src="../assets/images/menorah.jpg"
+                alt=""
+                class="menorah-mark"
+            >
 
         </div>
 
-    </section>
+    </header>
 
 
-    <!-- =====================================================
-         MAIN CONTENT
-         ===================================================== -->
 
-    <div class="parasha-main-grid">
+    <!-- =========================================================
+         NAVIGATION
+         ========================================================= -->
+
+    <nav class="parasha-nav">
+
+        <a href="../index.html">
+            HOME
+        </a>
+
+        <a href="torah.html" class="active">
+            TORAH
+        </a>
+
+        <a href="#">
+            LIVING ARCHIVE
+        </a>
+
+        <a href="#">
+            JEWISH JAMAICA
+        </a>
+
+        <a href="#">
+            GENEALOGY
+        </a>
+
+        <a href="#">
+            MEDIA
+        </a>
+
+        <a href="#">
+            CALENDAR
+        </a>
+
+        <a href="#">
+            COMMUNITY
+        </a>
+
+        <a href="#">
+            ABOUT
+        </a>
+
+        <a href="#">
+            CONTACT
+        </a>
+
+    </nav>
 
 
-        <!-- =================================================
-             WRITTEN COMMENTARY
-             ================================================= -->
 
-        <section class="content-card">
+    <!-- =========================================================
+         BREADCRUMB
+         ========================================================= -->
 
-            <div class="card-heading">
-                1. WRITTEN COMMENTARY
-            </div>
+    <div class="breadcrumb">
 
-            <div class="card-body">
+        <a href="../index.html">
+            ⌂ Home
+        </a>
 
-                <div class="card-icon">
-                    ✒
+        <span> › </span>
+
+        <a href="torah.html">
+            Torah
+        </a>
+
+        <span> › </span>
+
+        <span>
+            Parashat HaShavua
+        </span>
+
+        <span> › </span>
+
+        <strong id="breadcrumbParasha">
+            Parashat HaShavua
+        </strong>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         MAIN PAGE
+         ========================================================= -->
+
+    <main class="parasha-wrapper">
+
+
+        <!-- =====================================================
+             PARASHAH HERO
+
+             IMPORTANT:
+             This is deliberately NOT hard-coded to Nitzavim.
+
+             script.js will populate:
+             - parashaTitle
+             - parashaSubtitle
+             - breadcrumbParasha
+             ===================================================== -->
+
+        <section class="parasha-hero">
+
+            <div class="hero-overlay">
+
+                <div class="hero-small-title">
+                    PARASHAT
                 </div>
 
-                <h2 class="card-title">
-                    Dvrei Torah
-                </h2>
 
-                <p class="card-description" id="commentaryDescription">
-                    Written teachings and reflections on Parashat Nitzavim.
-                </p>
+                <h1 id="parashaTitle">
+                    HASHAVUA
+                </h1>
 
 
-                <div class="resource-box">
+                <div
+                    class="hero-subtitle"
+                    id="parashaSubtitle"
+                >
+                    Explore the Weekly Torah Reading
+                </div>
 
-                    <h3 id="pdfTitle">
-                        Parashat Nitzavim
-                    </h3>
 
-                    <p id="pdfSubtitle">
-                        Returning to Ways of God
+                <div class="ornament">
+                    ─── ❖ ───
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             MAIN CONTENT
+             ===================================================== -->
+
+        <div class="parasha-main-grid">
+
+
+            <!-- =================================================
+                 WRITTEN COMMENTARY
+                 ================================================= -->
+
+            <section class="content-card">
+
+                <div class="card-heading">
+                    1. WRITTEN COMMENTARY
+                </div>
+
+
+                <div class="card-body">
+
+
+                    <div class="card-icon">
+                        ✒
+                    </div>
+
+
+                    <h2 class="card-title">
+                        Dvrei Torah
+                    </h2>
+
+
+                    <p
+                        class="card-description"
+                        id="commentaryDescription"
+                    >
+                        Written teachings and reflections
+                        on the weekly Parashah.
                     </p>
 
-                    <p>
-                        <strong>By Michael Nunes</strong>
-                    </p>
-
-                    <p>
-                        Date: Elul 5784 / September 2024
-                    </p>
 
 
-                    <!--
-                    IMPORTANT:
+                    <!-- =================================================
+                         PDF RESOURCE
 
-                    Replace the href below with the actual location
-                    of your Nitzavim PDF in GitHub.
+                         script.js populates this area according
+                         to the selected Parashah.
+                         ================================================= -->
 
-                    Example:
+                    <div
+                        class="resource-box"
+                        id="pdfResource"
+                    >
 
-                    href="../PDFs/Dvrei%20Torah/Parasha-Nitzavim-Returning-to-Ways-of-God.pdf"
-                    -->
+                        <h3 id="pdfTitle">
+                            Select a Parashah
+                        </h3>
+
+
+                        <p id="pdfSubtitle">
+                            Select a Parashah from the list
+                            to view its Dvrei Torah.
+                        </p>
+
+
+                        <p id="pdfAuthor">
+                            <strong>
+                                By Michael Nunes
+                            </strong>
+                        </p>
+
+
+                        <p id="pdfDate">
+                            Dvrei Torah Archive
+                        </p>
+
+
+                        <a
+                            id="pdfButton"
+                            class="primary-button"
+                            href="#"
+                            target="_blank"
+                            rel="noopener"
+                            style="display:none;"
+                        >
+                            📖 OPEN PDF
+                        </a>
+
+
+                        <div
+                            id="pdfPlaceholder"
+                            class="no-resource"
+                        >
+                            Select a Parashah to view
+                            the available written commentary.
+                        </div>
+
+                    </div>
+
+
 
                     <a
-                        id="pdfButton"
-                        class="primary-button"
-                        href="../PDFs/Dvrei%20Torah/Parasha-Nitzavim-Returning-to-Ways-of-God.pdf"
-                        target="_blank"
-                        rel="noopener"
+                        href="#"
+                        class="secondary-button"
                     >
-                        📖 OPEN NITZAVIM PDF
+                        📜 View All Dvrei Torah
+                    </a>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 TORAH READING VIDEO
+                 ================================================= -->
+
+            <section class="content-card video-card">
+
+
+                <div class="card-heading">
+                    2. TORAH READING (VIDEOS)
+                </div>
+
+
+                <div class="card-body">
+
+
+                    <div class="card-icon">
+                        ▶
+                    </div>
+
+
+                    <h2 class="card-title">
+                        Torah Reading
+                    </h2>
+
+
+                    <p
+                        class="card-description"
+                        id="videoDescription"
+                    >
+                        Recordings of the Torah reading
+                        for the weekly Parashah.
+                    </p>
+
+
+
+                    <!-- =================================================
+                         YOUTUBE VIDEO
+
+                         script.js changes the YouTube iframe
+                         according to the selected Parashah.
+                         ================================================= -->
+
+                    <div
+                        class="video-container"
+                        id="videoContainer"
+                        style="display:none;"
+                    >
+
+                        <iframe
+                            id="youtubeVideo"
+                            src=""
+                            title="Torah Reading"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+
+                    <div
+                        id="videoPlaceholder"
+                        class="video-placeholder"
+                    >
+
+                        Select a Parashah to view
+                        its Torah reading video.
+
+                    </div>
+
+
+
+                    <a
+                        href="#"
+                        class="secondary-button"
+                    >
+                        🎥 View All Torah Reading Videos
+                    </a>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 OTHER PARASHOT
+                 ================================================= -->
+
+            <aside>
+
+
+                <div class="parasha-sidebar">
+
+
+                    <div class="sidebar-heading">
+                        OTHER PARASHOT
+                    </div>
+
+
+                    <input
+                        type="search"
+                        id="parashaSearch"
+                        class="parasha-search"
+                        placeholder="Search Parashot..."
+                        aria-label="Search Parashot"
+                    >
+
+
+                    <ul
+                        class="parasha-list"
+                        id="parashaList"
+                    >
+
+
+                        <!-- =================================================
+                             BERESHIT
+                             ================================================= -->
+
+                        <li>
+                            <a
+                                href="?parasha=bereshit"
+                                data-parasha="bereshit"
+                            >
+                                Bereshit
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=noach"
+                                data-parasha="noach"
+                            >
+                                Noach
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=lech-lecha"
+                                data-parasha="lech-lecha"
+                            >
+                                Lech Lecha
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=vayera"
+                                data-parasha="vayera"
+                            >
+                                Vayera
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=chayei-sara"
+                                data-parasha="chayei-sara"
+                            >
+                                Chayei Sara
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=toldot"
+                                data-parasha="toldot"
+                            >
+                                Toldot
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=vayetze"
+                                data-parasha="vayetze"
+                            >
+                                Vayetze
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=vayishlach"
+                                data-parasha="vayishlach"
+                            >
+                                Vayishlach
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=vayeshev"
+                                data-parasha="vayeshev"
+                            >
+                                Vayeshev
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=miketz"
+                                data-parasha="miketz"
+                            >
+                                Miketz
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=vayigash"
+                                data-parasha="vayigash"
+                            >
+                                Vayigash
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=vayechi"
+                                data-parasha="vayechi"
+                            >
+                                Vayechi
+                            </a>
+                        </li>
+
+
+
+                        <!-- =================================================
+                             SHEMOT
+                             ================================================= -->
+
+                        <li>
+                            <a
+                                href="?parasha=shemot"
+                                data-parasha="shemot"
+                            >
+                                Shemot
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=vaera"
+                                data-parasha="vaera"
+                            >
+                                Vaera
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=bo"
+                                data-parasha="bo"
+                            >
+                                Bo
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=beshalach"
+                                data-parasha="beshalach"
+                            >
+                                Beshalach
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=yitro"
+                                data-parasha="yitro"
+                            >
+                                Yitro
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=mishpatim"
+                                data-parasha="mishpatim"
+                            >
+                                Mishpatim
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=terumah"
+                                data-parasha="terumah"
+                            >
+                                Terumah
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=tetzaveh"
+                                data-parasha="tetzaveh"
+                            >
+                                Tetzaveh
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=ki-tisa"
+                                data-parasha="ki-tisa"
+                            >
+                                Ki Tisa
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=vayakhel"
+                                data-parasha="vayakhel"
+                            >
+                                Vayakhel
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=pekudei"
+                                data-parasha="pekudei"
+                            >
+                                Pekudei
+                            </a>
+                        </li>
+
+
+
+                        <!-- =================================================
+                             VAYIKRA
+                             ================================================= -->
+
+                        <li>
+                            <a
+                                href="?parasha=vayikra"
+                                data-parasha="vayikra"
+                            >
+                                Vayikra
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=tazria"
+                                data-parasha="tazria"
+                            >
+                                Tazria
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=metzora"
+                                data-parasha="metzora"
+                            >
+                                Metzora
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=acharei-mot"
+                                data-parasha="acharei-mot"
+                            >
+                                Acharei Mot
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=kedoshim"
+                                data-parasha="kedoshim"
+                            >
+                                Kedoshim
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=emor"
+                                data-parasha="emor"
+                            >
+                                Emor
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=behar"
+                                data-parasha="behar"
+                            >
+                                Behar
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=bechukotai"
+                                data-parasha="bechukotai"
+                            >
+                                Bechukotai
+                            </a>
+                        </li>
+
+
+
+                        <!-- =================================================
+                             BAMIDBAR
+                             ================================================= -->
+
+                        <li>
+                            <a
+                                href="?parasha=bamidbar"
+                                data-parasha="bamidbar"
+                            >
+                                Bamidbar
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=nasso"
+                                data-parasha="nasso"
+                            >
+                                Nasso
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=behaalotcha"
+                                data-parasha="behaalotcha"
+                            >
+                                Behaalotcha
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=shlach"
+                                data-parasha="shlach"
+                            >
+                                Shlach
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=korach"
+                                data-parasha="korach"
+                            >
+                                Korach
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=chukat"
+                                data-parasha="chukat"
+                            >
+                                Chukat
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=balak"
+                                data-parasha="balak"
+                            >
+                                Balak
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=pinchas"
+                                data-parasha="pinchas"
+                            >
+                                Pinchas
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=matot"
+                                data-parasha="matot"
+                            >
+                                Matot
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=masei"
+                                data-parasha="masei"
+                            >
+                                Masei
+                            </a>
+                        </li>
+
+
+
+                        <!-- =================================================
+                             DEVARIM
+                             ================================================= -->
+
+                        <li>
+                            <a
+                                href="?parasha=devarim"
+                                data-parasha="devarim"
+                            >
+                                Devarim
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a
+                                href="?parasha=vaetchanan"
+                                data-parasha="vaetchanan"
+                            >
+                                Vaetchanan
+                            </a>
+                        </li>
+
+
+                        <!-- =================================================
+                             EIKEV
+                             ================================================= -->
+
+                        <li>
+                            <a
+                                href="?parasha=eikev"
+                                data-parasha="eikev"
+                            >
+                                Eikev
+                            </a>
+                        </li>
+
+
+                        <!-- =================================================
+                             RE'EH
+                             ================================================= -->
+
+                        <li>
+                            <a
+                                href="?parasha=reeh"
+                                data-parasha="reeh"
+                            >
+                                Re'eh
+                            </a>
+                        </li>
+
+
+                        <!-- =================================================
+                             SHOFETIM
+                             ================================================= -->
+
+                        <li>
+                            <a
+                                href="?parasha=shoftim"
+                                data-parasha="shoftim"
+                            >
+                                Shoftim
+                            </a>
+                        </li>
+
+
+                        <!-- =================================================
+                             KI TETZE
+                             ================================================= -->
+
+                        <li>
+                            <a
+                                href="?parasha=ki-tetze"
+                                data-parasha="ki-tetze"
+                            >
+                                Ki Tetze
+                            </a>
+                        </li>
+
+
+                        <!-- =================================================
+                             KI TAVO
+                             ================================================= -->
+
+                        <li>
+                            <a
+                                href="?parasha=ki-tavo"
+                                data-parasha="ki-tavo"
+                            >
+                                Ki Tabo
+                            </a>
+                        </li>
+
+
+                        <!-- =================================================
+                             NITZAVIM
+                             ================================================= -->
+
+                        <li>
+                            <a
+                                href="?parasha=nitzavim"
+                                data-parasha="nitzavim"
+                            >
+                                Nitzavim
+                            </a>
+                        </li>
+
+
+                        <!-- =================================================
+                             VAYEILECH
+                             ================================================= -->
+
+                        <li>
+                            <a
+                                href="?parasha=vayeilech"
+                                data-parasha="vayeilech"
+                            >
+                                Vayeilech
+                            </a>
+                        </li>
+
+
+                        <!-- =================================================
+                             HAAZINU
+                             ================================================= -->
+
+                        <li>
+                            <a
+                                href="?parasha=haazinu"
+                                data-parasha="haazinu"
+                            >
+                                Ha'Azinu
+                            </a>
+                        </li>
+
+
+                        <!-- =================================================
+                             VEZOT HABERAKHAH
+                             ================================================= -->
+
+                        <li>
+                            <a
+                                href="?parasha=vezot-haberakhah"
+                                data-parasha="vezot-haberakhah"
+                            >
+                                Vezot HaBerakhah
+                            </a>
+                        </li>
+
+                    </ul>
+
+
+                    <a
+                        href="torah.html"
+                        class="view-all"
+                    >
+                        VIEW ALL PARASHOT
                     </a>
 
                 </div>
 
 
-                <a
-                    href="#"
-                    class="secondary-button"
-                >
-                    📜 View All Dvrei Torah
-                </a>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             TORAH READING VIDEO
-             ================================================= -->
-
-        <section class="content-card video-card">
-
-            <div class="card-heading">
-                2. TORAH READING (VIDEOS)
-            </div>
-
-            <div class="card-body">
-
-                <div class="card-icon">
-                    ▶
-                </div>
-
-                <h2 class="card-title">
-                    Torah Reading
-                </h2>
-
-                <p class="card-description" id="videoDesctription">
-                    Recordings of the Torah reading for
-                    <span id="videoParashaName">Parashat Nitzavim</span>.
-                </p>
-
 
                 <!-- =================================================
-                     YOUTUBE VIDEO
+                     RELATED RESOURCES
                      ================================================= -->
 
-                <div class="video-container">
+                <div class="related-resources">
 
-                    <!--
-                    NITZAVIM YOUTUBE VIDEO
+                    <h3>
+                        RELATED RESOURCES
+                    </h3>
 
-                    Replace the video ID below when necessary.
 
-                    Example:
-                    https://www.youtube.com/watch?v=XXXXXXXXXXX
+                    <a href="#">
+                        📖 Haftarah
+                    </a>
 
-                    becomes:
 
-                    https://www.youtube.com/embed/XXXXXXXXXXX
-                    -->
+                    <a href="#">
+                        📜 Parashah Summary
+                    </a>
 
-                    <iframe
-                        id="youtubeVideo"
-                        src="https://www.youtube.com/embed/pXjwO0QQ0KI"
-                        title="Torah Reading"
-                        frameborder=0
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
+
+                    <a href="#">
+                        א Hebrew Text
+                    </a>
+
+
+                    <a href="#">
+                        🗂 Historical Articles
+                    </a>
 
                 </div>
 
+            </aside>
 
-                <a
-                    href="#"
-                    class="secondary-button"
-                >
-                    🎥 View All Torah Reading Videos
-                </a>
+        </div>
 
-            </div>
+
+
+        <!-- =====================================================
+             FOOTER QUOTE
+             ===================================================== -->
+
+        <section class="parasha-footer-quote">
+
+            <blockquote>
+
+                “For this commandment that I command you today
+                is not hidden from you... it is very near to you,
+                in your mouth and in your heart, to do it.”
+
+            </blockquote>
+
+
+            <span class="quote-source">
+
+                — Devarim (Deuteronomy) 30:11–14
+
+            </span>
 
         </section>
 
 
+    </main>
 
-        <!-- =================================================
-             OTHER PARASHOT
-             ================================================= -->
 
-        <aside>
 
-            <div class="parasha-sidebar">
+    <!-- =========================================================
+         JAVASCRIPT
+         
+         IMPORTANT:
+         There is ONLY ONE script.js reference.
 
-                <div class="sidebar-heading">
-                    OTHER PARASHOT
-                </div>
+         All Parashah data and dynamic page changes
+         belong in ../script.js.
+         ========================================================= -->
 
+    <script src="../script.js"></script>
 
-                <input
-                    type="search"
-                    id="parashaSearch"
-                    class="parasha-search"
-                    placeholder="Search Parashot..."
-                    aria-label="Search Parashot"
-                >
-
-
-                <ul
-                    class="parasha-list"
-                    id="parashaList"
-                >
-
-                    <!-- 1 -->
-                    <li><a href="?parasha=bereshit" data-parasha="bereshit">Bereshit</a></li>
-
-                    <!-- 2 -->
-                    <li><a href="?parasha=noach" data-parasha="noach">Noach</a></li>
-
-                    <!-- 3 -->
-                    <li><a href="?parasha=lech-lecha" data-parasha="lech-lecha">Lech Lecha</a></li>
-
-                    <!-- 4 -->
-                    <li><a href="?parasha=vayera" data-parasha="vayera">Vayera</a></li>
-
-                    <!-- 5 -->
-                    <li><a href="?parasha=chayei-sara" data-parasha="chayei-sara">Chayei Sara</a></li>
-
-                    <!-- 6 -->
-                    <li><a href="?parasha=toldot" data-parasha="toldot">Toldot</a></li>
-
-                    <!-- 7 -->
-                    <li><a href="?parasha=vayetze" data-parasha="vayetze">Vayetze</a></li>
-
-                    <!-- 8 -->
-                    <li><a href="?parasha=vayishlach" data-parasha="vayishlach">Vayishlach</a></li>
-
-                    <!-- 9 -->
-                    <li><a href="?parasha=vayeshev" data-parasha="vayeshev">Vayeshev</a></li>
-
-                    <!-- 10 -->
-                    <li><a href="?parasha=miketz" data-parasha="miketz">Miketz</a></li>
-
-                    <!-- 11 -->
-                    <li><a href="?parasha=vayigash" data-parasha="vayigash">Vayigash</a></li>
-
-                    <!-- 12 -->
-                    <li><a href="?parasha=vayechi" data-parasha="vayechi">Vayechi</a></li>
-
-                    <!-- 13 -->
-                    <li><a href="?parasha=shemot" data-parasha="shemot">Shemot</a></li>
-
-                    <!-- 14 -->
-                    <li><a href="?parasha=vaera" data-parasha="vaera">Vaera</a></li>
-
-                    <!-- 15 -->
-                    <li><a href="?parasha=bo" data-parasha="bo">Bo</a></li>
-
-                    <!-- 16 -->
-                    <li><a href="?parasha=beshalach" data-parasha="beshalach">Beshalach</a></li>
-
-                    <!-- 17 -->
-                    <li><a href="?parasha=yitro" data-parasha="yitro">Yitro</a></li>
-
-                    <!-- 18 -->
-                    <li><a href="?parasha=mishpatim" data-parasha="mishpatim">Mishpatim</a></li>
-
-                    <!-- 19 -->
-                    <li><a href="?parasha=terumah" data-parasha="terumah">Terumah</a></li>
-
-                    <!-- 20 -->
-                    <li><a href="?parasha=tetzaveh" data-parasha="tetzaveh">Tetzaveh</a></li>
-
-                    <!-- 21 -->
-                    <li><a href="?parasha=ki-tisa" data-parasha="ki-tisa">Ki Tisa</a></li>
-
-                    <!-- 22 -->
-                    <li><a href="?parasha=vayakhel" data-parasha="vayakhel">Vayakhel</a></li>
-
-                    <!-- 23 -->
-                    <li><a href="?parasha=pekudei" data-parasha="pekudei">Pekudei</a></li>
-
-                    <!-- 24 -->
-                    <li><a href="?parasha=vayikra" data-parasha="vayikra">Vayikra</a></li>
-
-                    <!-- 25 -->
-                    <li><a href="?parasha=tzav" data-parasha="tzav">Tzav</a></li>
-
-                    <!-- 26 -->
-                    <li><a href="?parasha=shmini" data-parasha="shmini">Shmini</a></li>
-
-                    <!-- 27 -->
-                    <li><a href="?parasha=tazria" data-parasha="tazria">Tazria</a></li>
-
-                    <!-- 28 -->
-                    <li><a href="?parasha=metzora" data-parasha="metzora">Metzora</a></li>
-
-                    <!-- 29 -->
-                    <li><a href="?parasha=acharei-mot" data-parasha="acharei-mot">Acharei Mot</a></li>
-
-                    <!-- 30 -->
-                    <li><a href="?parasha=kedoshim" data-parasha="kedoshim">Kedoshim</a></li>
-
-                    <!-- 31 -->
-                    <li><a href="?parasha=emor" data-parasha="emor">Emor</a></li>
-
-                    <!-- 32 -->
-                    <li><a href="?parasha=behar" data-parasha="behar">Behar</a></li>
-
-                    <!-- 33 -->
-                    <li><a href="?parasha=bechukotai" data-parasha="bechukotai">Bechukotai</a></li>
-
-                    <!-- 34 -->
-                    <li><a href="?parasha=bamidbar" data-parasha="bamidbar">Bamidbar</a></li>
-
-                    <!-- 35 -->
-                    <li><a href="?parasha=nasso" data-parasha="nasso">Nasso</a></li>
-
-                    <!-- 36 -->
-                    <li><a href="?parasha=behaalotcha" data-parasha="behaalotcha">Behaalotcha</a></li>
-
-                    <!-- 37 -->
-                    <li><a href="?parasha=shlach" data-parasha="shlach">Shlach</a></li>
-
-                    <!-- 38 -->
-                    <li><a href="?parasha=korach" data-parasha="korach">Korach</a></li>
-
-                    <!-- 39 -->
-                    <li><a href="?parasha=chukat" data-parasha="chukat">Chukat</a></li>
-
-                    <!-- 40 -->
-                    <li><a href="?parasha=balak" data-parasha="balak">Balak</a></li>
-
-                    <!-- 41 -->
-                    <li><a href="?parasha=pinchas" data-parasha="pinchas">Pinchas</a></li>
-
-                    <!-- 42 -->
-                    <li><a href="?parasha=matot" data-parasha="matot">Matot</a></li>
-
-                    <!-- 43 -->
-                    <li><a href="?parasha=masei" data-parasha="masei">Masei</a></li>
-
-                    <!-- 44 -->
-                    <li><a href="../PDFs/Dvrei%20Torah/Parasha%20Devarim%20–%20Let’s%20Make%20Justice%20Blind.pdf">Devarim</a></li>
-
-                    <!-- 45 -->
-                    <li><a href="../PDFs/Dvrei%20Torah/Parasha%20VaEtchanan-Teshuva%20and%20Redemption.pdf">Vaetchanan</a></li>
-
-                    <!-- 46 -->
-                    <li><a href="../PDFs/Dvrei%20Torah/Parasha%20Eikev%20–%20Remaining%20Humble%20Amidst%20Assured%20Blessings.pdf">Ekev</a></li>
-
-                    <!-- 47 -->
-                    <li><a href="?parasha=reeh" data-parasha="reeh">Re'eh</a></li>
-
-                    <!-- 48 -->
-                    <li><a href="?parasha=shofetim" data-parasha="shofetim">Shoftim</a></li>
-
-                    <!-- 49 -->
-                    <li><a href="?parasha=ki-teitzei" data-parasha="ki-teitzei">Ki Teitzei</a></li>
-
-                    <!-- 50 -->
-                    <li><a href="../PDFs/Dvrei%20Torah/Parashat%20Ki%20Tavo%20–%20the%20Continued%20Hope%20in%20Redemption.pdf>Ki Tavo</a></li>
-
-                    <!-- 51 -->
-                    <li><a href="../PDFs/Dvrei%20Torah/Parasha-Nitzavim-Returning-to-Ways-of-God.pdf">Nitzavim</a></li>
-
-                    <!-- 52 -->
-                    <li><a href="../PDFs/Dvrei%20Torah/Parasha%20Vayeilech%20–%20Shuvah%20Yisrael-Return%20Israel.pdf">Vayelech</a></li>
-
-                    <!-- 53 -->
-                    <li><a href="../PDFs/Dvrei%20Torah/Parasha%20HaAzinu%20–%20Our%20Redemption%20foretold.pdf">Haazinu</a></li>
-
-                    <!-- 54 -->
-                    <li><a href="../PDFs/Dvrei%20Torah/Parasha%20Vezot%20Haberakhah%20–%20Succession%20planning.pdf">V'Zot HaBerachah</a></li>
-
-                </ul>
-
-
-                <a href="torah.html" class="view-all">
-                    VIEW ALL PARASHOT
-                </a>
-
-            </div>
-
-
-            <!-- =================================================
-                 RELATED RESOURCES
-                 ================================================= -->
-
-            <div class="related-resources">
-
-                <h3>
-                    RELATED RESOURCES
-                </h3>
-
-                <a href="#">
-                    📖 Haftarah
-                </a>
-
-                <a href="#">
-                    📜 Parashah Summary
-                </a>
-
-                <a href="#">
-                    א Hebrew Text
-                </a>
-
-                <a href="#">
-                    🗂 Historical Articles
-                </a>
-
-            </div>
-
-        </aside>
-
-    </div>
-
-
-    <!-- =====================================================
-         FOOTER QUOTE
-         ===================================================== -->
-
-    <section class="parasha-footer-quote">
-
-        <blockquote>
-            “For this commandment that I command you today
-            is not hidden from you... it is very near to you,
-            in your mouth and in your heart, to do it.”
-        </blockquote>
-
-        <span class="quote-source">
-            — Devarim (Deuteronomy) 30:11–14
-        </span>
-
-    </section>
-
-</main>
-
-
-<!-- =========================================================
-     JAVASCRIPT
-     ========================================================= -->
-
-<script src="../script.js"></script>
 
 </body>
-</html>     
 
-    
-    /* =========================================================
-       PARASHAH SEARCH
-       ========================================================= */
-
-    const searchInput = document.getElementById("parashaSearch");
-    const parashaLinks = document.querySelectorAll(
-        "#parashaList a"
-    );
-
-    searchInput.addEventListener("input", function () {
-
-        const searchTerm =
-            this.value.toLowerCase().trim();
-
-        parashaLinks.forEach(function (link) {
-
-            const name =
-                link.textContent.toLowerCase();
-
-            const item =
-                link.closest("li");
-
-            if (name.includes(searchTerm)) {
-                item.style.display = "";
-            } else {
-                item.style.display = "none";
-            }
-
-        });
-
-    });
-
-
-    /* =========================================================
-       CURRENT PARASHAH
-       ========================================================= */
-
-    const urlParams =
-        new URLSearchParams(window.location.search);
-
-    const selectedParasha =
-        urlParams.get("parasha");
-
-
-    if (selectedParasha) {
-
-        parashaLinks.forEach(function (link) {
-
-            if (
-                link.dataset.parasha ===
-                selectedParasha
-            ) {
-
-                link.classList.add("selected");
-
-            }
-
-        });
-
-    } else {
-
-        const nitzavim =
-            document.querySelector(
-                '[data-parasha="nitzavim"]'
-            );
-
-        if (nitzavim) {
-            nitzavim.classList.add("selected");
-        }
-
-    }
-
-
-    /* =========================================================
-       FUTURE PARASHAH DATA SYSTEM
-       =========================================================
-
-       This is deliberately prepared for the next stage.
-
-       Each Parashah can eventually have:
-
-       - title
-       - subtitle
-       - PDF
-       - YouTube video
-       - author
-       - date
-       - description
-
-       We can therefore populate all 54 Parashiot
-       without changing the visual template.
-       ========================================================= */
-
-</script>
-
-<script src="../script.js"></script>
-
-</body>
 </html>
