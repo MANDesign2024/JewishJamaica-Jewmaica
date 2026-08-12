@@ -551,7 +551,7 @@ const parashot = {
     "devarim": {
         title: "DEVARIM",
         subtitle: "Let's Make Justice Blind",
-        pdf: "../PDFs/Dvrei Torah/Parasha-Devarim-Lets-Make-Justice-Blind.pdf",
+        pdf: "../PDFs/Dvrei Torah/Parasha Devarim – Let’s Make Justice Blind.pdf",
         video: "LJnMRYc8rhc"
     },
 
@@ -563,7 +563,7 @@ const parashot = {
     "vaetchanan": {
         title: "VAETCHANAN",
         subtitle: "Teshuva and Redemption",
-        pdf: "../PDFs/Dvrei Torah/Parasha-VaEtchanan-Teshuva-and-Redemption.pdf",
+        pdf: "../PDFs/Dvrei Torah/Parasha VaEtchanan-Teshuva and Redemption.pdf",
         video: "VsQl2eEwQdY"
     },
 
@@ -575,7 +575,7 @@ const parashot = {
     "eikev": {
         title: "EIKEV",
         subtitle: "Remaining Humble Amidst Assured Blessings",
-        pdf: "../PDFs/Dvrei Torah/Parasha-Eikev-Remaining-Humble-Amidst-Assured-Blessings.pdf",
+        pdf: "../PDFs/Dvrei Torah/Parasha Eikev – Remaining Humble Amidst Assured Blessings.pdf",
         video: "G0SV5wJNXK8"
     },
 
@@ -609,7 +609,7 @@ const parashot = {
     *======================================================*/
 
     "ki-tetze": {
-        title: "KI TETZE",
+        title: "KI-TETZE",
         subtitle: "",
         pdf: "",
         video: "U0l-wBKzNZ4"
@@ -621,9 +621,9 @@ const parashot = {
     *======================================================*/
 
     "ki-tavo": {
-        title: "TABO",
+        title: "KI-TAVO",
         subtitle: "The Continued Hope in Redemption",
-        pdf: "../PDFs/Dvrei Torah/Parashat-Ki-Tavo-The-Continued-Hope-in-Redemption.pdf",
+        pdf: "../PDFs/Dvrei Torah/Parashat Ki Tavo – the Continued Hope in Redemption.pdf",
         video: "0BG3AC5iqrk"
     },
 
@@ -647,7 +647,7 @@ const parashot = {
     "vayeilech": {
         title: "VA YEILECH",
         subtitle: "Shuvah Yisrael-Return Israel",
-        pdf: "../PDFs/Dvrei Torah/Parasha-Vayeilech-Shuvah-Yisrael-Return-Israel.pdf",
+        pdf: "../PDFs/Dvrei Torah/Parasha Vayeilech – Shuvah Yisrael-Return Israel.pdf",
         video: "pXjwO0QQ0KI"
     },
 
@@ -659,7 +659,7 @@ const parashot = {
     "haazinu": {
         title: "HAAZINU",
         subtitle: "Our Redemption foretold",
-        pdf: "../PDFs/Dvrei Torah/Parasha-HaAzinu-Our-Redemption-Foretold.pdf",
+        pdf: "../PDFs/Dvrei Torah/Parasha HaAzinu – Our Redemption foretold.pdf",
         video: "tSrzyo519GU"
     },
 
@@ -671,7 +671,7 @@ const parashot = {
     "vezot-haberakhah": {
         title: "VEZOT HABERAKHAH",
         subtitle: "Sucession Planning",
-        pdf: "../PDFs/Dvrei Torah/Parasha-Vezot-Haberakhah-Succession-Planning.pdf",
+        pdf: "../PDFs/Dvrei Torah/Parasha Vezot Haberakhah – Succession planning.pdf",
         video: ""
     }
 
