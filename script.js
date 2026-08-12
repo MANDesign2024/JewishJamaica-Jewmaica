@@ -26,7 +26,7 @@ const parashot = {
     "vaetchanan": {
         title: "VAETCHANAN",
         subtitle: "Teshuva and Redemption",
-        pdf: "../PDFs/Dvrei Torah/Parasha Va'Etchanan-Teshuva and Redemption.pdf",
+        pdf: "../PDFs/Dvrei Torah/Parasha VaEtchanan-Teshuva and Redemption.pdf",
         video: "VsQl2eEwQdY"
     },
 
@@ -40,25 +40,25 @@ const parashot = {
       "reeh": {
         title: "REEH",
         subtitle: " ",
-        pdf: "../PDFs/Dvrei Torah/",
+        pdf: "",
         video: "30Rsmkp0Kik"
     },
 
-      "shoftim ": {
+      "shoftim": {
         title: "SHOFTIM",
         subtitle: " ",
-        pdf: "../PDFs/Dvrei Torah/",
+        pdf: "",
         video: "gWIhrijkukc"
     },
 
-      "ki Tetze": {
+      "ki-Tetze": {
         title: "KI TETZE",
         subtitle: " ",
-        pdf: "../PDFs/Dvrei Torah/",
+        pdf: "",
         video: "U0l-wBKzNZ4"
     },
 
-      "ki tavo": {
+      "ki-tavo": {
         title: "KI TAVO",
         subtitle: "The Continued Hope in Redemption",
         pdf: "../PDFs/Dvrei Torah/Parashat Ki Tavo – the Continued Hope in Redemption.pdf",
@@ -75,7 +75,7 @@ const parashot = {
 
     "vayeilech": {
         title: "Va YEILECH",
-        subtitle: "Shuvah Yisrael-Return Israel",
+        subtitle: "Shuvah Yisrael - Return Israel",
         pdf: "../PDFs/Dvrei Torah/Parasha Vayeilech – Shuvah Yisrael-Return Israel.pdf",
         video: "pXjwO0QQ0KI"
    
@@ -83,16 +83,16 @@ const parashot = {
 
     "haazinu": {
         title: "HAAZINU",
-        subtitle: "Our Redemption foretold",
+        subtitle: "Our Redemption Foretold",
         pdf: "../PDFs/Dvrei Torah/Parasha HaAzinu – Our Redemption foretold.pdf",
         video: "tSrzyo519GU"
     
      },
 
-    "vezot haberakhah": {
+    "vezot-haberakhah": {
         title: "VEZOT HABERAKHAH",
         subtitle: "Sucession Planning",
-        pdf: "../PDFs/Dvrei Torah/Parasha Vezot Haberakhah - Sucession Planning.pdf",
+        pdf: "../PDFs/Dvrei Torah/Parasha Vezot-Haberakhah - Sucession Planning.pdf",
         video: " "
     }
         
