@@ -777,10 +777,7 @@ function initialiseParashahPage() {
 
     }
 
-    console.log("Selected Parasha:", selectedParasha);
-    console.log("Loaded Data:", data);
-    console.log("Video ID:", data.video);
-
+    
     /*------------------------------------------------------*
     * UPDATE HERO
     *------------------------------------------------------*/
