@@ -706,8 +706,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /*==========================================================*
-* PARASHAH PAGE
-*==========================================================*/
+ * PARASHAH PAGE
+ *==========================================================*/
 
 function initialiseParashahPage() {
 
@@ -732,16 +732,20 @@ function initialiseParashahPage() {
     const pdfButton =
         document.getElementById("pdfButton");
 
+    const pdfPlaceholder =
+        document.getElementById("pdfPlaceholder");
+
+    const videoContainer =
+        document.getElementById("videoContainer");
+
     const youtubeVideo =
         document.getElementById("youtubeVideo");
 
-    const videoParashaName =
-        document.getElementById("videoParashaName");
+    const videoPlaceholder =
+        document.getElementById("videoPlaceholder");
 
-
-    /*------------------------------------------------------*
-    * STOP IF THIS IS NOT THE PARASHA PAGE
-    *------------------------------------------------------*/
+    const videoDescription =
+        document.getElementById("videoDescription");
 
     if (!parashaTitle) {
         return;
@@ -749,8 +753,8 @@ function initialiseParashahPage() {
 
 
     /*------------------------------------------------------*
-    * GET PARASHAH FROM URL
-    *------------------------------------------------------*/
+     * GET PARASHAH FROM URL
+     *------------------------------------------------------*/
 
     const urlParams =
         new URLSearchParams(window.location.search);
@@ -760,17 +764,28 @@ function initialiseParashahPage() {
 
 
     /*------------------------------------------------------*
-    * SELECT DATA
-    *
-    * No URL parameter = GENERAL PAGE
-    *------------------------------------------------------*/
+     * DETERMINE PAGE DATA
+     *
+     * NO PARASHAH = GENERAL PAGE
+     *
+     * INVALID PARASHAH = GENERAL PAGE
+     *
+     * NITZAVIM IS NEVER USED AS DEFAULT.
+     *------------------------------------------------------*/
 
     let data;
+    let activeParasha = null;
 
     if (
         selectedParasha &&
-        parashot[selectedParasha]
+        Object.prototype.hasOwnProperty.call(
+            parashot,
+            selectedParasha
+        )
     ) {
+
+        activeParasha =
+            selectedParasha;
 
         data =
             parashot[selectedParasha];
@@ -784,31 +799,26 @@ function initialiseParashahPage() {
 
 
     /*------------------------------------------------------*
-    * UPDATE HERO TITLE
-    *------------------------------------------------------*/
+     * UPDATE HERO
+     *------------------------------------------------------*/
 
     parashaTitle.textContent =
         data.title;
-
-
-    /*------------------------------------------------------*
-    * UPDATE HERO SUBTITLE
-    *------------------------------------------------------*/
 
     parashaSubtitle.textContent =
         data.subtitle;
 
 
     /*------------------------------------------------------*
-    * UPDATE BREADCRUMB
-    *------------------------------------------------------*/
+     * UPDATE BREADCRUMB
+     *------------------------------------------------------*/
 
     if (breadcrumbParasha) {
 
-        if (selectedParasha) {
+        if (activeParasha) {
 
             breadcrumbParasha.textContent =
-                formatParashaName(selectedParasha);
+                formatParashaName(activeParasha);
 
         } else {
 
@@ -821,16 +831,16 @@ function initialiseParashahPage() {
 
 
     /*------------------------------------------------------*
-    * UPDATE COMMENTARY DESCRIPTION
-    *------------------------------------------------------*/
+     * UPDATE COMMENTARY DESCRIPTION
+     *------------------------------------------------------*/
 
     if (commentaryDescription) {
 
-        if (selectedParasha) {
+        if (activeParasha) {
 
             commentaryDescription.textContent =
                 "Written teachings and reflections on Parashat " +
-                formatParashaName(selectedParasha) +
+                formatParashaName(activeParasha) +
                 ".";
 
         } else {
@@ -843,50 +853,33 @@ function initialiseParashahPage() {
     }
 
 
-    /*======================================================*
-    * PDF / WRITTEN COMMENTARY
-    *======================================================*/
+    /*------------------------------------------------------*
+     * PDF RESOURCE
+     *------------------------------------------------------*/
 
     if (data.pdf) {
-
-        /*----------------------------------------------*
-        * PDF TITLE
-        *----------------------------------------------*/
 
         if (pdfTitle) {
 
             pdfTitle.textContent =
                 "Parashat " +
-                formatParashaName(selectedParasha);
+                formatParashaName(activeParasha);
 
         }
 
-
-        /*----------------------------------------------*
-        * PDF SUBTITLE
-        *----------------------------------------------*/
 
         if (pdfSubtitle) {
 
             pdfSubtitle.textContent =
                 data.subtitle;
+
         }
 
-
-        /*----------------------------------------------*
-        * PDF BUTTON
-        *----------------------------------------------*/
 
         if (pdfButton) {
 
             pdfButton.href =
-                data.pdf;
-
-            pdfButton.target =
-                "_blank";
-
-            pdfButton.rel =
-                "noopener";
+                encodeURI(data.pdf);
 
             pdfButton.textContent =
                 "📖 OPEN " +
@@ -898,15 +891,19 @@ function initialiseParashahPage() {
 
         }
 
-    } else {
 
-        /*----------------------------------------------*
-        * NO PDF
-        *----------------------------------------------*/
+        if (pdfPlaceholder) {
+
+            pdfPlaceholder.style.display =
+                "none";
+
+        }
+
+    } else {
 
         if (pdfTitle) {
 
-            if (selectedParasha) {
+            if (activeParasha) {
 
                 pdfTitle.textContent =
                     "Written Commentary";
@@ -923,7 +920,7 @@ function initialiseParashahPage() {
 
         if (pdfSubtitle) {
 
-            if (selectedParasha) {
+            if (activeParasha) {
 
                 pdfSubtitle.textContent =
                     "Written commentary will be added to the archive.";
@@ -947,141 +944,123 @@ function initialiseParashahPage() {
 
         }
 
-    }
 
+        if (pdfPlaceholder) {
 
-    /*======================================================*
-    * YOUTUBE VIDEO
-    *======================================================*/
-
-    if (youtubeVideo) {
-
-        if (data.video) {
-
-            /*------------------------------------------*
-            * BUILD YOUTUBE EMBED URL
-            *
-            * autoplay=1
-            * mute=1
-            * playsinline=1
-            *
-            * Muted autoplay is used because modern
-            * browsers normally block autoplay with sound.
-            * The visitor can turn the sound on in YouTube.
-            *------------------------------------------*/
-
-            const youtubeURL =
-                "https://www.youtube.com/embed/" +
-                data.video +
-                "?autoplay=1&mute=1&rel=0&playsinline=1";
-
-
-            /*------------------------------------------*
-            * SET VIDEO
-            *------------------------------------------*/
-
-            youtubeVideo.src =
-                youtubeURL;
-
-
-            youtubeVideo.title =
-                "Torah Reading - " +
-                data.title;
-
-
-            youtubeVideo.setAttribute(
-                "allow",
-                "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            );
-
-
-            youtubeVideo.setAttribute(
-                "allowfullscreen",
-                ""
-            );
-
-
-            youtubeVideo.style.display =
+            pdfPlaceholder.style.display =
                 "block";
 
+        }
 
-            /*------------------------------------------*
-            * REMOVE ANY PLACEHOLDER
-            *------------------------------------------*/
-
-            const videoPlaceholder =
-                document.getElementById(
-                    "videoPlaceholder"
-                );
+    }
 
 
-            if (videoPlaceholder) {
+    /*------------------------------------------------------*
+     * YOUTUBE VIDEO
+     *
+     * IMPORTANT:
+     *
+     * The iframe is INSIDE #videoContainer.
+     *
+     * Therefore we must show/hide the container,
+     * not merely the iframe.
+     *------------------------------------------------------*/
 
-                videoPlaceholder.style.display =
-                    "none";
+    if (
+        data.video &&
+        videoContainer &&
+        youtubeVideo
+    ) {
 
-            }
+        const youtubeURL =
+            "https://www.youtube.com/embed/" +
+            encodeURIComponent(data.video);
 
-        } else {
+        youtubeVideo.src =
+            youtubeURL;
 
-            /*------------------------------------------*
-            * NO VIDEO AVAILABLE
-            *------------------------------------------*/
+        youtubeVideo.title =
+            "Torah Reading - " +
+            data.title;
 
-            youtubeVideo.src =
-                "about:blank";
+        /* Show the actual video container */
+        videoContainer.style.display =
+            "block";
 
+        /* Hide the placeholder */
+        if (videoPlaceholder) {
 
-            youtubeVideo.style.display =
+            videoPlaceholder.style.display =
                 "none";
 
+        }
 
-            const videoPlaceholder =
-                document.getElementById(
-                    "videoPlaceholder"
-                );
+    } else {
+
+        /* Remove old video */
+        if (youtubeVideo) {
+
+            youtubeVideo.removeAttribute("src");
+
+            youtubeVideo.title =
+                "Torah Reading";
+
+        }
 
 
-            if (videoPlaceholder) {
+        /* Hide video container */
+        if (videoContainer) {
 
-                videoPlaceholder.textContent =
-                    "No Torah reading video is currently available for this Parashah.";
+            videoContainer.style.display =
+                "none";
 
-                videoPlaceholder.style.display =
-                    "flex";
+        }
 
-            }
+
+        /* Show placeholder */
+        if (videoPlaceholder) {
+
+            videoPlaceholder.style.display =
+                "flex";
 
         }
 
     }
 
 
-    /*======================================================*
-    * VIDEO DESCRIPTION
-    *======================================================*/
+    /*------------------------------------------------------*
+     * VIDEO DESCRIPTION
+     *------------------------------------------------------*/
 
-    if (videoParashaName) {
+    if (videoDescription) {
 
-        if (selectedParasha) {
+        if (activeParasha && data.video) {
 
-            videoParashaName.textContent =
-                "Parashat " +
-                formatParashaName(selectedParasha);
+            videoDescription.textContent =
+                "Torah reading video for Parashat " +
+                formatParashaName(activeParasha) +
+                ".";
+
+        } else if (activeParasha) {
+
+            videoDescription.textContent =
+                "A Torah reading video for Parashat " +
+                formatParashaName(activeParasha) +
+                " will be added to the archive.";
 
         } else {
 
-            videoParashaName.textContent =
-                "the Weekly Parashah";
+            videoDescription.textContent =
+                "Recordings of the Torah reading for the weekly Parashah.";
 
         }
 
     }
 
 
-    /*======================================================*
-    * SELECTED SIDEBAR ITEM
-    *======================================================*/
+    /*------------------------------------------------------*
+     * SELECTED SIDEBAR ITEM
+     *------------------------------------------------------*/
 
     const parashaLinks =
         document.querySelectorAll(
@@ -1095,9 +1074,9 @@ function initialiseParashahPage() {
 
 
         if (
-            selectedParasha &&
+            activeParasha &&
             link.dataset.parasha ===
-            selectedParasha
+            activeParasha
         ) {
 
             link.classList.add("selected");
@@ -1107,7 +1086,6 @@ function initialiseParashahPage() {
     });
 
 }
-
 
 /*==========================================================*
 * FORMAT PARASHAH NAME
