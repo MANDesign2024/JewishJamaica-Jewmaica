@@ -879,7 +879,7 @@ function initialiseParashahPage() {
         if (pdfButton) {
 
             pdfButton.href =
-                encodeURI(data.pdf);
+                data.pdf;
 
             pdfButton.textContent =
                 "📖 OPEN " +
