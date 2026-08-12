@@ -11,6 +11,115 @@
 
 
 /*==========================================================*
+*PARASHAH PAGE*
+*==========================================================*/
+
+function initialiseParasha() {
+
+    const params =
+        new URLSearchParams(window.location.search);
+
+    const selected =
+        params.get("parasha") || "nitzavim";
+
+    const parasha =
+        parashot[selected];
+
+    if (!parasha) return;
+
+    const title =
+        document.getElementById("parashaTitle");
+
+    const subtitle =
+        document.getElementById("parashaSubtitle");
+
+    const breadcrumb =
+        document.getElementById("breadcrumbParasha");
+
+    const description =
+        document.getElementById("commentaryDescription");
+
+    const pdfTitle =
+        document.getElementById("pdfTitle");
+
+    const pdfSubtitle =
+        document.getElementById("pdfSubtitle");
+
+    const pdfButton =
+        document.getElementById("pdfButton");
+
+    const pdfButtonText =
+        document.getElementById("pdfButtonText");
+
+    const video =
+        document.getElementById("youtubeVideo");
+
+    const videoDescription =
+        document.getElementById("videoDescription");
+
+
+    if (title) {
+        title.textContent = parasha.title;
+    }
+
+
+    if (subtitle) {
+        subtitle.textContent = parasha.subtitle;
+    }
+
+
+    if (breadcrumb) {
+        breadcrumb.textContent = parasha.title;
+    }
+
+
+    if (description) {
+        description.textContent =
+            "Written teachings and reflections on Parashat " +
+            parasha.title + ".";
+    }
+
+
+    if (pdfTitle) {
+        pdfTitle.textContent =
+            "Parashat " + parasha.title;
+    }
+
+
+    if (pdfSubtitle) {
+        pdfSubtitle.textContent =
+            parasha.subtitle;
+    }
+
+
+    if (pdfButton && parasha.pdf) {
+        pdfButton.href = parasha.pdf;
+        pdfButton.style.display = "";
+    }
+
+
+    if (pdfButtonText && parasha.pdf) {
+        pdfButtonText.textContent =
+            "OPEN " + parasha.title + " PDF";
+    }
+
+
+    if (video && parasha.video) {
+        video.src =
+            "https://www.youtube.com/embed/" +
+            parasha.video;
+    }
+
+
+    if (videoDescription) {
+        videoDescription.textContent =
+            "Recordings of the Torah reading for Parashat " +
+            parasha.title + ".";
+    }
+
+}
+
+/*==========================================================*
 *PARASHAH DATA*
 *==========================================================*/
 
