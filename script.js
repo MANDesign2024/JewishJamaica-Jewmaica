@@ -563,7 +563,7 @@ const parashot = {
     "vaetchanan": {
         title: "VAETCHANAN",
         subtitle: "Teshuva and Redemption",
-        pdf: "../PDFs/Dvrei%20Torah/Parasha-Nitzavim-Returning-to-Ways-of-God.pdf",
+        pdf: "../PDFs/Dvrei%20Torah/Parasha%20Devarim%20–%20Let’s%20Make%20Justice%20Blind.pdf",
         video: "VsQl2eEwQdY"
     },
 
