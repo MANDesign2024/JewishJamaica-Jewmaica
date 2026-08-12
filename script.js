@@ -1185,7 +1185,7 @@ function initialiseParashahLinks() {
 
 
                 window.location.href =
-                    "Dvrei%20Torah.html?parasha=" +
+                    "Dvrei Torah.html?parasha=" +
                     encodeURIComponent(
                         selectedParasha
                     );
