@@ -551,7 +551,7 @@ const parashot = {
     "devarim": {
         title: "DEVARIM",
         subtitle: "Let's Make Justice Blind",
-        pdf: "../PDFs/Dvrei%20Torah/Parasha%20Devarim%20-%20Let's%20Make%20Justice%20Blind.pdf",
+        pdf: "../PDFs/Dvrei Torah/Parasha Devarim - Let's Make Justice Blind.pdf",
         video: "LJnMRYc8rhc"
     },
 
