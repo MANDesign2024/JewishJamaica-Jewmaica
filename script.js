@@ -4,126 +4,20 @@
 
     Version : 0.1.0
     File    : script.js
-
 ==========================================================*/
 
 "use strict";
 
 
 /*==========================================================*
-*PARASHAH PAGE*
-*==========================================================*/
-
-function initialiseParasha() {
-
-    const params =
-        new URLSearchParams(window.location.search);
-
-    const selected =
-        params.get("parasha") || "nitzavim";
-
-    const parasha =
-        parashot[selected];
-
-    if (!parasha) return;
-
-    const title =
-        document.getElementById("parashaTitle");
-
-    const subtitle =
-        document.getElementById("parashaSubtitle");
-
-    const breadcrumb =
-        document.getElementById("breadcrumbParasha");
-
-    const description =
-        document.getElementById("commentaryDescription");
-
-    const pdfTitle =
-        document.getElementById("pdfTitle");
-
-    const pdfSubtitle =
-        document.getElementById("pdfSubtitle");
-
-    const pdfButton =
-        document.getElementById("pdfButton");
-
-    const pdfButtonText =
-        document.getElementById("pdfButtonText");
-
-    const video =
-        document.getElementById("youtubeVideo");
-
-    const videoDescription =
-        document.getElementById("videoDescription");
-
-
-    if (title) {
-        title.textContent = parasha.title;
-    }
-
-
-    if (subtitle) {
-        subtitle.textContent = parasha.subtitle;
-    }
-
-
-    if (breadcrumb) {
-        breadcrumb.textContent = parasha.title;
-    }
-
-
-    if (description) {
-        description.textContent =
-            "Written teachings and reflections on Parashat " +
-            parasha.title + ".";
-    }
-
-
-    if (pdfTitle) {
-        pdfTitle.textContent =
-            "Parashat " + parasha.title;
-    }
-
-
-    if (pdfSubtitle) {
-        pdfSubtitle.textContent =
-            parasha.subtitle;
-    }
-
-
-    if (pdfButton && parasha.pdf) {
-        pdfButton.href = parasha.pdf;
-        pdfButton.style.display = "";
-    }
-
-
-    if (pdfButtonText && parasha.pdf) {
-        pdfButtonText.textContent =
-            "OPEN " + parasha.title + " PDF";
-    }
-
-
-    if (video && parasha.video) {
-        video.src =
-            "https://www.youtube.com/embed/" +
-            parasha.video;
-    }
-
-
-    if (videoDescription) {
-        videoDescription.textContent =
-            "Recordings of the Torah reading for Parashat " +
-            parasha.title + ".";
-    }
-
-}
-
-/*==========================================================*
-* PARASHAH DATA
-*==========================================================*/
+ * PARASHAH DATA
+ *==========================================================*/
 
 const parashot = {
+
+    /*--------------------------------------------------------
+     * BERESHIT
+     *--------------------------------------------------------*/
 
     "bereshit": {
         title: "BERESHIT",
@@ -209,6 +103,11 @@ const parashot = {
         video: ""
     },
 
+
+    /*--------------------------------------------------------
+     * SHEMOT
+     *--------------------------------------------------------*/
+
     "shemot": {
         title: "SHEMOT",
         subtitle: "",
@@ -286,6 +185,11 @@ const parashot = {
         video: ""
     },
 
+
+    /*--------------------------------------------------------
+     * VAYIKRA
+     *--------------------------------------------------------*/
+
     "vayikra": {
         title: "VAYIKRA",
         subtitle: "",
@@ -355,6 +259,11 @@ const parashot = {
         pdf: "",
         video: ""
     },
+
+
+    /*--------------------------------------------------------
+     * BAMIDBAR
+     *--------------------------------------------------------*/
 
     "bamidbar": {
         title: "BAMIDBAR",
@@ -426,9 +335,15 @@ const parashot = {
         video: ""
     },
 
-    /*======================================================*
-    * UPDATED PARASHOT
-    *======================================================*/
+
+    /*========================================================*
+     * UPDATED PARASHOT
+     *========================================================*/
+
+
+    /*--------------------------------------------------------
+     * DEVARIM
+     *--------------------------------------------------------*/
 
     "devarim": {
         title: "DEVARIM",
@@ -437,12 +352,22 @@ const parashot = {
         video: "LJnMRYc8rhc"
     },
 
+
+    /*--------------------------------------------------------
+     * VAETCHANAN
+     *--------------------------------------------------------*/
+
     "vaetchanan": {
         title: "VAETCHANAN",
         subtitle: "Teshuva and Redemption",
         pdf: "../PDFs/Dvrei Torah/Parasha Va'Etchanan-Teshuva and Redemption.pdf",
         video: "VsQl2eEwQdY"
     },
+
+
+    /*--------------------------------------------------------
+     * EIKEV
+     *--------------------------------------------------------*/
 
     "eikev": {
         title: "EIKEV",
@@ -451,6 +376,12 @@ const parashot = {
         video: "G0SV5wJNXK8"
     },
 
+
+    /*--------------------------------------------------------
+     * RE'EH
+     * VIDEO ONLY
+     *--------------------------------------------------------*/
+
     "reeh": {
         title: "REEH",
         subtitle: "",
@@ -458,12 +389,24 @@ const parashot = {
         video: "30Rsmkp0Kik"
     },
 
-    "shoftim": {
-        title: "SHOFTIM",
+
+    /*--------------------------------------------------------
+     * SHOFETIM
+     * VIDEO ONLY
+     *--------------------------------------------------------*/
+
+    "shofetim": {
+        title: "SHOFETIM",
         subtitle: "",
         pdf: "",
         video: "gWIhrijkukc"
     },
+
+
+    /*--------------------------------------------------------
+     * KI TETZE
+     * VIDEO ONLY
+     *--------------------------------------------------------*/
 
     "ki-tetzei": {
         title: "KI TETZE",
@@ -472,12 +415,22 @@ const parashot = {
         video: "U0l-wBKzNZ4"
     },
 
+
+    /*--------------------------------------------------------
+     * KI TAVO
+     *--------------------------------------------------------*/
+
     "ki-tavo": {
         title: "KI TAVO",
         subtitle: "The Continued Hope in Redemption",
         pdf: "../PDFs/Dvrei Torah/Parashat Ki Tavo – the Continued Hope in Redemption.pdf",
         video: "0BG3AC5iqrk"
     },
+
+
+    /*--------------------------------------------------------
+     * NITZAVIM
+     *--------------------------------------------------------*/
 
     "nitzavim": {
         title: "NITZAVIM",
@@ -486,6 +439,11 @@ const parashot = {
         video: "pXjwO0QQ0KI"
     },
 
+
+    /*--------------------------------------------------------
+     * VA'YEILECH
+     *--------------------------------------------------------*/
+
     "vayeilech": {
         title: "VA'YEILECH",
         subtitle: "Shuvah Yisrael (Return Israel)",
@@ -493,12 +451,23 @@ const parashot = {
         video: "pXjwO0QQ0KI"
     },
 
+
+    /*--------------------------------------------------------
+     * HA'AZINU
+     *--------------------------------------------------------*/
+
     "haazinu": {
         title: "HA'AZINU",
         subtitle: "Our Redemption foretold",
         pdf: "../PDFs/Dvrei Torah/Parasha HaAzinu – Our Redemption foretold.pdf",
         video: "tSrzyo519GU"
     },
+
+
+    /*--------------------------------------------------------
+     * VEZOT HABERAKHAH
+     * PDF ONLY
+     *--------------------------------------------------------*/
 
     "vezot-haberakhah": {
         title: "VEZOT HABERAKHAH",
@@ -509,13 +478,342 @@ const parashot = {
 
 };
 
-/*==========================================================
-    PAGE LOADED
-==========================================================*/
+
+/*==========================================================*
+ * PARASHAH PAGE
+ *==========================================================*/
+
+function initialiseParasha() {
+
+    const params =
+        new URLSearchParams(window.location.search);
+
+    /*
+     * If no Parashah is specified in the URL,
+     * Nitzavim remains the default.
+     */
+
+    const selected =
+        params.get("parasha") || "nitzavim";
+
+    const parasha =
+        parashot[selected];
+
+    if (!parasha) return;
+
+
+    /*--------------------------------------------------------
+     * PAGE ELEMENTS
+     *--------------------------------------------------------*/
+
+    const title =
+        document.getElementById("parashaTitle");
+
+    const subtitle =
+        document.getElementById("parashaSubtitle");
+
+    const breadcrumb =
+        document.getElementById("breadcrumbParasha");
+
+    const description =
+        document.getElementById("commentaryDescription");
+
+    const pdfTitle =
+        document.getElementById("pdfTitle");
+
+    const pdfSubtitle =
+        document.getElementById("pdfSubtitle");
+
+    const pdfButton =
+        document.getElementById("pdfButton");
+
+    const video =
+        document.getElementById("youtubeVideo");
+
+    const videoDescription =
+        document.getElementById("videoDescription");
+
+    const videoParashaName =
+        document.getElementById("videoParashaName");
+
+
+    /*
+     * The resource box contains the PDF information.
+     * We can hide the complete box when no PDF exists.
+     */
+
+    const resourceBox =
+        pdfButton
+            ? pdfButton.closest(".resource-box")
+            : null;
+
+
+    /*
+     * The video container is used to hide the
+     * complete video when no YouTube video exists.
+     */
+
+    const videoContainer =
+        video
+            ? video.closest(".video-container")
+            : null;
+
+
+    /*--------------------------------------------------------
+     * HERO TITLE
+     *--------------------------------------------------------*/
+
+    if (title) {
+
+        title.textContent =
+            parasha.title;
+
+    }
+
+
+    /*--------------------------------------------------------
+     * HERO SUBTITLE
+     *--------------------------------------------------------*/
+
+    if (subtitle) {
+
+        subtitle.textContent =
+            parasha.subtitle || "";
+
+    }
+
+
+    /*--------------------------------------------------------
+     * BREADCRUMB
+     *--------------------------------------------------------*/
+
+    if (breadcrumb) {
+
+        breadcrumb.textContent =
+            parasha.title;
+
+    }
+
+
+    /*--------------------------------------------------------
+     * COMMENTARY DESCRIPTION
+     *--------------------------------------------------------*/
+
+    if (description) {
+
+        if (parasha.pdf) {
+
+            description.textContent =
+                "Written teachings and reflections on Parashat " +
+                parasha.title + ".";
+
+        } else {
+
+            description.textContent =
+                "Written commentary for Parashat " +
+                parasha.title +
+                " is not currently available.";
+
+        }
+
+    }
+
+
+    /*--------------------------------------------------------
+     * PDF INFORMATION
+     *--------------------------------------------------------*/
+
+    if (pdfTitle) {
+
+        pdfTitle.textContent =
+            "Parashat " + parasha.title;
+
+    }
+
+
+    if (pdfSubtitle) {
+
+        pdfSubtitle.textContent =
+            parasha.subtitle || "";
+
+    }
+
+
+    /*--------------------------------------------------------
+     * PDF BUTTON
+     *--------------------------------------------------------*/
+
+    if (pdfButton) {
+
+        if (parasha.pdf) {
+
+            pdfButton.href =
+                parasha.pdf;
+
+            pdfButton.style.display =
+                "block";
+
+            pdfButton.textContent =
+                "📖 OPEN " +
+                parasha.title +
+                " PDF";
+
+        } else {
+
+            pdfButton.style.display =
+                "none";
+
+        }
+
+    }
+
+
+    /*--------------------------------------------------------
+     * PDF RESOURCE BOX
+     *--------------------------------------------------------*/
+
+    if (resourceBox) {
+
+        if (parasha.pdf) {
+
+            resourceBox.style.display =
+                "";
+
+        } else {
+
+            resourceBox.style.display =
+                "none";
+
+        }
+
+    }
+
+
+    /*--------------------------------------------------------
+     * YOUTUBE VIDEO
+     *--------------------------------------------------------*/
+
+    if (video) {
+
+        if (parasha.video) {
+
+            video.src =
+                "https://www.youtube.com/embed/" +
+                parasha.video;
+
+            video.style.display =
+                "block";
+
+        } else {
+
+            video.removeAttribute("src");
+
+            video.style.display =
+                "none";
+
+        }
+
+    }
+
+
+    /*--------------------------------------------------------
+     * VIDEO CONTAINER
+     *--------------------------------------------------------*/
+
+    if (videoContainer) {
+
+        if (parasha.video) {
+
+            videoContainer.style.display =
+                "";
+
+        } else {
+
+            videoContainer.style.display =
+                "none";
+
+        }
+
+    }
+
+
+    /*--------------------------------------------------------
+     * VIDEO DESCRIPTION
+     *--------------------------------------------------------*/
+
+    if (videoDescription) {
+
+        if (parasha.video) {
+
+            videoDescription.textContent =
+                "Recordings of the Torah reading for Parashat " +
+                parasha.title + ".";
+
+        } else {
+
+            videoDescription.textContent =
+                "A Torah reading video for Parashat " +
+                parasha.title +
+                " is not currently available.";
+
+        }
+
+    }
+
+
+    /*--------------------------------------------------------
+     * VIDEO PARASHAH NAME
+     *--------------------------------------------------------*/
+
+    if (videoParashaName) {
+
+        videoParashaName.textContent =
+            "Parashat " + parasha.title;
+
+    }
+
+
+    /*--------------------------------------------------------
+     * CURRENT SIDEBAR SELECTION
+     *--------------------------------------------------------*/
+
+    const parashaLinks =
+        document.querySelectorAll(
+            "#parashaList a[data-parasha]"
+        );
+
+    parashaLinks.forEach(link => {
+
+        link.classList.remove("selected");
+
+    });
+
+
+    const selectedLink =
+        document.querySelector(
+            '#parashaList a[data-parasha="' +
+            selected +
+            '"]'
+        );
+
+    if (selectedLink) {
+
+        selectedLink.classList.add("selected");
+
+    }
+
+}
+
+
+/*==========================================================*
+ * PAGE LOADED
+ *==========================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    console.log("Jewmaica Version 0.1 Loaded");
+    console.log(
+        "Jewmaica Version 0.1 Loaded"
+    );
 
     initialiseNavigation();
 
@@ -527,39 +825,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initialiseScrollEffects();
 
-     initialiseParasha();
+    initialiseParasha();
 
 });
 
-/*==========================================================
-    NAVIGATION
-==========================================================*/
+
+/*==========================================================*
+ * NAVIGATION
+ *==========================================================*/
 
 function initialiseNavigation() {
 
-    const links = document.querySelectorAll("nav a");
+    const links =
+        document.querySelectorAll("nav a");
+
 
     links.forEach(link => {
 
-        link.addEventListener("click", function () {
+        link.addEventListener(
+            "click",
+            function () {
 
-            links.forEach(item => {
+                links.forEach(item => {
 
-                item.classList.remove("active");
+                    item.classList.remove(
+                        "active"
+                    );
 
-            });
+                });
 
-            this.classList.add("active");
+                this.classList.add(
+                    "active"
+                );
 
-        });
+            }
+        );
 
     });
 
 }
 
-/*==========================================================
-    PALM IMAGE SLIDER
-==========================================================*/
+
+/*==========================================================*
+ * PALM IMAGE SLIDER
+ *==========================================================*/
 
 const palmImages = [
 
@@ -570,124 +879,345 @@ const palmImages = [
 
 ];
 
+
 let currentSlide = 0;
+
 
 function initialiseHeroSlider() {
 
-    const palmImage = document.querySelector(".palm-image img");
+    const palmImage =
+        document.querySelector(
+            ".palm-image img"
+        );
 
-    const dots = document.querySelectorAll(".slider-dots span");
+    const dots =
+        document.querySelectorAll(
+            ".slider-dots span"
+        );
 
-    if (!palmImage || dots.length === 0) return;
+
+    if (
+        !palmImage ||
+        dots.length === 0
+    ) {
+
+        return;
+
+    }
+
 
     setInterval(() => {
 
         currentSlide++;
 
-        if (currentSlide >= palmImages.length) {
+
+        if (
+            currentSlide >=
+            palmImages.length
+        ) {
 
             currentSlide = 0;
 
         }
 
-        palmImage.src = palmImages[currentSlide];
+
+        palmImage.src =
+            palmImages[currentSlide];
+
 
         dots.forEach(dot => {
 
-            dot.classList.remove("active");
+            dot.classList.remove(
+                "active"
+            );
 
         });
 
-        dots[currentSlide].classList.add("active");
+
+        if (dots[currentSlide]) {
+
+            dots[currentSlide].classList.add(
+                "active"
+            );
+
+        }
 
     }, 6000);
 
 }
 
-/*==========================================================
-    FEATURE CARD ANIMATION
-==========================================================*/
+
+/*==========================================================*
+ * FEATURE CARD ANIMATION
+ *==========================================================*/
 
 function initialiseCards() {
 
-    const cards = document.querySelectorAll(".card");
+    const cards =
+        document.querySelectorAll(
+            ".card"
+        );
+
 
     cards.forEach(card => {
 
-        card.addEventListener("mouseenter", () => {
+        card.addEventListener(
+            "mouseenter",
+            () => {
 
-            card.style.transform = "translateY(-8px)";
-            card.style.transition = ".35s";
+                card.style.transform =
+                    "translateY(-8px)";
 
-        });
+                card.style.transition =
+                    ".35s";
 
-        card.addEventListener("mouseleave", () => {
+            }
+        );
 
-            card.style.transform = "translateY(0px)";
 
-        });
+        card.addEventListener(
+            "mouseleave",
+            () => {
+
+                card.style.transform =
+                    "translateY(0px)";
+
+            }
+        );
 
     });
 
 }
 
-/*==========================================================
-    SEARCH
-==========================================================*/
+
+/*==========================================================*
+ * SEARCH
+ *==========================================================*/
 
 function initialiseSearch() {
 
-    const searchBox = document.querySelector(".top-right input");
+    const searchBox =
+        document.querySelector(
+            ".top-right input"
+        );
 
-    const searchButton = document.querySelector(".top-right button");
+    const searchButton =
+        document.querySelector(
+            ".top-right button"
+        );
 
-    if (!searchBox || !searchButton) return;
 
-    searchButton.addEventListener("click", function (event) {
+    if (
+        !searchBox ||
+        !searchButton
+    ) {
 
-        event.preventDefault();
+        return;
 
-        const term = searchBox.value.trim();
+    }
 
-        if (term === "") {
 
-            alert("Please enter a search term.");
+    searchButton.addEventListener(
+        "click",
+        function (event) {
 
-            return;
+            event.preventDefault();
+
+
+            const term =
+                searchBox.value.trim();
+
+
+            if (term === "") {
+
+                alert(
+                    "Please enter a search term."
+                );
+
+                return;
+
+            }
+
+
+            alert(
+                "Future Archive Search:\n\n" +
+                term
+            );
 
         }
+    );
 
-        alert("Future Archive Search:\n\n" + term);
+}
+
+
+/*==========================================================*
+ * PARASHAH SIDEBAR SEARCH
+ *==========================================================*/
+
+function initialiseParashaSearch() {
+
+    const searchInput =
+        document.getElementById(
+            "parashaSearch"
+        );
+
+    const parashaLinks =
+        document.querySelectorAll(
+            "#parashaList a"
+        );
+
+
+    if (!searchInput) {
+
+        return;
+
+    }
+
+
+    searchInput.addEventListener(
+        "input",
+        function () {
+
+            const searchTerm =
+                this.value
+                    .toLowerCase()
+                    .trim();
+
+
+            parashaLinks.forEach(
+                function (link) {
+
+                    const name =
+                        link.textContent
+                            .toLowerCase();
+
+
+                    const item =
+                        link.closest("li");
+
+
+                    if (!item) {
+
+                        return;
+
+                    }
+
+
+                    if (
+                        name.includes(
+                            searchTerm
+                        )
+                    ) {
+
+                        item.style.display =
+                            "";
+
+                    } else {
+
+                        item.style.display =
+                            "none";
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/*==========================================================*
+ * PARASHAH SIDEBAR LINKS
+ *==========================================================*/
+
+function initialiseParashaLinks() {
+
+    const parashaLinks =
+        document.querySelectorAll(
+            "#parashaList a[data-parasha]"
+        );
+
+
+    parashaLinks.forEach(link => {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                parashaLinks.forEach(item => {
+
+                    item.classList.remove(
+                        "selected"
+                    );
+
+                });
+
+
+                this.classList.add(
+                    "selected"
+                );
+
+            }
+        );
 
     });
 
 }
 
-/*==========================================================
-    SCROLL EFFECTS
-==========================================================*/
+
+/*==========================================================*
+ * SCROLL EFFECTS
+ *==========================================================*/
 
 function initialiseScrollEffects() {
 
-    const cards = document.querySelectorAll(".card");
+    const cards =
+        document.querySelectorAll(
+            ".card"
+        );
 
-    const observer = new IntersectionObserver(entries => {
 
-        entries.forEach(entry => {
+    /*
+     * Some pages may not contain cards.
+     * In that case simply stop here.
+     */
 
-            if (entry.isIntersecting) {
+    if (
+        cards.length === 0 ||
+        !("IntersectionObserver" in window)
+    ) {
 
-                entry.target.classList.add("visible");
+        return;
 
+    }
+
+
+    const observer =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
             }
+        );
 
-        });
-
-    }, {
-
-        threshold: 0.15
-
-    });
 
     cards.forEach(card => {
 
@@ -697,9 +1227,26 @@ function initialiseScrollEffects() {
 
 }
 
-/*==========================================================
-    FUTURE FUNCTIONS
-==========================================================*/
+
+/*==========================================================*
+ * INITIALISE PARASHAH SEARCH AND LINKS
+ *==========================================================*/
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        initialiseParashaSearch();
+
+        initialiseParashaLinks();
+
+    }
+);
+
+
+/*==========================================================*
+ * FUTURE FUNCTIONS
+ *==========================================================*/
 
 /*
 
@@ -710,13 +1257,9 @@ Future Development Roadmap
 Version 0.2
 
 ✓ Dropdown menus
-
 ✓ Mobile navigation
-
 ✓ Improved animations
-
 ✓ Image gallery
-
 ✓ Torah archive search
 
 ---------------------------------------
@@ -724,13 +1267,9 @@ Version 0.2
 Version 0.3
 
 ✓ Dynamic Calendar
-
 ✓ Hebrew Date
-
 ✓ Weekly Parashah
-
 ✓ Candle Lighting
-
 ✓ Havdalah
 
 ---------------------------------------
@@ -738,13 +1277,9 @@ Version 0.3
 Version 0.4
 
 ✓ Decap CMS integration
-
 ✓ Archive filtering
-
 ✓ PDF viewer
-
 ✓ JPEG gallery
-
 ✓ Audio player
 
 ---------------------------------------
@@ -752,11 +1287,8 @@ Version 0.4
 Version 0.5
 
 ✓ YouTube API
-
 ✓ Local Video Library
-
 ✓ Zoom integration
-
 ✓ Event registration
 
 ---------------------------------------
@@ -764,9 +1296,7 @@ Version 0.5
 Version 0.6
 
 ✓ Genealogy Database
-
 ✓ Cemetery Search
-
 ✓ Historical Timeline
 
 ---------------------------------------
@@ -774,16 +1304,13 @@ Version 0.6
 Version 1.0
 
 ✓ Full Living Archive
-
 ✓ Community Portal
-
 ✓ Search Engine
-
 ✓ Progressive Web App
-
 ✓ Offline Reading
 
 */
+
 
 /*==========================================================
     END OF FILE
