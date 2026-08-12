@@ -120,10 +120,315 @@ function initialiseParasha() {
 }
 
 /*==========================================================*
-*PARASHAH DATA*
+* PARASHAH DATA
 *==========================================================*/
 
 const parashot = {
+
+    "bereshit": {
+        title: "BERESHIT",
+        subtitle: "In the Beginning",
+        pdf: "",
+        video: ""
+    },
+
+    "noach": {
+        title: "NOACH",
+        subtitle: "Noah",
+        pdf: "",
+        video: ""
+    },
+
+    "lech-lecha": {
+        title: "LECH LECHA",
+        subtitle: "Go Forth",
+        pdf: "",
+        video: ""
+    },
+
+    "vayera": {
+        title: "VAYERA",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "chayei-sara": {
+        title: "CHAYEI SARA",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "toldot": {
+        title: "TOLDOT",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "vayetze": {
+        title: "VAYETZE",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "vayishlach": {
+        title: "VAYISHLACH",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "vayeshev": {
+        title: "VAYESHEV",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "miketz": {
+        title: "MIKETZ",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "vayigash": {
+        title: "VAYIGASH",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "vayechi": {
+        title: "VAYECHI",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "shemot": {
+        title: "SHEMOT",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "vaera": {
+        title: "VAERA",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "bo": {
+        title: "BO",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "beshalach": {
+        title: "BESHALACH",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "yitro": {
+        title: "YITRO",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "mishpatim": {
+        title: "MISHPATIM",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "terumah": {
+        title: "TERUMAH",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "tetzaveh": {
+        title: "TETZAVEH",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "ki-tisa": {
+        title: "KI TISA",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "vayakhel": {
+        title: "VAYAKHEL",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "pekudei": {
+        title: "PEKUDEI",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "vayikra": {
+        title: "VAYIKRA",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "tzav": {
+        title: "TZAV",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "shmini": {
+        title: "SHMINI",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "tazria": {
+        title: "TAZRIA",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "metzora": {
+        title: "METZORA",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "acharei-mot": {
+        title: "ACHAREI MOT",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "kedoshim": {
+        title: "KEDOSHIM",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "emor": {
+        title: "EMOR",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "behar": {
+        title: "BEHAR",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "bechukotai": {
+        title: "BECHUKOTAI",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "bamidbar": {
+        title: "BAMIDBAR",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "nasso": {
+        title: "NASSO",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "behaalotcha": {
+        title: "BEHAALOTCHA",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "shlach": {
+        title: "SHLACH",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "korach": {
+        title: "KORACH",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "chukat": {
+        title: "CHUKAT",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "balak": {
+        title: "BALAK",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "pinchas": {
+        title: "PINCHAS",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "matot": {
+        title: "MATOT",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    "masei": {
+        title: "MASEI",
+        subtitle: "",
+        pdf: "",
+        video: ""
+    },
+
+    /*======================================================*
+    * UPDATED PARASHOT
+    *======================================================*/
 
     "devarim": {
         title: "DEVARIM",
@@ -135,7 +440,7 @@ const parashot = {
     "vaetchanan": {
         title: "VAETCHANAN",
         subtitle: "Teshuva and Redemption",
-        pdf: "../PDFs/Dvrei Torah/Parasha VaEtchanan-Teshuva and Redemption.pdf",
+        pdf: "../PDFs/Dvrei Torah/Parasha Va'Etchanan-Teshuva and Redemption.pdf",
         video: "VsQl2eEwQdY"
     },
 
@@ -146,28 +451,28 @@ const parashot = {
         video: "G0SV5wJNXK8"
     },
 
-      "reeh": {
+    "reeh": {
         title: "REEH",
-        subtitle: " ",
+        subtitle: "",
         pdf: "",
         video: "30Rsmkp0Kik"
     },
 
-      "shoftim": {
+    "shoftim": {
         title: "SHOFTIM",
-        subtitle: " ",
+        subtitle: "",
         pdf: "",
         video: "gWIhrijkukc"
     },
 
-      "ki-Tetze": {
+    "ki-tetzei": {
         title: "KI TETZE",
-        subtitle: " ",
+        subtitle: "",
         pdf: "",
         video: "U0l-wBKzNZ4"
     },
 
-      "ki-tavo": {
+    "ki-tavo": {
         title: "KI TAVO",
         subtitle: "The Continued Hope in Redemption",
         pdf: "../PDFs/Dvrei Torah/Parashat Ki Tavo – the Continued Hope in Redemption.pdf",
@@ -179,34 +484,30 @@ const parashot = {
         subtitle: "Returning to Ways of God",
         pdf: "../PDFs/Dvrei Torah/Parasha-Nitzavim-Returning-to-Ways-of-God.pdf",
         video: "pXjwO0QQ0KI"
-        
-     },
+    },
 
     "vayeilech": {
-        title: "Va YEILECH",
-        subtitle: "Shuvah Yisrael - Return Israel",
+        title: "VA'YEILECH",
+        subtitle: "Shuvah Yisrael (Return Israel)",
         pdf: "../PDFs/Dvrei Torah/Parasha Vayeilech – Shuvah Yisrael-Return Israel.pdf",
         video: "pXjwO0QQ0KI"
-   
-     },
+    },
 
     "haazinu": {
-        title: "HAAZINU",
-        subtitle: "Our Redemption Foretold",
+        title: "HA'AZINU",
+        subtitle: "Our Redemption foretold",
         pdf: "../PDFs/Dvrei Torah/Parasha HaAzinu – Our Redemption foretold.pdf",
         video: "tSrzyo519GU"
-    
-     },
+    },
 
     "vezot-haberakhah": {
         title: "VEZOT HABERAKHAH",
-        subtitle: "Sucession Planning",
-        pdf: "../PDFs/Dvrei Torah/Parasha Vezot-Haberakhah - Sucession Planning.pdf",
-        video: " "
+        subtitle: "Succession Planning",
+        pdf: "../PDFs/Dvrei Torah/Parasha Vezot Haberakhah - Sucession Planning.pdf",
+        video: ""
     }
-        
-};
 
+};
 
 /*==========================================================
     PAGE LOADED
