@@ -592,11 +592,11 @@ const parashot = {
 
 
     /*======================================================*
-    * SHOFETIM — VIDEO ONLY
+    * SHOFTIM — VIDEO ONLY
     *======================================================*/
 
-    "shofetim": {
-        title: "SHOFETIM",
+    "shoftim": {
+        title: "SHOFTIM",
         subtitle: "",
         pdf: "",
         video: "gWIhrijkukc"
