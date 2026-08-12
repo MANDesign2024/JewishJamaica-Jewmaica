@@ -226,6 +226,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initialiseScrollEffects();
 
+     initialiseParasha();
+
 });
 
 /*==========================================================
