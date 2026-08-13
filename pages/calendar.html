@@ -1,1 +1,1432 @@
+<!DOCTYPE html>
 
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Jewmaica | The Living Archive of Jewish Jamaica</title>
+
+    <!-- Main Jewmaica stylesheet -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* =========================================================
+           JEWMAICA ABOUT PAGE
+           The Living Archive of Jewish Jamaica
+           ========================================================= */
+
+
+        :root {
+
+            --jw-green: #003b2a;
+            --jw-dark-green: #00281d;
+            --jw-deep-green: #001f17;
+
+            --jw-gold: #c79a28;
+            --jw-light-gold: #e1b84c;
+
+            --jw-mahogany: #4a2415;
+            --jw-mahogany-light: #704029;
+
+            --jw-parchment: #f2e7cf;
+            --jw-parchment-dark: #dfcda8;
+
+            --jw-cream: #faf7ee;
+
+            --jw-text: #17382d;
+        }
+
+
+        /* =========================================================
+           GLOBAL
+           ========================================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            background: var(--jw-parchment);
+
+            color: var(--jw-text);
+
+            font-family:
+                "EB Garamond",
+                Georgia,
+                serif;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================================================
+           TOP STRIP
+           ========================================================= */
+
+        .about-top-strip {
+
+            background: var(--jw-deep-green);
+
+            color: var(--jw-light-gold);
+
+            border-bottom:
+                1px solid rgba(199,154,40,0.45);
+
+            padding: 8px 30px;
+
+            text-align: center;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 13px;
+
+            letter-spacing: 1.4px;
+        }
+
+
+        .about-top-strip span {
+
+            margin: 0 12px;
+        }
+
+
+        /* =========================================================
+           BRAND HEADER
+           ========================================================= */
+
+        .about-brand {
+
+            background:
+                linear-gradient(
+                    rgba(0,59,42,0.95),
+                    rgba(0,40,29,0.96)
+                );
+
+            min-height: 115px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 20px 5%;
+
+            border-bottom:
+                1px solid var(--jw-gold);
+        }
+
+
+        .about-brand-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+        }
+
+
+        .about-brand-logo {
+
+            width: 250px;
+
+            max-width: 42vw;
+
+            height: auto;
+        }
+
+
+        .about-menorah-mark {
+
+            width: 75px;
+
+            height: 75px;
+
+            object-fit: contain;
+
+            opacity: 0.20;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+           ========================================================= */
+
+        .about-nav {
+
+            background: var(--jw-mahogany);
+
+            border-bottom:
+                2px solid var(--jw-gold);
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+        }
+
+
+        .about-nav a {
+
+            color: #fff7df;
+
+            padding: 14px 18px;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 13px;
+
+            letter-spacing: 0.6px;
+
+            transition: 0.25s ease;
+        }
+
+
+        .about-nav a:hover,
+        .about-nav a.active {
+
+            color: var(--jw-light-gold);
+
+            background:
+                rgba(0,0,0,0.18);
+        }
+
+
+        /* =========================================================
+           BREADCRUMB
+           ========================================================= */
+
+        .about-breadcrumb {
+
+            max-width: 1280px;
+
+            margin: 0 auto;
+
+            padding: 18px 25px 8px;
+
+            color: #6b5a40;
+
+            font-size: 15px;
+        }
+
+
+        .about-breadcrumb a {
+
+            color: var(--jw-green);
+        }
+
+
+        /* =========================================================
+           MAIN WRAPPER
+           ========================================================= */
+
+        .about-wrapper {
+
+            max-width: 1280px;
+
+            margin: auto;
+
+            padding: 10px 25px 45px;
+        }
+
+
+        /* =========================================================
+           ABOUT HERO
+           ========================================================= */
+
+        .about-hero {
+
+            min-height: 300px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+
+                    rgba(242,231,207,1.00) 0%,
+
+                    rgba(242,231,207,0.97) 38%,
+
+                    rgba(242,231,207,0.82) 52%,
+
+                    rgba(242,231,207,0.30) 72%,
+
+                    rgba(242,231,207,0.05) 100%
+                ),
+
+                url("../assets/images/parasha-hero.jpg")
+                center center / cover
+                no-repeat;
+
+            border:
+                1px solid #c7b78f;
+
+            box-shadow:
+                0 5px 18px rgba(0,0,0,0.12);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 35px;
+        }
+
+
+        .about-hero-overlay {
+
+            max-width: 900px;
+
+            width: 100%;
+        }
+
+
+        .about-hero-small-title {
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 20px;
+
+            letter-spacing: 6px;
+
+            color: var(--jw-green);
+
+            margin-bottom: 8px;
+        }
+
+
+        .about-hero h1 {
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(46px, 7vw, 76px);
+
+            line-height: 1;
+
+            color: var(--jw-green);
+
+            margin: 5px 0 15px;
+
+            letter-spacing: 2px;
+        }
+
+
+        .about-hero-subtitle {
+
+            font-size: 29px;
+
+            font-style: italic;
+
+            color: #704a28;
+
+            margin-bottom: 18px;
+        }
+
+
+        .about-ornament {
+
+            color: var(--jw-gold);
+
+            font-size: 27px;
+
+            letter-spacing: 8px;
+        }
+
+
+        /* =========================================================
+           CALENDAR
+           ========================================================= */
+
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jewish Calendar | Jewmaica</title>
+
+  <style>
+    :root {
+      --navy: #102a43;
+      --blue: #1f4e79;
+      --gold: #c9a227;
+      --gold-light: #e8d48b;
+      --cream: #f8f4e8;
+      --white: #ffffff;
+      --text: #263238;
+      --muted: #718096;
+      --border: #ddd6c4;
+      --holiday: #fff4cc;
+      --shabbat: #eaf2f8;
+      --today: #dceeff;
+      --shadow: 0 5px 20px rgba(16, 42, 67, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--cream);
+      color: var(--text);
+    }
+
+    /* HEADER */
+
+    header {
+      background: var(--navy);
+      color: white;
+      padding: 20px 30px;
+      border-bottom: 4px solid var(--gold);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 30px;
+      letter-spacing: 2px;
+    }
+
+    .brand p {
+      margin: 4px 0 0;
+      color: var(--gold-light);
+      font-size: 14px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: var(--gold-light);
+    }
+
+    /* MAIN */
+
+    main {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .calendar-heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .calendar-heading h2 {
+      color: var(--navy);
+      font-size: 38px;
+      margin-bottom: 5px;
+    }
+
+    .calendar-heading p {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    /* CONTROLS */
+
+    .calendar-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      border-radius: 7px;
+      padding: 10px 18px;
+      font-size: 15px;
+      transition: 0.2s ease;
+    }
+
+    .nav-button {
+      background: var(--navy);
+      color: white;
+    }
+
+    .nav-button:hover {
+      background: var(--blue);
+    }
+
+    .today-button {
+      background: var(--gold);
+      color: white;
+      font-weight: bold;
+    }
+
+    .today-button:hover {
+      background: #aa8615;
+    }
+
+    #monthTitle {
+      font-size: 25px;
+      font-weight: bold;
+      color: var(--navy);
+      text-align: center;
+    }
+
+    /* CALENDAR */
+
+    .calendar {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      background: var(--navy);
+      color: white;
+    }
+
+    .weekday {
+      padding: 14px 5px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    .day {
+      min-height: 130px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 9px;
+      position: relative;
+      background: white;
+      transition: background 0.2s ease;
+    }
+
+    .day:hover {
+      background: #fafafa;
+    }
+
+    .day.empty {
+      background: #f4f1e9;
+    }
+
+    .day-number {
+      font-size: 19px;
+      font-weight: bold;
+      color: var(--navy);
+    }
+
+    .hebrew-date {
+      font-size: 13px;
+      color: var(--gold);
+      margin-top: 3px;
+      direction: rtl;
+    }
+
+    .event {
+      margin-top: 7px;
+      padding: 5px 7px;
+      border-radius: 5px;
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .holiday {
+      background: var(--holiday);
+      color: #765b00;
+      border-left: 3px solid var(--gold);
+    }
+
+    .parsha {
+      background: #eef5ed;
+      color: #35613b;
+      border-left: 3px solid #568b5d;
+    }
+
+    .shabbat {
+      background: var(--shabbat);
+      color: #24557d;
+      border-left: 3px solid var(--blue);
+    }
+
+    .today {
+      background: var(--today) !important;
+      outline: 3px solid var(--gold);
+      outline-offset: -3px;
+    }
+
+    .today .day-number {
+      color: #b08300;
+    }
+
+    /* LEGEND */
+
+    .legend {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 25px 0;
+      font-size: 14px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .legend-box {
+      width: 15px;
+      height: 15px;
+      border-radius: 3px;
+    }
+
+    .legend-holiday {
+      background: var(--holiday);
+      border: 1px solid var(--gold);
+    }
+
+    .legend-shabbat {
+      background: var(--shabbat);
+      border: 1px solid var(--blue);
+    }
+
+    .legend-today {
+      background: var(--today);
+      border: 2px solid var(--gold);
+    }
+
+    /* TODAY INFO */
+
+    .today-info {
+      background: var(--navy);
+      color: white;
+      border-radius: 12px;
+      padding: 25px;
+      margin-top: 30px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .today-info h3 {
+      margin-top: 0;
+      color: var(--gold-light);
+    }
+
+    #todayHebrew {
+      font-size: 24px;
+      direction: rtl;
+      margin: 8px 0;
+    }
+
+    #todayEvents {
+      color: #e5edf4;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+
+    footer {
+      margin-top: 50px;
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 25px;
+      border-top: 4px solid var(--gold);
+    }
+
+    footer strong {
+      color: var(--gold-light);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .header-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav a {
+        margin: 0 7px;
+      }
+
+      .calendar-controls {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      #monthTitle {
+        width: 100%;
+        order: -1;
+      }
+
+      .day {
+        min-height: 100px;
+        padding: 6px;
+      }
+
+      .day-number {
+        font-size: 16px;
+      }
+
+      .hebrew-date {
+        font-size: 11px;
+      }
+
+      .event {
+        font-size: 10px;
+        padding: 4px;
+      }
+
+      .weekday {
+        font-size: 11px;
+        padding: 10px 2px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      main {
+        padding: 0 8px;
+        margin-top: 25px;
+      }
+
+      .calendar-heading h2 {
+        font-size: 28px;
+      }
+
+      .day {
+        min-height: 85px;
+      }
+
+      .event {
+        display: none;
+      }
+
+      .day.has-event::after {
+        content: "•";
+        color: var(--gold);
+        font-size: 18px;
+        position: absolute;
+        bottom: 4px;
+        right: 7px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+
+    <div class="brand">
+      <h1>JEWMAICA</h1>
+      <p>The Living Archive of Jewish Jamaica</p>
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="#">Torah</a>
+      <a href="#">Community</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+  <section class="calendar-heading">
+
+    <h2>Jewish Calendar</h2>
+
+    <p>
+      The Jewish calendar for the community of Jewish Jamaica
+    </p>
+
+  </section>
+
+
+  <div class="calendar-controls">
+
+    <button class="nav-button" onclick="previousMonth()">
+      ‹ Previous
+    </button>
+
+    <div id="monthTitle">
+      Loading...
+    </div>
+
+    <button class="nav-button" onclick="nextMonth()">
+      Next ›
+    </button>
+
+    <button class="today-button" onclick="goToToday()">
+      Today
+    </button>
+
+  </div>
+
+
+  <div class="calendar">
+
+    <div class="weekdays">
+
+      <div class="weekday">Sunday</div>
+      <div class="weekday">Monday</div>
+      <div class="weekday">Tuesday</div>
+      <div class="weekday">Wednesday</div>
+      <div class="weekday">Thursday</div>
+      <div class="weekday">Friday</div>
+      <div class="weekday">Saturday</div>
+
+    </div>
+
+    <div id="calendarDays" class="days"></div>
+
+  </div>
+
+
+  <div class="legend">
+
+    <div class="legend-item">
+      <span class="legend-box legend-holiday"></span>
+      Jewish Holiday
+    </div>
+
+    <div class="legend-item">
+      <span class="legend-box legend-shabbat"></span>
+      Shabbat
+    </div>
+
+    <div class="legend-item">
+      <span class="legend-box legend-today"></span>
+      Today
+    </div>
+
+  </div>
+
+
+  <section class="today-info">
+
+    <h3>Today's Jewish Date</h3>
+
+    <div id="todayHebrew">
+      Loading...
+    </div>
+
+    <div id="todayEvents">
+      Loading today's events...
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>JEWMAICA</strong>
+  <br>
+
+  Preserving the Past • Strengthening the Present • Building the Future
+
+  <br><br>
+
+  © 2026 Jewmaica – The Living Archive of Jewish Jamaica
+
+</footer>
+
+
+<script>
+
+/*
+====================================================
+JEWMAICA JEWISH CALENDAR
+====================================================
+
+Powered by the Hebcal Jewish Calendar API.
+
+Hebcal provides:
+- Hebrew dates
+- Jewish holidays
+- Rosh Chodesh
+- Torah portions
+- Omer counting
+- Shabbat information
+
+====================================================
+*/
+
+
+let currentDate = new Date();
+
+
+const hebrewMonths = [
+  "Nisan",
+  "Iyar",
+  "Sivan",
+  "Tammuz",
+  "Av",
+  "Elul",
+  "Tishrei",
+  "Cheshvan",
+  "Kislev",
+  "Tevet",
+  "Shevat",
+  "Adar",
+  "Adar II"
+];
+
+
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
+
+
+function formatDate(date) {
+
+  const year = date.getFullYear();
+
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+
+}
+
+
+/*
+====================================================
+LOAD CALENDAR
+====================================================
+*/
+
+async function loadCalendar() {
+
+  const year = currentDate.getFullYear();
+
+  const month = currentDate.getMonth() + 1;
+
+  const firstDay =
+    `${year}-${String(month).padStart(2, "0")}-01`;
+
+  const lastDay =
+    new Date(year, month, 0).getDate();
+
+  const endDate =
+    `${year}-${String(month).padStart(2, "0")}-${lastDay}`;
+
+
+  const apiURL =
+    `https://www.hebcal.com/hebcal` +
+    `?v=1` +
+    `&cfg=json` +
+    `&start=${firstDay}` +
+    `&end=${endDate}` +
+    `&maj=on` +
+    `&min=on` +
+    `&mod=on` +
+    `&nx=on` +
+    `&s=on` +
+    `&ss=on` +
+    `&mf=on` +
+    `&c=on` +
+    `&leyning=on` +
+    `&lg=s`;
+
+
+  try {
+
+    const response = await fetch(apiURL);
+
+    if (!response.ok) {
+      throw new Error("Calendar API error");
+    }
+
+    const data = await response.json();
+
+    renderCalendar(data);
+
+  } catch (error) {
+
+    console.error(error);
+
+    document.getElementById("calendarDays").innerHTML = `
+      <div style="
+        grid-column: 1 / -1;
+        padding: 50px;
+        text-align: center;
+        color: #a33;
+      ">
+        Unable to load the Jewish calendar.
+        Please check your internet connection.
+      </div>
+    `;
+
+  }
+
+}
+
+
+/*
+====================================================
+RENDER CALENDAR
+====================================================
+*/
+
+function renderCalendar(data) {
+
+  const year = currentDate.getFullYear();
+
+  const month = currentDate.getMonth();
+
+  document.getElementById("monthTitle").textContent =
+    `${monthNames[month]} ${year}`;
+
+
+  const firstDay =
+    new Date(year, month, 1).getDay();
+
+  const daysInMonth =
+    new Date(year, month + 1, 0).getDate();
+
+
+  const calendarDays =
+    document.getElementById("calendarDays");
+
+  calendarDays.innerHTML = "";
+
+
+  /*
+  Empty cells before month begins
+  */
+
+  for (let i = 0; i < firstDay; i++) {
+
+    const emptyDay =
+      document.createElement("div");
+
+    emptyDay.className = "day empty";
+
+    calendarDays.appendChild(emptyDay);
+
+  }
+
+
+  /*
+  Create days
+  */
+
+  for (let day = 1; day <= daysInMonth; day++) {
+
+    const date =
+      new Date(year, month, day);
+
+    const dateString =
+      formatDate(date);
+
+
+    const dayEvents =
+      data.items.filter(item =>
+        item.date &&
+        item.date.substring(0, 10) === dateString
+      );
+
+
+    const cell =
+      document.createElement("div");
+
+    cell.className = "day";
+
+
+    /*
+    Highlight today
+    */
+
+    const today = new Date();
+
+    if (
+      date.getFullYear() === today.getFullYear() &&
+      date.getMonth() === today.getMonth() &&
+      date.getDate() === today.getDate()
+    ) {
+
+      cell.classList.add("today");
+
+    }
+
+
+    if (dayEvents.length > 0) {
+      cell.classList.add("has-event");
+    }
+
+
+    /*
+    Gregorian day number
+    */
+
+    const number =
+      document.createElement("div");
+
+    number.className = "day-number";
+
+    number.textContent = day;
+
+    cell.appendChild(number);
+
+
+    /*
+    Hebrew date
+    */
+
+    const hebrewEvent =
+      dayEvents.find(event =>
+        event.category === "hebdate"
+      );
+
+
+    if (hebrewEvent) {
+
+      const hebrew =
+        document.createElement("div");
+
+      hebrew.className = "hebrew-date";
+
+      hebrew.textContent =
+        hebrewEvent.hebrew ||
+        hebrewEvent.hdate ||
+        "";
+
+      cell.appendChild(hebrew);
+
+    }
+
+
+    /*
+    Events
+    */
+
+    dayEvents.forEach(event => {
+
+      if (event.category === "hebdate") {
+        return;
+      }
+
+
+      const eventDiv =
+        document.createElement("div");
+
+
+      eventDiv.className = "event";
+
+
+      /*
+      Holiday
+      */
+
+      if (
+        event.category === "holiday" ||
+        event.category === "roshchodesh"
+      ) {
+
+        eventDiv.classList.add("holiday");
+
+        eventDiv.textContent =
+          event.hebrew ||
+          event.title;
+
+      }
+
+
+      /*
+      Torah portion
+      */
+
+      else if (event.category === "parashat") {
+
+        eventDiv.classList.add("parsha");
+
+        eventDiv.textContent =
+          "Parashat " + event.title;
+
+      }
+
+
+      /*
+      Shabbat
+      */
+
+      else if (event.category === "shabbat") {
+
+        eventDiv.classList.add("shabbat");
+
+        eventDiv.textContent =
+          event.title;
+
+      }
+
+
+      /*
+      Other events
+      */
+
+      else {
+
+        eventDiv.classList.add("shabbat");
+
+        eventDiv.textContent =
+          event.title;
+
+      }
+
+
+      cell.appendChild(eventDiv);
+
+    });
+
+
+    calendarDays.appendChild(cell);
+
+  }
+
+}
+
+
+/*
+====================================================
+PREVIOUS MONTH
+====================================================
+*/
+
+function previousMonth() {
+
+  currentDate.setMonth(
+    currentDate.getMonth() - 1
+  );
+
+  loadCalendar();
+
+}
+
+
+/*
+====================================================
+NEXT MONTH
+====================================================
+*/
+
+function nextMonth() {
+
+  currentDate.setMonth(
+    currentDate.getMonth() + 1
+  );
+
+  loadCalendar();
+
+}
+
+
+/*
+====================================================
+TODAY
+====================================================
+*/
+
+function goToToday() {
+
+  currentDate = new Date();
+
+  loadCalendar();
+
+}
+
+
+/*
+====================================================
+TODAY'S HEBREW DATE
+====================================================
+*/
+
+async function loadToday() {
+
+  const today =
+    formatDate(new Date());
+
+
+  const apiURL =
+    `https://www.hebcal.com/hebcal` +
+    `?v=1` +
+    `&cfg=json` +
+    `&start=${today}` +
+    `&end=${today}` +
+    `&maj=on` +
+    `&min=on` +
+    `&mod=on` +
+    `&nx=on` +
+    `&s=on` +
+    `&c=on` +
+    `&leyning=on`;
+
+
+  try {
+
+    const response =
+      await fetch(apiURL);
+
+    const data =
+      await response.json();
+
+
+    const hebrewDate =
+      data.items.find(item =>
+        item.category === "hebdate"
+      );
+
+
+    if (hebrewDate) {
+
+      document.getElementById("todayHebrew")
+        .textContent =
+          hebrewDate.hebrew ||
+          hebrewDate.hdate;
+
+    }
+
+
+    const events =
+      data.items.filter(item =>
+        item.category !== "hebdate"
+      );
+
+
+    const eventContainer =
+      document.getElementById("todayEvents");
+
+
+    if (events.length === 0) {
+
+      eventContainer.textContent =
+        "No special Jewish events today.";
+
+    } else {
+
+      eventContainer.innerHTML =
+        events.map(event =>
+          `<div>${event.hebrew || event.title}</div>`
+        ).join("");
+
+    }
+
+
+  } catch (error) {
+
+    document.getElementById("todayHebrew")
+      .textContent =
+      "Calendar unavailable";
+
+  }
+
+}
+
+
+/*
+====================================================
+START
+====================================================
+*/
+
+loadCalendar();
+
+loadToday();
+
+</script>
+
+</body>
+</html>
