@@ -700,35 +700,6 @@ async function initialiseParashahPage() {
     " | Jewmaica";
 
 
-  /* =======================================================
-     UPDATE BROWSER HISTORY FOR AUTOMATIC SELECTION
-     
-     Only do this when the visitor did NOT deliberately
-     select a Parashah.
-
-     This means the automatically selected Parashah
-     becomes visible in the URL without interfering with
-     sidebar selections.
-  ======================================================= */
-
-  if (!requestedParasha && selectedParasha !== "default") {
-
-    const newUrl =
-      window.location.pathname +
-      "?parasha=" +
-      encodeURIComponent(selectedParasha);
-
-    window.history.replaceState(
-      {},
-      "",
-      newUrl
-    );
-
-  }
-
-}
-
-
 /* =========================================================
    PARASHAH SEARCH
 ========================================================= */
