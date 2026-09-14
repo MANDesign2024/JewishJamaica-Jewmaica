@@ -115,6 +115,7 @@ function convertHebcalParashaToKey(name) {
     .replace(/[–—-]/g, "-")
     .replace(/\s+/g, "-");
 
+
   const aliases = {
 
     "devarim": "devarim",
@@ -143,11 +144,19 @@ function convertHebcalParashaToKey(name) {
     "haazinu": "haazinu",
 
     "vezot-haberakhah": "vezot-haberakhah",
-    "vezot-haberacha": "vezot-haberakhah"
+    "vezot-haberacha": "vezot-haberakhah",
+
+    /*
+       Combined Parashah
+    */
+
+    "nitzavim-vayeilech": "nitzavim-vayeilech"
 
   };
 
+
   return aliases[key] || key;
+
 }
 
 
