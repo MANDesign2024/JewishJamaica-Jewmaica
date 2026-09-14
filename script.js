@@ -264,15 +264,18 @@ async function getCurrentParasha() {
 
     if (!parashot[parashaKey]) {
 
-      console.warn(
-        "Parashah found but not yet defined in website data:",
-        parashaItem.title,
-        parashaKey
-      );
-
-      return "default";
-
+  console.error(
+    "JEWMAICA PARASHAH MATCH FAILED",
+    {
+      hebcalTitle: parashaItem.title,
+      convertedKey: parashaKey,
+      availableKeys: Object.keys(parashot)
     }
+  );
+
+  return "default";
+
+}
 
 
     return parashaKey;
