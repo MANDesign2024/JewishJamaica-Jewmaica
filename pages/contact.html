@@ -1,383 +1,184 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>Contact Jewmaica | The Living Archive of Jewish Jamaica</title>
+    <title>Contact | Jewmaica</title>
 
-<!-- Main Jewmaica stylesheet -->
-<link rel="stylesheet" href="../style.css">
+    <meta name="description"
+          content="Contact Jewmaica — The Living Archive of Jewish Jamaica.">
 
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Jewmaica Stylesheet -->
+    <link rel="stylesheet"
+          href="../style.css">
 
-<link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
->
+</head>
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
-    rel="stylesheet"
->
+<body>
 
+    <!-- =========================================
+         TOP BAR
+    ========================================== -->
 
-<style>
+    <div class="top-bar">
 
-    /* =========================================================
-       JEWMAICA CONTACT PAGE
-       The Living Archive of Jewish Jamaica
-       ========================================================= */
+        <div class="top-left">
 
+            <span>Preserving the Past</span>
 
-    :root {
+            <span>•</span>
 
-        --jw-green: #003b2a;
-        --jw-dark-green: #00281d;
-        --jw-deep-green: #001f17;
+            <span>Strengthening the Present</span>
 
-        --jw-gold: #c79a28;
-        --jw-light-gold: #e1b84c;
+            <span>•</span>
 
-        --jw-mahogany: #4a2415;
-        --jw-mahogany-light: #704029;
+            <span>Building the Future</span>
 
-        --jw-parchment: #f2e7cf;
-        --jw-parchment-dark: #dfcda8;
+        </div>
 
-        --jw-cream: #faf7ee;
+        <div class="top-right">
 
-        --jw-text: #17382d;
-    }
+            <form>
 
+                <input
+                    type="search"
+                    placeholder="Search the archive..."
+                    aria-label="Search the archive">
 
-    /* =========================================================
-       GLOBAL
-       ========================================================= */
+                <button type="submit">
+                    Search
+                </button>
 
-    * {
-        box-sizing: border-box;
-    }
+            </form>
 
+        </div>
 
-    body {
+    </div>
 
-        margin: 0;
 
-        background: var(--jw-parchment);
+    <!-- =========================================
+         HEADER
+    ========================================== -->
 
-        color: var(--jw-text);
+    <header>
 
-        font-family:
-            "EB Garamond",
-            Georgia,
-            serif;
-    }
+        <div class="header-container">
 
+            <div class="logo-area">
 
-    a {
-        text-decoration: none;
-    }
+                <a href="../index.html">
 
+                    <img
+                        src="../assets/images/logo.png"
+                        alt="Jewmaica Logo"
+                        class="logo">
 
-    /* =========================================================
-       TOP STRIP
-       ========================================================= */
+                </a>
 
-    .about-top-strip {
+                <div class="site-title">
 
-        background: var(--jw-deep-green);
+                    <h2>The Living Archive</h2>
 
-        color: var(--jw-light-gold);
+                    <h3>of Jewish Jamaica</h3>
 
-        border-bottom:
-            1px solid rgba(199,154,40,0.45);
+                </div>
 
-        padding: 8px 30px;
+            </div>
 
-        text-align: center;
 
-        font-family:
-            "Cinzel",
-            Georgia,
-            serif;
+            <div class="header-menorah">
 
-        font-size: 13px;
+                <img
+                    src="../assets/images/menorah.png"
+                    alt="Menorah">
 
-        letter-spacing: 1.4px;
-    }
+            </div>
 
+        </div>
 
-    .about-top-strip span {
 
-        margin: 0 12px;
-    }
-
-
-    /* =========================================================
-       BRAND HEADER
-       ========================================================= */
-
-    .about-brand {
-
-        background:
-            linear-gradient(
-                rgba(0,59,42,0.95),
-                rgba(0,40,29,0.96)
-            );
-
-        min-height: 115px;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: space-between;
-
-        padding: 20px 5%;
-
-        border-bottom:
-            1px solid var(--jw-gold);
-    }
-
-
-    .about-brand-left {
-
-        display: flex;
-
-        align-items: center;
-
-        gap: 28px;
-    }
-
-
-    .about-brand-logo {
-
-        width: 250px;
-
-        max-width: 42vw;
-
-        height: auto;
-    }
-
-
-    .about-menorah-mark {
-
-        width: 75px;
-
-        height: 75px;
-
-        object-fit: contain;
-
-        opacity: 0.20;
-    }
-
-
-    /* =========================================================
-       NAVIGATION
-       ========================================================= */
-
-    .about-nav {
-
-        background: var(--jw-mahogany);
-
-        border-bottom:
-            2px solid var(--jw-gold);
-
-        display: flex;
-
-        justify-content: center;
-
-        flex-wrap: wrap;
-    }
-
-
-    .about-nav a {
-
-        color: #fff7df;
-
-        padding: 14px 18px;
-
-        font-family:
-            "Cinzel",
-            Georgia,
-            serif;
-
-        font-size: 13px;
-
-        letter-spacing: 0.6px;
-
-        transition: 0.25s ease;
-    }
-
-
-    .about-nav a:hover,
-    .about-nav a.active {
-
-        color: var(--jw-light-gold);
-
-        background:
-            rgba(0,0,0,0.18);
-    }
-
-
-    /* =========================================================
-       BREADCRUMB
-       ========================================================= */
-
-    .about-breadcrumb {
-
-        max-width: 1280px;
-
-        margin: 0 auto;
-
-        padding: 18px 25px 8px;
-
-        color: #6b5a40;
-
-        font-size: 15px;
-    }
-
-
-    .about-breadcrumb a {
-
-        color: var(--jw-green);
-    }
-
-
-    /* =========================================================
-       MAIN WRAPPER
-       ========================================================= */
-
-    .about-wrapper {
-
-        max-width: 1280px;
-
-        margin: auto;
-
-        padding: 10px 25px 45px;
-    }
-
-
-    /* =========================================================
-       ABOUT HERO
-       ========================================================= */
-
-    .about-hero {
-
-        min-height: 300px;
-
-        background:
-
-            linear-gradient(
-                90deg,
-
-                rgba(242,231,207,1.00) 0%,
-
-                rgba(242,231,207,0.97) 38%,
-
-                rgba(242,231,207,0.82) 52%,
-
-                rgba(242,231,207,0.30) 72%,
-
-                rgba(242,231,207,0.05) 100%
-            ),
-
-            url("../assets/images/parasha-hero.jpg")
-            center center / cover
-            no-repeat;
-
-        border:
-            1px solid #c7b78f;
-
-        box-shadow:
-            0 5px 18px rgba(0,0,0,0.12);
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        text-align: center;
-
-        padding: 35px;
-    }
-
-
-    .about-hero-overlay {
-
-        max-width: 900px;
-
-        width: 100%;
-    }
-
-
-    .about-hero-small-title {
-
-        font-family:
-            "Cinzel",
-            Georgia,
-            serif;
-
-        font-size: 20px;
-
-        letter-spacing: 6px;
-
-        color: var(--jw-green);
-
-        margin-bottom: 8px;
-    }
-
-
-    .about-hero h1 {
-
-        font-family:
-            "Cinzel",
-            Georgia,
-            serif;
-
-        font-size:
-            clamp(46px, 7vw, 76px);
-
-        line-height: 1;
-
-        color: var(--jw-green);
-
-        margin: 5px 0 15px;
-
-        letter-spacing: 2px;
-    }
-
-
-    .about-hero-subtitle {
-
-        font-size: 29px;
-
-        font-style: italic;
-
-        color: #704a28;
-
-        margin-bottom: 18px;
-    }
-
-
-    .about-ornament {
-
-        color: var(--jw-gold);
-
-        font-size: 27px;
-
-        letter-spacing: 8px;
-    }
-
- <!-- =========================================
+        <!-- =====================================
+             NAVIGATION
+        ====================================== -->
+
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a href="../index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="torah.html">
+                        Torah
+                    </a>
+                </li>
+
+                <li>
+                    <a href="archive.html">
+                        Living Archive
+                    </a>
+                </li>
+
+                <li>
+                    <a href="jewish-jamaica.html">
+                        Jewish Jamaica
+                    </a>
+                </li>
+
+                <li>
+                    <a href="genealogy.html">
+                        Genealogy
+                    </a>
+                </li>
+
+                <li>
+                    <a href="media.html">
+                        Media
+                    </a>
+                </li>
+
+                <li>
+                    <a href="calendar.html"
+                        class="active">
+                        Calendar
+                    </a>
+                </li>
+
+                <li>
+                    <a href="community.html">
+                        Community
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================================
          CONTACT PAGE
     ========================================== -->
 
@@ -392,62 +193,51 @@
                 </p>
 
                 <h1>
-                    Contact
+                    Torah
                 </h1>
 
                 <p>
-                    Kindly contact us at....
+                    Do contact us at ....
                 </p>
 
             </div>
 
         </section>
 
+<!-- =========================================
+         FOOTER
+    ========================================== -->
 
+    <footer>
 
+        <div>
 
-    
-/* =========================================================
-   FOOTER
-   ========================================================= */
+            © 2026 Jewmaica –
+            The Living Archive of Jewish Jamaica.
 
-footer {
+        </div>
 
-    margin-top:
-        50px;
+        <div class="footer-links">
 
-    background:
-        var(--jw-deep-green);
+            <a href="#">
+                Privacy Policy
+            </a>
 
-    color:
-        #fff7df;
+            <a href="#">
+                Terms of Use
+            </a>
 
-    text-align:
-        center;
+            <a href="#">
+                Site Map
+            </a>
 
-    padding:
-        28px;
+        </div>
 
-    border-top:
-        2px solid var(--jw-gold);
+        <div>
 
-    font-family:
-        "EB Garamond",
-        Georgia,
-        serif;
-}
+            Designed with purpose.
+            Built for generations.
 
-footer strong {
+        </div>
 
-    color:
-        var(--jw-light-gold);
-
-    font-family:
-        "Cinzel",
-        Georgia,
-        serif;
-
-    letter-spacing:
-        2px;
-}
-
+    </footer>
