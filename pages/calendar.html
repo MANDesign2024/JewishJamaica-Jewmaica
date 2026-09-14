@@ -1993,85 +1993,129 @@ TODAY'S HEBREW DATE
 
 async function loadToday() {
 
-  const today =
-    formatDate(new Date());
+    const today =
+        formatDate(new Date());
 
 
-  const apiURL =
-    `https://www.hebcal.com/hebcal` +
-    `?v=1` +
-    `&cfg=json` +
-    `&start=${today}` +
-    `&end=${today}` +
-    `&maj=on` +
-    `&min=on` +
-    `&mod=on` +
-    `&nx=on` +
-    `&s=on` +
-    `&c=on` +
-    `&leyning=on`;
+    const apiURL =
+        `https://www.hebcal.com/hebcal` +
+        `?v=1` +
+        `&cfg=json` +
+        `&start=${today}` +
+        `&end=${today}` +
+        `&maj=on` +
+        `&min=on` +
+        `&mod=on` +
+        `&nx=on` +
+        `&mf=on` +
+        `&d=on` +
+        `&s=on` +
+        `&c=on` +
+        `&leyning=on`;
 
 
-  try {
+    try {
 
-    const response =
-      await fetch(apiURL);
-
-    const data =
-      await response.json();
+        const response =
+            await fetch(apiURL);
 
 
-    const hebrewDate =
-      data.items.find(item =>
-        item.category === "hebdate"
-      );
+        if (!response.ok) {
+
+            throw new Error(
+                "Today's calendar API error"
+            );
+
+        }
 
 
-    if (hebrewDate) {
+        const data =
+            await response.json();
 
-      document.getElementById("todayHebrew")
-        .textContent =
-          hebrewDate.hebrew ||
-          hebrewDate.hdate;
+
+        /*
+         * TODAY'S HEBREW DATE
+         */
+
+        const hebrewDate =
+            data.items.find(item =>
+                item.category === "hebdate"
+            );
+
+
+        if (hebrewDate) {
+
+            document.getElementById("todayHebrew")
+                .textContent =
+                    hebrewDate.hebrew ||
+                    hebrewDate.hdate;
+
+        } else {
+
+            document.getElementById("todayHebrew")
+                .textContent =
+                    "Hebrew date unavailable";
+
+        }
+
+
+        /*
+         * TODAY'S EVENTS
+         */
+
+        const events =
+            data.items.filter(item =>
+                item.category !== "hebdate"
+            );
+
+
+        const eventContainer =
+            document.getElementById("todayEvents");
+
+
+        if (events.length === 0) {
+
+            eventContainer.textContent =
+                "No special Jewish events today.";
+
+        } else {
+
+            eventContainer.innerHTML =
+                events.map(event => {
+
+                    const eventText =
+                        event.hebrew ||
+                        event.title;
+
+                    return `
+                        <div style="
+                            margin-top: 8px;
+                            font-size: 20px;
+                        ">
+                            ${eventText}
+                        </div>
+                    `;
+
+                }).join("");
+
+        }
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        document.getElementById("todayHebrew")
+            .textContent =
+                "Calendar unavailable";
+
+        document.getElementById("todayEvents")
+            .textContent =
+                "Unable to load today's Jewish events.";
 
     }
-
-
-    const events =
-      data.items.filter(item =>
-        item.category !== "hebdate"
-      );
-
-
-    const eventContainer =
-      document.getElementById("todayEvents");
-
-
-    if (events.length === 0) {
-
-      eventContainer.textContent =
-        "No special Jewish events today.";
-
-    } else {
-
-      eventContainer.innerHTML =
-        events.map(event =>
-          `<div>${event.hebrew || event.title}</div>`
-        ).join("");
-
-    }
-
-
-  } catch (error) {
-
-    document.getElementById("todayHebrew")
-      .textContent =
-      "Calendar unavailable";
-
-  }
 
 }
-
 
 /*
 ====================================================
