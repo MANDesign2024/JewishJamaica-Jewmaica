@@ -1,243 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
+  <title>Contact | Jewmaica</title>
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
 
-    <title>Contact | Jewmaica</title>
+  <style>
 
-    <meta name="description"
-          content="Contact Jewmaica — The Living Archive of Jewish Jamaica.">
+    /* =====================================================
+       JEWMAICA CONTACT FORM
+    ===================================================== */
 
-    <!-- Jewmaica Stylesheet -->
-    <link rel="stylesheet"
-          href="../style.css">
+    .contact-section {
+      max-width: 760px;
+      margin: 60px auto;
+      padding: 0 25px;
+    }
 
+    .contact-intro {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .contact-intro h2 {
+      color: var(--jw-green);
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .contact-intro p {
+      color: var(--jw-text);
+      font-family: 'EB Garamond', serif;
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+
+    .contact-form {
+      background: var(--jw-cream);
+      border: 1px solid var(--jw-parchment-dark);
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--jw-green);
+      font-weight: 600;
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 14px;
+      margin-bottom: 20px;
+      border: 1px solid var(--jw-parchment-dark);
+      background: white;
+      color: var(--jw-text);
+      font-family: 'EB Garamond', serif;
+      font-size: 1rem;
+      border-radius: 2px;
+    }
+
+    .contact-form textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--jw-gold);
+    }
+
+    .contact-submit {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--jw-green);
+      color: white;
+      border: none;
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .contact-submit:hover {
+      background: var(--jw-mahogany);
+    }
+
+  </style>
 </head>
+
 
 <body>
 
-    <!-- =========================================
-         TOP BAR
-    ========================================== -->
+  <!-- =====================================================
+       HEADER
+  ===================================================== -->
 
-    <div class="top-bar">
+  <header>
 
-        <div class="top-left">
+    <!-- Keep your existing Jewmaica header/navigation here -->
 
-            <span>Preserving the Past</span>
+  </header>
 
-            <span>•</span>
 
-            <span>Strengthening the Present</span>
+  <!-- =====================================================
+       CONTACT
+  ===================================================== -->
 
-            <span>•</span>
+  <main>
 
-            <span>Building the Future</span>
+    <section class="contact-section">
 
-        </div>
+      <div class="contact-intro">
 
-        <div class="top-right">
+        <h2>CONTACT JEWMAICA</h2>
 
-            <form>
+        <p>
+          We welcome your questions, comments, historical information,
+          family stories, and contributions to the Living Archive of
+          Jewish Jamaica.
+        </p>
 
-                <input
-                    type="search"
-                    placeholder="Search the archive..."
-                    aria-label="Search the archive">
+      </div>
 
-                <button type="submit">
-                    Search
-                </button>
 
-            </form>
+      <!-- =================================================
+           CONTACT FORM
+      ================================================= -->
 
-        </div>
+      <form
+        class="contact-form"
+        action="mailto:jewmaica@gmail.com"
+        method="post"
+        enctype="text/plain"
+      >
 
-    </div>
+        <label for="name">
+          Name
+        </label>
 
+        <input
+          type="text"
+          id="name"
+          name="Name"
+          placeholder="Your name"
+          required
+        >
 
-    <!-- =========================================
-         HEADER
-    ========================================== -->
 
-    <header>
+        <label for="email">
+          Email
+        </label>
 
-        <div class="header-container">
+        <input
+          type="email"
+          id="email"
+          name="Email"
+          placeholder="Your email address"
+          required
+        >
 
-            <div class="logo-area">
 
-                <a href="../index.html">
+        <label for="message">
+          Message
+        </label>
 
-                    <img
-                        src="../assets/images/logo.png"
-                        alt="Jewmaica Logo"
-                        class="logo">
+        <textarea
+          id="message"
+          name="Message"
+          placeholder="Write your message here..."
+          required
+        ></textarea>
 
-                </a>
 
-                <div class="site-title">
+        <button
+          type="submit"
+          class="contact-submit"
+        >
+          SEND MESSAGE
+        </button>
 
-                    <h2>The Living Archive</h2>
+      </form>
 
-                    <h3>of Jewish Jamaica</h3>
+    </section>
 
-                </div>
+  </main>
 
-            </div>
 
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
 
-            <div class="header-menorah">
+  <footer>
 
-                <img
-                    src="../assets/images/menorah.png"
-                    alt="Menorah">
+    <p>
+      © 2026 Jewmaica – The Living Archive of Jewish Jamaica.
+    </p>
 
-            </div>
+  </footer>
 
-        </div>
 
-
-        <!-- =====================================
-             NAVIGATION
-        ====================================== -->
-
-        <nav>
-
-            <ul>
-
-                <li>
-                    <a href="../index.html">
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a href="torah.html">
-                        Torah
-                    </a>
-                </li>
-
-                <li>
-                    <a href="archive.html">
-                        Living Archive
-                    </a>
-                </li>
-
-                <li>
-                    <a href="jewish-jamaica.html">
-                        Jewish Jamaica
-                    </a>
-                </li>
-
-                <li>
-                    <a href="genealogy.html">
-                        Genealogy
-                    </a>
-                </li>
-
-                <li>
-                    <a href="media.html">
-                        Media
-                    </a>
-                </li>
-
-                <li>
-                    <a href="calendar.html"
-                        class="active">
-                        Calendar
-                    </a>
-                </li>
-
-                <li>
-                    <a href="community.html">
-                        Community
-                    </a>
-                </li>
-
-                <li>
-                    <a href="about.html">
-                        About
-                    </a>
-                </li>
-
-                <li>
-                    <a href="contact.html">
-                        Contact
-                    </a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-    </header>
-
-
-    <!-- =========================================
-         CONTACT PAGE
-    ========================================== -->
-
-    <main>
-
-        <section class="page-palm">
-
-            <div class="page-palm-content">
-
-                <p class="eyebrow">
-                    CONTACT
-                </p>
-
-                <h1>
-                    JEWMAICA at by sending us a message @
-                </h1>
-
-                <p>
-                    Do contact us at ....
-                </p>
-
-            </div>
-
-        </section>
-
-<!-- =========================================
-         FOOTER
-    ========================================== -->
-
-    <footer>
-
-        <div>
-
-            © 2026 Jewmaica –
-            The Living Archive of Jewish Jamaica.
-
-        </div>
-
-        <div class="footer-links">
-
-            <a href="#">
-                Privacy Policy
-            </a>
-
-            <a href="#">
-                Terms of Use
-            </a>
-
-            <a href="#">
-                Site Map
-            </a>
-
-        </div>
-
-        <div>
-
-            Designed with purpose.
-            Built for generations.
-
-        </div>
-
-    </footer>
+</body>
+</html>
