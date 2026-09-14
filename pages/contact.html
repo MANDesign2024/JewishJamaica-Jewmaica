@@ -17,9 +17,103 @@
     <link rel="stylesheet"
           href="../style.css">
 
+
+    <!-- =========================================
+         CONTACT FORM STYLES
+    ========================================== -->
+
+    <style>
+
+        .contact-section {
+            max-width: 760px;
+            margin: 60px auto;
+            padding: 0 25px;
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .contact-intro h2 {
+            color: var(--jw-green);
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .contact-intro p {
+            color: var(--jw-text);
+            font-family: 'EB Garamond', serif;
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        .contact-form {
+            background: var(--jw-cream);
+            border: 1px solid var(--jw-parchment-dark);
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 7px;
+            color: var(--jw-green);
+            font-family: 'EB Garamond', serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 14px;
+            margin-bottom: 20px;
+            border: 1px solid var(--jw-parchment-dark);
+            background: white;
+            color: var(--jw-text);
+            font-family: 'EB Garamond', serif;
+            font-size: 1rem;
+            border-radius: 2px;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--jw-gold);
+        }
+
+        .contact-form textarea {
+            min-height: 160px;
+            resize: vertical;
+        }
+
+        .contact-submit {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--jw-green);
+            color: white;
+            border: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .contact-submit:hover {
+            background: var(--jw-mahogany);
+        }
+
+    </style>
+
 </head>
 
+
 <body>
+
 
     <!-- =========================================
          TOP BAR
@@ -41,6 +135,7 @@
 
         </div>
 
+
         <div class="top-right">
 
             <form>
@@ -61,6 +156,7 @@
     </div>
 
 
+
     <!-- =========================================
          HEADER
     ========================================== -->
@@ -79,6 +175,7 @@
                         class="logo">
 
                 </a>
+
 
                 <div class="site-title">
 
@@ -102,6 +199,7 @@
         </div>
 
 
+
         <!-- =====================================
              NAVIGATION
         ====================================== -->
@@ -116,11 +214,13 @@
                     </a>
                 </li>
 
+
                 <li>
                     <a href="torah.html">
                         Torah
                     </a>
                 </li>
+
 
                 <li>
                     <a href="archive.html">
@@ -128,11 +228,13 @@
                     </a>
                 </li>
 
+
                 <li>
                     <a href="jewish-jamaica.html">
                         Jewish Jamaica
                     </a>
                 </li>
+
 
                 <li>
                     <a href="genealogy.html">
@@ -140,18 +242,20 @@
                     </a>
                 </li>
 
+
                 <li>
                     <a href="media.html">
                         Media
                     </a>
                 </li>
 
+
                 <li>
-                    <a href="calendar.html"
-                        class="active">
+                    <a href="calendar.html">
                         Calendar
                     </a>
                 </li>
+
 
                 <li>
                     <a href="community.html">
@@ -159,14 +263,17 @@
                     </a>
                 </li>
 
+
                 <li>
                     <a href="about.html">
                         About
                     </a>
                 </li>
 
+
                 <li>
-                    <a href="contact.html">
+                    <a href="contact.html"
+                       class="active">
                         Contact
                     </a>
                 </li>
@@ -178,8 +285,9 @@
     </header>
 
 
+
     <!-- =========================================
-         CONTACT PAGE
+         CONTACT PAGE HERO
     ========================================== -->
 
     <main>
@@ -189,231 +297,128 @@
             <div class="page-palm-content">
 
                 <p class="eyebrow">
-                    CONTACT  
+                    CONTACT
                 </p>
 
                 <h1>
-                   JEWMAICA by sending us your message below...
+                    JEWMAICA
                 </h1>
 
+                <p>
+                    Send us your message below...
                 </p>
 
             </div>
 
         </section>
 
-        
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Contact | Jewmaica</title>
-
-  <link rel="stylesheet" href="../style.css">
-
-  <style>
-
-        
-    /* =====================================================
-       JEWMAICA CONTACT FORM
-    ===================================================== */
-
-    .contact-section {
-      max-width: 760px;
-      margin: 60px auto;
-      padding: 0 25px;
-    }
-
-    .contact-intro {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .contact-intro h2 {
-      color: var(--jw-green);
-      font-family: 'Cinzel', serif;
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
-
-    .contact-intro p {
-      color: var(--jw-text);
-      font-family: 'EB Garamond', serif;
-      font-size: 1.15rem;
-      line-height: 1.7;
-    }
-
-    .contact-form {
-      background: var(--jw-cream);
-      border: 1px solid var(--jw-parchment-dark);
-      padding: 30px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    }
-
-    .contact-form label {
-      display: block;
-      margin-bottom: 7px;
-      color: var(--jw-green);
-      font-weight: 600;
-      font-family: 'EB Garamond', serif;
-      font-size: 1.05rem;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 12px 14px;
-      margin-bottom: 20px;
-      border: 1px solid var(--jw-parchment-dark);
-      background: white;
-      color: var(--jw-text);
-      font-family: 'EB Garamond', serif;
-      font-size: 1rem;
-      border-radius: 2px;
-    }
-
-    .contact-form textarea {
-      min-height: 160px;
-      resize: vertical;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--jw-gold);
-    }
-
-    .contact-submit {
-      display: inline-block;
-      padding: 12px 24px;
-      background: var(--jw-green);
-      color: white;
-      border: none;
-      font-family: 'Cinzel', serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.5px;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .contact-submit:hover {
-      background: var(--jw-mahogany);
-    }
-
-  </style>
-</head>
 
 
-<body>
+        <!-- =========================================
+             CONTACT FORM
+        ========================================== -->
 
-  <!-- =====================================================
-       HEADER
-  ===================================================== -->
-
-  <header>
-
-    <!-- Keep your existing Jewmaica header/navigation here -->
-
-  </header>
+        <section class="contact-section">
 
 
-  <!-- =====================================================
-       CONTACT
-  ===================================================== -->
+            <div class="contact-intro">
 
-  <main>
+                <h2>
+                    CONTACT JEWMAICA
+                </h2>
 
-    <section class="contact-section">
+                <p>
+                    We welcome your questions, comments, historical
+                    information, family stories, and contributions
+                    to the Living Archive of Jewish Jamaica.
+                </p>
 
-      <div class="contact-intro">
+            </div>
 
-        <h2>CONTACT JEWMAICA</h2>
+
+
+            <form
+                class="contact-form"
+                action="mailto:jewmaica@gmail.com"
+                method="post"
+                enctype="text/plain">
+
+
+                <!-- NAME -->
+
+                <label for="name">
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="Name"
+                    placeholder="Your name"
+                    required>
+
+
+
+                <!-- EMAIL -->
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="Email"
+                    placeholder="Your email address"
+                    required>
+
+
+
+                <!-- MESSAGE -->
+
+                <label for="message">
+                    Message
+                </label>
+
+                <textarea
+                    id="message"
+                    name="Message"
+                    placeholder="Write your message here..."
+                    required></textarea>
+
+
+
+                <!-- SEND -->
+
+                <button
+                    type="submit"
+                    class="contact-submit">
+
+                    SEND MESSAGE
+
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
 
         <p>
-          We welcome your questions, comments, historical information,
-          family stories, and contributions to the Living Archive of
-          Jewish Jamaica.
+            © 2026 Jewmaica – The Living Archive of Jewish Jamaica.
         </p>
 
-      </div>
-
-
-      <!-- =================================================
-           CONTACT FORM
-      ================================================= -->
-
-      <form
-        class="contact-form"
-        action="mailto:jewmaica@gmail.com"
-        method="post"
-        enctype="text/plain"
-      >
-
-        <label for="name">
-          Name
-        </label>
-
-        <input
-          type="text"
-          id="name"
-          name="Name"
-          placeholder="Your name"
-          required
-        >
-
-
-        <label for="email">
-          Email
-        </label>
-
-        <input
-          type="email"
-          id="email"
-          name="Email"
-          placeholder="Your email address"
-          required
-        >
-
-
-        <label for="message">
-          Message
-        </label>
-
-        <textarea
-          id="message"
-          name="Message"
-          placeholder="Write your message here..."
-          required
-        ></textarea>
-
-
-        <button
-          type="submit"
-          class="contact-submit"
-        >
-          SEND MESSAGE
-        </button>
-
-      </form>
-
-    </section>
-
-  </main>
-
-
-  <!-- =====================================================
-       FOOTER
-  ===================================================== -->
-
-  <footer>
-
-    <p>
-      © 2026 Jewmaica – The Living Archive of Jewish Jamaica.
-    </p>
-
-  </footer>
+    </footer>
 
 
 </body>
+
 </html>
