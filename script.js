@@ -699,6 +699,8 @@ async function initialiseParashahPage() {
     data.title +
     " | Jewmaica";
 
+  }
+
 
 /* =========================================================
    PARASHAH SEARCH
