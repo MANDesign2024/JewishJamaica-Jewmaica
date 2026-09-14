@@ -385,29 +385,32 @@ async function initialiseParashahPage() {
   let selectedParasha;
 
   if (
-    requestedParasha &&
-    parashot[requestedParasha]
-  ) {
+  requestedParasha &&
+  parashot[requestedParasha]
+) {
 
-    /*
-       If the visitor deliberately selected a Parashah
-       from the sidebar, preserve that selection.
-    */
+  /*
+     A Parashah was deliberately selected
+     through the URL/sidebar.
+  */
 
-    selectedParasha = requestedParasha;
+  selectedParasha =
+    requestedParasha;
 
-  } else {
+} else {
 
-    /*
-       No Parashah was selected.
+  /*
+     No Parashah was selected.
 
-       Automatically determine the current
-       weekly Torah portion from Hebcal.
-    */
+     Automatically determine the current
+     weekly
+     Torah portion from Hebcal.
+  */
 
-    selectedParasha =
-      await getCurrentParasha();
-  }
+  selectedParasha =
+    await getCurrentParasha();
+
+}
 
 
   /* =======================================================
