@@ -34,27 +34,1026 @@
            JEWMAICA ABOUT PAGE
            The Living Archive of Jewish Jamaica
            ========================================================= */
+    
+    :root {
+    --jw-green: #003b2a;
+    --jw-dark-green: #00281d;
+    --jw-deep-green: #001f17;
+
+    --jw-gold: #c79a28;
+    --jw-light-gold: #e1b84c;
+
+    --jw-mahogany: #4a2415;
+    --jw-mahogany-light: #704029;
+
+    --jw-parchment: #f2e7cf;
+    --jw-parchment-dark: #dfcda8;
+
+    --jw-cream: #faf7ee;
+
+    --jw-text: #17382d;
+    --jw-muted: #6b5a40;
+
+    --jw-border: #c7b78f;
+
+    --holiday: #f5e6b8;
+    --shabbat: #e7eee8;
+    --today: #ead7a0;
+
+    --shadow: 0 5px 18px rgba(0,0,0,0.12);
+}
 
 
-        :root {
+/* =========================================================
+   GLOBAL
+   ========================================================= */
 
-            --jw-green: #003b2a;
-            --jw-dark-green: #00281d;
-            --jw-deep-green: #001f17;
+* {
+    box-sizing: border-box;
+}
 
-            --jw-gold: #c79a28;
-            --jw-light-gold: #e1b84c;
+body {
+    margin: 0;
 
-            --jw-mahogany: #4a2415;
-            --jw-mahogany-light: #704029;
+    background: var(--jw-parchment);
 
-            --jw-parchment: #f2e7cf;
-            --jw-parchment-dark: #dfcda8;
+    color: var(--jw-text);
 
-            --jw-cream: #faf7ee;
+    font-family:
+        "EB Garamond",
+        Georgia,
+        "Times New Roman",
+        serif;
+}
 
-            --jw-text: #17382d;
-        }
+a {
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   TOP STRIP
+   ========================================================= */
+
+.calendar-top-strip {
+    background: var(--jw-deep-green);
+
+    color: var(--jw-light-gold);
+
+    border-bottom:
+        1px solid rgba(199,154,40,0.45);
+
+    padding: 8px 30px;
+
+    text-align: center;
+
+    font-family:
+        "Cinzel",
+        Georgia,
+        serif;
+
+    font-size: 13px;
+
+    letter-spacing: 1.4px;
+}
+
+
+/* =========================================================
+   BRAND HEADER
+   ========================================================= */
+
+header {
+    background:
+        linear-gradient(
+            rgba(0,59,42,0.95),
+            rgba(0,40,29,0.96)
+        );
+
+    min-height: 115px;
+
+    color: white;
+
+    padding: 20px 5%;
+
+    border-bottom:
+        1px solid var(--jw-gold);
+}
+
+.header-inner {
+    max-width: 1280px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 28px;
+}
+
+.brand {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.brand h1 {
+    margin: 0;
+
+    font-family:
+        "Cinzel",
+        Georgia,
+        serif;
+
+    font-size: 34px;
+
+    letter-spacing: 3px;
+
+    color: #fff7df;
+}
+
+.brand p {
+    margin: 5px 0 0;
+
+    color: var(--jw-light-gold);
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+
+    font-size: 17px;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+nav {
+    background: var(--jw-mahogany);
+
+    border-bottom:
+        2px solid var(--jw-gold);
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #fff7df;
+
+    padding: 14px 18px;
+
+    font-family:
+        "Cinzel",
+        Georgia,
+        serif;
+
+    font-size: 13px;
+
+    letter-spacing: 0.6px;
+
+    transition: 0.25s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--jw-light-gold);
+
+    background:
+        rgba(0,0,0,0.18);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+main {
+    max-width: 1280px;
+
+    margin: auto;
+
+    padding:
+        0 25px 45px;
+}
+
+
+/* =========================================================
+   BREADCRUMB
+   ========================================================= */
+
+.calendar-breadcrumb {
+    padding:
+        18px 0 8px;
+
+    color: var(--jw-muted);
+
+    font-size: 15px;
+}
+
+.calendar-breadcrumb a {
+    color: var(--jw-green);
+}
+
+
+/* =========================================================
+   CALENDAR HERO
+   ========================================================= */
+
+.calendar-heading {
+
+    min-height: 260px;
+
+    margin:
+        10px 0 35px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(242,231,207,1.00) 0%,
+            rgba(242,231,207,0.97) 38%,
+            rgba(242,231,207,0.82) 52%,
+            rgba(242,231,207,0.30) 72%,
+            rgba(242,231,207,0.05) 100%
+        ),
+        url("../assets/images/parasha-hero.jpg")
+        center center / cover
+        no-repeat;
+
+    border:
+        1px solid var(--jw-border);
+
+    box-shadow:
+        var(--shadow);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 35px;
+}
+
+.calendar-heading-inner {
+    max-width: 900px;
+
+    width: 100%;
+}
+
+.calendar-small-title {
+    font-family:
+        "Cinzel",
+        Georgia,
+        serif;
+
+    font-size: 18px;
+
+    letter-spacing: 5px;
+
+    color: var(--jw-green);
+
+    margin-bottom: 8px;
+}
+
+.calendar-heading h2 {
+    font-family:
+        "Cinzel",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(42px, 7vw, 70px);
+
+    line-height: 1;
+
+    color: var(--jw-green);
+
+    margin:
+        5px 0 15px;
+
+    letter-spacing: 2px;
+}
+
+.calendar-heading p {
+    font-size: 25px;
+
+    font-style: italic;
+
+    color: var(--jw-mahogany-light);
+
+    margin:
+        0 0 15px;
+}
+
+.calendar-ornament {
+    color: var(--jw-gold);
+
+    font-size: 27px;
+
+    letter-spacing: 8px;
+}
+
+
+/* =========================================================
+   CONTROLS
+   ========================================================= */
+
+.calendar-controls {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    background:
+        rgba(250,247,238,0.85);
+
+    padding: 15px 20px;
+
+    border:
+        1px solid var(--jw-border);
+
+    box-shadow:
+        var(--shadow);
+
+    margin-bottom: 22px;
+}
+
+button {
+
+    border:
+        1px solid var(--jw-gold);
+
+    cursor: pointer;
+
+    font-family:
+        "Cinzel",
+        Georgia,
+        serif;
+
+    padding:
+        10px 18px;
+
+    font-size: 14px;
+
+    letter-spacing: 0.4px;
+
+    transition: 0.2s ease;
+}
+
+.nav-button {
+
+    background:
+        var(--jw-green);
+
+    color:
+        #fff7df;
+}
+
+.nav-button:hover {
+
+    background:
+        var(--jw-dark-green);
+}
+
+.today-button {
+
+    background:
+        var(--jw-gold);
+
+    color:
+        #fff;
+
+    font-weight:
+        600;
+}
+
+.today-button:hover {
+
+    background:
+        var(--jw-mahogany-light);
+}
+
+#monthTitle {
+
+    font-family:
+        "Cinzel",
+        Georgia,
+        serif;
+
+    font-size:
+        25px;
+
+    font-weight:
+        600;
+
+    color:
+        var(--jw-green);
+
+    text-align:
+        center;
+}
+
+
+/* =========================================================
+   CALENDAR
+   ========================================================= */
+
+.calendar {
+
+    background:
+        var(--jw-cream);
+
+    border:
+        1px solid var(--jw-border);
+
+    overflow:
+        hidden;
+
+    box-shadow:
+        var(--shadow);
+}
+
+.weekdays {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    background:
+        var(--jw-mahogany);
+
+    color:
+        #fff7df;
+}
+
+.weekday {
+
+    padding:
+        14px 5px;
+
+    text-align:
+        center;
+
+    font-family:
+        "Cinzel",
+        Georgia,
+        serif;
+
+    font-weight:
+        500;
+
+    font-size:
+        13px;
+
+    letter-spacing:
+        0.5px;
+}
+
+.days {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+}
+
+.day {
+
+    min-height:
+        130px;
+
+    border-right:
+        1px solid var(--jw-parchment-dark);
+
+    border-bottom:
+        1px solid var(--jw-parchment-dark);
+
+    padding:
+        9px;
+
+    position:
+        relative;
+
+    background:
+        var(--jw-cream);
+
+    transition:
+        background 0.2s ease;
+}
+
+.day:hover {
+
+    background:
+        #f5eedf;
+}
+
+.day.empty {
+
+    background:
+        #e8dcc1;
+}
+
+.day-number {
+
+    font-family:
+        "Cinzel",
+        Georgia,
+        serif;
+
+    font-size:
+        18px;
+
+    font-weight:
+        600;
+
+    color:
+        var(--jw-green);
+}
+
+.hebrew-date {
+
+    font-size:
+        13px;
+
+    color:
+        var(--jw-gold);
+
+    margin-top:
+        3px;
+
+    direction:
+        rtl;
+}
+
+.event {
+
+    margin-top:
+        7px;
+
+    padding:
+        5px 7px;
+
+    border-radius:
+        0;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.3;
+}
+
+.holiday {
+
+    background:
+        var(--holiday);
+
+    color:
+        #765b00;
+
+    border-left:
+        3px solid var(--jw-gold);
+}
+
+.parsha {
+
+    background:
+        #e5eee5;
+
+    color:
+        #315b3b;
+
+    border-left:
+        3px solid var(--jw-green);
+}
+
+.shabbat {
+
+    background:
+        #eee5dc;
+
+    color:
+        #633e2a;
+
+    border-left:
+        3px solid var(--jw-mahogany-light);
+}
+
+.today {
+
+    background:
+        var(--today) !important;
+
+    outline:
+        2px solid var(--jw-gold);
+
+    outline-offset:
+        -2px;
+}
+
+.today .day-number {
+
+    color:
+        var(--jw-mahogany);
+}
+
+
+/* =========================================================
+   LEGEND
+   ========================================================= */
+
+.legend {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        20px;
+
+    margin:
+        25px 0;
+
+    font-size:
+        14px;
+
+    color:
+        var(--jw-text);
+}
+
+.legend-item {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+}
+
+.legend-box {
+
+    width:
+        15px;
+
+    height:
+        15px;
+
+    border-radius:
+        2px;
+}
+
+.legend-holiday {
+
+    background:
+        var(--holiday);
+
+    border:
+        1px solid var(--jw-gold);
+}
+
+.legend-shabbat {
+
+    background:
+        #eee5dc;
+
+    border:
+        1px solid var(--jw-mahogany-light);
+}
+
+.legend-today {
+
+    background:
+        var(--today);
+
+    border:
+        2px solid var(--jw-gold);
+}
+
+
+/* =========================================================
+   TODAY INFO
+   ========================================================= */
+
+.today-info {
+
+    background:
+        linear-gradient(
+            rgba(0,59,42,0.97),
+            rgba(0,40,29,0.98)
+        );
+
+    color:
+        #fff7df;
+
+    border:
+        1px solid var(--jw-gold);
+
+    padding:
+        28px;
+
+    margin-top:
+        32px;
+
+    text-align:
+        center;
+
+    box-shadow:
+        var(--shadow);
+}
+
+.today-info h3 {
+
+    margin-top:
+        0;
+
+    font-family:
+        "Cinzel",
+        Georgia,
+        serif;
+
+    color:
+        var(--jw-light-gold);
+
+    letter-spacing:
+        1px;
+}
+
+#todayHebrew {
+
+    font-size:
+        25px;
+
+    direction:
+        rtl;
+
+    margin:
+        8px 0;
+
+    color:
+        #fff7df;
+}
+
+#todayEvents {
+
+    color:
+        #e8dcc1;
+
+    line-height:
+        1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+
+    margin-top:
+        50px;
+
+    background:
+        var(--jw-deep-green);
+
+    color:
+        #fff7df;
+
+    text-align:
+        center;
+
+    padding:
+        28px;
+
+    border-top:
+        2px solid var(--jw-gold);
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+}
+
+footer strong {
+
+    color:
+        var(--jw-light-gold);
+
+    font-family:
+        "Cinzel",
+        Georgia,
+        serif;
+
+    letter-spacing:
+        2px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .header-inner {
+
+        flex-direction:
+            column;
+
+        text-align:
+            center;
+    }
+
+    nav a {
+
+        padding:
+            11px 10px;
+
+        font-size:
+            12px;
+    }
+
+    .calendar-heading {
+
+        min-height:
+            230px;
+
+        padding:
+            25px 15px;
+    }
+
+    .calendar-heading h2 {
+
+        font-size:
+            42px;
+    }
+
+    .calendar-heading p {
+
+        font-size:
+            21px;
+    }
+
+    .calendar-controls {
+
+        flex-wrap:
+            wrap;
+
+        justify-content:
+            center;
+    }
+
+    #monthTitle {
+
+        width:
+            100%;
+
+        order:
+            -1;
+    }
+
+    .day {
+
+        min-height:
+            100px;
+
+        padding:
+            6px;
+    }
+
+    .day-number {
+
+        font-size:
+            16px;
+    }
+
+    .hebrew-date {
+
+        font-size:
+            11px;
+    }
+
+    .event {
+
+        font-size:
+            10px;
+
+        padding:
+            4px;
+    }
+
+    .weekday {
+
+        font-size:
+            11px;
+
+        padding:
+            10px 2px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    main {
+
+        padding:
+            0 8px 30px;
+
+        margin-top:
+            0;
+    }
+
+    .calendar-heading {
+
+        min-height:
+            200px;
+    }
+
+    .calendar-small-title {
+
+        font-size:
+            14px;
+
+        letter-spacing:
+            3px;
+    }
+
+    .calendar-heading h2 {
+
+        font-size:
+            32px;
+    }
+
+    .calendar-heading p {
+
+        font-size:
+            18px;
+    }
+
+    .day {
+
+        min-height:
+            85px;
+    }
+
+    .event {
+
+        display:
+            none;
+    }
+
+    .day.has-event::after {
+
+        content:
+            "•";
+
+        color:
+            var(--jw-gold);
+
+        font-size:
+            18px;
+
+        position:
+            absolute;
+
+        bottom:
+            4px;
+
+        right:
+            7px;
+    }
+}
+
+</style>
 
 
         /* =========================================================
