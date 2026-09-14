@@ -169,9 +169,15 @@ async function getCurrentParasha() {
 
   const today = new Date();
 
-  const year = today.getFullYear();
-  const month = today.getMonth() + 1;
-  const day = today.getDate();
+  const year =
+    today.getFullYear();
+
+  const month =
+    today.getMonth() + 1;
+
+  const day =
+    today.getDate();
+
 
   const apiUrl =
     "https://www.hebcal.com/shabbat" +
@@ -184,31 +190,80 @@ async function getCurrentParasha() {
     "&gm=" + month +
     "&gd=" + day;
 
+
   try {
 
-    const response = await fetch(apiUrl);
+    const response =
+      await fetch(apiUrl);
+
 
     if (!response.ok) {
-      throw new Error("Hebcal API request failed.");
+
+      throw new Error(
+        "Hebcal API request failed."
+      );
+
     }
 
-    const data = await response.json();
 
-    if (!data.items || !Array.isArray(data.items)) {
-      throw new Error("No Hebcal data returned.");
+    const data =
+      await response.json();
+
+
+    if (
+      !data.items ||
+      !Array.isArray(data.items)
+    ) {
+
+      throw new Error(
+        "No Hebcal data returned."
+      );
+
     }
 
-    const parashaItem = data.items.find(function(item) {
-      return item.category === "parashat";
-    });
 
-    if (!parashaItem || !parashaItem.title) {
-      throw new Error("No weekly Parashah found.");
+    const parashaItem =
+      data.items.find(function(item) {
+
+        return (
+          item.category === "parashat"
+        );
+
+      });
+
+
+    if (
+      !parashaItem ||
+      !parashaItem.title
+    ) {
+
+      throw new Error(
+        "No weekly Parashah found."
+      );
+
     }
 
-    const parashaKey = convertHebcalParashaToKey(parashaItem.title);
+
+    const parashaKey =
+      convertHebcalParashaToKey(
+        parashaItem.title
+      );
+
+
+    console.log(
+      "Current Weekly Parashah:",
+      parashaItem.title
+    );
+
+
+    console.log(
+      "Website Parashah Key:",
+      parashaKey
+    );
+
 
     if (!parashot[parashaKey]) {
+
       console.warn(
         "Parashah found but not yet defined in website data:",
         parashaItem.title,
@@ -216,9 +271,12 @@ async function getCurrentParasha() {
       );
 
       return "default";
+
     }
 
+
     return parashaKey;
+
 
   } catch (error) {
 
@@ -227,14 +285,11 @@ async function getCurrentParasha() {
       error
     );
 
-    /*
-      If the external API is temporarily unavailable,
-      the page will remain on the general Parashat HaShavua
-      page rather than incorrectly displaying Nitzavim.
-    */
 
     return "default";
+
   }
+
 }
 
 
