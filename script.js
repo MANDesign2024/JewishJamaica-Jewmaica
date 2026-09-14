@@ -109,11 +109,12 @@ function convertHebcalParashaToKey(name) {
   }
 
   let key = name
-    .toLowerCase()
-    .trim()
-    .replace(/['’]/g, "")
-    .replace(/[–—-]/g, "-")
-    .replace(/\s+/g, "-");
+  .toLowerCase()
+  .trim()
+  .replace(/^parashat\s+/i, "")
+  .replace(/['’]/g, "")
+  .replace(/[–—-]/g, "-")
+  .replace(/\s+/g, "-");
 
 
   const aliases = {
