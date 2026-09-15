@@ -877,7 +877,7 @@ const shiurim = {
         title: "SHEMA",
 
         subtitle:
-            "Hear and Understand the Shema",
+            "Hear Israel",
 
         video:
             "1nX7YK8YVcQ",
@@ -892,9 +892,9 @@ const shiurim = {
         title: "TEFILLAH",
 
         subtitle:
-            "Prayer and Devotion",
+            "Amidah - Shemoneh Esreh",
 
-        video: "",
+        video: "sFRwaZ9TMm0",
 
         pdf: ""
 
