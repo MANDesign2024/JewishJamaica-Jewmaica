@@ -696,3 +696,47 @@ text-align:center;
 }
 
 }
+
+/* =========================================================
+   CONTACT FORM — INPUT TEXT VISIBILITY
+   ========================================================= */
+
+.contact-form input,
+.contact-form textarea,
+.contact-form input[type="text"],
+.contact-form input[type="email"] {
+    background-color: #ffffff !important;
+    color: #222222 !important;
+    -webkit-text-fill-color: #222222 !important;
+    caret-color: #222222 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    text-shadow: none !important;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #777777 !important;
+    -webkit-text-fill-color: #777777 !important;
+    opacity: 1 !important;
+}
+
+/* Browser autofill */
+.contact-form input:-webkit-autofill,
+.contact-form input:-webkit-autofill:hover,
+.contact-form input:-webkit-autofill:focus,
+.contact-form textarea:-webkit-autofill {
+    -webkit-text-fill-color: #222222 !important;
+    color: #222222 !important;
+    background-color: #ffffff !important;
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+/* Prevent dark-theme/site-wide rules from changing the form */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    background-color: #ffffff !important;
+    color: #222222 !important;
+    -webkit-text-fill-color: #222222 !important;
+    outline: none;
+}
