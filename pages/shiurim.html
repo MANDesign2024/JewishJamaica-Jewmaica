@@ -1,1033 +1,2134 @@
-/*==========================================================
-JEWMAICA
-The Living Archive of Jewish Jamaica
+<!DOCTYPE html>
+<html lang="en">
 
-Version : 0.1.0
-File    : script.js
-==========================================================*/
+<head>
 
-"use strict";
+    <meta charset="UTF-8">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/*==========================================================*
- * SHIURIM DATA
- *==========================================================*/
+    <title>Shiurim | Jewmaica – The Living Archive of Jewish Jamaica</title>
 
-const shiurim = {
+    <!-- Main Jewmaica stylesheet -->
+    <link rel="stylesheet" href="../style.css">
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    /*======================================================*
-     * DEFAULT — GENERAL SHIURIM PAGE
-     *======================================================*/
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet"
+    >
 
-    "default": {
 
-        title: "SHIURIM",
+    <style>
 
-        subtitle: "Explore our Shiurim",
+        /* =========================================================
+           JEWMAICA SHIURIM PAGE
+           ========================================================= */
 
-        pdf: "",
+        :root {
 
-        video: ""
+            --jw-green: #003b2a;
+            --jw-dark-green: #00281d;
+            --jw-deep-green: #001f17;
 
-    },
+            --jw-gold: #c79a28;
+            --jw-light-gold: #e1b84c;
 
+            --jw-mahogany: #4a2415;
+            --jw-mahogany-light: #704029;
 
-    /*======================================================*
-     * SHEMA
-     *======================================================*/
+            --jw-parchment: #f2e7cf;
+            --jw-parchment-dark: #dfcda8;
 
-    "shema": {
+            --jw-cream: #faf7ee;
 
-        title: "SHEMA",
+            --jw-text: #17382d;
+        }
 
-        subtitle: "",
 
-        pdf: "",
+        * {
+            box-sizing: border-box;
+        }
 
-        video: "1nX7YK8YVcQ"
 
-    }
+        body {
 
-};
+            margin: 0;
 
+            background: var(--jw-parchment);
 
-/*==========================================================*
- * PAGE LOADED
- *==========================================================*/
+            color: var(--jw-text);
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
+            font-family:
+                "EB Garamond",
+                Georgia,
+                serif;
+        }
 
-        console.log(
-            "Jewmaica Version 0.1 Loaded"
-        );
 
+        a {
+            text-decoration: none;
+        }
 
-        initialiseShiurimPage();
 
-        initialiseNavigation();
+        /* =========================================================
+           TOP STRIP
+           ========================================================= */
 
-        initialiseHeroSlider();
+        .shiurim-top-strip {
 
-        initialiseCards();
+            background: var(--jw-deep-green);
 
-        initialiseSearch();
+            color: var(--jw-light-gold);
 
-        initialiseShiurimSearch();
+            border-bottom:
+                1px solid rgba(199,154,40,0.45);
 
-        initialiseShiurimLinks();
+            padding: 8px 30px;
 
-        initialiseScrollEffects();
+            text-align: center;
 
-    }
-);
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
 
+            font-size: 13px;
 
-/*==========================================================*
- * SHIURIM PAGE
- *==========================================================*/
+            letter-spacing: 1.4px;
+        }
 
-function initialiseShiurimPage() {
 
+        .shiurim-top-strip span {
 
-    const shiurimTitle =
-        document.getElementById(
-            "shiurimTitle"
-        );
+            margin: 0 12px;
+        }
 
 
-    const shiurimSubtitle =
-        document.getElementById(
-            "shiurimSubtitle"
-        );
+        /* =========================================================
+           BRAND HEADER
+           ========================================================= */
 
+        .shiurim-brand {
 
-    const breadcrumbShiurim =
-        document.getElementById(
-            "breadcrumbShiurim"
-        );
-
-
-    const commentaryDescription =
-        document.getElementById(
-            "commentaryDescription"
-        );
-
-
-    const pdfTitle =
-        document.getElementById(
-            "pdfTitle"
-        );
-
-
-    const pdfSubtitle =
-        document.getElementById(
-            "pdfSubtitle"
-        );
-
-
-    const pdfButton =
-        document.getElementById(
-            "pdfButton"
-        );
-
-
-    const pdfPlaceholder =
-        document.getElementById(
-            "pdfPlaceholder"
-        );
-
-
-    const videoContainer =
-        document.getElementById(
-            "videoContainer"
-        );
-
-
-    const youtubeVideo =
-        document.getElementById(
-            "youtubeVideo"
-        );
-
-
-    const videoPlaceholder =
-        document.getElementById(
-            "videoPlaceholder"
-        );
-
-
-    const videoDescription =
-        document.getElementById(
-            "videoDescription"
-        );
-
-
-    /*------------------------------------------------------*
-     * IF THIS IS NOT THE SHIURIM PAGE, DO NOTHING
-     *------------------------------------------------------*/
-
-    if (!shiurimTitle) {
-
-        return;
-
-    }
-
-
-    /*------------------------------------------------------*
-     * GET SHIURIM FROM URL
-     *------------------------------------------------------*/
-
-    const urlParams =
-        new URLSearchParams(
-            window.location.search
-        );
-
-
-    const selectedShiurim =
-        urlParams.get(
-            "shiurim"
-        );
-
-
-    /*------------------------------------------------------*
-     * DETERMINE PAGE DATA
-     *
-     * NO SHIURIM = GENERAL PAGE
-     *
-     * INVALID SHIURIM = GENERAL PAGE
-     *
-     * SHEMA IS NEVER USED AS DEFAULT.
-     *------------------------------------------------------*/
-
-    let data;
-
-    let activeShiurim = null;
-
-
-    if (
-        selectedShiurim &&
-        Object.prototype.hasOwnProperty.call(
-            shiurim,
-            selectedShiurim
-        )
-    ) {
-
-        activeShiurim =
-            selectedShiurim;
-
-
-        data =
-            shiurim[selectedShiurim];
-
-    } else {
-
-        data =
-            shiurim["default"];
-
-    }
-
-
-    /*------------------------------------------------------*
-     * UPDATE HERO
-     *------------------------------------------------------*/
-
-    shiurimTitle.textContent =
-        data.title;
-
-
-    if (shiurimSubtitle) {
-
-        shiurimSubtitle.textContent =
-            data.subtitle ||
-            "Explore our Shiurim";
-
-    }
-
-
-    /*------------------------------------------------------*
-     * UPDATE BREADCRUMB
-     *------------------------------------------------------*/
-
-    if (breadcrumbShiurim) {
-
-        if (activeShiurim) {
-
-            breadcrumbShiurim.textContent =
-                formatShiurimName(
-                    activeShiurim
+            background:
+                linear-gradient(
+                    rgba(0,59,42,0.95),
+                    rgba(0,40,29,0.96)
                 );
 
-        } else {
+            min-height: 115px;
 
-            breadcrumbShiurim.textContent =
-                "Shiurim";
+            display: flex;
 
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 20px 5%;
+
+            border-bottom:
+                1px solid var(--jw-gold);
         }
 
-    }
 
+        .brand-left {
 
-    /*------------------------------------------------------*
-     * UPDATE COMMENTARY DESCRIPTION
-     *------------------------------------------------------*/
+            display: flex;
 
-    if (commentaryDescription) {
+            align-items: center;
 
-        if (activeShiurim) {
-
-            commentaryDescription.textContent =
-                "Written teachings and reflections on " +
-                formatShiurimName(
-                    activeShiurim
-                ) +
-                ".";
-
-        } else {
-
-            commentaryDescription.textContent =
-                "Explore our Shiurim and Torah teachings from the Jewmaica archive.";
-
+            gap: 28px;
         }
 
-    }
+
+        .brand-logo {
+
+            width: 250px;
+
+            max-width: 42vw;
+
+            height: auto;
+        }
 
 
-    /*------------------------------------------------------*
-     * PDF RESOURCE
-     *------------------------------------------------------*/
+        .menorah-mark {
 
-    if (data.pdf) {
+            width: 75px;
+
+            height: 75px;
+
+            object-fit: contain;
+
+            opacity: 0.20;
+        }
 
 
-        if (pdfTitle) {
+        /* =========================================================
+           NAVIGATION
+           ========================================================= */
 
-            pdfTitle.textContent =
-                "Shiurim " +
-                formatShiurimName(
-                    activeShiurim
+        .shiurim-nav {
+
+            background: var(--jw-mahogany);
+
+            border-bottom:
+                2px solid var(--jw-gold);
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+        }
+
+
+        .shiurim-nav a {
+
+            color: #fff7df;
+
+            padding: 14px 18px;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 13px;
+
+            letter-spacing: 0.6px;
+
+            transition: 0.25s ease;
+        }
+
+
+        .shiurim-nav a:hover,
+        .shiurim-nav a.active {
+
+            color: var(--jw-light-gold);
+
+            background:
+                rgba(0,0,0,0.18);
+        }
+
+
+        /* =========================================================
+           BREADCRUMB
+           ========================================================= */
+
+        .breadcrumb {
+
+            max-width: 1280px;
+
+            margin: 0 auto;
+
+            padding: 18px 25px 8px;
+
+            color: #6b5a40;
+
+            font-size: 15px;
+        }
+
+
+        .breadcrumb a {
+
+            color: var(--jw-green);
+        }
+
+
+        /* =========================================================
+           PAGE WRAPPER
+           ========================================================= */
+
+        .shiurim-wrapper {
+
+            max-width: 1280px;
+
+            margin: auto;
+
+            padding: 10px 25px 45px;
+        }
+
+
+        /* =========================================================
+           SHIURIM HERO
+           ========================================================= */
+
+        .shiurim-hero {
+
+            min-height: 270px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+
+                    rgba(242,231,207,1.00) 0%,
+
+                    rgba(242,231,207,0.97) 38%,
+
+                    rgba(242,231,207,0.82) 52%,
+
+                    rgba(242,231,207,0.30) 72%,
+
+                    rgba(242,231,207,0.05) 100%
+                ),
+
+                url("../assets/images/parasha-hero.jpg")
+                center center / cover
+                no-repeat;
+
+            border:
+                1px solid #c7b78f;
+
+            box-shadow:
+                0 5px 18px rgba(0,0,0,0.12);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 35px;
+        }
+
+
+        .hero-overlay {
+
+            max-width: 850px;
+
+            width: 100%;
+        }
+
+
+        .hero-small-title {
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 20px;
+
+            letter-spacing: 6px;
+
+            color: var(--jw-green);
+
+            margin-bottom: 3px;
+        }
+
+
+        .parasha-hero h1 {
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(48px, 7vw, 78px);
+
+            line-height: 1;
+
+            color: var(--jw-green);
+
+            margin: 5px 0 15px;
+
+            letter-spacing: 2px;
+        }
+
+
+        .hero-subtitle {
+
+            font-size: 29px;
+
+            font-style: italic;
+
+            color: #704a28;
+
+            margin-bottom: 18px;
+        }
+
+
+        .ornament {
+
+            color: var(--jw-gold);
+
+            font-size: 27px;
+
+            letter-spacing: 8px;
+        }
+
+
+        /* =========================================================
+           MAIN GRID
+           ========================================================= */
+
+        .shiurim-main-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(0, 1fr)
+                280px;
+
+            gap: 18px;
+
+            margin-top: 20px;
+
+            align-items: start;
+        }
+
+
+        /* =========================================================
+           CONTENT CARDS
+           ========================================================= */
+
+        .content-card {
+
+            background: var(--jw-cream);
+
+            border:
+                1px solid #d8c9aa;
+
+            box-shadow:
+                0 4px 12px rgba(49,37,22,0.10);
+
+            min-height: 560px;
+        }
+
+
+        .card-heading {
+
+            background: var(--jw-green);
+
+            color: #fff9e9;
+
+            padding: 14px 15px;
+
+            text-align: center;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 16px;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        .video-card .card-heading {
+
+            background: #a87910;
+        }
+
+
+        .card-body {
+
+            padding: 25px;
+
+            text-align: center;
+        }
+
+
+        .card-icon {
+
+            width: 52px;
+
+            height: 52px;
+
+            margin:
+                0 auto 15px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--jw-green);
+
+            color: var(--jw-light-gold);
+
+            font-size: 25px;
+        }
+
+
+        .video-card .card-icon {
+
+            background: #b18112;
+
+            color: white;
+        }
+
+
+        .card-title {
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 29px;
+
+            color: var(--jw-green);
+
+            margin: 5px 0 5px;
+        }
+
+
+        .video-card .card-title {
+
+            color: #9a6d0d;
+        }
+
+
+        .card-description {
+
+            font-size: 18px;
+
+            line-height: 1.35;
+
+            margin:
+                0 auto 22px;
+
+            max-width: 380px;
+        }
+
+
+        /* =========================================================
+           PDF RESOURCE
+           ========================================================= */
+
+        .resource-box {
+
+            background: #f7f0df;
+
+            border:
+                1px solid #dfcfad;
+
+            padding: 18px;
+
+            margin-top: 15px;
+
+            text-align: left;
+        }
+
+
+        .resource-box h3 {
+
+            margin: 0 0 5px;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            color: var(--jw-green);
+
+            font-size: 18px;
+        }
+
+
+        .resource-box p {
+
+            margin: 4px 0;
+
+            font-size: 16px;
+        }
+
+
+        .primary-button,
+        .resource-button {
+
+            display: block;
+
+            margin-top: 15px;
+
+            background: var(--jw-green);
+
+            color: white;
+
+            border:
+                1px solid var(--jw-gold);
+
+            padding: 11px 14px;
+
+            text-align: center;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 14px;
+
+            letter-spacing: 0.5px;
+
+            transition: 0.25s ease;
+        }
+
+
+        .primary-button:hover,
+        .resource-button:hover {
+
+            background: var(--jw-mahogany);
+
+            color: var(--jw-light-gold);
+        }
+
+
+        .secondary-button {
+
+            margin-top: 15px;
+
+            display: block;
+
+            padding: 12px;
+
+            background: var(--jw-parchment);
+
+            border:
+                1px solid #c9b486;
+
+            color: var(--jw-green);
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            text-align: center;
+        }
+
+
+        .secondary-button:hover {
+
+            background: #e7d8b7;
+        }
+
+
+        /* =========================================================
+           VIDEO
+           ========================================================= */
+
+        .video-container {
+
+            position: relative;
+
+            width: 100%;
+
+            aspect-ratio: 16 / 9;
+
+            margin-top: 15px;
+
+            background: #111;
+
+            overflow: hidden;
+
+            display: none;
+        }
+
+
+        .video-container iframe {
+
+            width: 100%;
+
+            height: 100%;
+
+            border: 0;
+
+            display: block;
+        }
+
+
+        .video-placeholder {
+
+            min-height: 250px;
+
+            background: #302416;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 20px;
+        }
+
+
+        /* =========================================================
+           SHIURIM SIDEBAR
+           ========================================================= */
+
+        .shiurim-sidebar {
+
+            background: var(--jw-green);
+
+            color: #fff8e4;
+
+            border:
+                1px solid #8f721e;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,0.16);
+        }
+
+
+        .sidebar-heading {
+
+            padding: 17px 15px;
+
+            text-align: center;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            color: var(--jw-light-gold);
+
+            font-size: 17px;
+
+            border-bottom:
+                1px solid rgba(225,184,76,0.5);
+        }
+
+
+        .shiurim-search {
+
+            margin: 14px;
+
+            width:
+                calc(100% - 28px);
+
+            padding: 10px;
+
+            background: #073f2f;
+
+            color: white;
+
+            border:
+                1px solid #8f721e;
+
+            font-family:
+                "EB Garamond",
+                serif;
+
+            font-size: 15px;
+        }
+
+
+        .shiurim-search::placeholder {
+
+            color: #d8c99f;
+        }
+
+
+        .shiurim-list {
+
+            list-style: none;
+
+            margin: 0;
+
+            padding:
+                5px 12px 15px;
+
+            max-height: 550px;
+
+            overflow-y: auto;
+        }
+
+
+        .shiurim-list li {
+
+            margin: 0;
+        }
+
+
+        .shiurim-list a {
+
+            display: block;
+
+            padding: 7px 8px;
+
+            color: #f7e7bd;
+
+            font-size: 16px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.06);
+
+            transition: 0.2s ease;
+        }
+
+
+        .shiurim-list a:hover,
+        .shiurim-list a.selected {
+
+            color: var(--jw-light-gold);
+
+            background:
+                rgba(0,0,0,0.20);
+
+            padding-left: 13px;
+        }
+
+
+        .shiurim-list a::before {
+
+            content: "◈";
+
+            margin-right: 8px;
+
+            color: var(--jw-light-gold);
+
+            font-size: 10px;
+        }
+
+
+        .view-all {
+
+            display: block;
+
+            margin:
+                4px 14px 16px;
+
+            padding: 11px;
+
+            text-align: center;
+
+            color: var(--jw-light-gold);
+
+            border:
+                1px solid #a68122;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 13px;
+        }
+
+
+        .view-all:hover {
+
+            background:
+                rgba(255,255,255,0.08);
+        }
+
+
+        /* =========================================================
+           RELATED RESOURCES
+           ========================================================= */
+
+        .related-resources {
+
+            margin-top: 18px;
+
+            background: #f1e3c4;
+
+            border:
+                1px solid #cdbb92;
+
+            padding: 20px;
+        }
+
+
+        .related-resources h3 {
+
+            margin: 0 0 12px;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            color: var(--jw-green);
+
+            font-size: 17px;
+        }
+
+
+        .related-resources a {
+
+            display: block;
+
+            padding: 8px 0;
+
+            color: #4c3c25;
+
+            border-bottom:
+                1px solid rgba(90,70,35,0.15);
+        }
+
+
+        .related-resources a:hover {
+
+            color: var(--jw-green);
+        }
+
+
+        /* =========================================================
+           FOOTER QUOTE
+           ========================================================= */
+
+        .shiurim-footer-quote {
+
+            margin-top: 25px;
+
+            background:
+
+                linear-gradient(
+                    rgba(0,45,32,0.95),
+                    rgba(0,35,25,0.96)
                 );
 
+            color: white;
+
+            padding: 30px 25px;
+
+            text-align: center;
+
+            border-top:
+                2px solid var(--jw-gold);
+
+            border-bottom:
+                2px solid var(--jw-gold);
         }
 
 
-        if (pdfSubtitle) {
+        .shiurim-footer-quote blockquote {
 
-            pdfSubtitle.textContent =
-                data.subtitle ||
-                "Written Commentary";
+            max-width: 850px;
 
+            margin: auto;
+
+            font-size: 22px;
+
+            font-style: italic;
+
+            line-height: 1.4;
         }
 
 
-        if (pdfButton) {
+        .quote-source {
 
-            pdfButton.href =
-                data.pdf;
+            display: block;
 
+            margin-top: 12px;
 
-            pdfButton.textContent =
-                "📖 OPEN " +
-                data.title +
-                " PDF";
+            color: var(--jw-light-gold);
 
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
 
-            pdfButton.style.display =
-                "block";
-
+            font-size: 14px;
         }
 
 
-        if (pdfPlaceholder) {
+        /* =========================================================
+           NO RESOURCE STATE
+           ========================================================= */
 
-            pdfPlaceholder.style.display =
-                "none";
+        .no-resource {
 
+            padding: 20px;
+
+            background: #f7f0df;
+
+            border:
+                1px solid #dfcfad;
+
+            margin-top: 15px;
+
+            text-align: center;
+
+            color: #6b5a40;
+
+            font-style: italic;
         }
 
-    } else {
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-width: 1050px) {
+
+            .shiurim-main-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
 
 
-        if (pdfTitle) {
+        @media (max-width: 700px) {
 
-            if (activeShiurim) {
+            .shiurim-top-strip {
 
-                pdfTitle.textContent =
-                    formatShiurimName(
-                        activeShiurim
-                    );
+                font-size: 10px;
 
-            } else {
+                padding: 8px;
+            }
 
-                pdfTitle.textContent =
-                    "Shiurim";
 
+            .shiurim-top-strip span {
+
+                margin: 0 4px;
+            }
+
+
+            .shiurim-brand {
+
+                padding: 15px;
+
+                min-height: 90px;
+            }
+
+
+            .brand-logo {
+
+                width: 190px;
+            }
+
+
+            .menorah-mark {
+
+                width: 50px;
+
+                height: 50px;
+            }
+
+
+            .shiurim-nav a {
+
+                padding:
+                    10px 9px;
+
+                font-size: 11px;
+            }
+
+
+            .shiurim-main-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .shiurim-sidebar {
+
+                grid-column: auto;
+            }
+
+
+            .shiurim-list {
+
+                columns: 1;
+
+                max-height: 400px;
+            }
+
+
+            .shiurim-hero {
+
+                min-height: 230px;
+
+                padding: 25px 15px;
+            }
+
+
+            .shiurim-hero h1 {
+
+                font-size: 45px;
+            }
+
+
+            .hero-subtitle {
+
+                font-size: 23px;
+            }
+
+
+            .hero-small-title {
+
+                font-size: 16px;
+
+                letter-spacing: 4px;
+            }
+
+
+            .content-card {
+
+                min-height: auto;
             }
 
         }
 
+    </style>
 
-        if (pdfSubtitle) {
+</head>
 
-            if (activeShiurim) {
 
-                pdfSubtitle.textContent =
-                    "Written commentary will be added to the archive.";
+<body>
 
-            } else {
 
-                pdfSubtitle.textContent =
-                    "Written teachings and reflections from the Jewmaica archive.";
+    <!-- =========================================================
+         TOP STRIP
+         ========================================================= -->
 
-            }
+    <div class="shiurim-top-strip">
 
-        }
+        PRESERVING THE PAST
 
+        <span>•</span>
 
-        if (pdfButton) {
+        STRENGTHENING THE PRESENT
 
-            pdfButton.removeAttribute(
-                "href"
-            );
+        <span>•</span>
 
+        BUILDING THE FUTURE
 
-            pdfButton.style.display =
-                "none";
+    </div>
 
-        }
 
 
-        if (pdfPlaceholder) {
+    <!-- =========================================================
+         BRAND HEADER
+         ========================================================= -->
 
-            pdfPlaceholder.style.display =
-                "block";
+    <header class="shiurim-brand">
 
-        }
+        <div class="brand-left">
 
-    }
+            <img
+                src="../assets/images/logo.png"
+                alt="Jewmaica – The Living Archive of Jewish Jamaica"
+                class="brand-logo"
+            >
 
 
-    /*------------------------------------------------------*
-     * YOUTUBE VIDEO
-     *
-     * The iframe is inside #videoContainer.
-     *------------------------------------------------------*/
+            <img
+                src="../assets/images/menorah.jpg"
+                alt=""
+                class="menorah-mark"
+            >
 
-    if (
-        data.video &&
-        videoContainer &&
-        youtubeVideo
-    ) {
+        </div>
 
+    </header>
 
-        youtubeVideo.src =
-            "https://www.youtube.com/embed/" +
-            data.video;
 
 
-        youtubeVideo.title =
-            "Shiurim - " +
-            data.title;
+    <!-- =========================================================
+         NAVIGATION
+         ========================================================= -->
 
+    <nav class="shiurim-nav">
 
-        /* Show video container */
+        <a href="../index.html">
+            HOME
+        </a>
 
-        videoContainer.style.display =
-            "block";
+        <a href="torah.html"> 
+            TORAH
+        </a>
 
+        <a href="#">
+            LIVING ARCHIVE
+        </a>
 
-        /* Hide placeholder */
+        <a href="#">
+            JEWISH JAMAICA
+        </a>
 
-        if (videoPlaceholder) {
+        <a href="#">
+            GENEALOGY
+        </a>
 
-            videoPlaceholder.style.display =
-                "none";
+        <a href="#">
+            MEDIA
+        </a>
 
-        }
+        <a href="calendar.html">
+            CALENDAR
+        </a>
 
-    } else {
+        <a href="#">
+            COMMUNITY
+        </a>
 
+        <a href="about.html">
+            ABOUT
+        </a>
 
-        /* Remove old video */
+        <a href="contact.html">
+            CONTACT
+        </a>
 
-        if (youtubeVideo) {
+    </nav>
 
-            youtubeVideo.removeAttribute(
-                "src"
-            );
 
 
-            youtubeVideo.title =
-                "Shiurim";
+    <!-- =========================================================
+         BREADCRUMB
+         ========================================================= -->
 
-        }
+    <div class="breadcrumb">
 
+        <a href="../index.html">
+            ⌂ Home
+        </a>
 
-        /* Hide video container */
+        <span> › </span>
 
-        if (videoContainer) {
+        <a href="torah.html">
+            Torah
+        </a>
 
-            videoContainer.style.display =
-                "none";
+        <span> › </span>
 
-        }
+        <span>
+            Parashat HaShavua
+        </span>
 
+        <span> › </span>
 
-        /* Show placeholder */
+        <strong id="breadcrumbParasha">
+            Parashat HaShavua
+        </strong>
 
-        if (videoPlaceholder) {
+    </div>
 
-            videoPlaceholder.style.display =
-                "flex";
 
-        }
 
-    }
+    <!-- =========================================================
+         MAIN PAGE
+         ========================================================= -->
 
+    <main class="parasha-wrapper">
 
-    /*------------------------------------------------------*
-     * VIDEO DESCRIPTION
-     *------------------------------------------------------*/
 
-    if (videoDescription) {
+        <!-- =====================================================
+             PARASHAH HERO
 
+             IMPORTANT:
+             Nothing here is hard-coded to Nitzavim.
 
-        if (
-            activeShiurim &&
-            data.video
-        ) {
+             script.js determines the selected Parashah.
+             ===================================================== -->
 
-            videoDescription.textContent =
-                "Shiur recording for " +
-                formatShiurimName(
-                    activeShiurim
-                ) +
-                ".";
+        <section class="parasha-hero">
 
-        } else if (activeShiurim) {
+            <div class="hero-overlay">
 
-            videoDescription.textContent =
-                "A Shiur recording for " +
-                formatShiurimName(
-                    activeShiurim
-                ) +
-                " will be added to the archive.";
+                <div class="hero-small-title">
+                    PARASHAT
+                </div>
 
-        } else {
 
-            videoDescription.textContent =
-                "Recordings of Jewmaica Shiurim and Torah teachings.";
+                <h1 id="parashaTitle">
+                    HASHAVUA
+                </h1>
 
-        }
 
-    }
+                <div
+                    class="hero-subtitle"
+                    id="parashaSubtitle"
+                >
+                    Explore the Weekly Torah Reading
+                </div>
 
 
-    /*------------------------------------------------------*
-     * SELECTED SIDEBAR ITEM
-     *------------------------------------------------------*/
+                <div class="ornament">
+                    ─── ❖ ───
+                </div>
 
-    const shiurimLinks =
-        document.querySelectorAll(
-            "#shiurimList a[data-shiurim]"
-        );
+            </div>
 
+        </section>
 
-    shiurimLinks.forEach(
-        link => {
 
-            link.classList.remove(
-                "selected"
-            );
 
+        <!-- =====================================================
+             MAIN CONTENT
+             ===================================================== -->
 
-            if (
-                activeShiurim &&
-                link.dataset.shiurim ===
-                activeShiurim
-            ) {
+        <div class="parasha-main-grid">
 
-                link.classList.add(
-                    "selected"
-                );
 
-            }
+            <!-- =================================================
+                 WRITTEN COMMENTARY
+                 ================================================= -->
 
-        }
-    );
+            <section class="content-card">
 
-}
+                <div class="card-heading">
+                    1. WRITTEN COMMENTARY
+                </div>
 
 
-/*==========================================================*
- * FORMAT SHIURIM NAME
- *==========================================================*/
+                <div class="card-body">
 
-function formatShiurimName(key) {
 
+                    <div class="card-icon">
+                        ✒
+                    </div>
 
-    const names = {
 
-        "shema": "SHEMA"
+                    <h2 class="card-title">
+                        Dvrei Torah
+                    </h2>
 
-    };
 
+                    <p
+                        class="card-description"
+                        id="commentaryDescription"
+                    >
+                        Written teachings and reflections
+                        on the weekly Parashah.
+                    </p>
 
-    return (
-        names[key] ||
-        key ||
-        "Shiurim"
-    );
 
-}
+                    <!-- =================================================
+                         PDF RESOURCE
+                         ================================================= -->
 
+                    <div
+                        class="resource-box"
+                        id="pdfResource"
+                    >
 
-/*==========================================================*
- * SHIURIM SIDEBAR LINKS
- *==========================================================*/
+                        <h3 id="pdfTitle">
+                            Select a Parashah
+                        </h3>
 
-function initialiseShiurimLinks() {
 
+                        <p id="pdfSubtitle">
+                            Select a Parashah from the list
+                            to view its Dvrei Torah.
+                        </p>
 
-    const shiurimLinks =
-        document.querySelectorAll(
-            "#shiurimList a[data-shiurim]"
-        );
 
+                        <p id="pdfAuthor">
+                            <strong>
+                                By Michael Nunes
+                            </strong>
+                        </p>
 
-    shiurimLinks.forEach(
-        link => {
 
+                        <p id="pdfDate">
+                            Dvrei Torah Archive
+                        </p>
 
-            link.addEventListener(
-                "click",
-                function(event) {
 
+                        <a
+                            id="pdfButton"
+                            class="primary-button"
+                            href="#"
+                            target="_blank"
+                            rel="noopener"
+                            style="display:none;"
+                        >
+                            📖 OPEN PDF
+                        </a>
 
-                    event.preventDefault();
 
+                        <div
+                            id="pdfPlaceholder"
+                            class="no-resource"
+                        >
+                            Select a Parashah to view
+                            the available written commentary.
+                        </div>
 
-                    const selectedShiurim =
-                        this.dataset.shiurim;
+                    </div>
 
 
-                    window.location.href =
-                        "Shiurim.html?shiurim=" +
-                        encodeURIComponent(
-                            selectedShiurim
-                        );
 
-                }
-            );
+                    <a
+                        href="#"
+                        class="secondary-button"
+                    >
+                        📜 View All Dvrei Torah
+                    </a>
 
-        }
-    );
+                </div>
 
-}
+            </section>
 
 
-/*==========================================================*
- * SHIURIM SEARCH
- *==========================================================*/
 
-function initialiseShiurimSearch() {
+            <!-- =================================================
+                 TORAH READING VIDEO
+                 ================================================= -->
 
+            <section class="content-card video-card">
 
-    const searchInput =
-        document.getElementById(
-            "shiurimSearch"
-        );
 
+                <div class="card-heading">
+                    2. TORAH READING (VIDEOS)
+                </div>
 
-    const shiurimLinks =
-        document.querySelectorAll(
-            "#shiurimList a"
-        );
 
+                <div class="card-body">
 
-    if (!searchInput) {
 
-        return;
+                    <div class="card-icon">
+                        ▶
+                    </div>
 
-    }
 
+                    <h2 class="card-title">
+                        Torah Reading
+                    </h2>
 
-    searchInput.addEventListener(
-        "input",
-        function() {
 
+                    <p
+                        class="card-description"
+                        id="videoDescription"
+                    >
+                        Recordings of the Torah reading
+                        for the weekly Parashah.
+                    </p>
 
-            const searchTerm =
-                this.value
-                    .toLowerCase()
-                    .trim();
 
 
-            shiurimLinks.forEach(
-                function(link) {
+                    <!-- =================================================
+                         YOUTUBE VIDEO
 
+                         The JavaScript supplies the correct YouTube
+                         video for the selected Parashah.
 
-                    const name =
-                        link.textContent
-                            .toLowerCase();
+                         The container starts hidden only so that the
+                         general page can show the placeholder.
+                         When a Parashah has a video, script.js will
+                         display this container.
+                         ================================================= -->
 
+                    <div
+                        class="video-container"
+                        id="videoContainer"
+                    >
 
-                    const item =
-                        link.closest("li");
+                        <iframe
+                            id="youtubeVideo"
+                            src=""
+                            title="Torah Reading"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
 
+                    </div>
 
-                    if (!item) {
 
-                        return;
+                    <div
+                        id="videoPlaceholder"
+                        class="video-placeholder"
+                    >
 
-                    }
+                        Select a Parashah to view
+                        its Torah reading video.
 
+                    </div>
 
-                    if (
-                        name.includes(
-                            searchTerm
-                        )
-                    ) {
 
-                        item.style.display =
-                            "";
 
-                    } else {
+                    <a
+                        href="#"
+                        class="secondary-button"
+                    >
+                        🎥 View All Torah Reading Videos
+                    </a>
 
-                        item.style.display =
-                            "none";
+                </div>
 
-                    }
+            </section>
 
-                }
-            );
 
-        }
-    );
 
-}
+            <!-- =================================================
+                 OTHER PARASHOT
+                 ================================================= -->
 
+            <aside>
 
-/*==========================================================*
- * NAVIGATION
- *==========================================================*/
 
-function initialiseNavigation() {
+                <div class="parasha-sidebar">
 
 
-    const links =
-        document.querySelectorAll(
-            "nav a"
-        );
+                    <div class="sidebar-heading">
+                        OTHER PARASHOT
+                    </div>
 
 
-    links.forEach(
-        link => {
+                    <input
+                        type="search"
+                        id="parashaSearch"
+                        class="parasha-search"
+                        placeholder="Search Parashot..."
+                        aria-label="Search Parashot"
+                    >
 
 
-            link.addEventListener(
-                "click",
-                function() {
+                    <ul
+                        class="parasha-list"
+                        id="parashaList"
+                    >
 
 
-                    links.forEach(
-                        item => {
+                        <li>
+                            <a
+                                href="?parasha=bereshit"
+                                data-parasha="bereshit"
+                            >
+                                Bereshit
+                            </a>
+                        </li>
 
-                            item.classList.remove(
-                                "active"
-                            );
 
-                        }
-                    );
+                        <li>
+                            <a
+                                href="?parasha=noach"
+                                data-parasha="noach"
+                            >
+                                Noach
+                            </a>
+                        </li>
 
 
-                    this.classList.add(
-                        "active"
-                    );
+                        <li>
+                            <a
+                                href="?parasha=lech-lecha"
+                                data-parasha="lech-lecha"
+                            >
+                                Lech Lecha
+                            </a>
+                        </li>
 
-                }
-            );
 
-        }
-    );
+                        <li>
+                            <a
+                                href="?parasha=vayera"
+                                data-parasha="vayera"
+                            >
+                                Vayera
+                            </a>
+                        </li>
 
-}
 
+                        <li>
+                            <a
+                                href="?parasha=chayei-sara"
+                                data-parasha="chayei-sara"
+                            >
+                                Chayei Sara
+                            </a>
+                        </li>
 
-/*==========================================================*
- * PALM IMAGE SLIDER
- *==========================================================*/
 
-const palmImages = [
+                        <li>
+                            <a
+                                href="?parasha=toldot"
+                                data-parasha="toldot"
+                            >
+                                Toldot
+                            </a>
+                        </li>
 
-    "assets/images/palm.jpg",
 
-    "assets/images/palm2.jpg",
+                        <li>
+                            <a
+                                href="?parasha=vayetze"
+                                data-parasha="vayetze"
+                            >
+                                Vayetze
+                            </a>
+                        </li>
 
-    "assets/images/palm3.jpg",
 
-    "assets/images/palm4.jpg"
+                        <li>
+                            <a
+                                href="?parasha=vayishlach"
+                                data-parasha="vayishlach"
+                            >
+                                Vayishlach
+                            </a>
+                        </li>
 
-];
 
+                        <li>
+                            <a
+                                href="?parasha=vayeshev"
+                                data-parasha="vayeshev"
+                            >
+                                Vayeshev
+                            </a>
+                        </li>
 
-let currentSlide = 0;
 
+                        <li>
+                            <a
+                                href="?parasha=miketz"
+                                data-parasha="miketz"
+                            >
+                                Miketz
+                            </a>
+                        </li>
 
-function initialiseHeroSlider() {
 
+                        <li>
+                            <a
+                                href="?parasha=vayigash"
+                                data-parasha="vayigash"
+                            >
+                                Vayigash
+                            </a>
+                        </li>
 
-    const palmImage =
-        document.querySelector(
-            ".palm-image img"
-        );
 
+                        <li>
+                            <a
+                                href="?parasha=vayechi"
+                                data-parasha="vayechi"
+                            >
+                                Vayechi
+                            </a>
+                        </li>
 
-    const dots =
-        document.querySelectorAll(
-            ".slider-dots span"
-        );
 
+                        <li>
+                            <a
+                                href="?parasha=shemot"
+                                data-parasha="shemot"
+                            >
+                                Shemot
+                            </a>
+                        </li>
 
-    if (
-        !palmImage ||
-        dots.length === 0
-    ) {
 
-        return;
+                        <li>
+                            <a
+                                href="?parasha=vaera"
+                                data-parasha="vaera"
+                            >
+                                Vaera
+                            </a>
+                        </li>
 
-    }
 
+                        <li>
+                            <a
+                                href="?parasha=bo"
+                                data-parasha="bo"
+                            >
+                                Bo
+                            </a>
+                        </li>
 
-    setInterval(
-        () => {
 
+                        <li>
+                            <a
+                                href="?parasha=beshalach"
+                                data-parasha="beshalach"
+                            >
+                                Beshalach
+                            </a>
+                        </li>
 
-            currentSlide++;
 
+                        <li>
+                            <a
+                                href="?parasha=yitro"
+                                data-parasha="yitro"
+                            >
+                                Yitro
+                            </a>
+                        </li>
 
-            if (
-                currentSlide >=
-                palmImages.length
-            ) {
 
-                currentSlide = 0;
+                        <li>
+                            <a
+                                href="?parasha=mishpatim"
+                                data-parasha="mishpatim"
+                            >
+                                Mishpatim
+                            </a>
+                        </li>
 
-            }
 
+                        <li>
+                            <a
+                                href="?parasha=terumah"
+                                data-parasha="terumah"
+                            >
+                                Terumah
+                            </a>
+                        </li>
 
-            palmImage.src =
-                palmImages[currentSlide];
 
+                        <li>
+                            <a
+                                href="?parasha=tetzaveh"
+                                data-parasha="tetzaveh"
+                            >
+                                Tetzaveh
+                            </a>
+                        </li>
 
-            dots.forEach(
-                dot => {
 
-                    dot.classList.remove(
-                        "active"
-                    );
+                        <li>
+                            <a
+                                href="?parasha=ki-tisa"
+                                data-parasha="ki-tisa"
+                            >
+                                Ki Tisa
+                            </a>
+                        </li>
 
-                }
-            );
 
+                        <li>
+                            <a
+                                href="?parasha=vayakhel"
+                                data-parasha="vayakhel"
+                            >
+                                Vayakhel
+                            </a>
+                        </li>
 
-            if (dots[currentSlide]) {
 
-                dots[currentSlide]
-                    .classList.add(
-                        "active"
-                    );
+                        <li>
+                            <a
+                                href="?parasha=pekudei"
+                                data-parasha="pekudei"
+                            >
+                                Pekudei
+                            </a>
+                        </li>
 
-            }
 
+                        <li>
+                            <a
+                                href="?parasha=vayikra"
+                                data-parasha="vayikra"
+                            >
+                                Vayikra
+                            </a>
+                        </li>
 
-        },
-        6000
-    );
 
-}
+                        <li>
+                            <a
+                                href="?parasha=tzav"
+                                data-parasha="tzav"
+                            >
+                                Tzav
+                            </a>
+                        </li>
 
 
-/*==========================================================*
- * FEATURE CARD ANIMATION
- *==========================================================*/
+                        <li>
+                            <a
+                                href="?parasha=shmini"
+                                data-parasha="shmini"
+                            >
+                                Shmini
+                            </a>
+                        </li>
 
-function initialiseCards() {
 
+                        <li>
+                            <a
+                                href="?parasha=tazria"
+                                data-parasha="tazria"
+                            >
+                                Tazria
+                            </a>
+                        </li>
 
-    const cards =
-        document.querySelectorAll(
-            ".card"
-        );
 
+                        <li>
+                            <a
+                                href="?parasha=metzora"
+                                data-parasha="metzora"
+                            >
+                                Metzora
+                            </a>
+                        </li>
 
-    cards.forEach(
-        card => {
 
+                        <li>
+                            <a
+                                href="?parasha=acharei-mot"
+                                data-parasha="acharei-mot"
+                            >
+                                Acharei Mot
+                            </a>
+                        </li>
 
-            card.addEventListener(
-                "mouseenter",
-                () => {
 
+                        <li>
+                            <a
+                                href="?parasha=kedoshim"
+                                data-parasha="kedoshim"
+                            >
+                                Kedoshim
+                            </a>
+                        </li>
 
-                    card.style.transform =
-                        "translateY(-8px)";
 
+                        <li>
+                            <a
+                                href="?parasha=emor"
+                                data-parasha="emor"
+                            >
+                                Emor
+                            </a>
+                        </li>
 
-                    card.style.transition =
-                        ".35s";
 
-                }
-            );
+                        <li>
+                            <a
+                                href="?parasha=behar"
+                                data-parasha="behar"
+                            >
+                                Behar
+                            </a>
+                        </li>
 
 
-            card.addEventListener(
-                "mouseleave",
-                () => {
+                        <li>
+                            <a
+                                href="?parasha=bechukotai"
+                                data-parasha="bechukotai"
+                            >
+                                Bechukotai
+                            </a>
+                        </li>
 
 
-                    card.style.transform =
-                        "translateY(0px)";
+                        <li>
+                            <a
+                                href="?parasha=bamidbar"
+                                data-parasha="bamidbar"
+                            >
+                                Bamidbar
+                            </a>
+                        </li>
 
-                }
-            );
 
-        }
-    );
+                        <li>
+                            <a
+                                href="?parasha=nasso"
+                                data-parasha="nasso"
+                            >
+                                Nasso
+                            </a>
+                        </li>
 
-}
 
+                        <li>
+                            <a
+                                href="?parasha=behaalotcha"
+                                data-parasha="behaalotcha"
+                            >
+                                Behaalotcha
+                            </a>
+                        </li>
 
-/*==========================================================*
- * SEARCH
- *==========================================================*/
 
-function initialiseSearch() {
+                        <li>
+                            <a
+                                href="?parasha=shlach"
+                                data-parasha="shlach"
+                            >
+                                Shlach
+                            </a>
+                        </li>
 
 
-    const searchBox =
-        document.querySelector(
-            ".top-right input"
-        );
+                        <li>
+                            <a
+                                href="?parasha=korach"
+                                data-parasha="korach"
+                            >
+                                Korach
+                            </a>
+                        </li>
 
 
-    const searchButton =
-        document.querySelector(
-            ".top-right button"
-        );
+                        <li>
+                            <a
+                                href="?parasha=chukat"
+                                data-parasha="chukat"
+                            >
+                                Chukat
+                            </a>
+                        </li>
 
 
-    if (
-        !searchBox ||
-        !searchButton
-    ) {
+                        <li>
+                            <a
+                                href="?parasha=balak"
+                                data-parasha="balak"
+                            >
+                                Balak
+                            </a>
+                        </li>
 
-        return;
 
-    }
+                        <li>
+                            <a
+                                href="?parasha=pinchas"
+                                data-parasha="pinchas"
+                            >
+                                Pinchas
+                            </a>
+                        </li>
 
 
-    searchButton.addEventListener(
-        "click",
-        function(event) {
+                        <li>
+                            <a
+                                href="?parasha=matot"
+                                data-parasha="matot"
+                            >
+                                Matot
+                            </a>
+                        </li>
 
 
-            event.preventDefault();
+                        <li>
+                            <a
+                                href="?parasha=masei"
+                                data-parasha="masei"
+                            >
+                                Masei
+                            </a>
+                        </li>
 
 
-            const term =
-                searchBox.value.trim();
+                        <li>
+                            <a
+                                href="?parasha=devarim"
+                                data-parasha="devarim"
+                            >
+                                Devarim
+                            </a>
+                        </li>
 
 
-            if (term === "") {
+                        <li>
+                            <a
+                                href="?parasha=vaetchanan"
+                                data-parasha="vaetchanan"
+                            >
+                                Vaetchanan
+                            </a>
+                        </li>
 
-                alert(
-                    "Please enter a search term."
-                );
 
+                        <li>
+                            <a
+                                href="?parasha=eikev"
+                                data-parasha="eikev"
+                            >
+                                Eikev
+                            </a>
+                        </li>
 
-                return;
 
-            }
+                        <li>
+                            <a
+                                href="?parasha=reeh"
+                                data-parasha="reeh"
+                            >
+                                Re'eh
+                            </a>
+                        </li>
 
 
-            alert(
-                "Future Archive Search:\n\n" +
-                term
-            );
+                        <li>
+                            <a
+                                href="?parasha=shoftim"
+                                data-parasha="shoftim"
+                            >
+                                Shoftim
+                            </a>
+                        </li>
 
-        }
-    );
 
-}
+                        <li>
+                            <a
+                                href="?parasha=ki-tetze"
+                                data-parasha="ki-tetze"
+                            >
+                                Ki Tetze
+                            </a>
+                        </li>
 
 
-/*==========================================================*
- * SCROLL EFFECTS
- *==========================================================*/
+                        <li>
+                            <a
+                                href="?parasha=ki-tavo"
+                                data-parasha="ki-tavo"
+                            >
+                                Ki Tabo
+                            </a>
+                        </li>
 
-function initialiseScrollEffects() {
 
+                        <li>
+                            <a
+                                href="?parasha=nitzavim"
+                                data-parasha="nitzavim"
+                            >
+                                Nitzavim
+                            </a>
+                        </li>
 
-    const cards =
-        document.querySelectorAll(
-            ".card"
-        );
 
+                        <li>
+                            <a
+                                href="?parasha=vayeilech"
+                                data-parasha="vayeilech"
+                            >
+                                Vayeilech
+                            </a>
+                        </li>
 
-    if (cards.length === 0) {
 
-        return;
+                        <li>
+                            <a
+                                href="?parasha=haazinu"
+                                data-parasha="haazinu"
+                            >
+                                Ha'Azinu
+                            </a>
+                        </li>
 
-    }
 
+                        <li>
+                            <a
+                                href="?parasha=vezot-haberakhah"
+                                data-parasha="vezot-haberakhah"
+                            >
+                                Vezot HaBerakhah
+                            </a>
+                        </li>
 
-    const observer =
-        new IntersectionObserver(
-            entries => {
+                    </ul>
 
 
-                entries.forEach(
-                    entry => {
+                    <a
+                        href="torah.html"
+                        class="view-all"
+                    >
+                        VIEW ALL PARASHOT
+                    </a>
 
+                </div>
 
-                        if (
-                            entry.isIntersecting
-                        ) {
 
 
-                            entry.target
-                                .classList
-                                .add(
-                                    "visible"
-                                );
+                <!-- =================================================
+                     RELATED RESOURCES
+                     ================================================= -->
 
-                        }
+                <div class="related-resources">
 
-                    }
-                );
+                    <h3>
+                        RELATED RESOURCES
+                    </h3>
 
-            },
-            {
-                threshold: 0.15
-            }
-        );
 
+                    <a href="#">
+                        📖 Haftarah
+                    </a>
 
-    cards.forEach(
-        card => {
 
-            observer.observe(
-                card
-            );
+                    <a href="#">
+                        📜 Parashah Summary
+                    </a>
 
-        }
-    );
 
-}
+                    <a href="#">
+                        א Hebrew Text
+                    </a>
 
 
-/*==========================================================*
- * END OF FILE
- *==========================================================*/
+                    <a href="#">
+                        🗂 Historical Articles
+                    </a>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             FOOTER QUOTE
+             ===================================================== -->
+
+        <section class="parasha-footer-quote">
+
+            <blockquote>
+
+                “For this commandment that I command you today
+                is not hidden from you... it is very near to you,
+                in your mouth and in your heart, to do it.”
+
+            </blockquote>
+
+
+            <span class="quote-source">
+
+                — Devarim (Deuteronomy) 30:11–14
+
+            </span>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+
+         IMPORTANT:
+         There is ONLY ONE script.js reference.
+
+         All Parashah data and dynamic page changes
+         belong in ../script.js.
+         ========================================================= -->
+
+    <script src="../script.js"></script>
+
+
+</body>
+
+</html>
