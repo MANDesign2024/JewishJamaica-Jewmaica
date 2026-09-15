@@ -1,578 +1,1477 @@
-```javascript
-/*==========================================================
-  JEWMAICA
-  SHIURIM SYSTEM
-==========================================================*/
+<!DOCTYPE html>
+<html lang="en">
 
-"use strict";
+<head>
 
+    <meta charset="UTF-8">
 
-/*==========================================================
-  SHIURIM DATA
-==========================================================*/
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-const shiurim = {
+    <title>Shiurim | Jewmaica – The Living Archive of Jewish Jamaica</title>
 
-    /*------------------------------------------------------
-      DEFAULT SHIURIM PAGE
-    ------------------------------------------------------*/
+    <!-- Main Jewmaica stylesheet -->
+    <link rel="stylesheet"
+          href="../style.css">
 
-    "default": {
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-        title: "SHIURIM",
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
 
-        subtitle:
-            "Explore our Shiurim",
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet"
+    >
 
-        video: "",
 
-        pdf: ""
+    <style>
 
-    },
+        /* =========================================================
+           JEWMAICA SHIURIM PAGE
+           ========================================================= */
 
+        :root {
 
-    /*------------------------------------------------------
-      SHEMA
-    ------------------------------------------------------*/
+            --jw-green: #003b2a;
+            --jw-dark-green: #00281d;
+            --jw-deep-green: #001f17;
 
-    "shema": {
+            --jw-gold: #c79a28;
+            --jw-light-gold: #e1b84c;
 
-        title: "SHEMA",
+            --jw-mahogany: #4a2415;
+            --jw-mahogany-light: #704029;
 
-        subtitle:
-            "Hear and Understand the Shema",
+            --jw-parchment: #f2e7cf;
+            --jw-parchment-dark: #dfcda8;
 
-        video:
-            "1nX7YK8YVcQ",
+            --jw-cream: #faf7ee;
 
-        pdf: ""
-
-    },
-
-
-    /*------------------------------------------------------
-      TEFILLAH
-    ------------------------------------------------------*/
-
-    "tefillah": {
-
-        title: "TEFILLAH",
-
-        subtitle:
-            "Prayer and Devotion",
-
-        video: "",
-
-        pdf: ""
-
-    }
-
-};
-
-
-/*==========================================================
-  INITIALISE SHIURIM PAGE
-==========================================================*/
-
-function initialiseShiurimPage() {
-
-    /*
-      Find the Shiurim page elements
-    */
-
-    const shiurimTitle =
-        document.getElementById("shiurimTitle");
-
-    const shiurimSubtitle =
-        document.getElementById("shiurimSubtitle");
-
-    const breadcrumbShiurim =
-        document.getElementById("breadcrumbShiurim");
-
-    const videoContainer =
-        document.getElementById("videoContainer");
-
-    const youtubeVideo =
-        document.getElementById("youtubeVideo");
-
-    const videoPlaceholder =
-        document.getElementById("videoPlaceholder");
-
-    const videoDescription =
-        document.getElementById("videoDescription");
-
-
-    /*
-      If the page does not contain the Shiurim
-      elements, stop here.
-    */
-
-    if (!shiurimTitle) {
-
-        return;
-
-    }
-
-
-    /*======================================================
-      READ THE URL
-
-      Your HTML uses:
-
-      ?shiur=shema
-
-      Therefore we read "shiur".
-    ======================================================*/
-
-    const urlParams =
-        new URLSearchParams(
-            window.location.search
-        );
-
-
-    const selectedShiur =
-        urlParams.get("shiur");
-
-
-    console.log(
-        "Selected Shiur:",
-        selectedShiur
-    );
-
-
-    /*======================================================
-      DETERMINE WHICH SHIUR TO DISPLAY
-    ======================================================*/
-
-    let activeKey = "default";
-
-
-    if (
-        selectedShiur &&
-        Object.prototype.hasOwnProperty.call(
-            shiurim,
-            selectedShiur
-        )
-    ) {
-
-        activeKey =
-            selectedShiur;
-
-    }
-
-
-    const data =
-        shiurim[activeKey];
-
-
-    console.log(
-        "Shiur data:",
-        data
-    );
-
-
-    /*======================================================
-      UPDATE HERO TITLE
-    ======================================================*/
-
-    if (shiurimTitle) {
-
-        shiurimTitle.textContent =
-            data.title;
-
-    }
-
-
-    /*======================================================
-      UPDATE HERO SUBTITLE
-    ======================================================*/
-
-    if (shiurimSubtitle) {
-
-        shiurimSubtitle.textContent =
-            data.subtitle;
-
-    }
-
-
-    /*======================================================
-      UPDATE BREADCRUMB
-    ======================================================*/
-
-    if (breadcrumbShiurim) {
-
-        breadcrumbShiurim.textContent =
-            formatShiurimName(activeKey);
-
-    }
-
-
-    /*======================================================
-      UPDATE VIDEO DESCRIPTION
-    ======================================================*/
-
-    if (videoDescription) {
-
-        if (activeKey === "default") {
-
-            videoDescription.textContent =
-                "Recordings of Shiurim.";
-
-        }
-
-        else if (data.video) {
-
-            videoDescription.textContent =
-                "Shiur recording for " +
-                formatShiurimName(activeKey) +
-                ".";
-
-        }
-
-        else {
-
-            videoDescription.textContent =
-                "A video recording for " +
-                formatShiurimName(activeKey) +
-                " will be added to the archive.";
-
-        }
-
-    }
-
-
-    /*======================================================
-      YOUTUBE VIDEO
-    ======================================================*/
-
-    if (
-        data.video &&
-        youtubeVideo &&
-        videoContainer
-    ) {
-
-        /*
-          Construct the YouTube embed URL.
-
-          IMPORTANT:
-          The video ID is ONLY:
-
-          1nX7YK8YVcQ
-
-          No "&t"
-          No "?t"
-          No full YouTube URL.
-        */
-
-        const youtubeURL =
-            "https://www.youtube.com/embed/" +
-            data.video;
-
-
-        console.log(
-            "YouTube URL:",
-            youtubeURL
-        );
-
-
-        /*
-          Set the iframe source
-        */
-
-        youtubeVideo.src =
-            youtubeURL;
-
-
-        /*
-          Set iframe title
-        */
-
-        youtubeVideo.title =
-            formatShiurimName(activeKey) +
-            " Shiur";
-
-
-        /*
-          Allow YouTube functionality
-        */
-
-        youtubeVideo.setAttribute(
-            "allow",
-            "accelerometer; autoplay; " +
-            "clipboard-write; encrypted-media; " +
-            "gyroscope; picture-in-picture; " +
-            "web-share"
-        );
-
-
-        youtubeVideo.setAttribute(
-            "allowfullscreen",
-            ""
-        );
-
-
-        /*
-          Show the video
-        */
-
-        videoContainer.style.display =
-            "block";
-
-
-        /*
-          Hide placeholder
-        */
-
-        if (videoPlaceholder) {
-
-            videoPlaceholder.style.display =
-                "none";
-
-        }
-
-    }
-
-    else {
-
-        /*
-          No video available
-        */
-
-        if (youtubeVideo) {
-
-            youtubeVideo.src = "";
-
+            --jw-text: #17382d;
         }
 
 
-        if (videoContainer) {
-
-            videoContainer.style.display =
-                "none";
-
+        * {
+            box-sizing: border-box;
         }
 
 
-        if (videoPlaceholder) {
+        body {
 
-            videoPlaceholder.style.display =
-                "flex";
+            margin: 0;
 
+            background: var(--jw-parchment);
+
+            color: var(--jw-text);
+
+            font-family:
+                "EB Garamond",
+                Georgia,
+                serif;
         }
 
-    }
+
+        a {
+            text-decoration: none;
+        }
 
 
-    /*======================================================
-      SELECT ACTIVE SHIUR
-    ======================================================*/
+        /* =========================================================
+           TOP STRIP
+           ========================================================= */
 
-    const shiurLinks =
-        document.querySelectorAll(
-            "#shiurimList a[data-shiur]"
-        );
+        .shiurim-top-strip {
+
+            background: var(--jw-deep-green);
+
+            color: var(--jw-light-gold);
+
+            border-bottom:
+                1px solid rgba(199,154,40,0.45);
+
+            padding: 8px 30px;
+
+            text-align: center;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 13px;
+
+            letter-spacing: 1.4px;
+        }
 
 
-    shiurLinks.forEach(
-        function (link) {
+        .shiurim-top-strip span {
 
-            link.classList.remove(
-                "selected"
-            );
+            margin: 0 12px;
+        }
 
 
-            if (
-                link.dataset.shiur ===
-                activeKey
-            ) {
+        /* =========================================================
+           BRAND HEADER
+           ========================================================= */
 
-                link.classList.add(
-                    "selected"
+        .shiurim-brand {
+
+            background:
+                linear-gradient(
+                    rgba(0,59,42,0.95),
+                    rgba(0,40,29,0.96)
                 );
 
+            min-height: 115px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 20px 5%;
+
+            border-bottom:
+                1px solid var(--jw-gold);
+        }
+
+
+        .brand-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+        }
+
+
+        .brand-logo {
+
+            width: 250px;
+
+            max-width: 42vw;
+
+            height: auto;
+        }
+
+
+        .menorah-mark {
+
+            width: 75px;
+
+            height: 75px;
+
+            object-fit: contain;
+
+            opacity: 0.20;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+           ========================================================= */
+
+        .shiurim-nav {
+
+            background: var(--jw-mahogany);
+
+            border-bottom:
+                2px solid var(--jw-gold);
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+        }
+
+
+        .shiurim-nav a {
+
+            color: #fff7df;
+
+            padding: 14px 18px;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 13px;
+
+            letter-spacing: 0.6px;
+
+            transition: 0.25s ease;
+        }
+
+
+        .shiurim-nav a:hover,
+        .shiurim-nav a.active {
+
+            color: var(--jw-light-gold);
+
+            background:
+                rgba(0,0,0,0.18);
+        }
+
+
+        /* =========================================================
+           BREADCRUMB
+           ========================================================= */
+
+        .breadcrumb {
+
+            max-width: 1280px;
+
+            margin: 0 auto;
+
+            padding: 18px 25px 8px;
+
+            color: #6b5a40;
+
+            font-size: 15px;
+        }
+
+
+        .breadcrumb a {
+
+            color: var(--jw-green);
+        }
+
+
+        /* =========================================================
+           PAGE WRAPPER
+           ========================================================= */
+
+        .shiurim-wrapper {
+
+            max-width: 1280px;
+
+            margin: auto;
+
+            padding: 10px 25px 45px;
+        }
+
+
+        /* =========================================================
+           SHIURIM HERO
+           ========================================================= */
+
+        .shiurim-hero {
+
+            min-height: 270px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+
+                    rgba(242,231,207,1.00) 0%,
+
+                    rgba(242,231,207,0.97) 38%,
+
+                    rgba(242,231,207,0.82) 52%,
+
+                    rgba(242,231,207,0.30) 72%,
+
+                    rgba(242,231,207,0.05) 100%
+                ),
+
+                url("../assets/images/parasha-hero.jpg")
+                center center / cover
+                no-repeat;
+
+            border:
+                1px solid #c7b78f;
+
+            box-shadow:
+                0 5px 18px rgba(0,0,0,0.12);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 35px;
+        }
+
+
+        .hero-overlay {
+
+            max-width: 850px;
+
+            width: 100%;
+        }
+
+
+        .hero-small-title {
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 20px;
+
+            letter-spacing: 6px;
+
+            color: var(--jw-green);
+
+            margin-bottom: 3px;
+        }
+
+
+        .parasha-hero h1 {
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(48px, 7vw, 78px);
+
+            line-height: 1;
+
+            color: var(--jw-green);
+
+            margin: 5px 0 15px;
+
+            letter-spacing: 2px;
+        }
+
+
+        .hero-subtitle {
+
+            font-size: 29px;
+
+            font-style: italic;
+
+            color: #704a28;
+
+            margin-bottom: 18px;
+        }
+
+
+        .ornament {
+
+            color: var(--jw-gold);
+
+            font-size: 27px;
+
+            letter-spacing: 8px;
+        }
+
+
+        /* =========================================================
+           MAIN GRID
+           ========================================================= */
+
+        .shiurim-main-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(0, 1fr)
+                280px;
+
+            gap: 18px;
+
+            margin-top: 20px;
+
+            align-items: start;
+        }
+
+
+        /* =========================================================
+           CONTENT CARDS
+           ========================================================= */
+
+        .content-card {
+
+            background: var(--jw-cream);
+
+            border:
+                1px solid #d8c9aa;
+
+            box-shadow:
+                0 4px 12px rgba(49,37,22,0.10);
+
+            min-height: 560px;
+        }
+
+
+        .card-heading {
+
+            background: var(--jw-green);
+
+            color: #fff9e9;
+
+            padding: 14px 15px;
+
+            text-align: center;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 16px;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        .video-card .card-heading {
+
+            background: #a87910;
+        }
+
+
+        .card-body {
+
+            padding: 25px;
+
+            text-align: center;
+        }
+
+
+        .card-icon {
+
+            width: 52px;
+
+            height: 52px;
+
+            margin:
+                0 auto 15px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--jw-green);
+
+            color: var(--jw-light-gold);
+
+            font-size: 25px;
+        }
+
+
+        .video-card .card-icon {
+
+            background: #b18112;
+
+            color: white;
+        }
+
+
+        .card-title {
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 29px;
+
+            color: var(--jw-green);
+
+            margin: 5px 0 5px;
+        }
+
+
+        .video-card .card-title {
+
+            color: #9a6d0d;
+        }
+
+
+        .card-description {
+
+            font-size: 18px;
+
+            line-height: 1.35;
+
+            margin:
+                0 auto 22px;
+
+            max-width: 380px;
+        }
+
+
+        /* =========================================================
+           PDF RESOURCE
+           ========================================================= */
+
+        .resource-box {
+
+            background: #f7f0df;
+
+            border:
+                1px solid #dfcfad;
+
+            padding: 18px;
+
+            margin-top: 15px;
+
+            text-align: left;
+        }
+
+
+        .resource-box h3 {
+
+            margin: 0 0 5px;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            color: var(--jw-green);
+
+            font-size: 18px;
+        }
+
+
+        .resource-box p {
+
+            margin: 4px 0;
+
+            font-size: 16px;
+        }
+
+
+        .primary-button,
+        .resource-button {
+
+            display: block;
+
+            margin-top: 15px;
+
+            background: var(--jw-green);
+
+            color: white;
+
+            border:
+                1px solid var(--jw-gold);
+
+            padding: 11px 14px;
+
+            text-align: center;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 14px;
+
+            letter-spacing: 0.5px;
+
+            transition: 0.25s ease;
+        }
+
+
+        .primary-button:hover,
+        .resource-button:hover {
+
+            background: var(--jw-mahogany);
+
+            color: var(--jw-light-gold);
+        }
+
+
+        .secondary-button {
+
+            margin-top: 15px;
+
+            display: block;
+
+            padding: 12px;
+
+            background: var(--jw-parchment);
+
+            border:
+                1px solid #c9b486;
+
+            color: var(--jw-green);
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            text-align: center;
+        }
+
+
+        .secondary-button:hover {
+
+            background: #e7d8b7;
+        }
+
+
+        /* =========================================================
+           VIDEO
+           ========================================================= */
+
+        .video-container {
+
+            position: relative;
+
+            width: 100%;
+
+            aspect-ratio: 16 / 9;
+
+            margin-top: 15px;
+
+            background: #111;
+
+            overflow: hidden;
+
+            display: none;
+        }
+
+
+        .video-container iframe {
+
+            width: 100%;
+
+            height: 100%;
+
+            border: 0;
+
+            display: block;
+        }
+
+
+        .video-placeholder {
+
+            min-height: 250px;
+
+            background: #302416;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 20px;
+        }
+
+
+        /* =========================================================
+           SHIURIM SIDEBAR
+           ========================================================= */
+
+        .shiurim-sidebar {
+
+            background: var(--jw-green);
+
+            color: #fff8e4;
+
+            border:
+                1px solid #8f721e;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,0.16);
+        }
+
+
+        .sidebar-heading {
+
+            padding: 17px 15px;
+
+            text-align: center;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            color: var(--jw-light-gold);
+
+            font-size: 17px;
+
+            border-bottom:
+                1px solid rgba(225,184,76,0.5);
+        }
+
+
+        .shiurim-search {
+
+            margin: 14px;
+
+            width:
+                calc(100% - 28px);
+
+            padding: 10px;
+
+            background: #073f2f;
+
+            color: white;
+
+            border:
+                1px solid #8f721e;
+
+            font-family:
+                "EB Garamond",
+                serif;
+
+            font-size: 15px;
+        }
+
+
+        .shiurim-search::placeholder {
+
+            color: #d8c99f;
+        }
+
+
+        .shiurim-list {
+
+            list-style: none;
+
+            margin: 0;
+
+            padding:
+                5px 12px 15px;
+
+            max-height: 550px;
+
+            overflow-y: auto;
+        }
+
+
+        .shiurim-list li {
+
+            margin: 0;
+        }
+
+
+        .shiurim-list a {
+
+            display: block;
+
+            padding: 7px 8px;
+
+            color: #f7e7bd;
+
+            font-size: 16px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.06);
+
+            transition: 0.2s ease;
+        }
+
+
+        .shiurim-list a:hover,
+        .shiurim-list a.selected {
+
+            color: var(--jw-light-gold);
+
+            background:
+                rgba(0,0,0,0.20);
+
+            padding-left: 13px;
+        }
+
+
+        .shiurim-list a::before {
+
+            content: "◈";
+
+            margin-right: 8px;
+
+            color: var(--jw-light-gold);
+
+            font-size: 10px;
+        }
+
+
+        .view-all {
+
+            display: block;
+
+            margin:
+                4px 14px 16px;
+
+            padding: 11px;
+
+            text-align: center;
+
+            color: var(--jw-light-gold);
+
+            border:
+                1px solid #a68122;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 13px;
+        }
+
+
+        .view-all:hover {
+
+            background:
+                rgba(255,255,255,0.08);
+        }
+
+
+        /* =========================================================
+           RELATED RESOURCES
+           ========================================================= */
+
+        .related-resources {
+
+            margin-top: 18px;
+
+            background: #f1e3c4;
+
+            border:
+                1px solid #cdbb92;
+
+            padding: 20px;
+        }
+
+
+        .related-resources h3 {
+
+            margin: 0 0 12px;
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            color: var(--jw-green);
+
+            font-size: 17px;
+        }
+
+
+        .related-resources a {
+
+            display: block;
+
+            padding: 8px 0;
+
+            color: #4c3c25;
+
+            border-bottom:
+                1px solid rgba(90,70,35,0.15);
+        }
+
+
+        .related-resources a:hover {
+
+            color: var(--jw-green);
+        }
+
+
+        /* =========================================================
+           FOOTER QUOTE
+           ========================================================= */
+
+        .shiurim-footer-quote {
+
+            margin-top: 25px;
+
+            background:
+
+                linear-gradient(
+                    rgba(0,45,32,0.95),
+                    rgba(0,35,25,0.96)
+                );
+
+            color: white;
+
+            padding: 30px 25px;
+
+            text-align: center;
+
+            border-top:
+                2px solid var(--jw-gold);
+
+            border-bottom:
+                2px solid var(--jw-gold);
+        }
+
+
+        .shiurim-footer-quote blockquote {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            font-size: 22px;
+
+            font-style: italic;
+
+            line-height: 1.4;
+        }
+
+
+        .quote-source {
+
+            display: block;
+
+            margin-top: 12px;
+
+            color: var(--jw-light-gold);
+
+            font-family:
+                "Cinzel",
+                Georgia,
+                serif;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================================
+           NO RESOURCE STATE
+           ========================================================= */
+
+        .no-resource {
+
+            padding: 20px;
+
+            background: #f7f0df;
+
+            border:
+                1px solid #dfcfad;
+
+            margin-top: 15px;
+
+            text-align: center;
+
+            color: #6b5a40;
+
+            font-style: italic;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-width: 1050px) {
+
+            .shiurim-main-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
             }
 
         }
-    );
-
-}
 
 
-/*==========================================================
-  FORMAT SHIUR NAME
-==========================================================*/
+        @media (max-width: 700px) {
 
-function formatShiurimName(key) {
+            .shiurim-top-strip {
 
-    const names = {
+                font-size: 10px;
 
-        "default":
-            "Shiurim",
-
-        "shema":
-            "Shema",
-
-        "tefillah":
-            "Tefillah"
-
-    };
+                padding: 8px;
+            }
 
 
-    return (
-        names[key] ||
-        key ||
-        "Shiurim"
-    );
+            .shiurim-top-strip span {
 
-}
+                margin: 0 4px;
+            }
 
 
-/*==========================================================
-  SHIURIM SIDEBAR LINKS
-==========================================================*/
+            .shiurim-brand {
 
-function initialiseShiurimLinks() {
+                padding: 15px;
 
-    const shiurLinks =
-        document.querySelectorAll(
-            "#shiurimList a[data-shiur]"
-        );
+                min-height: 90px;
+            }
 
 
-    shiurLinks.forEach(
-        function (link) {
+            .brand-logo {
 
-            link.addEventListener(
-                "click",
-                function (event) {
-
-                    event.preventDefault();
+                width: 190px;
+            }
 
 
-                    const selectedShiur =
-                        this.dataset.shiur;
+            .menorah-mark {
+
+                width: 50px;
+
+                height: 50px;
+            }
 
 
-                    /*
-                      The page filename is:
+            .shiurim-nav a {
 
-                      shiurim.html
+                padding:
+                    10px 9px;
 
-                      The query parameter is:
-
-                      ?shiur=
-                    */
-
-                    window.location.href =
-                        "shiurim.html?shiur=" +
-                        encodeURIComponent(
-                            selectedShiur
-                        );
-
-                }
-            );
-
-        }
-    );
-
-}
+                font-size: 11px;
+            }
 
 
-/*==========================================================
-  SHIURIM SEARCH
-==========================================================*/
+            .shiurim-main-grid {
 
-function initialiseShiurimSearch() {
-
-    const searchInput =
-        document.getElementById(
-            "shiurimSearch"
-        );
+                grid-template-columns: 1fr;
+            }
 
 
-    if (!searchInput) {
+            .shiurim-sidebar {
 
-        return;
-
-    }
-
-
-    const shiurLinks =
-        document.querySelectorAll(
-            "#shiurimList a[data-shiur]"
-        );
+                grid-column: auto;
+            }
 
 
-    searchInput.addEventListener(
-        "input",
-        function () {
+            .shiurim-list {
 
-            const searchTerm =
-                this.value
-                    .toLowerCase()
-                    .trim();
+                columns: 1;
+
+                max-height: 400px;
+            }
 
 
-            shiurLinks.forEach(
-                function (link) {
+            .shiurim-hero {
 
-                    const text =
-                        link.textContent
-                            .toLowerCase();
+                min-height: 230px;
 
-
-                    const listItem =
-                        link.closest("li");
+                padding: 25px 15px;
+            }
 
 
-                    if (!listItem) {
+            .shiurim-hero h1 {
 
-                        return;
+                font-size: 45px;
+            }
 
-                    }
+
+            .hero-subtitle {
+
+                font-size: 23px;
+            }
 
 
-                    if (
-                        text.includes(
-                            searchTerm
-                        )
-                    ) {
+            .hero-small-title {
 
-                        listItem.style.display =
-                            "";
+                font-size: 16px;
 
-                    }
+                letter-spacing: 4px;
+            }
 
-                    else {
 
-                        listItem.style.display =
-                            "none";
+            .content-card {
 
-                    }
-
-                }
-            );
+                min-height: auto;
+            }
 
         }
-    );
 
-}
+    </style>
+
+</head>
 
 
-/*==========================================================
-  START SHIURIM SYSTEM
-==========================================================*/
+<body>
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
 
-        initialiseShiurimPage();
+    <!-- =========================================================
+         TOP STRIP
+         ========================================================= -->
 
-        initialiseShiurimLinks();
+    <div class="shiurim-top-strip">
 
-        initialiseShiurimSearch();
+        PRESERVING THE PAST
 
-    }
-);
-```
+        <span>•</span>
+
+        STRENGTHENING THE PRESENT
+
+        <span>•</span>
+
+        BUILDING THE FUTURE
+
+    </div>
+
+
+
+    <!-- =========================================================
+         BRAND HEADER
+         ========================================================= -->
+
+    <header class="shiurim-brand">
+
+        <div class="brand-left">
+
+            <img
+                src="../assets/images/logo.png"
+                alt="Jewmaica – The Living Archive of Jewish Jamaica"
+                class="brand-logo"
+            >
+
+
+            <img
+                src="../assets/images/menorah.jpg"
+                alt=""
+                class="menorah-mark"
+            >
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         NAVIGATION
+         ========================================================= -->
+
+    <nav class="shiurim-nav">
+
+        <a href="../index.html">
+            HOME
+        </a>
+
+        <a href="torah.html">
+            TORAH
+        </a>
+
+        <a href="#">
+            LIVING ARCHIVE
+        </a>
+
+        <a href="#">
+            JEWISH JAMAICA
+        </a>
+
+        <a href="#">
+            GENEALOGY
+        </a>
+
+        <a href="#">
+            MEDIA
+        </a>
+
+        <a href="calendar.html">
+            CALENDAR
+        </a>
+
+        <a href="#">
+            COMMUNITY
+        </a>
+
+        <a href="about.html">
+            ABOUT
+        </a>
+
+        <a href="contact.html">
+            CONTACT
+        </a>
+
+    </nav>
+
+
+
+    <!-- =========================================================
+         BREADCRUMB
+         ========================================================= -->
+
+    <div class="breadcrumb">
+
+        <a href="../index.html">
+            ⌂ Home
+        </a>
+
+        <span> › </span>
+
+        <a href="torah.html">
+            Torah
+        </a>
+
+        <span> › </span>
+
+        <span>
+            Shiurim
+        </span>
+
+        <span> › </span>
+
+        <strong id="breadcrumbShiurim">
+            Shiurim
+        </strong>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         MAIN PAGE
+         ========================================================= -->
+
+    <main class="shiurim-wrapper">
+
+
+        <!-- =====================================================
+             SHIURIM HERO
+             ===================================================== -->
+
+        <section class="shiurim-hero">
+
+            <div class="hero-overlay">
+
+                <div class="hero-small-title">
+                    SHIURIM
+                </div>
+
+
+                <h1 id="shiurimTitle">
+                    **
+                </h1>
+
+
+                <div
+                    class="hero-subtitle"
+                    id="shiurimSubtitle"
+                >
+                    Explore our Shiurim
+                </div>
+
+
+                <div class="ornament">
+                    ─── ❖ ───
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             MAIN CONTENT
+             ===================================================== -->
+
+        <div class="shiurim-main-grid">
+
+
+            <!-- =================================================
+                 SHIURIM VIDEO
+                 ================================================= -->
+
+            <section class="content-card video-card">
+
+                <div class="card-heading">
+
+                    2. SHIURIM RECORDINGS (VIDEOS)
+
+                </div>
+
+
+                <div class="card-body">
+
+
+                    <div class="card-icon">
+                        ▶
+                    </div>
+
+
+                    <h2 class="card-title">
+                        Shiurim Recording
+                    </h2>
+
+
+                    <p
+                        class="card-description"
+                        id="videoDescription"
+                    >
+                        Recordings of Shiurim.
+                    </p>
+
+
+                    <!-- =================================================
+                         YOUTUBE VIDEO
+                         ================================================= -->
+
+                    <div
+                        class="video-container"
+                        id="videoContainer"
+                    >
+
+                        <iframe
+                            id="youtubeVideo"
+                            src=""
+                            title="Shiurim Recording"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+
+                    <div
+                        id="videoPlaceholder"
+                        class="video-placeholder"
+                    >
+
+                        Select a Shiurim to view
+                        its video recording.
+
+                    </div>
+
+
+                    <a
+                        href="#"
+                        class="secondary-button"
+                    >
+                        🎥 View All Shiurim Videos
+                    </a>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 OTHER SHIURIM
+                 ================================================= -->
+
+            <aside>
+
+                <div class="shiurim-sidebar">
+
+
+                    <div class="sidebar-heading">
+
+                        OTHER SHIURIM
+
+                    </div>
+
+
+                    <input
+                        type="search"
+                        id="shiurimSearch"
+                        class="shiurim-search"
+                        placeholder="Search Shiurim..."
+                        aria-label="Search Shiurim"
+                    >
+
+
+                    <ul
+                        class="shiurim-list"
+                        id="shiurimList"
+                    >
+
+
+                        <li>
+
+                            <a
+                                href="?shiur=shema"
+                                data-shiur="shema"
+                            >
+                                Shema
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a
+                                href="?shiur=tefillah"
+                                data-shiur="tefillah"
+                            >
+                                Tefillah
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+
+
+                    <a
+                        href="shiurim.html"
+                        class="view-all"
+                    >
+                        VIEW ALL SHIURIM
+                    </a>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             FOOTER QUOTE
+             ===================================================== -->
+
+        <section class="shiurim-footer-quote">
+
+            <blockquote>
+
+                “שְׁמַע יִשְׂרָאֵל יהוה אֱלֹהֵינוּ יהוה אֶחָד”
+
+                Hear Israel, YAH who is your LORD, YAH is one
+
+            </blockquote>
+
+
+            <span class="quote-source">
+
+                — Devarim (Deuteronomy) 6:4
+
+            </span>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+
+         IMPORTANT:
+         There is ONLY ONE script.js reference.
+
+         All Shiurim data and dynamic page changes
+         belong in ../script.js.
+         ========================================================= -->
+
+    <script src="../script.js"></script>
+
+
+</body>
+
+</html>
