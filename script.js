@@ -118,6 +118,13 @@ const shiurim = {
     video: "1nX7YK8YVcQ"
   }
 
+  "tefillah": {
+    title: "TEFILLAH",
+    subtitle: "",
+    pdf: "",
+    video: "sFRwaZ9TMm0"
+  }
+   
 };
 
 
