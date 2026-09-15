@@ -4,6 +4,8 @@
    script.js
 ========================================================= */
 
+"use strict";
+
 
 /* =========================================================
    PARASHOT DATA
@@ -93,6 +95,20 @@ const parashot = {
     subtitle: "Succession Planning",
     pdf: "../PDFs/Dvrei Torah/Parasha Vezot Haberakhah - Sucession Planning.pdf",
     video: ""
+  },
+
+  /*
+     Combined Parashah
+     When Hebcal combines Nitzavim and Vayeilech,
+     use the Nitzavim entry rather than falling back
+     to the default page.
+  */
+
+  "nitzavim-vayeilech": {
+    title: "NITZAVIM–VA YEILECH",
+    subtitle: "Returning to Ways of God",
+    pdf: "../PDFs/Dvrei Torah/Parasha-Nitzavim-Returning-to-Ways-of-God.pdf",
+    video: "pXjwO0QQ0KI"
   }
 
 };
@@ -394,22 +410,10 @@ async function initialiseParashahPage() {
     parashot[requestedParasha]
   ) {
 
-    /*
-       A Parashah was deliberately selected
-       through the URL/sidebar.
-    */
-
     selectedParasha =
       requestedParasha;
 
   } else {
-
-    /*
-       No Parashah was selected.
-
-       Automatically determine the current
-       weekly Torah portion from Hebcal.
-    */
 
     selectedParasha =
       await getCurrentParasha();
@@ -430,12 +434,8 @@ async function initialiseParashahPage() {
      UPDATE HERO TITLE
   ======================================================= */
 
-  if (parashaTitle) {
-
-    parashaTitle.textContent =
-      data.title;
-
-  }
+  parashaTitle.textContent =
+    data.title;
 
 
   /* =======================================================
@@ -469,19 +469,11 @@ async function initialiseParashahPage() {
 
   if (commentaryDescription) {
 
-    if (data.subtitle) {
-
-      commentaryDescription.textContent =
-        data.subtitle;
-
-    } else {
-
-      commentaryDescription.textContent =
-        "Explore the Torah reading and resources for " +
-        data.title +
-        ".";
-
-    }
+    commentaryDescription.textContent =
+      data.subtitle ||
+      "Explore the Torah reading and resources for " +
+      data.title +
+      ".";
 
   }
 
@@ -518,11 +510,6 @@ async function initialiseParashahPage() {
 
 
     if (pdfButton) {
-
-      /*
-         Do NOT use encodeURIComponent()
-         on the complete PDF path.
-      */
 
       pdfButton.href =
         data.pdf;
@@ -606,7 +593,9 @@ async function initialiseParashahPage() {
 
       youtubeVideo.src =
         "https://www.youtube.com/embed/" +
-        data.video;
+        encodeURIComponent(
+          data.video
+        );
 
       youtubeVideo.title =
         "Torah Reading - " +
@@ -783,21 +772,10 @@ function initialiseParashahSearch() {
           }
 
 
-          if (
-            name.includes(
-              searchTerm
-            )
-          ) {
-
-            item.style.display =
-              "";
-
-          } else {
-
-            item.style.display =
-              "none";
-
-          }
+          item.style.display =
+            name.includes(searchTerm)
+              ? ""
+              : "none";
 
         }
       );
@@ -823,18 +801,19 @@ function initialiseParashahLinks() {
   parashaLinks.forEach(
     function(link) {
 
+      /*
+         Normal HTML href navigation is used.
+         No additional JavaScript is required.
+      */
+
       link.addEventListener(
         "click",
         function() {
 
-          /*
-             Normal href navigation is allowed.
-
-             Example:
-             ?parasha=devarim
-             ?parasha=eikev
-             ?parasha=haazinu
-          */
+          console.log(
+            "Selected Parashah:",
+            this.dataset.parasha
+          );
 
         }
       );
@@ -846,545 +825,544 @@ function initialiseParashahLinks() {
 
 
 /* =========================================================
-   JEWMAICA — SHIURIM
-   ========================================================= */
-
-"use strict";
-
-
-/* =========================================================
    SHIURIM DATA
-   ========================================================= */
+========================================================= */
 
 const shiurim = {
 
-    default: {
+  "default": {
+    title: "SHIURIM",
+    subtitle: "Explore our Shiurim",
+    video: "",
+    pdf: ""
+  },
 
-        title: "SHIURIM",
+  "shema": {
+    title: "SHEMA",
+    subtitle: "Hear Israel",
+    video: "1nX7YK8YVcQ",
+    pdf: ""
+  },
 
-        subtitle:
-            "Explore our Shiurim",
-
-        video: "",
-
-        pdf: ""
-
-    },
-
-
-    shema: {
-
-        title: "SHEMA",
-
-        subtitle:
-            "Hear Israel",
-
-        video:
-            "1nX7YK8YVcQ",
-
-        pdf: ""
-
-    },
-
-
-    tefillah: {
-
-        title: "TEFILLAH",
-
-        subtitle:
-            "Amidah - Shemoneh Esreh",
-
-        video: "sFRwaZ9TMm0",
-
-        pdf: ""
-
-    }
+  "tefillah": {
+    title: "TEFILLAH",
+    subtitle: "Amidah - Shemoneh Esreh",
+    video: "sFRwaZ9TMm0",
+    pdf: ""
+  }
 
 };
 
 
 /* =========================================================
-   INITIALISE SHIURIM PAGE
-   ========================================================= */
+   FORMAT SHIUR NAME
+========================================================= */
 
-function initialiseShiurimPage() {
+function formatShiurName(key) {
 
-    const title =
-        document.getElementById("shiurimTitle");
+  const names = {
 
-    const subtitle =
-        document.getElementById("shiurimSubtitle");
+    "default":
+      "Shiurim",
 
-    const breadcrumb =
-        document.getElementById("breadcrumbShiurim");
+    "shema":
+      "Shema",
 
-    const videoContainer =
-        document.getElementById("videoContainer");
+    "tefillah":
+      "Tefillah"
 
-    const youtubeVideo =
-        document.getElementById("youtubeVideo");
+  };
 
-    const videoPlaceholder =
-        document.getElementById("videoPlaceholder");
 
-    const videoDescription =
-        document.getElementById("videoDescription");
-
-
-    /*
-     * Make sure this is actually the Shiurim page.
-     */
-
-    if (!title) {
-
-        return;
-
-    }
-
-
-    /* =====================================================
-       READ URL
-
-       Your page uses:
-
-       ?shiur=shema
-
-       NOT:
-
-       ?shiurim=shema
-       ===================================================== */
-
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-
-    const selectedShiur =
-        params.get("shiur");
-
-
-    console.log(
-        "Jewmaica Shiur selected:",
-        selectedShiur
-    );
-
-
-    /* =====================================================
-       SELECT DATA
-       ===================================================== */
-
-    let activeKey = "default";
-
-
-    if (
-        selectedShiur &&
-        Object.prototype.hasOwnProperty.call(
-            shiurim,
-            selectedShiur
-        )
-    ) {
-
-        activeKey =
-            selectedShiur;
-
-    }
-
-
-    const data =
-        shiurim[activeKey];
-
-
-    console.log(
-        "Jewmaica Shiur data:",
-        data
-    );
-
-
-    /* =====================================================
-       HERO
-       ===================================================== */
-
-    title.textContent =
-        data.title;
-
-
-    if (subtitle) {
-
-        subtitle.textContent =
-            data.subtitle;
-
-    }
-
-
-    /* =====================================================
-       BREADCRUMB
-       ===================================================== */
-
-    if (breadcrumb) {
-
-        breadcrumb.textContent =
-            formatShiurName(activeKey);
-
-    }
-
-
-    /* =====================================================
-       DESCRIPTION
-       ===================================================== */
-
-    if (videoDescription) {
-
-        if (data.video) {
-
-            videoDescription.textContent =
-                "Shiur recording for " +
-                formatShiurName(activeKey) +
-                ".";
-
-        }
-
-        else {
-
-            videoDescription.textContent =
-                "Recordings of Shiurim.";
-
-        }
-
-    }
-
-
-    /* =====================================================
-       VIDEO
-       ===================================================== */
-
-    if (
-        data.video &&
-        videoContainer &&
-        youtubeVideo
-    ) {
-
-        /*
-         * YouTube video ID:
-         *
-         * 1nX7YK8YVcQ
-         *
-         * DO NOT add:
-         *
-         * &t
-         * ?t
-         * /watch?v=
-         */
-
-        const videoURL =
-            "https://www.youtube.com/embed/" +
-            data.video;
-
-
-        console.log(
-            "Loading YouTube:",
-            videoURL
-        );
-
-
-        /*
-         * Load video.
-         */
-
-        youtubeVideo.src =
-            videoURL;
-
-
-        /*
-         * Update iframe title.
-         */
-
-        youtubeVideo.title =
-            formatShiurName(activeKey) +
-            " — Jewmaica Shiur";
-
-
-        /*
-         * YouTube permissions.
-         */
-
-        youtubeVideo.setAttribute(
-            "allow",
-            "accelerometer; autoplay; " +
-            "clipboard-write; encrypted-media; " +
-            "gyroscope; picture-in-picture; " +
-            "web-share"
-        );
-
-
-        youtubeVideo.setAttribute(
-            "allowfullscreen",
-            ""
-        );
-
-
-        /*
-         * SHOW VIDEO
-         */
-
-        videoContainer.style.display =
-            "block";
-
-
-        /*
-         * HIDE PLACEHOLDER
-         */
-
-        if (videoPlaceholder) {
-
-            videoPlaceholder.style.display =
-                "none";
-
-        }
-
-    }
-
-    else {
-
-        /*
-         * No video available.
-         */
-
-        if (youtubeVideo) {
-
-            youtubeVideo.src = "";
-
-        }
-
-
-        if (videoContainer) {
-
-            videoContainer.style.display =
-                "none";
-
-        }
-
-
-        if (videoPlaceholder) {
-
-            videoPlaceholder.style.display =
-                "flex";
-
-        }
-
-    }
-
-
-    /* =====================================================
-       HIGHLIGHT SELECTED SHIUR
-       ===================================================== */
-
-    const shiurLinks =
-        document.querySelectorAll(
-            "#shiurimList a[data-shiur]"
-        );
-
-
-    shiurLinks.forEach(
-        function (link) {
-
-            link.classList.remove(
-                "selected"
-            );
-
-
-            if (
-                link.dataset.shiur ===
-                activeKey
-            ) {
-
-                link.classList.add(
-                    "selected"
-                );
-
-            }
-
-        }
-    );
+  return (
+    names[key] ||
+    "Shiurim"
+  );
 
 }
 
 
 /* =========================================================
-   FORMAT SHIUR NAME
-   ========================================================= */
+   INITIALISE SHIURIM PAGE
+========================================================= */
 
-function formatShiurName(key) {
+function initialiseShiurimPage() {
 
-    const names = {
-
-        default:
-            "Shiurim",
-
-        shema:
-            "Shema",
-
-        tefillah:
-            "Tefillah"
-
-    };
-
-
-    return (
-        names[key] ||
-        "Shiurim"
+  const title =
+    document.getElementById(
+      "shiurimTitle"
     );
+
+  const subtitle =
+    document.getElementById(
+      "shiurimSubtitle"
+    );
+
+  const breadcrumb =
+    document.getElementById(
+      "breadcrumbShiurim"
+    );
+
+  const videoContainer =
+    document.getElementById(
+      "videoContainer"
+    );
+
+  const youtubeVideo =
+    document.getElementById(
+      "youtubeVideo"
+    );
+
+  const videoPlaceholder =
+    document.getElementById(
+      "videoPlaceholder"
+    );
+
+  const videoDescription =
+    document.getElementById(
+      "videoDescription"
+    );
+
+
+  /*
+     If this is not the Shiurim page,
+     do nothing.
+  */
+
+  if (!title) {
+
+    return;
+
+  }
+
+
+  /* =====================================================
+     READ URL PARAMETER
+  ===================================================== */
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+
+  /*
+     Current parameter:
+        ?shiur=shema
+
+     Also support the older:
+        ?shiurim=shema
+  */
+
+  const requestedShiur =
+    (
+      params.get("shiur") ||
+      params.get("shiurim") ||
+      ""
+    )
+      .trim()
+      .toLowerCase();
+
+
+  console.log(
+    "Jewmaica Shiur selected:",
+    requestedShiur
+  );
+
+
+  /* =====================================================
+     SELECT DATA
+  ===================================================== */
+
+  let activeKey =
+    "default";
+
+
+  if (
+    requestedShiur &&
+    Object.prototype.hasOwnProperty.call(
+      shiurim,
+      requestedShiur
+    )
+  ) {
+
+    activeKey =
+      requestedShiur;
+
+  }
+
+
+  const data =
+    shiurim[activeKey];
+
+
+  console.log(
+    "Jewmaica Shiur data:",
+    data
+  );
+
+
+  /* =====================================================
+     UPDATE HERO
+  ===================================================== */
+
+  title.textContent =
+    data.title;
+
+
+  if (subtitle) {
+
+    subtitle.textContent =
+      data.subtitle;
+
+  }
+
+
+  /* =====================================================
+     UPDATE BREADCRUMB
+  ===================================================== */
+
+  if (breadcrumb) {
+
+    breadcrumb.textContent =
+      formatShiurName(activeKey);
+
+  }
+
+
+  /* =====================================================
+     UPDATE DESCRIPTION
+  ===================================================== */
+
+  if (videoDescription) {
+
+    if (data.video) {
+
+      videoDescription.textContent =
+        "Shiur recording for " +
+        formatShiurName(activeKey) +
+        ".";
+
+    } else {
+
+      videoDescription.textContent =
+        "Recordings of Shiurim.";
+
+    }
+
+  }
+
+
+  /* =====================================================
+     UPDATE YOUTUBE VIDEO
+  ===================================================== */
+
+  if (
+    data.video &&
+    youtubeVideo &&
+    videoContainer
+  ) {
+
+    const videoURL =
+      "https://www.youtube.com/embed/" +
+      encodeURIComponent(
+        data.video
+      );
+
+
+    console.log(
+      "Loading YouTube:",
+      videoURL
+    );
+
+
+    /*
+       Set the iframe source.
+    */
+
+    youtubeVideo.src =
+      videoURL;
+
+
+    /*
+       Set iframe title.
+    */
+
+    youtubeVideo.title =
+      formatShiurName(activeKey) +
+      " — Jewmaica Shiur";
+
+
+    /*
+       Make sure YouTube permissions
+       are present.
+    */
+
+    youtubeVideo.setAttribute(
+      "allow",
+      "accelerometer; autoplay; " +
+      "clipboard-write; encrypted-media; " +
+      "gyroscope; picture-in-picture; " +
+      "web-share"
+    );
+
+
+    youtubeVideo.setAttribute(
+      "allowfullscreen",
+      ""
+    );
+
+
+    /*
+       SHOW VIDEO
+    */
+
+    youtubeVideo.style.display =
+      "block";
+
+
+    videoContainer.style.display =
+      "block";
+
+
+    /*
+       HIDE PLACEHOLDER
+    */
+
+    if (videoPlaceholder) {
+
+      videoPlaceholder.style.display =
+        "none";
+
+    }
+
+  } else {
+
+    /*
+       No video available.
+    */
+
+    if (youtubeVideo) {
+
+      youtubeVideo.removeAttribute(
+        "src"
+      );
+
+      youtubeVideo.style.display =
+        "none";
+
+    }
+
+
+    if (videoContainer) {
+
+      videoContainer.style.display =
+        "none";
+
+    }
+
+
+    if (videoPlaceholder) {
+
+      videoPlaceholder.style.display =
+        "flex";
+
+    }
+
+  }
+
+
+  /* =====================================================
+     HIGHLIGHT SELECTED SHIUR
+  ===================================================== */
+
+  const shiurLinks =
+    document.querySelectorAll(
+      "#shiurimList a[data-shiur]"
+    );
+
+
+  shiurLinks.forEach(
+    function(link) {
+
+      link.classList.remove(
+        "selected"
+      );
+
+
+      if (
+        link.dataset.shiur ===
+        activeKey
+      ) {
+
+        link.classList.add(
+          "selected"
+        );
+
+      }
+
+    }
+  );
+
+
+  /* =====================================================
+     UPDATE PAGE TITLE
+  ===================================================== */
+
+  document.title =
+    formatShiurName(activeKey) +
+    " | Shiurim | Jewmaica";
 
 }
 
 
 /* =========================================================
    SHIURIM LINKS
-   ========================================================= */
+========================================================= */
 
 function initialiseShiurimLinks() {
 
-    const links =
-        document.querySelectorAll(
-            "#shiurimList a[data-shiur]"
-        );
+  const links =
+    document.querySelectorAll(
+      "#shiurimList a[data-shiur]"
+    );
 
 
-    links.forEach(
-        function (link) {
+  links.forEach(
+    function(link) {
 
-            link.addEventListener(
-                "click",
-                function (event) {
+      /*
+         The HTML href already handles navigation.
 
-                    event.preventDefault();
+         Example:
+         ?shiur=shema
+         ?shiur=tefillah
 
+         Therefore we do not preventDefault()
+         or force a second navigation here.
+      */
 
-                    const shiur =
-                        this.dataset.shiur;
+      link.addEventListener(
+        "click",
+        function() {
 
-
-                    /*
-                     * IMPORTANT:
-                     *
-                     * Actual page:
-                     *
-                     * shiurim.html
-                     *
-                     * Parameter:
-                     *
-                     * ?shiur=
-                     */
-
-                    window.location.href =
-                        "shiurim.html?shiur=" +
-                        encodeURIComponent(
-                            shiur
-                        );
-
-                }
-            );
+          console.log(
+            "Selected Shiur:",
+            this.dataset.shiur
+          );
 
         }
-    );
+      );
+
+    }
+  );
 
 }
 
 
 /* =========================================================
    SHIURIM SEARCH
-   ========================================================= */
+========================================================= */
 
 function initialiseShiurimSearch() {
 
-    const search =
-        document.getElementById(
-            "shiurimSearch"
-        );
+  const search =
+    document.getElementById(
+      "shiurimSearch"
+    );
 
 
-    if (!search) {
+  if (!search) {
 
-        return;
+    return;
 
-    }
-
-
-    const links =
-        document.querySelectorAll(
-            "#shiurimList a[data-shiur]"
-        );
+  }
 
 
-    search.addEventListener(
-        "input",
-        function () {
-
-            const term =
-                this.value
-                    .toLowerCase()
-                    .trim();
+  const links =
+    document.querySelectorAll(
+      "#shiurimList a[data-shiur]"
+    );
 
 
-            links.forEach(
-                function (link) {
+  search.addEventListener(
+    "input",
+    function() {
 
-                    const text =
-                        link.textContent
-                            .toLowerCase();
-
-
-                    const item =
-                        link.closest("li");
+      const term =
+        this.value
+          .toLowerCase()
+          .trim();
 
 
-                    if (!item) {
+      links.forEach(
+        function(link) {
 
-                        return;
+          const text =
+            link.textContent
+              .toLowerCase();
 
-                    }
+
+          const item =
+            link.closest("li");
 
 
-                    if (
-                        text.includes(term)
-                    ) {
+          if (!item) {
 
-                        item.style.display =
-                            "";
+            return;
 
-                    }
+          }
 
-                    else {
 
-                        item.style.display =
-                            "none";
-
-                    }
-
-                }
-            );
+          item.style.display =
+            text.includes(term)
+              ? ""
+              : "none";
 
         }
-    );
+      );
+
+    }
+  );
 
 }
 
 
 /* =========================================================
-   START SHIURIM
-   ========================================================= */
+   JEWMAICA INITIALISATION
+========================================================= */
 
 document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+  "DOMContentLoaded",
+  function() {
 
-        initialiseShiurimPage();
+    /*
+       PARASHOT
+    */
 
-        initialiseShiurimLinks();
+    initialiseParashahPage();
 
-        initialiseShiurimSearch();
+    initialiseParashahLinks();
 
-    }
+    initialiseParashahSearch();
+
+
+    /*
+       SHIURIM
+    */
+
+    initialiseShiurimPage();
+
+    initialiseShiurimLinks();
+
+    initialiseShiurimSearch();
+
+
+    console.log(
+      "Jewmaica script.js initialised successfully."
+    );
+
+  }
 );
 
 
