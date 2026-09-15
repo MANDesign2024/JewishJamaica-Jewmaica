@@ -32,7 +32,7 @@ const shiurim = {
 
     "shema": {
         title: "SHEMA",
-        subtitle: "Hear and Understand the Shema",
+        subtitle: "Hear Israel",
         pdf: "",
         video: "1nX7YK8YVcQ"
     }
@@ -43,7 +43,7 @@ const shiurim = {
 
     "tefillah": {
         title: "TEFILLAH",
-        subtitle: "Hear and Understand the Tefillah",
+        subtitle: "Amidah - Shemoneh Esreh",
         pdf: "",
         video: "sFRwaZ9TMm0"
     }
