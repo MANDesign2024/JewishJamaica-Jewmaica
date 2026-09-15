@@ -10,62 +10,79 @@ File    : script.js
 
 
 /*==========================================================*
-* PARASHAH DATA
-*==========================================================*/
+ * SHIURIM DATA
+ *==========================================================*/
 
-const parashot = {
+const shiurim = {
 
 
     /*======================================================*
-    * DEFAULT — GENERAL SHIURIM PAGE
-    *======================================================*/
+     * DEFAULT — GENERAL SHIURIM PAGE
+     *======================================================*/
 
     "default": {
+
         title: "SHIURIM",
+
         subtitle: "Explore our Shiurim",
+
         pdf: "",
+
         video: ""
+
     },
 
 
     /*======================================================*
-    * SHEMA
-    *======================================================*/
+     * SHEMA
+     *======================================================*/
 
     "shema": {
+
         title: "SHEMA",
+
         subtitle: "",
+
         pdf: "",
-        video: "1nX7YK8YVcQ&t"
-    },
+
+        video: "1nX7YK8YVcQ"
+
+    }
+
+};
 
 
-    
 /*==========================================================*
-* PAGE LOADED
-*==========================================================*/
+ * PAGE LOADED
+ *==========================================================*/
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    console.log("Jewmaica Version 0.1 Loaded");
+        console.log(
+            "Jewmaica Version 0.1 Loaded"
+        );
 
-    initialiseParashahPage();
 
-    initialiseNavigation();
+        initialiseShiurimPage();
 
-    initialiseHeroSlider();
+        initialiseNavigation();
 
-    initialiseCards();
+        initialiseHeroSlider();
 
-    initialiseSearch();
+        initialiseCards();
 
-    initialiseParashahSearch();
+        initialiseSearch();
 
-    initialiseParashahLinks();
+        initialiseShiurimSearch();
 
-    initialiseScrollEffects();
+        initialiseShiurimLinks();
 
-});
+        initialiseScrollEffects();
+
+    }
+);
 
 
 /*==========================================================*
@@ -74,44 +91,87 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initialiseShiurimPage() {
 
+
     const shiurimTitle =
-        document.getElementById("shiurimTitle");
+        document.getElementById(
+            "shiurimTitle"
+        );
+
 
     const shiurimSubtitle =
-        document.getElementById("shiurimSubtitle");
+        document.getElementById(
+            "shiurimSubtitle"
+        );
+
 
     const breadcrumbShiurim =
-        document.getElementById("breadcrumbShiurim");
+        document.getElementById(
+            "breadcrumbShiurim"
+        );
+
 
     const commentaryDescription =
-        document.getElementById("commentaryDescription");
+        document.getElementById(
+            "commentaryDescription"
+        );
+
 
     const pdfTitle =
-        document.getElementById("pdfTitle");
+        document.getElementById(
+            "pdfTitle"
+        );
+
 
     const pdfSubtitle =
-        document.getElementById("pdfSubtitle");
+        document.getElementById(
+            "pdfSubtitle"
+        );
+
 
     const pdfButton =
-        document.getElementById("pdfButton");
+        document.getElementById(
+            "pdfButton"
+        );
+
 
     const pdfPlaceholder =
-        document.getElementById("pdfPlaceholder");
+        document.getElementById(
+            "pdfPlaceholder"
+        );
+
 
     const videoContainer =
-        document.getElementById("videoContainer");
+        document.getElementById(
+            "videoContainer"
+        );
+
 
     const youtubeVideo =
-        document.getElementById("youtubeVideo");
+        document.getElementById(
+            "youtubeVideo"
+        );
+
 
     const videoPlaceholder =
-        document.getElementById("videoPlaceholder");
+        document.getElementById(
+            "videoPlaceholder"
+        );
+
 
     const videoDescription =
-        document.getElementById("videoDescription");
+        document.getElementById(
+            "videoDescription"
+        );
+
+
+    /*------------------------------------------------------*
+     * IF THIS IS NOT THE SHIURIM PAGE, DO NOTHING
+     *------------------------------------------------------*/
 
     if (!shiurimTitle) {
+
         return;
+
     }
 
 
@@ -120,10 +180,15 @@ function initialiseShiurimPage() {
      *------------------------------------------------------*/
 
     const urlParams =
-        new URLSearchParams(window.location.search);
+        new URLSearchParams(
+            window.location.search
+        );
+
 
     const selectedShiurim =
-        urlParams.get("shiurim");
+        urlParams.get(
+            "shiurim"
+        );
 
 
     /*------------------------------------------------------*
@@ -137,18 +202,21 @@ function initialiseShiurimPage() {
      *------------------------------------------------------*/
 
     let data;
+
     let activeShiurim = null;
+
 
     if (
         selectedShiurim &&
         Object.prototype.hasOwnProperty.call(
-            Shiurim,
-            selectedShiur
+            shiurim,
+            selectedShiurim
         )
     ) {
 
         activeShiurim =
             selectedShiurim;
+
 
         data =
             shiurim[selectedShiurim];
@@ -156,7 +224,7 @@ function initialiseShiurimPage() {
     } else {
 
         data =
-            Shiurim["default"];
+            shiurim["default"];
 
     }
 
@@ -168,8 +236,14 @@ function initialiseShiurimPage() {
     shiurimTitle.textContent =
         data.title;
 
-    shiurimSubtitle.textContent =
-        data.subtitle;
+
+    if (shiurimSubtitle) {
+
+        shiurimSubtitle.textContent =
+            data.subtitle ||
+            "Explore our Shiurim";
+
+    }
 
 
     /*------------------------------------------------------*
@@ -181,7 +255,9 @@ function initialiseShiurimPage() {
         if (activeShiurim) {
 
             breadcrumbShiurim.textContent =
-                formatShiurimName(activeShiurim);
+                formatShiurimName(
+                    activeShiurim
+                );
 
         } else {
 
@@ -202,14 +278,16 @@ function initialiseShiurimPage() {
         if (activeShiurim) {
 
             commentaryDescription.textContent =
-                "Written teachings and reflections on Shiurim " +
-                formatShiurimName(activeShiurim) +
+                "Written teachings and reflections on " +
+                formatShiurimName(
+                    activeShiurim
+                ) +
                 ".";
 
         } else {
 
             commentaryDescription.textContent =
-                "Explore weekly Torah teachings and reflections.";
+                "Explore our Shiurim and Torah teachings from the Jewmaica archive.";
 
         }
 
@@ -222,11 +300,14 @@ function initialiseShiurimPage() {
 
     if (data.pdf) {
 
+
         if (pdfTitle) {
 
             pdfTitle.textContent =
                 "Shiurim " +
-                formatShiurimName(activeShiurim);
+                formatShiurimName(
+                    activeShiurim
+                );
 
         }
 
@@ -234,7 +315,8 @@ function initialiseShiurimPage() {
         if (pdfSubtitle) {
 
             pdfSubtitle.textContent =
-                data.subtitle;
+                data.subtitle ||
+                "Written Commentary";
 
         }
 
@@ -244,10 +326,12 @@ function initialiseShiurimPage() {
             pdfButton.href =
                 data.pdf;
 
+
             pdfButton.textContent =
                 "📖 OPEN " +
                 data.title +
                 " PDF";
+
 
             pdfButton.style.display =
                 "block";
@@ -264,12 +348,15 @@ function initialiseShiurimPage() {
 
     } else {
 
+
         if (pdfTitle) {
 
             if (activeShiurim) {
 
                 pdfTitle.textContent =
-                    "Written Commentary";
+                    formatShiurimName(
+                        activeShiurim
+                    );
 
             } else {
 
@@ -300,7 +387,10 @@ function initialiseShiurimPage() {
 
         if (pdfButton) {
 
-            pdfButton.removeAttribute("href");
+            pdfButton.removeAttribute(
+                "href"
+            );
+
 
             pdfButton.style.display =
                 "none";
@@ -321,12 +411,7 @@ function initialiseShiurimPage() {
     /*------------------------------------------------------*
      * YOUTUBE VIDEO
      *
-     * IMPORTANT:
-     *
-     * The iframe is INSIDE #videoContainer.
-     *
-     * Therefore we must show/hide the container,
-     * not merely the iframe.
+     * The iframe is inside #videoContainer.
      *------------------------------------------------------*/
 
     if (
@@ -335,22 +420,25 @@ function initialiseShiurimPage() {
         youtubeVideo
     ) {
 
-        const youtubeURL =
-            "https://www.youtube.com/embed/" +
-            encodeURIComponent(data.video);
 
         youtubeVideo.src =
-            youtubeURL;
+            "https://www.youtube.com/embed/" +
+            data.video;
+
 
         youtubeVideo.title =
-            "Torah Reading - " +
+            "Shiurim - " +
             data.title;
 
-        /* Show the actual video container */
+
+        /* Show video container */
+
         videoContainer.style.display =
             "block";
 
-        /* Hide the placeholder */
+
+        /* Hide placeholder */
+
         if (videoPlaceholder) {
 
             videoPlaceholder.style.display =
@@ -360,18 +448,24 @@ function initialiseShiurimPage() {
 
     } else {
 
+
         /* Remove old video */
+
         if (youtubeVideo) {
 
-            youtubeVideo.removeAttribute("src");
+            youtubeVideo.removeAttribute(
+                "src"
+            );
+
 
             youtubeVideo.title =
-                "Torah Reading";
+                "Shiurim";
 
         }
 
 
         /* Hide video container */
+
         if (videoContainer) {
 
             videoContainer.style.display =
@@ -381,6 +475,7 @@ function initialiseShiurimPage() {
 
 
         /* Show placeholder */
+
         if (videoPlaceholder) {
 
             videoPlaceholder.style.display =
@@ -397,24 +492,32 @@ function initialiseShiurimPage() {
 
     if (videoDescription) {
 
-        if (activeShiurim && data.video) {
+
+        if (
+            activeShiurim &&
+            data.video
+        ) {
 
             videoDescription.textContent =
-                "Torah reading video for Shiurim " +
-                formatShiurimName(activeShiurim) +
+                "Shiur recording for " +
+                formatShiurimName(
+                    activeShiurim
+                ) +
                 ".";
 
         } else if (activeShiurim) {
 
             videoDescription.textContent =
-                "A Torah reading video for Shiurim " +
-                formatShiurimName(activeShiurim) +
+                "A Shiur recording for " +
+                formatShiurimName(
+                    activeShiurim
+                ) +
                 " will be added to the archive.";
 
         } else {
 
             videoDescription.textContent =
-                "Recordings of the Torah reading for the weekly Shiurim.";
+                "Recordings of Jewmaica Shiurim and Torah teachings.";
 
         }
 
@@ -431,48 +534,61 @@ function initialiseShiurimPage() {
         );
 
 
-    shiurimLinks.forEach(link => {
+    shiurimLinks.forEach(
+        link => {
 
-        link.classList.remove("selected");
+            link.classList.remove(
+                "selected"
+            );
 
 
-        if (
-            activeShiurim &&
-            link.dataset.shiurim ===
-            activeShiurim
-        ) {
+            if (
+                activeShiurim &&
+                link.dataset.shiurim ===
+                activeShiurim
+            ) {
 
-            link.classList.add("selected");
+                link.classList.add(
+                    "selected"
+                );
+
+            }
 
         }
-
-    });
+    );
 
 }
 
-/*==========================================================*
-* FORMAT SHIURIM NAME
-*==========================================================*/
 
-function formatShiuimName(key) {
+/*==========================================================*
+ * FORMAT SHIURIM NAME
+ *==========================================================*/
+
+function formatShiurimName(key) {
+
 
     const names = {
 
-        "": "",
-        
+        "shema": "SHEMA"
+
     };
 
 
-    return names[key] || key;
+    return (
+        names[key] ||
+        key ||
+        "Shiurim"
+    );
 
 }
 
 
 /*==========================================================*
-* SHIURIM SIDEBAR LINKS
-*==========================================================*/
+ * SHIURIM SIDEBAR LINKS
+ *==========================================================*/
 
 function initialiseShiurimLinks() {
+
 
     const shiurimLinks =
         document.querySelectorAll(
@@ -480,38 +596,43 @@ function initialiseShiurimLinks() {
         );
 
 
-    shiurimLinks.forEach(link => {
-
-        link.addEventListener(
-            "click",
-            function(event) {
-
-                event.preventDefault();
+    shiurimLinks.forEach(
+        link => {
 
 
-                const selectedShiurim =
-                    this.dataset.shiurim;
+            link.addEventListener(
+                "click",
+                function(event) {
 
 
-                window.location.href =
-                    "Shiurim.html?shiurim=" +
-                    encodeURIComponent(
-                        selectedShiurim
-                    );
+                    event.preventDefault();
 
-            }
-        );
 
-    });
+                    const selectedShiurim =
+                        this.dataset.shiurim;
+
+
+                    window.location.href =
+                        "Shiurim.html?shiurim=" +
+                        encodeURIComponent(
+                            selectedShiurim
+                        );
+
+                }
+            );
+
+        }
+    );
 
 }
 
 
 /*==========================================================*
-* SHIURIM SEARCH
-*==========================================================*/
+ * SHIURIM SEARCH
+ *==========================================================*/
 
 function initialiseShiurimSearch() {
+
 
     const searchInput =
         document.getElementById(
@@ -526,13 +647,16 @@ function initialiseShiurimSearch() {
 
 
     if (!searchInput) {
+
         return;
+
     }
 
 
     searchInput.addEventListener(
         "input",
         function() {
+
 
             const searchTerm =
                 this.value
@@ -543,6 +667,7 @@ function initialiseShiurimSearch() {
             shiurimLinks.forEach(
                 function(link) {
 
+
                     const name =
                         link.textContent
                             .toLowerCase();
@@ -550,6 +675,13 @@ function initialiseShiurimSearch() {
 
                     const item =
                         link.closest("li");
+
+
+                    if (!item) {
+
+                        return;
+
+                    }
 
 
                     if (
@@ -578,51 +710,63 @@ function initialiseShiurimSearch() {
 
 
 /*==========================================================*
-* NAVIGATION
-*==========================================================*/
+ * NAVIGATION
+ *==========================================================*/
 
 function initialiseNavigation() {
 
+
     const links =
-        document.querySelectorAll("nav a");
+        document.querySelectorAll(
+            "nav a"
+        );
 
 
-    links.forEach(link => {
+    links.forEach(
+        link => {
 
-        link.addEventListener(
-            "click",
-            function() {
 
-                links.forEach(item => {
+            link.addEventListener(
+                "click",
+                function() {
 
-                    item.classList.remove(
+
+                    links.forEach(
+                        item => {
+
+                            item.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+
+                    this.classList.add(
                         "active"
                     );
 
-                });
+                }
+            );
 
-
-                this.classList.add(
-                    "active"
-                );
-
-            }
-        );
-
-    });
+        }
+    );
 
 }
 
 
 /*==========================================================*
-* PALM IMAGE SLIDER
-*==========================================================*/
+ * PALM IMAGE SLIDER
+ *==========================================================*/
 
 const palmImages = [
 
     "assets/images/palm.jpg",
+
     "assets/images/palm2.jpg",
+
     "assets/images/palm3.jpg",
+
     "assets/images/palm4.jpg"
 
 ];
@@ -632,6 +776,7 @@ let currentSlide = 0;
 
 
 function initialiseHeroSlider() {
+
 
     const palmImage =
         document.querySelector(
@@ -655,89 +800,111 @@ function initialiseHeroSlider() {
     }
 
 
-    setInterval(() => {
-
-        currentSlide++;
-
-
-        if (
-            currentSlide >=
-            palmImages.length
-        ) {
-
-            currentSlide = 0;
-
-        }
+    setInterval(
+        () => {
 
 
-        palmImage.src =
-            palmImages[currentSlide];
+            currentSlide++;
 
 
-        dots.forEach(dot => {
+            if (
+                currentSlide >=
+                palmImages.length
+            ) {
 
-            dot.classList.remove(
-                "active"
+                currentSlide = 0;
+
+            }
+
+
+            palmImage.src =
+                palmImages[currentSlide];
+
+
+            dots.forEach(
+                dot => {
+
+                    dot.classList.remove(
+                        "active"
+                    );
+
+                }
             );
 
-        });
+
+            if (dots[currentSlide]) {
+
+                dots[currentSlide]
+                    .classList.add(
+                        "active"
+                    );
+
+            }
 
 
-        dots[currentSlide]
-            .classList.add("active");
-
-
-    }, 6000);
+        },
+        6000
+    );
 
 }
 
 
 /*==========================================================*
-* FEATURE CARD ANIMATION
-*==========================================================*/
+ * FEATURE CARD ANIMATION
+ *==========================================================*/
 
 function initialiseCards() {
 
+
     const cards =
-        document.querySelectorAll(".card");
-
-
-    cards.forEach(card => {
-
-        card.addEventListener(
-            "mouseenter",
-            () => {
-
-                card.style.transform =
-                    "translateY(-8px)";
-
-                card.style.transition =
-                    ".35s";
-
-            }
+        document.querySelectorAll(
+            ".card"
         );
 
 
-        card.addEventListener(
-            "mouseleave",
-            () => {
+    cards.forEach(
+        card => {
 
-                card.style.transform =
-                    "translateY(0px)";
 
-            }
-        );
+            card.addEventListener(
+                "mouseenter",
+                () => {
 
-    });
+
+                    card.style.transform =
+                        "translateY(-8px)";
+
+
+                    card.style.transition =
+                        ".35s";
+
+                }
+            );
+
+
+            card.addEventListener(
+                "mouseleave",
+                () => {
+
+
+                    card.style.transform =
+                        "translateY(0px)";
+
+                }
+            );
+
+        }
+    );
 
 }
 
 
 /*==========================================================*
-* SEARCH
-*==========================================================*/
+ * SEARCH
+ *==========================================================*/
 
 function initialiseSearch() {
+
 
     const searchBox =
         document.querySelector(
@@ -765,6 +932,7 @@ function initialiseSearch() {
         "click",
         function(event) {
 
+
             event.preventDefault();
 
 
@@ -777,6 +945,7 @@ function initialiseSearch() {
                 alert(
                     "Please enter a search term."
                 );
+
 
                 return;
 
@@ -795,10 +964,11 @@ function initialiseSearch() {
 
 
 /*==========================================================*
-* SCROLL EFFECTS
-*==========================================================*/
+ * SCROLL EFFECTS
+ *==========================================================*/
 
 function initialiseScrollEffects() {
+
 
     const cards =
         document.querySelectorAll(
@@ -807,7 +977,9 @@ function initialiseScrollEffects() {
 
 
     if (cards.length === 0) {
+
         return;
+
     }
 
 
@@ -815,12 +987,15 @@ function initialiseScrollEffects() {
         new IntersectionObserver(
             entries => {
 
+
                 entries.forEach(
                     entry => {
+
 
                         if (
                             entry.isIntersecting
                         ) {
+
 
                             entry.target
                                 .classList
@@ -840,15 +1015,19 @@ function initialiseScrollEffects() {
         );
 
 
-    cards.forEach(card => {
+    cards.forEach(
+        card => {
 
-        observer.observe(card);
+            observer.observe(
+                card
+            );
 
-    });
+        }
+    );
 
 }
 
 
 /*==========================================================*
-* END OF FILE
-*==========================================================*/
+ * END OF FILE
+ *==========================================================*/
