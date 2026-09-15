@@ -36,6 +36,17 @@ const shiurim = {
         pdf: "",
         video: "1nX7YK8YVcQ"
     }
+      
+ /*------------------------------------------------------
+      TEFILLAH
+    ------------------------------------------------------*/
+
+    "tefillah": {
+        title: "TEFILLAH",
+        subtitle: "Hear and Understand the Tefillah",
+        pdf: "",
+        video: "sFRwaZ9TMm0"
+    }
 
 };
 
