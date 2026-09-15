@@ -99,6 +99,29 @@ const parashot = {
 
 
 /* =========================================================
+   SHIURIM DATA
+========================================================= */
+
+const shiurim = {
+
+  "default": {
+    title: "SHIURIM",
+    subtitle: "Explore our Shiurim",
+    pdf: "",
+    video: ""
+  },
+
+  "shema": {
+    title: "SHEMA",
+    subtitle: "",
+    pdf: "",
+    video: "1nX7YK8YVcQ"
+  }
+
+};
+
+
+/* =========================================================
    CONVERT HEBCAL PARASHAH NAMES TO WEBSITE KEYS
 ========================================================= */
 
@@ -109,12 +132,12 @@ function convertHebcalParashaToKey(name) {
   }
 
   let key = name
-  .toLowerCase()
-  .trim()
-  .replace(/^parashat\s+/i, "")
-  .replace(/['’]/g, "")
-  .replace(/[–—-]/g, "-")
-  .replace(/\s+/g, "-");
+    .toLowerCase()
+    .trim()
+    .replace(/^parashat\s+/i, "")
+    .replace(/['’]/g, "")
+    .replace(/[–—-]/g, "-")
+    .replace(/\s+/g, "-");
 
 
   const aliases = {
@@ -265,15 +288,15 @@ async function getCurrentParasha() {
 
     if (!parashot[parashaKey]) {
 
-  console.warn(
-    "Parashah found but not yet defined in website data:",
-    parashaItem.title,
-    parashaKey
-  );
+      console.warn(
+        "Parashah found but not yet defined in website data:",
+        parashaItem.title,
+        parashaKey
+      );
 
-  return "default";
+      return "default";
 
-}
+    }
 
 
     return parashaKey;
@@ -309,6 +332,7 @@ function formatParashaName(key) {
   }
 
   return parashot[key].title;
+
 }
 
 
@@ -373,7 +397,9 @@ async function initialiseParashahPage() {
   ======================================================= */
 
   const urlParams =
-    new URLSearchParams(window.location.search);
+    new URLSearchParams(
+      window.location.search
+    );
 
   const requestedParasha =
     urlParams.get("parasha");
@@ -385,33 +411,33 @@ async function initialiseParashahPage() {
 
   let selectedParasha;
 
+
   if (
-  requestedParasha &&
-  parashot[requestedParasha]
-) {
+    requestedParasha &&
+    parashot[requestedParasha]
+  ) {
 
-  /*
-     A Parashah was deliberately selected
-     through the URL/sidebar.
-  */
+    /*
+       A Parashah was deliberately selected
+       through the URL/sidebar.
+    */
 
-  selectedParasha =
-    requestedParasha;
+    selectedParasha =
+      requestedParasha;
 
-} else {
+  } else {
 
-  /*
-     No Parashah was selected.
+    /*
+       No Parashah was selected.
 
-     Automatically determine the current
-     weekly
-     Torah portion from Hebcal.
-  */
+       Automatically determine the current
+       weekly Torah portion from Hebcal.
+    */
 
-  selectedParasha =
-    await getCurrentParasha();
+    selectedParasha =
+      await getCurrentParasha();
 
-}
+  }
 
 
   /* =======================================================
@@ -475,7 +501,8 @@ async function initialiseParashahPage() {
 
       commentaryDescription.textContent =
         "Explore the Torah reading and resources for " +
-        data.title + ".";
+        data.title +
+        ".";
 
     }
 
@@ -492,13 +519,17 @@ async function initialiseParashahPage() {
       pdfResource.style.display = "block";
     }
 
+
     if (pdfTitle) {
 
       pdfTitle.textContent =
         "Parashat " +
-        formatParashaName(selectedParasha);
+        formatParashaName(
+          selectedParasha
+        );
 
     }
+
 
     if (pdfSubtitle) {
 
@@ -508,16 +539,12 @@ async function initialiseParashahPage() {
 
     }
 
+
     if (pdfButton) {
 
       /*
-         IMPORTANT:
-
          Do NOT use encodeURIComponent()
          on the complete PDF path.
-
-         The path contains spaces and is already
-         a valid relative URL.
       */
 
       pdfButton.href =
@@ -533,6 +560,7 @@ async function initialiseParashahPage() {
 
     }
 
+
     if (pdfPlaceholder) {
 
       pdfPlaceholder.style.display =
@@ -543,17 +571,23 @@ async function initialiseParashahPage() {
   } else {
 
     if (pdfResource) {
+
       pdfResource.style.display =
         "block";
+
     }
+
 
     if (pdfTitle) {
 
       pdfTitle.textContent =
         "Parashat " +
-        formatParashaName(selectedParasha);
+        formatParashaName(
+          selectedParasha
+        );
 
     }
+
 
     if (pdfSubtitle) {
 
@@ -562,14 +596,18 @@ async function initialiseParashahPage() {
 
     }
 
+
     if (pdfButton) {
 
-      pdfButton.removeAttribute("href");
+      pdfButton.removeAttribute(
+        "href"
+      );
 
       pdfButton.style.display =
         "none";
 
     }
+
 
     if (pdfPlaceholder) {
 
@@ -602,11 +640,6 @@ async function initialiseParashahPage() {
 
     }
 
-    /*
-       The iframe is inside videoContainer.
-
-       The container itself must also be displayed.
-    */
 
     if (videoContainer) {
 
@@ -615,12 +648,14 @@ async function initialiseParashahPage() {
 
     }
 
+
     if (videoPlaceholder) {
 
       videoPlaceholder.style.display =
         "none";
 
     }
+
 
     if (videoParashaName) {
 
@@ -633,12 +668,15 @@ async function initialiseParashahPage() {
 
     if (youtubeVideo) {
 
-      youtubeVideo.removeAttribute("src");
+      youtubeVideo.removeAttribute(
+        "src"
+      );
 
       youtubeVideo.style.display =
         "none";
 
     }
+
 
     if (videoContainer) {
 
@@ -646,6 +684,7 @@ async function initialiseParashahPage() {
         "none";
 
     }
+
 
     if (videoPlaceholder) {
 
@@ -667,11 +706,15 @@ async function initialiseParashahPage() {
     );
 
 
-  parashaLinks.forEach(function(link) {
+  parashaLinks.forEach(
+    function(link) {
 
-    link.classList.remove("selected");
+      link.classList.remove(
+        "selected"
+      );
 
-  });
+    }
+  );
 
 
   const currentLink =
@@ -700,7 +743,7 @@ async function initialiseParashahPage() {
     data.title +
     " | Jewmaica";
 
-  }
+}
 
 
 /* =========================================================
@@ -710,18 +753,30 @@ async function initialiseParashahPage() {
 function initialiseParashahSearch() {
 
   const searchInput =
-    document.getElementById("parashaSearch");
+    document.getElementById(
+      "parashaSearch"
+    );
 
   const parashaList =
-    document.getElementById("parashaList");
+    document.getElementById(
+      "parashaList"
+    );
 
-  if (!searchInput || !parashaList) {
+
+  if (
+    !searchInput ||
+    !parashaList
+  ) {
+
     return;
+
   }
 
 
   const parashaLinks =
-    parashaList.querySelectorAll("a");
+    parashaList.querySelectorAll(
+      "a"
+    );
 
 
   searchInput.addEventListener(
@@ -752,7 +807,9 @@ function initialiseParashahSearch() {
 
 
           if (
-            name.includes(searchTerm)
+            name.includes(
+              searchTerm
+            )
           ) {
 
             item.style.display =
@@ -794,14 +851,600 @@ function initialiseParashahLinks() {
         function() {
 
           /*
-             Let the normal href navigation occur.
+             Normal href navigation is allowed.
 
-             The URL will contain:
+             Example:
              ?parasha=devarim
              ?parasha=eikev
              ?parasha=haazinu
-             etc.
           */
+
+        }
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   SHIURIM PAGE
+========================================================= */
+
+function initialiseShiurimPage() {
+
+  const shiurimTitle =
+    document.getElementById(
+      "shiurimTitle"
+    );
+
+  const shiurimSubtitle =
+    document.getElementById(
+      "shiurimSubtitle"
+    );
+
+  const breadcrumbShiurim =
+    document.getElementById(
+      "breadcrumbShiurim"
+    );
+
+  const commentaryDescription =
+    document.getElementById(
+      "commentaryDescription"
+    );
+
+  const pdfTitle =
+    document.getElementById(
+      "pdfTitle"
+    );
+
+  const pdfSubtitle =
+    document.getElementById(
+      "pdfSubtitle"
+    );
+
+  const pdfButton =
+    document.getElementById(
+      "pdfButton"
+    );
+
+  const pdfPlaceholder =
+    document.getElementById(
+      "pdfPlaceholder"
+    );
+
+  const videoContainer =
+    document.getElementById(
+      "videoContainer"
+    );
+
+  const youtubeVideo =
+    document.getElementById(
+      "youtubeVideo"
+    );
+
+  const videoPlaceholder =
+    document.getElementById(
+      "videoPlaceholder"
+    );
+
+  const videoDescription =
+    document.getElementById(
+      "videoDescription"
+    );
+
+
+  /*
+     If this is not the Shiurim page,
+     do nothing.
+  */
+
+  if (!shiurimTitle) {
+
+    return;
+
+  }
+
+
+  /* =======================================================
+     GET SHIURIM FROM URL
+  ======================================================= */
+
+  const urlParams =
+    new URLSearchParams(
+      window.location.search
+    );
+
+
+  const requestedShiurim =
+    urlParams.get(
+      "shiurim"
+    );
+
+
+  /* =======================================================
+     DETERMINE SHIURIM DATA
+  ======================================================= */
+
+  let activeShiurim = null;
+
+  let data =
+    shiurim["default"];
+
+
+  if (
+    requestedShiurim &&
+    shiurim[requestedShiurim]
+  ) {
+
+    activeShiurim =
+      requestedShiurim;
+
+    data =
+      shiurim[requestedShiurim];
+
+  }
+
+
+  /* =======================================================
+     UPDATE HERO
+  ======================================================= */
+
+  shiurimTitle.textContent =
+    data.title;
+
+
+  if (shiurimSubtitle) {
+
+    shiurimSubtitle.textContent =
+      data.subtitle ||
+      "Explore our Shiurim";
+
+  }
+
+
+  /* =======================================================
+     UPDATE BREADCRUMB
+  ======================================================= */
+
+  if (breadcrumbShiurim) {
+
+    if (activeShiurim) {
+
+      breadcrumbShiurim.textContent =
+        formatShiurimName(
+          activeShiurim
+        );
+
+    } else {
+
+      breadcrumbShiurim.textContent =
+        "Shiurim";
+
+    }
+
+  }
+
+
+  /* =======================================================
+     UPDATE DESCRIPTION
+  ======================================================= */
+
+  if (commentaryDescription) {
+
+    if (activeShiurim) {
+
+      commentaryDescription.textContent =
+        "Written teachings and reflections on " +
+        formatShiurimName(
+          activeShiurim
+        ) +
+        ".";
+
+    } else {
+
+      commentaryDescription.textContent =
+        "Explore our Shiurim and Torah teachings from the Jewmaica archive.";
+
+    }
+
+  }
+
+
+  /* =======================================================
+     UPDATE PDF
+  ======================================================= */
+
+  if (data.pdf) {
+
+    if (pdfTitle) {
+
+      pdfTitle.textContent =
+        "Shiurim " +
+        formatShiurimName(
+          activeShiurim
+        );
+
+    }
+
+
+    if (pdfSubtitle) {
+
+      pdfSubtitle.textContent =
+        data.subtitle ||
+        "Written Commentary";
+
+    }
+
+
+    if (pdfButton) {
+
+      pdfButton.href =
+        data.pdf;
+
+      pdfButton.textContent =
+        "📖 OPEN " +
+        data.title +
+        " PDF";
+
+      pdfButton.style.display =
+        "block";
+
+    }
+
+
+    if (pdfPlaceholder) {
+
+      pdfPlaceholder.style.display =
+        "none";
+
+    }
+
+  } else {
+
+    if (pdfTitle) {
+
+      pdfTitle.textContent =
+        activeShiurim
+          ? formatShiurimName(
+              activeShiurim
+            )
+          : "Shiurim";
+
+    }
+
+
+    if (pdfSubtitle) {
+
+      pdfSubtitle.textContent =
+        activeShiurim
+          ? "Written commentary will be added to the archive."
+          : "Written teachings and reflections from the Jewmaica archive.";
+
+    }
+
+
+    if (pdfButton) {
+
+      pdfButton.removeAttribute(
+        "href"
+      );
+
+      pdfButton.style.display =
+        "none";
+
+    }
+
+
+    if (pdfPlaceholder) {
+
+      pdfPlaceholder.style.display =
+        "block";
+
+    }
+
+  }
+
+
+  /* =======================================================
+     UPDATE YOUTUBE VIDEO
+  ======================================================= */
+
+  if (
+    data.video &&
+    videoContainer &&
+    youtubeVideo
+  ) {
+
+    youtubeVideo.src =
+      "https://www.youtube.com/embed/" +
+      data.video;
+
+
+    youtubeVideo.title =
+      "Shiurim - " +
+      data.title;
+
+
+    youtubeVideo.style.display =
+      "block";
+
+
+    videoContainer.style.display =
+      "block";
+
+
+    if (videoPlaceholder) {
+
+      videoPlaceholder.style.display =
+        "none";
+
+    }
+
+  } else {
+
+    if (youtubeVideo) {
+
+      youtubeVideo.removeAttribute(
+        "src"
+      );
+
+      youtubeVideo.style.display =
+        "none";
+
+    }
+
+
+    if (videoContainer) {
+
+      videoContainer.style.display =
+        "none";
+
+    }
+
+
+    if (videoPlaceholder) {
+
+      videoPlaceholder.style.display =
+        "block";
+
+    }
+
+  }
+
+
+  /* =======================================================
+     VIDEO DESCRIPTION
+  ======================================================= */
+
+  if (videoDescription) {
+
+    if (
+      activeShiurim &&
+      data.video
+    ) {
+
+      videoDescription.textContent =
+        "Shiur recording for " +
+        formatShiurimName(
+          activeShiurim
+        ) +
+        ".";
+
+    } else if (activeShiurim) {
+
+      videoDescription.textContent =
+        "A Shiur recording for " +
+        formatShiurimName(
+          activeShiurim
+        ) +
+        " will be added to the archive.";
+
+    } else {
+
+      videoDescription.textContent =
+        "Recordings of Jewmaica Shiurim and Torah teachings.";
+
+    }
+
+  }
+
+
+  /* =======================================================
+     HIGHLIGHT SELECTED SHIURIM
+  ======================================================= */
+
+  const shiurimLinks =
+    document.querySelectorAll(
+      "#shiurimList a[data-shiurim]"
+    );
+
+
+  shiurimLinks.forEach(
+    function(link) {
+
+      link.classList.remove(
+        "selected"
+      );
+
+
+      if (
+        activeShiurim &&
+        link.dataset.shiurim ===
+        activeShiurim
+      ) {
+
+        link.classList.add(
+          "selected"
+        );
+
+      }
+
+    }
+  );
+
+
+  /* =======================================================
+     UPDATE PAGE TITLE
+  ======================================================= */
+
+  document.title =
+    activeShiurim
+      ? formatShiurimName(
+          activeShiurim
+        ) +
+        " | Shiurim | Jewmaica"
+      : "Shiurim | Jewmaica";
+
+}
+
+
+/* =========================================================
+   FORMAT SHIURIM NAME
+========================================================= */
+
+function formatShiurimName(key) {
+
+  const names = {
+
+    "shema": "SHEMA"
+
+  };
+
+
+  return (
+    names[key] ||
+    key ||
+    "Shiurim"
+  );
+
+}
+
+
+/* =========================================================
+   SHIURIM SIDEBAR LINKS
+========================================================= */
+
+function initialiseShiurimLinks() {
+
+  const shiurimLinks =
+    document.querySelectorAll(
+      "#shiurimList a[data-shiurim]"
+    );
+
+
+  shiurimLinks.forEach(
+    function(link) {
+
+      /*
+         We deliberately allow the HTML href
+         to control navigation.
+
+         This avoids hard-coding a page filename
+         into JavaScript.
+      */
+
+      link.addEventListener(
+        "click",
+        function() {
+
+          const selectedShiurim =
+            this.dataset.shiurim;
+
+
+          console.log(
+            "Selected Shiurim:",
+            selectedShiurim
+          );
+
+        }
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   SHIURIM SEARCH
+========================================================= */
+
+function initialiseShiurimSearch() {
+
+  const searchInput =
+    document.getElementById(
+      "shiurimSearch"
+    );
+
+
+  const shiurimList =
+    document.getElementById(
+      "shiurimList"
+    );
+
+
+  if (
+    !searchInput ||
+    !shiurimList
+  ) {
+
+    return;
+
+  }
+
+
+  const shiurimLinks =
+    shiurimList.querySelectorAll(
+      "a"
+    );
+
+
+  searchInput.addEventListener(
+    "input",
+    function() {
+
+      const searchTerm =
+        this.value
+          .toLowerCase()
+          .trim();
+
+
+      shiurimLinks.forEach(
+        function(link) {
+
+          const name =
+            link.textContent
+              .toLowerCase();
+
+
+          const item =
+            link.closest("li");
+
+
+          if (!item) {
+
+            return;
+
+          }
+
+
+          if (
+            name.includes(
+              searchTerm
+            )
+          ) {
+
+            item.style.display =
+              "";
+
+          } else {
+
+            item.style.display =
+              "none";
+
+          }
 
         }
       );
@@ -818,10 +1461,6 @@ function initialiseParashahLinks() {
 
 function initialiseNavigation() {
 
-  const currentPage =
-    window.location.pathname;
-
-
   const navLinks =
     document.querySelectorAll(
       "nav a"
@@ -832,10 +1471,15 @@ function initialiseNavigation() {
     function(link) {
 
       const href =
-        link.getAttribute("href");
+        link.getAttribute(
+          "href"
+        );
+
 
       if (!href) {
+
         return;
+
       }
 
     }
@@ -914,16 +1558,30 @@ document.addEventListener(
 
 
     /*
-       IMPORTANT:
-
-       Do NOT put Nitzavim here.
-
-       initialiseParashahPage()
-       automatically determines the current
-       weekly Torah portion.
+       D'VREI TORAH / PARASHAH
     */
 
     initialiseParashahPage();
+
+    initialiseParashahSearch();
+
+    initialiseParashahLinks();
+
+
+    /*
+       SHIURIM
+    */
+
+    initialiseShiurimPage();
+
+    initialiseShiurimSearch();
+
+    initialiseShiurimLinks();
+
+
+    /*
+       GENERAL SITE FUNCTIONS
+    */
 
     initialiseNavigation();
 
@@ -933,11 +1591,12 @@ document.addEventListener(
 
     initialiseSearch();
 
-    initialiseParashahSearch();
-
-    initialiseParashahLinks();
-
     initialiseScrollEffects();
 
   }
 );
+
+
+/* =========================================================
+   END OF FILE
+========================================================= */
