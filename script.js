@@ -99,29 +99,6 @@ const parashot = {
 
 
 /* =========================================================
-   SHIURIM DATA
-========================================================= */
-
-const shiurim = {
-
-  "default": {
-    title: "SHIURIM",
-    subtitle: "Explore our Shiurim",
-    pdf: "",
-    video: ""
-  },
-
-  "shema": {
-    title: "SHEMA",
-    subtitle: "",
-    pdf: "",
-    video: "1nX7YK8YVcQ"
-  }
-
-};
-
-
-/* =========================================================
    CONVERT HEBCAL PARASHAH NAMES TO WEBSITE KEYS
 ========================================================= */
 
