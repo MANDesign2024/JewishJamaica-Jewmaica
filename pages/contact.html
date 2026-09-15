@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,18 +72,55 @@
             box-sizing: border-box;
             padding: 12px 14px;
             margin-bottom: 20px;
+
             border: 1px solid var(--jw-parchment-dark);
-            background: white;
-            color: var(--jw-text);
+
+            background-color: #ffffff;
+
+            color: #222222;
+
+            -webkit-text-fill-color: #222222;
+
+            caret-color: #222222;
+
             font-family: 'EB Garamond', serif;
             font-size: 1rem;
+
             border-radius: 2px;
+
+            opacity: 1;
+
+            color-scheme: light;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #777777;
+            opacity: 1;
+            -webkit-text-fill-color: #777777;
         }
 
         .contact-form input:focus,
         .contact-form textarea:focus {
             outline: none;
+
             border-color: var(--jw-gold);
+
+            color: #222222;
+
+            -webkit-text-fill-color: #222222;
+
+            background-color: #ffffff;
+        }
+
+        .contact-form input:autofill,
+        .contact-form input:-webkit-autofill {
+            -webkit-text-fill-color: #222222;
+
+            box-shadow:
+                0 0 0 1000px #ffffff inset;
+
+            caret-color: #222222;
         }
 
         .contact-form textarea {
@@ -93,18 +131,40 @@
         .contact-submit {
             display: inline-block;
             padding: 12px 24px;
+
             background: var(--jw-green);
+
             color: white;
+
             border: none;
+
             font-family: 'Cinzel', serif;
             font-size: 0.9rem;
             letter-spacing: 0.5px;
+
             cursor: pointer;
+
             transition: 0.2s ease;
         }
 
         .contact-submit:hover {
             background: var(--jw-mahogany);
+        }
+
+        .contact-status {
+            margin-top: 18px;
+            padding: 12px 15px;
+
+            background: rgba(199, 154, 40, 0.12);
+
+            border-left: 3px solid var(--jw-gold);
+
+            color: var(--jw-text);
+
+            font-family: 'EB Garamond', serif;
+            font-size: 1rem;
+
+            display: none;
         }
 
     </style>
@@ -339,9 +399,8 @@
 
             <form
                 class="contact-form"
-                action="mailto:jewmaica@gmail.com"
-                method="post"
-                enctype="text/plain">
+                id="contactForm"
+                method="post">
 
 
                 <!-- NAME -->
@@ -355,6 +414,7 @@
                     id="name"
                     name="Name"
                     placeholder="Your name"
+                    autocomplete="name"
                     required>
 
 
@@ -370,6 +430,7 @@
                     id="email"
                     name="Email"
                     placeholder="Your email address"
+                    autocomplete="email"
                     required>
 
 
@@ -384,6 +445,7 @@
                     id="message"
                     name="Message"
                     placeholder="Write your message here..."
+                    autocomplete="off"
                     required></textarea>
 
 
@@ -397,6 +459,20 @@
                     SEND MESSAGE
 
                 </button>
+
+
+                <!-- STATUS -->
+
+                <div
+                    id="contactStatus"
+                    class="contact-status"
+                    role="status"
+                    aria-live="polite">
+
+                    The contact submission function has not yet
+                    been activated. Please check back soon.
+
+                </div>
 
             </form>
 
@@ -419,6 +495,66 @@
     </footer>
 
 
+
+    <!-- =========================================
+         CONTACT FORM SCRIPT
+    ========================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const contactForm =
+                    document.getElementById(
+                        "contactForm"
+                    );
+
+                const contactStatus =
+                    document.getElementById(
+                        "contactStatus"
+                    );
+
+
+                if (
+                    !contactForm ||
+                    !contactStatus
+                ) {
+
+                    return;
+
+                }
+
+
+                contactForm.addEventListener(
+                    "submit",
+                    function (event) {
+
+                        /*
+                           No email destination has been
+                           configured yet.
+
+                           Prevent the browser from attempting
+                           to submit the form.
+                        */
+
+                        event.preventDefault();
+
+
+                        contactStatus.style.display =
+                            "block";
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+
 </body>
 
 </html>
+```
