@@ -469,7 +469,7 @@ function formatShiurimName(key) {
 
     const names = {
 
-        "shema": "SHEMA"
+        "": ""
 
     };
 
